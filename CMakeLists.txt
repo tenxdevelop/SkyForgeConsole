@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 3.3)
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
 if(CMAKE_CONFIGURATION_TYPES)
-	set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Test;Rep" CACHE STRING "Configurations" FORCE)
-	set(CMAKE_CSharp_FLAGS_REP "")
-	set(CMAKE_SHARED_LINKER_FLAGS_REP "")
-	set(CMAKE_CSharp_FLAGS_TEST "/debug:full /optimize- /warn:3 /errorreport:prompt /define:TEST")
-	set(CMAKE_SHARED_LINKER_FLAGS_TEST "/debug:full /optimize- /warn:3 /errorreport:prompt /define:TEST")
+	set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Test" CACHE STRING "Configurations" FORCE)
+	set(CMAKE_EXE_LINKER_FLAGS_TEST "/debug:full /optimize- /warn:3 /errorreport:prompt /define:TEST")
+	set(CMAKE_CSharp_FLAGS_TEST "${CMAKE_EXE_LINKER_FLAGS_TEST}")
+	set(CMAKE_EXE_LINKER_FLAGS_REP "${CMAKE_EXE_LINKER_FLAGS_TEST}")
+	set(CMAKE_SHARED_LINKER_FLAGS_TEST "${CMAKE_EXE_LINKER_FLAGS_TEST}")
 endif()
 
 #define version Framework
@@ -36,4 +36,4 @@ set(CMAKE_BINARY_OUTPUT_DIRECTORY "../../bin/")
 set(CMAKE_OBJECT_OUTPUT_DIRECTORY "../../bin-int/")
 
 add_subdirectory(SkyForgeConsole)
-
+add_subdirectory(SkyForgeConsoleTest)
