@@ -37,3 +37,4 @@ set(CMAKE_OBJECT_OUTPUT_DIRECTORY "../../bin-int/")
 
 add_subdirectory(SkyForgeConsole)
 add_subdirectory(SkyForgeConsoleTest)
+add_subdirectory(SandBox)

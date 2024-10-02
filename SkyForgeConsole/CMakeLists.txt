@@ -2,7 +2,10 @@
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
 add_library(${PROJECT_NAME} SHARED
-            Source/Core/EntryPoint.cs)
+            Source/Core/EntryPoint.cs 
+			Source/Core/IEntryPoint.cs 
+			Source/Core/IApplication.cs
+			Source/Core/Application.cs)
 			
 set_target_properties(${PROJECT_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}
