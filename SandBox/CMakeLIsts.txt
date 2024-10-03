@@ -4,7 +4,8 @@ project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 set(TARGET_NAME "SandBox")
 
 add_executable(${TARGET_NAME}
-               Source/Program.cs)
+               Source/Program.cs
+			   Source/SandBox.cs)
 
 set_target_properties(${TARGET_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}

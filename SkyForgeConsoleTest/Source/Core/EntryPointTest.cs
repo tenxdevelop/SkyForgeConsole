@@ -60,62 +60,63 @@ namespace SkyForgeConsoleTest
                 //TODO: added check log
             }
         }
+        
+    }
 
+    internal interface IFakeApplication : IApplication
+    {
+        void CheckCountCalledInit(int correctCount);
+        void CheckCountCalledRun(int correctCount);
 
-        internal interface IFakeApplication : IApplication
+        void CheckCountCalledDispoce(int correctCount);
+    }
+
+    internal class FakeApplication : IFakeApplication
+    {
+        private int m_countCalledInit;
+        private int m_countCalledRun;
+        private int m_countCalledDispoce;
+        internal FakeApplication()
         {
-            void CheckCountCalledInit(int correctCount);
-            void CheckCountCalledRun(int correctCount);
-
-            void CheckCountCalledDispoce(int correctCount);
+            m_countCalledInit = 0;
+            m_countCalledRun = 0;
+            m_countCalledDispoce = 0;
         }
 
-        internal class FakeApplication : IFakeApplication
+        public void CheckCountCalledDispoce(int correctCount)
         {
-            private int m_countCalledInit;
-            private int m_countCalledRun;
-            private int m_countCalledDispoce;
-            internal FakeApplication()
-            {
-                m_countCalledInit = 0;
-                m_countCalledRun = 0;
-                m_countCalledDispoce = 0;
-            }
+            Assert.IsTrue(m_countCalledDispoce == correctCount);
+        }
 
-            public void CheckCountCalledDispoce(int correctCount)
-            {
-                Assert.IsTrue(m_countCalledDispoce == correctCount);
-            }
+        public void CheckCountCalledInit(int correctCount)
+        {
+            Assert.IsTrue(m_countCalledInit == correctCount);
+        }
 
-            public void CheckCountCalledInit(int correctCount)
-            {
-                Assert.IsTrue(m_countCalledInit == correctCount);
-            }
+        public void CheckCountCalledRun(int correctCount)
+        {
+            Assert.IsTrue(m_countCalledRun == correctCount);
+        }
 
-            public void CheckCountCalledRun(int correctCount)
-            {
-                Assert.IsTrue(m_countCalledRun == correctCount);
-            }
+        public void Dispose()
+        {
+            m_countCalledDispoce++;
+        }
 
-            public void Dispose()
-            {
-                m_countCalledDispoce++;
-            }
+        public void Exit()
+        {
+            throw new NotImplementedException();
+        }
 
-            public void Exit()
-            {
-                throw new NotImplementedException();
-            }
+        public void Init()
+        {
+            m_countCalledInit++;
+        }
 
-            public void Init()
-            {
-                m_countCalledInit++;
-            }
-
-            public void Run()
-            {
-                m_countCalledRun++;
-            }
+        public void Run()
+        {
+            m_countCalledRun++;
         }
     }
+
 }

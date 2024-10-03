@@ -6,7 +6,8 @@ set(TARGET_NAME "SkyForgeConsoleTest")
 set(NUGET_LIBRARY "Microsoft.NET.Test.Sdk_17.6.0;NUnit_3.13.3;NUnit3TestAdapter_4.2.1;NUnit.Analyzers_3.6.1;coverlet.collector_6.0.0")
 
 add_executable(${TARGET_NAME}
-               Source/Core/EntryPointTest.cs)
+               Source/Core/EntryPointTest.cs
+			   Source/Core/ApplicationTest.cs)
 
 
 set_target_properties(${TARGET_NAME} PROPERTIES

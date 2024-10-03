@@ -30,7 +30,7 @@ namespace SkyForgeConsole
                 //TODO: added exception to log
                 throw new ArgumentNullException("Application has not been initialized, I cannot find application!");
             }
-     
+            
             m_application.Run();
 
             m_instance.Dispose();
