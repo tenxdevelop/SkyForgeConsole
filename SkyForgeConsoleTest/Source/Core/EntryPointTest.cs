@@ -51,6 +51,17 @@ namespace SkyForgeConsoleTest
             fakeApplication.CheckCountCalledDispoce(1);
         }
 
+        [Test]
+        public void CheckAddedToLogInfoWhenCalledInitWithoutApplication()
+        {
+            var entryPoint = EntryPoint.GetEntryPoint();
+            if (entryPoint.GetApplication() != null)
+            {
+                //TODO: added check log
+            }
+        }
+
+
         internal interface IFakeApplication : IApplication
         {
             void CheckCountCalledInit(int correctCount);

@@ -10,4 +10,6 @@ call python ..\SkyForgeConsole\Vendor\CMake\extentions\extentionCmake.py SkyForg
 
 call python ..\SkyForgeConsole\Vendor\CMake\extentions\extentionCmake.py SkyForgeConsoleTest\SkyForgeConsoleTest.csproj CMakeCache.txt
 
+call python ..\SkyForgeConsole\Vendor\CMake\extentions\extentionCmake.py SandBox\SandBox.csproj CMakeCache.txt
+
 pause
