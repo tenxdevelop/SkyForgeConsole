@@ -1,24 +1,19 @@
 ##############################################################
 #                                                            #
-#                  SKY FORGE CONSOLE TEST                    #
+#                          CONSOLE LOG                       #
 #                                                            #
 ##############################################################
 
 #Setup project
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
-set(TARGET_NAME "SkyForgeConsoleTest")
-
-set(NUGET_LIBRARY "Microsoft.NET.Test.Sdk_17.6.0;\
-                   NUnit_3.13.3;\
-				   NUnit3TestAdapter_4.2.1;\
-				   NUnit.Analyzers_3.6.1;\
-				   coverlet.collector_6.0.0")
+set(TARGET_NAME "ConsoleLog")
 
 add_executable(${TARGET_NAME}
-               Source/Core/EntryPointTest.cs
-			   Source/Core/ApplicationTest.cs)
-
+               Source/Core/Program.cs
+			   Source/Core/IConsoleLog.cs
+			   Source/Core/ConsoleLog.cs
+			   Source/Vendor/Win32/WinAPINative.cs)
 
 set_target_properties(${TARGET_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}
@@ -28,8 +23,6 @@ set_target_properties(${TARGET_NAME} PROPERTIES
 					  RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_OUTPUT_DIRECTORY}
 					  ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_OBJECT_OUTPUT_DIRECTORY}
 					  LIBRARY_OUTPUT_DIRECTORY ${CMAKE_OBJECT_OUTPUT_DIRECTORY})
-
-set_property(TARGET ${TARGET_NAME} PROPERTY VS_PACKAGE_REFERENCES ${NUGET_LIBRARY})
 
 target_compile_definitions(${TARGET_NAME} PUBLIC SKY_FORGE_ENGINE)
 
@@ -42,5 +35,3 @@ endif()
 target_compile_definitions(${TARGET_NAME} PRIVATE $<$<CONFIG:DEBUG>:SKY_FORGE_DEBUG>)
 target_compile_definitions(${TARGET_NAME} PRIVATE $<$<CONFIG:RELEASE>:SKY_FORGE_RELEASE>)
 target_compile_definitions(${TARGET_NAME} PRIVATE $<$<CONFIG:TEST>:SKY_FORGE_TEST>)
-
-target_link_libraries(${TARGET_NAME} SkyForgeConsole)

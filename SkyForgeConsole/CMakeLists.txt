@@ -1,3 +1,9 @@
+##############################################################
+#                                                            #
+#                     SKY FORGE CONSOLE                      #
+#                                                            #
+##############################################################
+
 # Setup project.
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
@@ -28,3 +34,4 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:SKY_FORGE_D
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:RELEASE>:SKY_FORGE_RELEASE>)
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:TEST>:SKY_FORGE_TEST>)
 
+#target_link_libraries(${PROJECT_NAME} ConsoleLog)
