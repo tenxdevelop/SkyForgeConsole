@@ -15,8 +15,9 @@ namespace ConsoleLogger
     public class ConsoleLog : IConsoleLog
     {
         public const string PIPE_NAME = "LogServer";
-        public const string FileName = "LogConsole.exe";
+        public const string FileName = "ConsoleLog.exe";
         public const string COLOR_SEPARATOR = "^";
+
         private NamedPipeClientStream m_pipeClient;
 
         public void Init()

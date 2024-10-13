@@ -22,6 +22,11 @@ namespace SkyForgeConsole
                 throw new Exception("Create FileLogger before init FileSystem");
         }
 
+        public override void Dispose()
+        {
+            
+        }
+
         public override void Logging(string message, LogLevel level)
         {
             var dateTime = DateTime.Now;

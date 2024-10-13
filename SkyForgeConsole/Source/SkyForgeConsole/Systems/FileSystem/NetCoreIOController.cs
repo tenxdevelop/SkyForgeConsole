@@ -39,6 +39,24 @@ namespace SkyForgeConsole
 
         }
 
+        public string GetCurrentDirectory()
+        {
+            return Directory.GetCurrentDirectory();
+        }
+
+        public string GetFullPath(string currentDirectory)
+        {
+            try
+            {
+                return Path.GetFullPath(currentDirectory);
+            }
+            catch (Exception ex)
+            {
+                Log.CoreLogger?.Logging($"Error can't Get full Path from directory: {currentDirectory}. Exception {ex}", LogLevel.Error);
+                return null;
+            }
+        }
+
         public bool IsHaveDirectory(string pathDirectory)
         {
             try

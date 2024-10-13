@@ -47,6 +47,16 @@ namespace SkyForgeConsole
             return m_controllerIO.DeleteFile(filePath, fileName);
         }
 
+        public static string GetCurrentDirectory()
+        {
+            return m_controllerIO.GetCurrentDirectory();
+        }
+
+        public static string GetFullPath(string currentDirectory)
+        {
+            return m_controllerIO.GetFullPath(currentDirectory);
+        }
+
         private static IControllerIO CreateContorller<T>() where T : IControllerIO
         {
             var type = typeof(T);

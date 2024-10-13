@@ -31,7 +31,7 @@ namespace SkyForgeConsole
             foreach (var logger in m_loggers)
             {
 #if SKY_FORGE_TEST || SKY_FORGE_DEBUG
-                if(level >= LogLevel.Info)
+                if(level >= LogLevel.Defualt)
                     logger.Logging(Patern(message), level);
 #else
                 if(level >= LogLevel.Warn)
@@ -43,6 +43,14 @@ namespace SkyForgeConsole
         private string Patern(string message)
         {
             return $" {m_nameLogSystem} : " + message;
+        }
+
+        public void Dispose()
+        {
+            foreach (var logger in m_loggers)
+            {
+                logger.Dispose();
+            }
         }
     }
 }

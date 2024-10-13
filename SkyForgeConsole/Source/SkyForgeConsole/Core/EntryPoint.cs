@@ -40,6 +40,7 @@ namespace SkyForgeConsole
         public void Dispose()
         {
             m_application.Dispose();
+            Log.Destroy();
         }
 
         public IApplication GetApplication() => m_application;

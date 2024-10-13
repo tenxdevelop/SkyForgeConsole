@@ -3,6 +3,7 @@
 \**************************************************************************/
 
 using System;
+using System.Xml.Linq;
 
 namespace SkyForgeConsole
 {
@@ -41,14 +42,17 @@ namespace SkyForgeConsole
             {
                 return CompareTo(logLevel);
             }
+            Log.CoreLogger?.Logging("object is not LogLevel", LogLevel.Error);
             throw new ArgumentException("object is not LogLevel");
         }
 
         public int CompareTo(ILogLevel logLevel)
         {
             if (logLevel is null)
+            {
+                Log.CoreLogger?.Logging("logLevel is null", LogLevel.Error);
                 throw new ArgumentNullException("logLevel is null");
-
+            }
             return m_level - logLevel.Level;
         }
 
@@ -67,6 +71,7 @@ namespace SkyForgeConsole
                 case 4: 
                     return Crytical;
                 default:
+                    Log.CoreLogger?.Logging($"Could not found LogLevel with level: {value}", LogLevel.Error);
                     throw new ArgumentException($"Could not found LogLevel with level: {value}");
             }
         }
@@ -86,6 +91,7 @@ namespace SkyForgeConsole
                 case CRYTICAL_NAME:
                     return Crytical;
                 default:
+                    Log.CoreLogger?.Logging($"Could not found LogLevel with name: {name}", LogLevel.Error);
                     throw new ArgumentException($"Could not found LogLevel with name: {name}");
             }
         }
@@ -113,6 +119,20 @@ namespace SkyForgeConsole
         public static bool operator <=(LogLevel logLevel, LogLevel otherLogLevel)
         {
             return logLevel.CompareTo(otherLogLevel) <= 0;
+        }
+
+        public bool Equals(ILogLevel other)
+        {
+            return CompareTo(other) == 0;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj != null && obj is ILogLevel logLevel)
+            {
+                return Equals(logLevel);
+            }
+            return false;
         }
     }
 }

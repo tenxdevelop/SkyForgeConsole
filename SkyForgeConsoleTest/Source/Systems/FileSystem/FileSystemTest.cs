@@ -50,7 +50,27 @@ namespace SkyForgeConsoleTest
 
     internal class FakeControllerIO : IControllerIO
     {
+        public bool CreateDirectory(string pathDirectory)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeleteFile(string filePath, string fileName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetCurrentDirectory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetFullPath(string currentDirectory)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsHaveDirectory(string pathDirectory)
         {
             throw new NotImplementedException();
         }

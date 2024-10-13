@@ -9,6 +9,8 @@ namespace SkyForgeConsole
 {
     public abstract class BaseLogger<T> : ILogger
     {
+        public abstract void Dispose();
+
         public bool Equals(ILogger logger)
         {
             return logger != null && logger is T;
