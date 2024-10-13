@@ -8,10 +8,12 @@
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
 add_library(${PROJECT_NAME} SHARED
-            Source/Core/EntryPoint.cs 
-			Source/Core/IEntryPoint.cs 
-			Source/Core/IApplication.cs
-			Source/Core/Application.cs)
+            Source/SkyForgeConsole/Core/EntryPoint.cs 
+			Source/SkyForgeConsole/Core/IEntryPoint.cs 
+			Source/SkyForgeConsole/Core/IApplication.cs
+			Source/SkyForgeConsole/Core/Application.cs
+			Source/SkyForgeConsole/Systems/LogSystem/LogLevel.cs
+			Source/SkyForgeConsole/Systems/LogSystem/ILogLevel.cs)
 			
 set_target_properties(${PROJECT_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}
@@ -34,4 +36,4 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:DEBUG>:SKY_FORGE_D
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:RELEASE>:SKY_FORGE_RELEASE>)
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<CONFIG:TEST>:SKY_FORGE_TEST>)
 
-#target_link_libraries(${PROJECT_NAME} ConsoleLog)
+target_link_libraries(${PROJECT_NAME} ConsoleLog)

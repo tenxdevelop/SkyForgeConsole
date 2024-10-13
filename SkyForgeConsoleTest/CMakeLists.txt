@@ -17,7 +17,8 @@ set(NUGET_LIBRARY "Microsoft.NET.Test.Sdk_17.6.0;\
 
 add_executable(${TARGET_NAME}
                Source/Core/EntryPointTest.cs
-			   Source/Core/ApplicationTest.cs)
+			   Source/Core/ApplicationTest.cs
+			   Source/Systems/LogSystem/LogLevelTest.cs)
 
 
 set_target_properties(${TARGET_NAME} PROPERTIES
