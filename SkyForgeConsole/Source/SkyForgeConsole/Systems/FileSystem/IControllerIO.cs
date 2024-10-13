@@ -6,8 +6,10 @@ namespace SkyForgeConsole
 {
     public interface IControllerIO
     {
+        bool IsHaveDirectory(string pathDirectory);
+        bool CreateDirectory(string pathDirectory);
         bool IsHaveFile(string filePath, string fileName);
         bool DeleteFile(string filePath, string fileName);
-        bool WriteToFile(string massage, string filePath, string fileName, bool isNewFile);
+        bool WriteToFile(string message, string filePath, string fileName, bool isNewFile);
     }
 }

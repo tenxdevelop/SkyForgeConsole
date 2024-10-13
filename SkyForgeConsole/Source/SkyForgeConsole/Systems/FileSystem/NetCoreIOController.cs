@@ -9,6 +9,21 @@ namespace SkyForgeConsole
 {
     public class NetCoreIOController : IControllerIO
     {
+        public bool CreateDirectory(string pathDirectory)
+        {
+            try
+            {
+                Directory.CreateDirectory(pathDirectory);
+                return true;
+            }
+            catch (Exception ex) 
+            {
+                Log.CoreLogger?.Logging($"Error can't create directory: {pathDirectory}. Exception {ex}", LogLevel.Error);
+                return false; 
+            }
+
+        }
+
         public bool DeleteFile(string filePath, string fileName)
         {
             try
@@ -18,17 +33,39 @@ namespace SkyForgeConsole
             }
             catch (Exception ex)
             {
+                Log.CoreLogger?.Logging($"Error can't delete file: {filePath}. Exception {ex}", LogLevel.Error);
                 return false;
             }
 
         }
 
-        public bool IsHaveFile(string filePath, string fileName)
+        public bool IsHaveDirectory(string pathDirectory)
         {
-            return File.Exists(Path.Combine(filePath, fileName));
+            try
+            {
+                return Directory.Exists(pathDirectory);
+            }
+            catch (Exception ex)
+            {
+                Log.CoreLogger?.Logging($"Error can't check directory: {pathDirectory}. Exception {ex}", LogLevel.Error);
+                return false;
+            }
         }
 
-        public bool WriteToFile(string massage, string filePath, string fileName, bool isNewFile)
+        public bool IsHaveFile(string filePath, string fileName)
+        {
+            try
+            {
+                return File.Exists(Path.Combine(filePath, fileName));
+            }
+            catch (Exception ex)
+            {
+                Log.CoreLogger?.Logging($"Error can't check file: {filePath}. Exception {ex}", LogLevel.Error);
+                return false;
+            }
+        }
+
+        public bool WriteToFile(string message, string filePath, string fileName, bool isNewFile)
         {
             try
             {
@@ -37,15 +74,21 @@ namespace SkyForgeConsole
                     if (isNewFile && !DeleteFile(filePath, fileName))
                         throw new Exception($"Don't can delete file: {fileName}");
                 }
+                else if(!IsHaveDirectory(filePath))
+                {
+                    if (!CreateDirectory(filePath))
+                        throw new Exception($"Don't create directory: {filePath}");
+                }
 
                 using (var textWriter = File.AppendText(Path.Combine(filePath, fileName)))
                 {
-                    textWriter.WriteLine(massage);
+                    textWriter.WriteLine(message);
                 }
                 return true;
             }
             catch (Exception ex)
             {
+                Log.CoreLogger?.Logging($"Error can't write to file: {filePath}. Exception {ex}", LogLevel.Error);
                 return false;
             }
         }

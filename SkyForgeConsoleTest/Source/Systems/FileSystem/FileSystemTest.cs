@@ -15,9 +15,9 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckWriteToFileMassage()
         {
-            var massage = "massage trutrurtu!!!";
+            var message = "massage trutrurtu!!!";
             FileSystem.Init<NetCoreIOController>();
-            FileSystem.WriteToFile(massage, "", "test.txt", true);
+            FileSystem.WriteToFile(message, "", "test.txt", true);
             FileSystem.WriteToFile("heheh", "", "test.txt");
             string resultText = "";
             using (StreamReader streamReader = new StreamReader("test.txt"))
@@ -30,7 +30,7 @@ namespace SkyForgeConsoleTest
                 }
             }
 
-            Assert.That(massage + "heheh", Is.EqualTo(resultText));
+            Assert.That(message + "heheh", Is.EqualTo(resultText));
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace SkyForgeConsoleTest
     {
         public bool DeleteFile(string filePath, string fileName)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public bool IsHaveFile(string filePath, string fileName)
@@ -60,7 +60,7 @@ namespace SkyForgeConsoleTest
             throw new NotImplementedException();
         }
 
-        public bool WriteToFile(string massage, string filePath, string fileName, bool isNewFile = false)
+        public bool WriteToFile(string message, string filePath, string fileName, bool isNewFile = false)
         {
             throw new NotImplementedException();
         }

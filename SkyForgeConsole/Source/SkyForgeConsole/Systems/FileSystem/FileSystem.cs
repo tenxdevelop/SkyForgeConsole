@@ -9,16 +9,32 @@ namespace SkyForgeConsole
 
     public static class FileSystem
     {
+        public static bool IsInit => m_isInit;
+
         private const string NET_CORE_CONTROLLER = nameof(NetCoreIOController);
         private static IControllerIO m_controllerIO;
+
+        private static bool m_isInit = false;
+
         public static void Init<T>() where T : IControllerIO
         {
             m_controllerIO = CreateContorller<T>();
+            m_isInit = true;
         }
 
-        public static bool WriteToFile(string massage, string filePath, string fileName, bool isNewFile = false)
+        public static bool IsHaveDirectory(string pathDirectory)
         {
-            return m_controllerIO.WriteToFile(massage, filePath, fileName, isNewFile);
+            return m_controllerIO.IsHaveDirectory(pathDirectory);
+        }
+
+        public static bool CreateDirectory(string pathDirectory)
+        {
+            return m_controllerIO.CreateDirectory(pathDirectory);
+        }
+
+        public static bool WriteToFile(string message, string filePath, string fileName, bool isNewFile = false)
+        {
+            return m_controllerIO.WriteToFile(message, filePath, fileName, isNewFile);
         }
 
         public static bool IsHaveFile(string filePath, string fileName)

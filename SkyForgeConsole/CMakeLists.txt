@@ -14,6 +14,13 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Core/Application.cs
 			Source/SkyForgeConsole/Systems/LogSystem/LogLevel.cs
 			Source/SkyForgeConsole/Systems/LogSystem/ILogLevel.cs
+			Source/SkyForgeConsole/Systems/LogSystem/ILogger.cs
+			Source/SkyForgeConsole/Systems/LogSystem/BaseLogger.cs
+			Source/SkyForgeConsole/Systems/LogSystem/ConsoleLogger.cs
+			Source/SkyForgeConsole/Systems/LogSystem/FileLogger.cs
+			Source/SkyForgeConsole/Systems/LogSystem/ILogSystem.cs
+			Source/SkyForgeConsole/Systems/LogSystem/LogSystem.cs
+			Source/SkyForgeConsole/Systems/LogSystem/Log.cs
 			Source/SkyForgeConsole/Systems/FileSystem/FileSystem.cs
 			Source/SkyForgeConsole/Systems/FileSystem/IControllerIO.cs
 			Source/SkyForgeConsole/Systems/FileSystem/NetCoreIOController.cs)

@@ -90,6 +90,11 @@ namespace SkyForgeConsole
             }
         }
 
+        public override string ToString()
+        {
+            return m_name;
+        }
+
         public static bool operator >(LogLevel logLevel, LogLevel otherLogLevel)
         {
             return logLevel.CompareTo(otherLogLevel) > 0;
