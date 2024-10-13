@@ -13,7 +13,10 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Core/IApplication.cs
 			Source/SkyForgeConsole/Core/Application.cs
 			Source/SkyForgeConsole/Systems/LogSystem/LogLevel.cs
-			Source/SkyForgeConsole/Systems/LogSystem/ILogLevel.cs)
+			Source/SkyForgeConsole/Systems/LogSystem/ILogLevel.cs
+			Source/SkyForgeConsole/Systems/FileSystem/FileSystem.cs
+			Source/SkyForgeConsole/Systems/FileSystem/IControllerIO.cs
+			Source/SkyForgeConsole/Systems/FileSystem/NetCoreIOController.cs)
 			
 set_target_properties(${PROJECT_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}
