@@ -19,6 +19,7 @@ add_executable(${TARGET_NAME}
                Source/Core/EntryPointTest.cs
 			   Source/Core/ApplicationTest.cs
 			   Source/Systems/LogSystem/LogLevelTest.cs
+			   Source/Systems/LogSystem/LogSystemTest.cs
 			   Source/Systems/FileSystem/FileSystemTest.cs)
 
 

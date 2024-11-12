@@ -48,7 +48,7 @@ namespace SkyForgeConsole
             m_writer.WriteLine(PaternForConsole(message, level));
             m_writer.Flush();
 
-
+            //TODO: Решить проблему совместимости с Linux
 #if SKY_FORGE_WINDOWS
 #pragma warning disable CA1416 // Проверка совместимости платформы
             m_pipeServer.WaitForPipeDrain();

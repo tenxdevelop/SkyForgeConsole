@@ -21,16 +21,16 @@ namespace SkyForgeConsole
         {
             if (m_isInit)
             {
-                Log.CoreLogger.Logging("Application was initialized, you have called initialization twice", LogLevel.Error);
+                Log.CoreLogger?.Logging("Application was initialized, you have called initialization twice", LogLevel.Error);
                 throw new MethodAccessException("Application was initialized, you have called initialization twice");
             }
             m_isInit = true;
 
-            Log.CoreLogger.Logging("Init SkyForgeEngine !!", LogLevel.Defualt);
-            Log.CoreLogger.Logging("Init SkyForgeEngine !!", LogLevel.Info);
-            Log.CoreLogger.Logging("Init SkyForgeEngine !!", LogLevel.Warn);
-            Log.CoreLogger.Logging("Init SkyForgeEngine !!", LogLevel.Error);
-            Log.CoreLogger.Logging("Init SkyForgeEngine !!", LogLevel.Crytical);
+            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Defualt);
+            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Info);
+            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Warn);
+            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Error);
+            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Crytical);
         }
 
         public void Dispose()
@@ -47,7 +47,7 @@ namespace SkyForgeConsole
         {
             if (!m_isInit)
             {
-                Log.CoreLogger.Logging("Application start run before Init", LogLevel.Error);
+                Log.CoreLogger?.Logging("Application start run before Init", LogLevel.Error);
                 throw new MethodAccessException("Application start run before Init");
             }
 

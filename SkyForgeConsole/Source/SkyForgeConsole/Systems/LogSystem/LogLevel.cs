@@ -3,7 +3,6 @@
 \**************************************************************************/
 
 using System;
-using System.Xml.Linq;
 
 namespace SkyForgeConsole
 {
@@ -14,7 +13,9 @@ namespace SkyForgeConsole
         private const string WARN_NAME = "Warn";
         private const string ERROR_NAME = "Error";
         private const string CRYTICAL_NAME = "Crytical";
+        private const string TEST_NAME = "Test";
 
+        public static LogLevel Test = new LogLevel(TEST_NAME, -1);
         public static LogLevel Defualt = new LogLevel(DEFUALT_NAME, 0);
         public static LogLevel Info = new LogLevel(INFO_NAME, 1);
         public static LogLevel Warn = new LogLevel(WARN_NAME, 2);
