@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>execute_process &mdash; CMake 3.28.1 Documentation</title>
+  <title>execute_process &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="execute-process">
-<span id="command:execute_process"></span><h1>execute_process<a class="headerlink" href="#execute-process" title="Permalink to this heading">¶</a></h1>
+<span id="command:execute_process"></span><h1>execute_process<a class="headerlink" href="#execute-process" title="Link to this heading">¶</a></h1>
 <p>Execute one or more child processes.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">execute_process(</span><span class="no">COMMAND</span><span class="w"> </span><span class="nv">&lt;cmd1&gt;</span><span class="w"> </span><span class="p">[</span><span class="nv">&lt;arguments&gt;</span><span class="p">]</span>
 <span class="w">                </span><span class="p">[</span><span class="no">COMMAND</span><span class="w"> </span><span class="nv">&lt;cmd2&gt;</span><span class="w"> </span><span class="p">[</span><span class="nv">&lt;arguments&gt;</span><span class="p">]]...</span>
@@ -120,7 +119,7 @@ This will be an integer return code from the last child or a string
 describing an error condition.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">RESULTS_VARIABLE</span> <span class="pre">&lt;variable&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>The variable will be set to contain the result of all processes as a
 <a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-lists"><span class="std std-ref">semicolon-separated list</span></a>, in order of the
@@ -138,7 +137,7 @@ processes.</p>
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.3: </span>If the same <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> is named for both <code class="docutils literal notranslate"><span class="pre">OUTPUT_FILE</span></code> and <code class="docutils literal notranslate"><span class="pre">ERROR_FILE</span></code>
+<p><span class="versionmodified added">Added in version 3.3: </span>If the same <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> is named for both <code class="docutils literal notranslate"><span class="pre">OUTPUT_FILE</span></code> and <code class="docutils literal notranslate"><span class="pre">ERROR_FILE</span></code>
 then it will be used for both standard output and standard error pipes.</p>
 </div>
 <dl>
@@ -151,7 +150,7 @@ and standard error pipes, respectively.  If the same variable is named
 for both pipes their output will be merged in the order produced.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">ECHO_OUTPUT_VARIABLE</span></code>, <code class="docutils literal notranslate"><span class="pre">ECHO_ERROR_VARIABLE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>The standard output or standard error will not be exclusively redirected to
 the specified variables.</p>
@@ -168,7 +167,7 @@ be shared with the corresponding pipes of the CMake process itself.</p>
 </div>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">COMMAND_ECHO</span> <span class="pre">&lt;where&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15.</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 <p>The command being run will be echo'ed to <code class="docutils literal notranslate"><span class="pre">&lt;where&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">&lt;where&gt;</span></code>
 being set to one of <code class="docutils literal notranslate"><span class="pre">STDERR</span></code>, <code class="docutils literal notranslate"><span class="pre">STDOUT</span></code> or <code class="docutils literal notranslate"><span class="pre">NONE</span></code>.
@@ -176,33 +175,39 @@ See the <span class="target" id="index-0-variable:CMAKE_EXECUTE_PROCESS_COMMAND_
 to control the default behavior when this option is not present.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">ENCODING</span> <span class="pre">&lt;name&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>On Windows, the encoding that is used to decode output from the process.
 Ignored on other platforms.
 Valid encoding names are:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">NONE</span></code></dt><dd><p>Perform no decoding.  This assumes that the process output is encoded
-in the same way as CMake's internal encoding (UTF-8).
-This is the default.</p>
+in the same way as CMake's internal encoding (UTF-8).</p>
+<p>This was the default in CMake 3.14 and older.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">AUTO</span></code></dt><dd><p>Use the current active console's codepage or if that isn't
 available then use ANSI.</p>
+<p>This was the default in CMake 3.15 through 3.30.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">ANSI</span></code></dt><dd><p>Use the ANSI codepage.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OEM</span></code></dt><dd><p>Use the original equipment manufacturer (OEM) code page.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">UTF8</span></code> or <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code></dt><dd><p>Use the UTF-8 codepage.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 3.11: </span>Accept <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> spelling for consistency with the
-<a class="reference external" href="https://www.ietf.org/rfc/rfc3629">UTF-8 RFC</a> naming convention.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">UTF-8</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.11.</span></p>
 </div>
+<p>Use the UTF-8 codepage.</p>
+<p>This is the default.  See policy <span class="target" id="index-0-policy:CMP0176"></span><a class="reference internal" href="../policy/CMP0176.html#policy:CMP0176" title="CMP0176"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0176</span></code></a>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">UTF8</span></code></dt><dd><p>Use the UTF-8 codepage.  Use of this name is discouraged in favor
+of <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> to match the
+<a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc3629">UTF-8 RFC</a>
+naming convention.</p>
 </dd>
 </dl>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">COMMAND_ERROR_IS_FATAL</span> <span class="pre">&lt;ANY|LAST&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>The option following <code class="docutils literal notranslate"><span class="pre">COMMAND_ERROR_IS_FATAL</span></code> determines the behavior when
 an error is encountered:</p>
@@ -243,7 +248,7 @@ list will not cause a fatal error.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -251,7 +256,7 @@ list will not cause a fatal error.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -277,7 +282,7 @@ list will not cause a fatal error.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -286,8 +291,8 @@ list will not cause a fatal error.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>get_target_property &mdash; CMake 3.28.1 Documentation</title>
+  <title>get_target_property &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,26 +57,24 @@
           <div class="body" role="main">
             
   <section id="get-target-property">
-<span id="command:get_target_property"></span><h1>get_target_property<a class="headerlink" href="#get-target-property" title="Permalink to this heading">¶</a></h1>
+<span id="command:get_target_property"></span><h1>get_target_property<a class="headerlink" href="#get-target-property" title="Link to this heading">¶</a></h1>
 <p>Get a property from a target.</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">get_target_property(</span><span class="nv">&lt;VAR&gt;</span><span class="w"> </span><span class="nb">target</span><span class="w"> </span><span class="nb">property</span><span class="nf">)</span>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">get_target_property(</span><span class="nv">&lt;variable&gt;</span><span class="w"> </span><span class="nv">&lt;target&gt;</span><span class="w"> </span><span class="nv">&lt;property&gt;</span><span class="nf">)</span>
 </pre></div>
 </div>
-<p>Get a property from a target.  The value of the property is stored in
-the variable <code class="docutils literal notranslate"><span class="pre">&lt;VAR&gt;</span></code>.  If the target property is not found, the behavior
-depends on whether it has been defined to be an <code class="docutils literal notranslate"><span class="pre">INHERITED</span></code> property
-or not (see <span class="target" id="index-0-command:define_property"></span><a class="reference internal" href="define_property.html#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a>).  Non-inherited properties will
-set <code class="docutils literal notranslate"><span class="pre">&lt;VAR&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;VAR&gt;-NOTFOUND</span></code>, whereas inherited properties will search
-the relevant parent scope as described for the <span class="target" id="index-1-command:define_property"></span><a class="reference internal" href="define_property.html#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a>
-command and if still unable to find the property, <code class="docutils literal notranslate"><span class="pre">&lt;VAR&gt;</span></code> will be set to
-an empty string.</p>
+<p>Get a property from a target.  The value of the property is stored in the
+specified <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code>.  If the target property is not found, <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code>
+will be set to <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;-NOTFOUND</span></code>.  If the target property was defined to
+be an <code class="docutils literal notranslate"><span class="pre">INHERITED</span></code> property (see <span class="target" id="index-0-command:define_property"></span><a class="reference internal" href="define_property.html#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a>), the search will
+include the relevant parent scopes, as described for the
+<span class="target" id="index-1-command:define_property"></span><a class="reference internal" href="define_property.html#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a> command.</p>
 <p>Use <span class="target" id="index-0-command:set_target_properties"></span><a class="reference internal" href="set_target_properties.html#command:set_target_properties" title="set_target_properties"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">set_target_properties()</span></code></a> to set target property values.
 Properties are usually used to control how a target is built, but some
 query the target instead.  This command can get properties for any
 target so far created.  The targets do not need to be in the current
 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="target" id="index-2-command:define_property"></span><a class="reference internal" href="define_property.html#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a></p></li>
 <li><p>the more general <span class="target" id="index-0-command:get_property"></span><a class="reference internal" href="get_property.html#command:get_property" title="get_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">get_property()</span></code></a> command</p></li>
@@ -121,7 +118,7 @@ target so far created.  The targets do not need to be in the current
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -129,7 +126,7 @@ target so far created.  The targets do not need to be in the current
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -155,7 +152,7 @@ target so far created.  The targets do not need to be in the current
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -164,8 +161,8 @@ target so far created.  The targets do not need to be in the current
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

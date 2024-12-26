@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindOpenAL &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindOpenAL &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,14 +57,14 @@
           <div class="body" role="main">
             
   <section id="findopenal">
-<span id="module:FindOpenAL"></span><h1>FindOpenAL<a class="headerlink" href="#findopenal" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindOpenAL"></span><h1>FindOpenAL<a class="headerlink" href="#findopenal" title="Link to this heading">¶</a></h1>
 <p>Finds Open Audio Library (OpenAL).</p>
 <p>Projects using this module should use <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;al.h&quot;</span></code> to include the OpenAL
 header file, <strong>not</strong> <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;AL/al.h&gt;</span></code>.  The reason for this is that the
 latter is not entirely portable.  Windows/Creative Labs does not by default put
 their headers in <code class="docutils literal notranslate"><span class="pre">AL/</span></code> and macOS uses the convention <code class="docutils literal notranslate"><span class="pre">&lt;OpenAL/al.h&gt;</span></code>.</p>
 <section id="hints">
-<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this heading">¶</a></h2>
+<h2>Hints<a class="headerlink" href="#hints" title="Link to this heading">¶</a></h2>
 <p>Environment variable <code class="docutils literal notranslate"><span class="pre">$OPENALDIR</span></code> can be used to set the prefix of OpenAL
 installation to be found.</p>
 <p>By default on macOS, system framework is search first.  In other words,
@@ -81,9 +80,9 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
 </ol>
 </section>
 <section id="imported-targets">
-<h2>IMPORTED Targets<a class="headerlink" href="#imported-targets" title="Permalink to this heading">¶</a></h2>
+<h2>IMPORTED Targets<a class="headerlink" href="#imported-targets" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>This module defines the <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> target:</p>
 <dl class="simple">
@@ -92,7 +91,7 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
 </dl>
 </section>
 <section id="result-variables">
-<h2>Result Variables<a class="headerlink" href="#result-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <p>This module defines the following variables:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">OPENAL_FOUND</span></code></dt><dd><p>If false, do not try to link to OpenAL</p>
@@ -143,7 +142,7 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -151,7 +150,7 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -177,7 +176,7 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -186,8 +185,8 @@ changed via setting the <span class="target" id="index-0-variable:CMAKE_FIND_FRA
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

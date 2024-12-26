@@ -27,11 +27,11 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-CONFIGURE-LOG" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-CONFIGURE-LOG" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-configure-log \- CMake Configure Log
 .sp
-New in version 3.26.
+Added in version 3.26.
 
 .SH INTRODUCTION
 .sp
@@ -40,7 +40,7 @@ of certain events that occur during the Configure step.
 The configure log does \fInot\fP contain a log of all output, errors,
 or messages printed while configuring a project.  It is a log of
 detailed information about specific events, such as toolchain inspection
-by \fI\%try_compile()\fP, meant for use in debugging the configuration
+by \X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link', meant for use in debugging the configuration
 of a build tree.
 .sp
 For human use, this version of CMake writes the configure log to the file:
@@ -57,8 +57,8 @@ ${CMAKE_BINARY_DIR}/CMakeFiles/CMakeConfigureLog.yaml
 .sp
 However, the \fIlocation and name of the log file may change\fP in future
 versions of CMake.  Tools that read the configure log should get its
-location using a \fI\%configureLog\fP query to
-the \fI\%cmake\-file\-api(7)\fP\&.
+location using a \X'tty: link #file-api-configurelog'\fI\%configureLog\fP\X'tty: link' query to
+the \X'tty: link #manual:cmake-file-api(7)'\fI\%cmake\-file\-api(7)\fP\X'tty: link'\&.
 See the \fI\%Log Versioning\fP section below for details.
 .SH LOG STRUCTURE
 .sp
@@ -91,7 +91,7 @@ events:
 A new document is appended to the log every time CMake configures
 the build tree and logs new events.
 .sp
-The keys of the each document root mapping are:
+The keys of each document root mapping are:
 .INDENT 0.0
 .TP
 .B \fBevents\fP
@@ -115,14 +115,14 @@ A future version of CMake may introduce a new event kind or version.
 If an existing build tree is re\-configured with a different version of
 CMake, the log may contain different versions of the same event kind.
 .IP \(bu 2
-If \fI\%cmake\-file\-api(7)\fP queries request one or more
-\fI\%configureLog\fP object versions,
+If \X'tty: link #manual:cmake-file-api(7)'\fI\%cmake\-file\-api(7)\fP\X'tty: link' queries request one or more
+\X'tty: link #file-api-configurelog'\fI\%configureLog\fP\X'tty: link' object versions,
 the log may contain multiple entries for the same event, each
 with a different version of its event kind.
 .UNINDENT
 .sp
-IDEs should write a \fI\%cmake\-file\-api(7)\fP query requesting a
-specific \fI\%configureLog\fP object version,
+IDEs should write a \X'tty: link #manual:cmake-file-api(7)'\fI\%cmake\-file\-api(7)\fP\X'tty: link' query requesting a
+specific \X'tty: link #file-api-configurelog'\fI\%configureLog\fP\X'tty: link' object version,
 before running CMake, and then read the configure log only as described
 by the file\-api reply.
 .SS Text Block Encoding
@@ -170,7 +170,7 @@ formatted as \fB<file>:<line> (<function>)\fP\&.
 .TP
 .B \fBchecks\fP
 An optional key that is present when the event occurred with
-at least one pending \fI\%message(CHECK_START)\fP\&.  Its value
+at least one pending \X'tty: link #command:message'\fI\%message(CHECK_START)\fP\X'tty: link'\&.  Its value
 is a YAML block sequence reporting the stack of pending checks,
 from most\-recent to least\-recent.  Each node is a string containing
 a pending check message.
@@ -180,7 +180,7 @@ Additional mapping keys are specific to each (versioned) event kind,
 described below.
 .SS Event Kind \fBmessage\fP
 .sp
-The \fI\%message(CONFIGURE_LOG)\fP command logs \fBmessage\fP events.
+The \X'tty: link #command:message'\fI\%message(CONFIGURE_LOG)\fP\X'tty: link' command logs \fBmessage\fP events.
 .sp
 There is only one \fBmessage\fP event major version, version 1.
 .SS \fBmessage\-v1\fP Event
@@ -212,7 +212,7 @@ represented using our \fI\%Text Block Encoding\fP\&.
 .UNINDENT
 .SS Event Kind \fBtry_compile\fP
 .sp
-The \fI\%try_compile()\fP command logs \fBtry_compile\fP events.
+The \X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link' command logs \fBtry_compile\fP events.
 .sp
 There is only one \fBtry_compile\fP event major version, version 1.
 .SS \fBtry_compile\-v1\fP Event
@@ -259,11 +259,11 @@ compilation attempt.  It has the following keys:
 .TP
 .B \fBsource\fP
 String specifying the source directory of the
-\fI\%try_compile()\fP project.
+\X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link' project.
 .TP
 .B \fBbinary\fP
 String specifying the binary directory of the
-\fI\%try_compile()\fP project.
+\X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link' project.
 For non\-project invocations, this is often the same as
 the source directory.
 .UNINDENT
@@ -271,7 +271,7 @@ the source directory.
 .B \fBcmakeVariables\fP
 An optional key that is present when CMake propagates variables
 into the test project, either automatically or due to the
-\fI\%CMAKE_TRY_COMPILE_PLATFORM_VARIABLES\fP variable.
+\X'tty: link #variable:CMAKE_TRY_COMPILE_PLATFORM_VARIABLES'\fI\%CMAKE_TRY_COMPILE_PLATFORM_VARIABLES\fP\X'tty: link' variable.
 Its value is a mapping from variable names to their values.
 .TP
 .B \fBbuildResult\fP
@@ -299,7 +299,7 @@ to build the test project.
 .UNINDENT
 .SS Event Kind \fBtry_run\fP
 .sp
-The \fI\%try_run()\fP command logs \fBtry_run\fP events.
+The \X'tty: link #command:try_run'\fI\%try_run()\fP\X'tty: link' command logs \fBtry_run\fP events.
 .sp
 There is only one \fBtry_run\fP event major version, version 1.
 .SS \fBtry_run\-v1\fP Event
@@ -381,6 +381,6 @@ an error message, from trying to run the test executable.
 .UNINDENT
 .UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>set &mdash; CMake 3.28.1 Documentation</title>
+  <title>set &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="set">
-<span id="command:set"></span><h1>set<a class="headerlink" href="#set" title="Permalink to this heading">¶</a></h1>
+<span id="command:set"></span><h1>set<a class="headerlink" href="#set" title="Link to this heading">¶</a></h1>
 <p>Set a normal, cache, or environment variable to a given value.
 See the <a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-variables"><span class="std std-ref">cmake-language(7) variables</span></a>
 documentation for the scopes and interaction of normal variables
@@ -68,10 +67,10 @@ expect zero or more arguments.  Multiple arguments will be joined as
 a <a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-lists"><span class="std std-ref">semicolon-separated list</span></a> to form the
 actual variable value to be set.</p>
 <section id="set-normal-variable">
-<h2>Set Normal Variable<a class="headerlink" href="#set-normal-variable" title="Permalink to this heading">¶</a></h2>
+<h2>Set Normal Variable<a class="headerlink" href="#set-normal-variable" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="normal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="nv"><span class="pre">&lt;variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;...</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">PARENT_SCOPE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#normal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="nv"><span class="pre">&lt;variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;...</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">PARENT_SCOPE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#normal" title="Link to this definition">¶</a></dt>
 <dd><p>Set or unset <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code> in the current function or directory scope:</p>
 <ul class="simple">
 <li><p>If at least one <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;...</span></code> is given, set the variable to that value.</p></li>
@@ -104,10 +103,10 @@ clears the normal variable but leaves it defined.</p>
 </div>
 </section>
 <section id="set-cache-entry">
-<h2>Set Cache Entry<a class="headerlink" href="#set-cache-entry" title="Permalink to this heading">¶</a></h2>
+<h2>Set Cache Entry<a class="headerlink" href="#set-cache-entry" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="cache">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="nv"><span class="pre">&lt;variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;...</span></span><span class="w"> </span><span class="no"><span class="pre">CACHE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;type&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;docstring&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">FORCE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#cache" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="nv"><span class="pre">&lt;variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;...</span></span><span class="w"> </span><span class="no"><span class="pre">CACHE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;type&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;docstring&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">FORCE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#cache" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the given cache <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code> (cache entry).  Since cache entries
 are meant to provide user-settable values this does not overwrite
 existing cache entries by default.  Use the <code class="docutils literal notranslate"><span class="pre">FORCE</span></code> option to
@@ -160,10 +159,10 @@ current working directory and convert it to an absolute path.</p>
 
 </section>
 <section id="set-environment-variable">
-<h2>Set Environment Variable<a class="headerlink" href="#set-environment-variable" title="Permalink to this heading">¶</a></h2>
+<h2>Set Environment Variable<a class="headerlink" href="#set-environment-variable" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="env">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="o"><span class="pre">ENV{</span></span><span class="nt"><span class="pre">&lt;variable&gt;</span></span><span class="o"><span class="pre">}</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;value&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#env" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">set(</span></span><span class="o"><span class="pre">ENV{</span></span><span class="nt"><span class="pre">&lt;variable&gt;</span></span><span class="o"><span class="pre">}</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;value&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#env" title="Link to this definition">¶</a></dt>
 <dd><p>Sets an <span class="target" id="index-0-manual:cmake-env-variables(7)"></span><a class="reference internal" href="../manual/cmake-env-variables.7.html#manual:cmake-env-variables(7)" title="cmake-env-variables(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">Environment</span> <span class="pre">Variable</span></code></a>
 to the given value.
 Subsequent calls of <code class="docutils literal notranslate"><span class="pre">$ENV{&lt;variable&gt;}</span></code> will return this new value.</p>
@@ -179,7 +178,7 @@ then an author warning is issued.</p>
 
 </section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="target" id="index-2-command:unset"></span><a class="reference internal" href="unset.html#command:unset" title="unset"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">unset()</span></code></a></p></li>
 </ul>
@@ -223,7 +222,7 @@ then an author warning is issued.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -231,7 +230,7 @@ then an author warning is issued.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -257,7 +256,7 @@ then an author warning is issued.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -266,8 +265,8 @@ then an author warning is issued.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

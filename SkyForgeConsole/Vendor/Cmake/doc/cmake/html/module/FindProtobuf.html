@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindProtobuf &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindProtobuf &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,10 +57,10 @@
           <div class="body" role="main">
             
   <section id="findprotobuf">
-<span id="module:FindProtobuf"></span><h1>FindProtobuf<a class="headerlink" href="#findprotobuf" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindProtobuf"></span><h1>FindProtobuf<a class="headerlink" href="#findprotobuf" title="Link to this heading">¶</a></h1>
 <p>Locate and configure the Google Protocol Buffers library.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>Support for <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> version checks.</p>
+<p><span class="versionmodified added">Added in version 3.6: </span>Support for <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> version checks.</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.6: </span>All input and output variables use the <code class="docutils literal notranslate"><span class="pre">Protobuf_</span></code> prefix.
@@ -79,12 +78,12 @@ will be searched for libraries and binaries.</p>
 imported .proto files.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Protobuf_DEBUG</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6.</span></p>
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
 </div>
 <p>Show debug messages.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Protobuf_USE_STATIC_LIBS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.9.</span></p>
+<p><span class="versionmodified added">Added in version 3.9.</span></p>
 </div>
 <p>Set to ON to force the use of the static libraries.
 Default is OFF.</p>
@@ -96,7 +95,7 @@ Default is OFF.</p>
 (libprotobuf &amp; header files)</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Protobuf_VERSION</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6.</span></p>
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
 </div>
 <p>Version of package found.</p>
 </dd>
@@ -110,7 +109,7 @@ Default is OFF.</p>
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.9: </span>The following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets are also defined:</p>
+<p><span class="versionmodified added">Added in version 3.9: </span>The following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets are also defined:</p>
 </div>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">protobuf::libprotobuf</span></code></dt><dd><p>The protobuf library.</p>
@@ -120,7 +119,7 @@ Default is OFF.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">protobuf::libprotoc</span></code></dt><dd><p>The protoc library.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">protobuf::protoc</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>The protoc compiler.</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>The protoc compiler.</p>
 </div>
 </dd>
 </dl>
@@ -163,7 +162,7 @@ calls only work properly within the same directory.</p>
 </div>
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:protobuf_generate_cpp">
-<span class="sig-name descname"><span class="pre">protobuf_generate_cpp</span></span><a class="headerlink" href="#command:protobuf_generate_cpp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">protobuf_generate_cpp</span></span><a class="headerlink" href="#command:protobuf_generate_cpp" title="Link to this definition">¶</a></dt>
 <dd><p>Add custom commands to process <code class="docutils literal notranslate"><span class="pre">.proto</span></code> files to C++:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protobuf_generate_cpp (&lt;SRCS&gt; &lt;HDRS&gt;
     [DESCRIPTORS &lt;DESC&gt;] [EXPORT_MACRO &lt;MACRO&gt;] [&lt;ARGN&gt;...])
@@ -175,7 +174,7 @@ calls only work properly within the same directory.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">HDRS</span></code></dt><dd><p>Variable to define with autogenerated header files</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">DESCRIPTORS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>Variable to define with autogenerated descriptor files, if requested.</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>Variable to define with autogenerated descriptor files, if requested.</p>
 </div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">EXPORT_MACRO</span></code></dt><dd><p>is a macro which should expand to <code class="docutils literal notranslate"><span class="pre">__declspec(dllexport)</span></code> or
@@ -188,9 +187,9 @@ calls only work properly within the same directory.</p>
 
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:protobuf_generate_python">
-<span class="sig-name descname"><span class="pre">protobuf_generate_python</span></span><a class="headerlink" href="#command:protobuf_generate_python" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">protobuf_generate_python</span></span><a class="headerlink" href="#command:protobuf_generate_python" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
 <p>Add custom commands to process <code class="docutils literal notranslate"><span class="pre">.proto</span></code> files to Python:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protobuf_generate_python (&lt;PY&gt; [&lt;ARGN&gt;...])
@@ -206,9 +205,9 @@ calls only work properly within the same directory.</p>
 
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:protobuf_generate">
-<span class="sig-name descname"><span class="pre">protobuf_generate</span></span><a class="headerlink" href="#command:protobuf_generate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">protobuf_generate</span></span><a class="headerlink" href="#command:protobuf_generate" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13.</span></p>
+<p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
 <p>Automatically generate source files from <code class="docutils literal notranslate"><span class="pre">.proto</span></code> schema files at build time:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protobuf_generate (
@@ -243,19 +242,19 @@ and extern variables. It can, for example, be used to declare DLL exports.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">PROTOC_OUT_DIR</span></code></dt><dd><p>Output directory of generated source files. Defaults to <code class="docutils literal notranslate"><span class="pre">CMAKE_CURRENT_BINARY_DIR</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PLUGIN</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>An optional plugin executable. This could, for example, be the path to
 <code class="docutils literal notranslate"><span class="pre">grpc_cpp_plugin</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PLUGIN_OPTIONS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Additional options provided to the plugin, such as <code class="docutils literal notranslate"><span class="pre">generate_mock_code=true</span></code>
 for the gRPC cpp plugin.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">DEPENDENCIES</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Arguments forwarded to the <code class="docutils literal notranslate"><span class="pre">DEPENDS</span></code> of the underlying <code class="docutils literal notranslate"><span class="pre">add_custom_command</span></code>
 invocation.</p>
@@ -272,7 +271,7 @@ generated files are <code class="docutils literal notranslate"><span class="pre"
 <dt><code class="docutils literal notranslate"><span class="pre">GENERATE_EXTENSIONS</span></code></dt><dd><p>If LANGUAGE is omitted then this must be set to the extensions that protoc generates.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PROTOC_OPTIONS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Additional arguments that are forwarded to protoc.</p>
 </dd>
@@ -319,7 +318,7 @@ protobuf_generate(
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -327,7 +326,7 @@ protobuf_generate(
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -353,7 +352,7 @@ protobuf_generate(
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -362,8 +361,8 @@ protobuf_generate(
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

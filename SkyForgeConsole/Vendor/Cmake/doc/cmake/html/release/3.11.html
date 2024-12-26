@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMake 3.11 Release Notes &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMake 3.11 Release Notes &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Release Notes</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="cmake-3-11-release-notes">
-<h1><a class="toc-backref" href="#id4" role="doc-backlink">CMake 3.11 Release Notes</a><a class="headerlink" href="#cmake-3-11-release-notes" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">CMake 3.11 Release Notes</a><a class="headerlink" href="#cmake-3-11-release-notes" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -93,15 +92,15 @@
 </nav>
 <p>Changes made since CMake 3.10 include the following.</p>
 <section id="new-features">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h2>
 <section id="platforms">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Platforms</a><a class="headerlink" href="#platforms" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Platforms</a><a class="headerlink" href="#platforms" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>TI C/C++ compilers are now supported by the <span class="target" id="index-0-generator:Ninja"></span><a class="reference internal" href="../generator/Ninja.html#generator:Ninja" title="Ninja"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Ninja</span></code></a> generator.</p></li>
 </ul>
 </section>
 <section id="generators">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Generators</a><a class="headerlink" href="#generators" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Generators</a><a class="headerlink" href="#generators" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-generator:CodeBlocks"></span><a class="reference internal" href="../generator/CodeBlocks.html#generator:CodeBlocks" title="CodeBlocks"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">CodeBlocks</span></code></a> extra generator learned to check a
 <span class="target" id="index-0-variable:CMAKE_CODEBLOCKS_COMPILER_ID"></span><a class="reference internal" href="../variable/CMAKE_CODEBLOCKS_COMPILER_ID.html#variable:CMAKE_CODEBLOCKS_COMPILER_ID" title="CMAKE_CODEBLOCKS_COMPILER_ID"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_CODEBLOCKS_COMPILER_ID</span></code></a> variable for a custom
@@ -126,7 +125,7 @@ See generator expression documentation for caveats.</p></li>
 </ul>
 </section>
 <section id="commands">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-0-command:add_library"></span><a class="reference internal" href="../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a> and <span class="target" id="index-0-command:add_executable"></span><a class="reference internal" href="../command/add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a> commands can now be
 called without any sources and will not complain as long as sources are
@@ -151,7 +150,7 @@ gained <code class="docutils literal notranslate"><span class="pre">NETRC</span>
 </ul>
 </section>
 <section id="variables">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <span class="target" id="index-0-variable:CMAKE_GENERATOR_INSTANCE"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_INSTANCE.html#variable:CMAKE_GENERATOR_INSTANCE" title="CMAKE_GENERATOR_INSTANCE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_INSTANCE</span></code></a> variable was introduced
 to hold the selected instance of the generator's corresponding
@@ -176,7 +175,7 @@ on targets when they are created.</p></li>
 </ul>
 </section>
 <section id="properties">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-prop_sf:COMPILE_DEFINITIONS"></span><a class="reference internal" href="../prop_sf/COMPILE_DEFINITIONS.html#prop_sf:COMPILE_DEFINITIONS" title="COMPILE_DEFINITIONS"><code class="xref cmake cmake-prop_sf docutils literal notranslate"><span class="pre">COMPILE_DEFINITIONS</span></code></a> source file property learned to support
 <span class="target" id="index-2-manual:cmake-generator-expressions(7)"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)" title="cmake-generator-expressions(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">generator</span> <span class="pre">expressions</span></code></a>.</p></li>
@@ -196,7 +195,7 @@ details of <code class="docutils literal notranslate"><span class="pre">.hlsl</s
 </ul>
 </section>
 <section id="modules">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-module:CheckIncludeFiles"></span><a class="reference internal" href="../module/CheckIncludeFiles.html#module:CheckIncludeFiles" title="CheckIncludeFiles"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CheckIncludeFiles</span></code></a> module <span class="target" id="index-0-command:check_include_files"></span><a class="reference internal" href="../module/CheckIncludeFiles.html#command:check_include_files" title="check_include_files"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">CHECK_INCLUDE_FILES()</span></code></a>
 command gained a <code class="docutils literal notranslate"><span class="pre">LANGUAGE</span></code> option to specify whether to check using the
@@ -237,7 +236,7 @@ to removal of the <code class="docutils literal notranslate"><span class="pre">j
 </ul>
 </section>
 <section id="autogen">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Autogen</a><a class="headerlink" href="#autogen" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Autogen</a><a class="headerlink" href="#autogen" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>When using <span class="target" id="index-0-prop_tgt:AUTOMOC"></span><a class="reference internal" href="../prop_tgt/AUTOMOC.html#prop_tgt:AUTOMOC" title="AUTOMOC"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">AUTOMOC</span></code></a> or <span class="target" id="index-0-prop_tgt:AUTOUIC"></span><a class="reference internal" href="../prop_tgt/AUTOUIC.html#prop_tgt:AUTOUIC" title="AUTOUIC"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">AUTOUIC</span></code></a>, CMake now starts
 multiple parallel <code class="docutils literal notranslate"><span class="pre">moc</span></code> or <code class="docutils literal notranslate"><span class="pre">uic</span></code> processes to reduce the build time.
@@ -248,7 +247,7 @@ is derived from the number of CPUs on the host.</p></li>
 </ul>
 </section>
 <section id="ctest">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">CTest</a><a class="headerlink" href="#ctest" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">CTest</a><a class="headerlink" href="#ctest" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-command:ctest_start"></span><a class="reference internal" href="../command/ctest_start.html#command:ctest_start" title="ctest_start"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">ctest_start()</span></code></a> command no longer sets
 <span class="target" id="index-0-variable:CTEST_RUN_CURRENT_SCRIPT"></span><a class="reference internal" href="../variable/CTEST_RUN_CURRENT_SCRIPT.html#variable:CTEST_RUN_CURRENT_SCRIPT" title="CTEST_RUN_CURRENT_SCRIPT"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CTEST_RUN_CURRENT_SCRIPT</span></code></a> due to issues with scoping if it is
@@ -258,7 +257,7 @@ global scope still prevents the script from being re-run at the end.</p></li>
 </ul>
 </section>
 <section id="cpack">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-0-manual:cpack(1)"></span><a class="reference internal" href="../manual/cpack.1.html#manual:cpack(1)" title="cpack(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cpack(1)</span></code></a> gained <code class="docutils literal notranslate"><span class="pre">--trace</span></code> and <code class="docutils literal notranslate"><span class="pre">--trace-expand</span></code> options.</p></li>
 <li><p>The <span class="target" id="index-0-cpack_gen:CPack IFW Generator"></span><a class="reference internal" href="../cpack_gen/ifw.html#cpack_gen:CPack IFW Generator" title="CPack IFW Generator"><code class="xref cmake cmake-cpack_gen docutils literal notranslate"><span class="pre">CPack</span> <span class="pre">IFW</span> <span class="pre">Generator</span></code></a> gained new
@@ -274,7 +273,7 @@ installation (e.g. <code class="docutils literal notranslate"><span class="pre">
 </ul>
 </section>
 <section id="other">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Other</a><a class="headerlink" href="#other" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Other</a><a class="headerlink" href="#other" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../manual/cmake-buildsystem.7.html#alias-targets"><span class="std std-ref">Alias Targets</span></a> may now alias <a class="reference internal" href="../manual/cmake-buildsystem.7.html#imported-targets"><span class="std std-ref">Imported Targets</span></a> that are
 created with the <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> option to <span class="target" id="index-2-command:add_library"></span><a class="reference internal" href="../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a>.</p></li>
@@ -289,7 +288,7 @@ projects.</p></li>
 </section>
 </section>
 <section id="deprecated-and-removed-features">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>An explicit deprecation diagnostic was added for policies <code class="docutils literal notranslate"><span class="pre">CMP0037</span></code>
 through <code class="docutils literal notranslate"><span class="pre">CMP0054</span></code> (<code class="docutils literal notranslate"><span class="pre">CMP0036</span></code> and below were already deprecated).
@@ -300,7 +299,7 @@ NEW behaviors.</p></li>
 </ul>
 </section>
 <section id="other-changes">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Policy <span class="target" id="index-0-policy:CMP0037"></span><a class="reference internal" href="../policy/CMP0037.html#policy:CMP0037" title="CMP0037"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0037</span></code></a> no longer reserves target names associated
 with optional features, such as <code class="docutils literal notranslate"><span class="pre">test</span></code> and <code class="docutils literal notranslate"><span class="pre">package</span></code>, unless
@@ -326,10 +325,10 @@ message is displayed to the user on the console.</p></li>
 </ul>
 </section>
 <section id="updates">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Link to this heading">¶</a></h2>
 <p>Changes made since CMake 3.11.0 include the following.</p>
 <section id="id1">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.11.1</a><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.11.1</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-module:CheckIncludeFile"></span><a class="reference internal" href="../module/CheckIncludeFile.html#module:CheckIncludeFile" title="CheckIncludeFile"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CheckIncludeFile</span></code></a> module <code class="docutils literal notranslate"><span class="pre">check_include_file</span></code> macro,
 <span class="target" id="index-0-module:CheckIncludeFileCXX"></span><a class="reference internal" href="../module/CheckIncludeFileCXX.html#module:CheckIncludeFileCXX" title="CheckIncludeFileCXX"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CheckIncludeFileCXX</span></code></a> module <code class="docutils literal notranslate"><span class="pre">check_include_file_cxx</span></code> macro,
@@ -341,7 +340,7 @@ with a policy for compatibility.</p></li>
 </ul>
 </section>
 <section id="id2">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">3.11.2</a><a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">3.11.2</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Calling <span class="target" id="index-3-command:add_library"></span><a class="reference internal" href="../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a> to create an alias of an imported
 target that is not globally visible now causes an error again as
@@ -356,7 +355,7 @@ account for policy <span class="target" id="index-0-policy:CMP0071"></span><a cl
 </ul>
 </section>
 <section id="id3">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">3.11.3</a><a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">3.11.3</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>CMake 3.11.0 introduced support for resolving symbolic links on
 Windows in code paths that typically do so on UNIX.  This has been
@@ -420,7 +419,7 @@ reverted due to breakage on <code class="docutils literal notranslate"><span cla
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -428,7 +427,7 @@ reverted due to breakage on <code class="docutils literal notranslate"><span cla
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -454,7 +453,7 @@ reverted due to breakage on <code class="docutils literal notranslate"><span cla
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Release Notes</a> &#187;</li>
@@ -463,8 +462,8 @@ reverted due to breakage on <code class="docutils literal notranslate"><span cla
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

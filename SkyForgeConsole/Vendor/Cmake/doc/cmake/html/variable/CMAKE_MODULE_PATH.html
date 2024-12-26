@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_MODULE_PATH &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_MODULE_PATH &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" accesskey="U">cmake-variables(7)</a> &#187;</li>
@@ -58,12 +57,23 @@
           <div class="body" role="main">
             
   <section id="cmake-module-path">
-<span id="variable:CMAKE_MODULE_PATH"></span><h1>CMAKE_MODULE_PATH<a class="headerlink" href="#cmake-module-path" title="Permalink to this heading">¶</a></h1>
+<span id="variable:CMAKE_MODULE_PATH"></span><h1>CMAKE_MODULE_PATH<a class="headerlink" href="#cmake-module-path" title="Link to this heading">¶</a></h1>
 <p><a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-lists"><span class="std std-ref">Semicolon-separated list</span></a> of directories,
 represented using forward slashes, specifying a search path for CMake modules
 to be loaded by the <span class="target" id="index-0-command:include"></span><a class="reference internal" href="../command/include.html#command:include" title="include"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">include()</span></code></a> or <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> commands
 before checking the default modules that come with CMake. By default it is
-empty.  It is intended to be set by the project.</p>
+empty. It is intended to be set by the project.</p>
+<p>It's fairly common for a project to have a directory containing various
+<code class="docutils literal notranslate"><span class="pre">*.cmake</span></code> files to assist in development. Adding the directory to the
+<span class="target" id="index-0-variable:CMAKE_MODULE_PATH"></span><a class="reference internal" href="#variable:CMAKE_MODULE_PATH" title="CMAKE_MODULE_PATH"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_MODULE_PATH</span></code></a> simplifies loading them. For example, a
+project's top-level <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file may contain:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">list(</span><span class="no">APPEND</span><span class="w"> </span><span class="no">CMAKE_MODULE_PATH</span><span class="w"> </span><span class="s">&quot;${CMAKE_CURRENT_SOURCE_DIR}/cmake&quot;</span><span class="nf">)</span>
+
+<span class="nf">include(</span><span class="nb">Foo</span><span class="nf">)</span><span class="w"> </span><span class="c"># Loads ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Foo.cmake</span>
+
+<span class="nf">find_package(</span><span class="nb">Bar</span><span class="nf">)</span><span class="w"> </span><span class="c"># Loads ${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindBar.cmake</span>
+</pre></div>
+</div>
 </section>
 
 
@@ -90,7 +100,7 @@ empty.  It is intended to be set by the project.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -98,7 +108,7 @@ empty.  It is intended to be set by the project.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -124,7 +134,7 @@ empty.  It is intended to be set by the project.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" >cmake-variables(7)</a> &#187;</li>
@@ -133,8 +143,8 @@ empty.  It is intended to be set by the project.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

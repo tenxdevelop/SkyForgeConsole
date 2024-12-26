@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindPkgConfig &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindPkgConfig &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="findpkgconfig">
-<span id="module:FindPkgConfig"></span><h1>FindPkgConfig<a class="headerlink" href="#findpkgconfig" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindPkgConfig"></span><h1>FindPkgConfig<a class="headerlink" href="#findpkgconfig" title="Link to this heading">¶</a></h1>
 <p>A <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> module for CMake.</p>
 <p>Finds the <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> executable and adds the <span class="target" id="index-0-command:pkg_get_variable"></span><a class="reference internal" href="#command:pkg_get_variable" title="pkg_get_variable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_get_variable()</span></code></a>,
 <span class="target" id="index-0-command:pkg_check_modules"></span><a class="reference internal" href="#command:pkg_check_modules" title="pkg_check_modules"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_check_modules()</span></code></a> and <span class="target" id="index-0-command:pkg_search_module"></span><a class="reference internal" href="#command:pkg_search_module" title="pkg_search_module"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_search_module()</span></code></a> commands. The
@@ -67,14 +66,14 @@ following variables will also be set:</p>
 <dt><code class="docutils literal notranslate"><span class="pre">PKG_CONFIG_FOUND</span></code></dt><dd><p>True if a pkg-config executable was found.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PKG_CONFIG_VERSION_STRING</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 2.8.8.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.8.</span></p>
 </div>
 <p>The version of pkg-config that was found.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PKG_CONFIG_EXECUTABLE</span></code></dt><dd><p>The pathname of the pkg-config program.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PKG_CONFIG_ARGN</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>A list of arguments to pass to pkg-config.</p>
 </dd>
@@ -84,7 +83,7 @@ module, but may be overridden by the user.  See <a class="reference internal" hr
 for how these variables are initialized.</p>
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:pkg_check_modules">
-<span class="sig-name descname"><span class="pre">pkg_check_modules</span></span><a class="headerlink" href="#command:pkg_check_modules" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pkg_check_modules</span></span><a class="headerlink" href="#command:pkg_check_modules" title="Link to this definition">¶</a></dt>
 <dd><p>Checks for all the given modules, setting a variety of result variables in
 the calling scope.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">pkg_check_modules(</span><span class="nv">&lt;prefix&gt;</span>
@@ -99,7 +98,7 @@ the calling scope.</p>
 if module(s) could not be found.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">QUIET</span></code> argument is given, no status messages will be printed.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1: </span>The <span class="target" id="index-0-variable:CMAKE_PREFIX_PATH"></span><a class="reference internal" href="../variable/CMAKE_PREFIX_PATH.html#variable:CMAKE_PREFIX_PATH" title="CMAKE_PREFIX_PATH"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code></a>,
+<p><span class="versionmodified added">Added in version 3.1: </span>The <span class="target" id="index-0-variable:CMAKE_PREFIX_PATH"></span><a class="reference internal" href="../variable/CMAKE_PREFIX_PATH.html#variable:CMAKE_PREFIX_PATH" title="CMAKE_PREFIX_PATH"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code></a>,
 <span class="target" id="index-0-variable:CMAKE_FRAMEWORK_PATH"></span><a class="reference internal" href="../variable/CMAKE_FRAMEWORK_PATH.html#variable:CMAKE_FRAMEWORK_PATH" title="CMAKE_FRAMEWORK_PATH"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_FRAMEWORK_PATH</span></code></a>, and <span class="target" id="index-0-variable:CMAKE_APPBUNDLE_PATH"></span><a class="reference internal" href="../variable/CMAKE_APPBUNDLE_PATH.html#variable:CMAKE_APPBUNDLE_PATH" title="CMAKE_APPBUNDLE_PATH"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_APPBUNDLE_PATH</span></code></a> cache
 and environment variables will be added to the <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> search path.
 The <code class="docutils literal notranslate"><span class="pre">NO_CMAKE_PATH</span></code> and <code class="docutils literal notranslate"><span class="pre">NO_CMAKE_ENVIRONMENT_PATH</span></code> arguments
@@ -109,16 +108,16 @@ The <span class="target" id="index-0-variable:PKG_CONFIG_USE_CMAKE_PREFIX_PATH">
 disables this behavior globally.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>The <code class="docutils literal notranslate"><span class="pre">IMPORTED_TARGET</span></code> argument will create an imported target named
+<p><span class="versionmodified added">Added in version 3.6: </span>The <code class="docutils literal notranslate"><span class="pre">IMPORTED_TARGET</span></code> argument will create an imported target named
 <code class="docutils literal notranslate"><span class="pre">PkgConfig::&lt;prefix&gt;</span></code> that can be passed directly as an argument to
 <span class="target" id="index-0-command:target_link_libraries"></span><a class="reference internal" href="../command/target_link_libraries.html#command:target_link_libraries" title="target_link_libraries"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_libraries()</span></code></a>.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span>The <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> argument will make the
+<p><span class="versionmodified added">Added in version 3.13: </span>The <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> argument will make the
 imported target available in global scope.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>Non-library linker options reported by <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> are stored in the
+<p><span class="versionmodified added">Added in version 3.15: </span>Non-library linker options reported by <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code> are stored in the
 <span class="target" id="index-0-prop_tgt:INTERFACE_LINK_OPTIONS"></span><a class="reference internal" href="../prop_tgt/INTERFACE_LINK_OPTIONS.html#prop_tgt:INTERFACE_LINK_OPTIONS" title="INTERFACE_LINK_OPTIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">INTERFACE_LINK_OPTIONS</span></code></a> target property.</p>
 </div>
 <div class="versionchanged">
@@ -223,7 +222,7 @@ XRENDER_STATIC_LIBRARIES=Xrender;X11;pthread;Xau;Xdmcp
 
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:pkg_search_module">
-<span class="sig-name descname"><span class="pre">pkg_search_module</span></span><a class="headerlink" href="#command:pkg_search_module" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pkg_search_module</span></span><a class="headerlink" href="#command:pkg_search_module" title="Link to this definition">¶</a></dt>
 <dd><p>The behavior of this command is the same as <span class="target" id="index-1-command:pkg_check_modules"></span><a class="reference internal" href="#command:pkg_check_modules" title="pkg_check_modules"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_check_modules()</span></code></a>,
 except that rather than checking for all the specified modules, it searches
 for just the first successful match.</p>
@@ -236,7 +235,7 @@ for just the first successful match.</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16: </span>If a module is found, the <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_MODULE_NAME</span></code> variable will contain the
+<p><span class="versionmodified added">Added in version 3.16: </span>If a module is found, the <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_MODULE_NAME</span></code> variable will contain the
 name of the matching module. This variable can be used if you need to run
 <span class="target" id="index-1-command:pkg_get_variable"></span><a class="reference internal" href="#command:pkg_get_variable" title="pkg_get_variable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_get_variable()</span></code></a>.</p>
 </div>
@@ -248,9 +247,9 @@ name of the matching module. This variable can be used if you need to run
 
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:pkg_get_variable">
-<span class="sig-name descname"><span class="pre">pkg_get_variable</span></span><a class="headerlink" href="#command:pkg_get_variable" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pkg_get_variable</span></span><a class="headerlink" href="#command:pkg_get_variable" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
 <p>Retrieves the value of a pkg-config variable <code class="docutils literal notranslate"><span class="pre">varName</span></code> and stores it in the
 result variable <code class="docutils literal notranslate"><span class="pre">resultVar</span></code> in the calling scope.</p>
@@ -263,7 +262,7 @@ result variable <code class="docutils literal notranslate"><span class="pre">res
 <p>Options:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">DEFINE_VARIABLES</span> <span class="pre">&lt;key&gt;=&lt;value&gt;...</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Specify key-value pairs to redefine variables affecting the variable
 retrieved with <code class="docutils literal notranslate"><span class="pre">pkg-config</span></code>.</p>
@@ -276,15 +275,15 @@ retrieved with <code class="docutils literal notranslate"><span class="pre">pkg-
 </dd></dl>
 
 <section id="variables-affecting-behavior">
-<h2>Variables Affecting Behavior<a class="headerlink" href="#variables-affecting-behavior" title="Permalink to this heading">¶</a></h2>
+<h2>Variables Affecting Behavior<a class="headerlink" href="#variables-affecting-behavior" title="Link to this heading">¶</a></h2>
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:PKG_CONFIG_EXECUTABLE">
-<span class="sig-name descname"><span class="pre">PKG_CONFIG_EXECUTABLE</span></span><a class="headerlink" href="#variable:PKG_CONFIG_EXECUTABLE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PKG_CONFIG_EXECUTABLE</span></span><a class="headerlink" href="#variable:PKG_CONFIG_EXECUTABLE" title="Link to this definition">¶</a></dt>
 <dd><p>This cache variable can be set to the path of the pkg-config executable.
 <span class="target" id="index-0-command:find_program"></span><a class="reference internal" href="../command/find_program.html#command:find_program" title="find_program"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_program()</span></code></a> is called internally by the module with this
 variable.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1: </span>The <code class="docutils literal notranslate"><span class="pre">PKG_CONFIG</span></code> environment variable can be used as a hint if
+<p><span class="versionmodified added">Added in version 3.1: </span>The <code class="docutils literal notranslate"><span class="pre">PKG_CONFIG</span></code> environment variable can be used as a hint if
 <code class="docutils literal notranslate"><span class="pre">PKG_CONFIG_EXECUTABLE</span></code> has not yet been set.</p>
 </div>
 <div class="versionchanged">
@@ -295,9 +294,9 @@ argument is taken from it when using it as a hint.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:PKG_CONFIG_ARGN">
-<span class="sig-name descname"><span class="pre">PKG_CONFIG_ARGN</span></span><a class="headerlink" href="#variable:PKG_CONFIG_ARGN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PKG_CONFIG_ARGN</span></span><a class="headerlink" href="#variable:PKG_CONFIG_ARGN" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>This cache variable can be set to a list of arguments to additionally pass
 to pkg-config if needed. If not provided, it will be initialized from the
@@ -311,9 +310,9 @@ it has been set in the cache.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:PKG_CONFIG_USE_CMAKE_PREFIX_PATH">
-<span class="sig-name descname"><span class="pre">PKG_CONFIG_USE_CMAKE_PREFIX_PATH</span></span><a class="headerlink" href="#variable:PKG_CONFIG_USE_CMAKE_PREFIX_PATH" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PKG_CONFIG_USE_CMAKE_PREFIX_PATH</span></span><a class="headerlink" href="#variable:PKG_CONFIG_USE_CMAKE_PREFIX_PATH" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Specifies whether <span class="target" id="index-2-command:pkg_check_modules"></span><a class="reference internal" href="#command:pkg_check_modules" title="pkg_check_modules"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_check_modules()</span></code></a> and
 <span class="target" id="index-1-command:pkg_search_module"></span><a class="reference internal" href="#command:pkg_search_module" title="pkg_search_module"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">pkg_search_module()</span></code></a> should add the paths in the
@@ -362,7 +361,7 @@ otherwise.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -370,7 +369,7 @@ otherwise.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -396,7 +395,7 @@ otherwise.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -405,8 +404,8 @@ otherwise.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

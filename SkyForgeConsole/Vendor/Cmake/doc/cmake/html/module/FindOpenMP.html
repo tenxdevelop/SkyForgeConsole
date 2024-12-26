@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindOpenMP &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindOpenMP &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="findopenmp">
-<span id="module:FindOpenMP"></span><h1>FindOpenMP<a class="headerlink" href="#findopenmp" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindOpenMP"></span><h1>FindOpenMP<a class="headerlink" href="#findopenmp" title="Link to this heading">¶</a></h1>
 <p>Finds Open Multi-Processing (OpenMP) support.</p>
 <p>This module can be used to detect OpenMP support in a compiler.  If
 the compiler supports OpenMP, the flags required to compile with
@@ -66,13 +65,30 @@ OpenMP support are returned in variables for the different languages.
 The variables may be empty if the compiler does not need a special
 flag to support OpenMP.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>Clang support.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Clang support.</p>
 </div>
-<section id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h2>
+<section id="input-variables">
+<h2>Input Variables<a class="headerlink" href="#input-variables" title="Link to this heading">¶</a></h2>
+<p>The following variables may be set to influence this module's behavior:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">OpenMP_RUNTIME_MSVC</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.30.</span></p>
+</div>
+<p>Specify the <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/build/reference/openmp-enable-openmp-2-0-support">OpenMP Runtime</a> when compiling with MSVC.
+If set to a non-empty value, such as <code class="docutils literal notranslate"><span class="pre">experimental</span></code> or <code class="docutils literal notranslate"><span class="pre">llvm</span></code>, it
+will be passed as the value of the <code class="docutils literal notranslate"><span class="pre">-openmp:</span></code> flag.</p>
+</dd>
+</dl>
+</section>
+<section id="result-variables">
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>The module exposes the components <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">CXX</span></code>, and <code class="docutils literal notranslate"><span class="pre">Fortran</span></code>.
+<p><span class="versionmodified added">Added in version 3.10: </span>The module exposes the components <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">CXX</span></code>, and <code class="docutils literal notranslate"><span class="pre">Fortran</span></code>.
 Each of these controls the various languages to search OpenMP support for.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.31: </span>The <code class="docutils literal notranslate"><span class="pre">CUDA</span></code> language component is supported when using a CUDA compiler
+that supports OpenMP on the host.</p>
 </div>
 <p>Depending on the enabled components the following variables will be set:</p>
 <dl class="simple">
@@ -85,7 +101,7 @@ or all enabled languages if no components were specified.</p>
 </dd>
 </dl>
 <p>This module will set the following variables per language in your
-project, where <code class="docutils literal notranslate"><span class="pre">&lt;lang&gt;</span></code> is one of C, CXX, or Fortran:</p>
+project, where <code class="docutils literal notranslate"><span class="pre">&lt;lang&gt;</span></code> is one of C, CXX, CUDA, or Fortran:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">OpenMP_&lt;lang&gt;_FOUND</span></code></dt><dd><p>Variable indicating if OpenMP support for <code class="docutils literal notranslate"><span class="pre">&lt;lang&gt;</span></code> was detected.</p>
 </dd>
@@ -120,7 +136,7 @@ variables are provided:</p>
 <p>The module will also try to provide the OpenMP version variables:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">OpenMP_&lt;lang&gt;_SPEC_DATE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Date of the OpenMP specification implemented by the <code class="docutils literal notranslate"><span class="pre">&lt;lang&gt;</span></code> compiler.</p>
 </dd>
@@ -155,7 +171,8 @@ to know what include directories are needed.</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">FindOpenMP</a><ul>
-<li><a class="reference internal" href="#variables">Variables</a></li>
+<li><a class="reference internal" href="#input-variables">Input Variables</a></li>
+<li><a class="reference internal" href="#result-variables">Result Variables</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +195,7 @@ to know what include directories are needed.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -186,7 +203,7 @@ to know what include directories are needed.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -212,7 +229,7 @@ to know what include directories are needed.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -221,8 +238,8 @@ to know what include directories are needed.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

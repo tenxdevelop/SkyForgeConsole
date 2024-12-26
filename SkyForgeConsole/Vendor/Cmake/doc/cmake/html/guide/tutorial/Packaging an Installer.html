@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Step 9: Packaging an Installer &mdash; CMake 3.28.1 Documentation</title>
+  <title>Step 9: Packaging an Installer &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Tutorial</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="step-9-packaging-an-installer">
-<span id="guide:tutorial/Packaging an Installer"></span><h1>Step 9: Packaging an Installer<a class="headerlink" href="#step-9-packaging-an-installer" title="Permalink to this heading">¶</a></h1>
+<span id="guide:tutorial/Packaging an Installer"></span><h1>Step 9: Packaging an Installer<a class="headerlink" href="#step-9-packaging-an-installer" title="Link to this heading">¶</a></h1>
 <p>Next suppose that we want to distribute our project to other people so that
 they can use it. We want to provide both binary and source distributions on a
 variety of platforms. This is a little different from the install we did
@@ -69,11 +68,12 @@ installations and package management features. To accomplish this we will use
 CPack to create platform specific installers. Specifically we need to add a
 few lines to the bottom of our top-level <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file.</p>
 <div class="literal-block-wrapper docutils container" id="cmakelists-txt-include-cpack">
-<div class="code-block-caption"><span class="caption-text">CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-include-cpack" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-include-cpack" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">include(</span><span class="nb">InstallRequiredSystemLibraries</span><span class="nf">)</span>
 <span class="nf">set(</span><span class="no">CPACK_RESOURCE_FILE_LICENSE</span><span class="w"> </span><span class="s">&quot;${CMAKE_CURRENT_SOURCE_DIR}/License.txt&quot;</span><span class="nf">)</span>
 <span class="nf">set(</span><span class="no">CPACK_PACKAGE_VERSION_MAJOR</span><span class="w"> </span><span class="s">&quot;${Tutorial_VERSION_MAJOR}&quot;</span><span class="nf">)</span>
 <span class="nf">set(</span><span class="no">CPACK_PACKAGE_VERSION_MINOR</span><span class="w"> </span><span class="s">&quot;${Tutorial_VERSION_MINOR}&quot;</span><span class="nf">)</span>
+<span class="nf">set(</span><span class="no">CPACK_GENERATOR</span><span class="w"> </span><span class="s">&quot;TGZ&quot;</span><span class="nf">)</span>
 <span class="nf">set(</span><span class="no">CPACK_SOURCE_GENERATOR</span><span class="w"> </span><span class="s">&quot;TGZ&quot;</span><span class="nf">)</span>
 <span class="nf">include(</span><span class="nb">CPack</span><span class="nf">)</span>
 </pre></div>
@@ -85,8 +85,9 @@ libraries that are needed by the project for the current platform. Next we set
 some CPack variables to where we have stored the license and version
 information for this project. The version information was set earlier in this
 tutorial and the <code class="docutils literal notranslate"><span class="pre">License.txt</span></code> has been included in the top-level source
-directory for this step.  The <span class="target" id="index-0-variable:CPACK_SOURCE_GENERATOR"></span><a class="reference internal" href="../../module/CPack.html#variable:CPACK_SOURCE_GENERATOR" title="CPACK_SOURCE_GENERATOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_SOURCE_GENERATOR</span></code></a> variable
-selects a file format for the source package.</p>
+directory for this step.  The <span class="target" id="index-0-variable:CPACK_GENERATOR"></span><a class="reference internal" href="../../module/CPack.html#variable:CPACK_GENERATOR" title="CPACK_GENERATOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_GENERATOR</span></code></a> and
+<span class="target" id="index-0-variable:CPACK_SOURCE_GENERATOR"></span><a class="reference internal" href="../../module/CPack.html#variable:CPACK_SOURCE_GENERATOR" title="CPACK_SOURCE_GENERATOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_SOURCE_GENERATOR</span></code></a> variables select the generators used for
+binary and source installations, respectively.</p>
 <p>Finally we include the <span class="target" id="index-0-module:CPack"></span><a class="reference internal" href="../../module/CPack.html#module:CPack" title="CPack"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CPack</span> <span class="pre">module</span></code></a> which will use these
 variables and some other properties of the current system to setup an
 installer.</p>
@@ -96,8 +97,9 @@ binary directory run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cpack</span>
 </pre></div>
 </div>
-<p>To specify the generator, use the <a class="reference internal" href="../../manual/cpack.1.html#cmdoption-cpack-G"><code class="xref std std-option docutils literal notranslate"><span class="pre">-G</span></code></a> option. For multi-config builds,
-use <a class="reference internal" href="../../manual/cpack.1.html#cmdoption-cpack-C"><code class="xref std std-option docutils literal notranslate"><span class="pre">-C</span></code></a> to specify the configuration. For example:</p>
+<p>To specify the binary generator, use the <a class="reference internal" href="../../manual/cpack.1.html#cmdoption-cpack-G"><code class="xref std std-option docutils literal notranslate"><span class="pre">-G</span></code></a> option. For
+multi-config builds, use <a class="reference internal" href="../../manual/cpack.1.html#cmdoption-cpack-C"><code class="xref std std-option docutils literal notranslate"><span class="pre">-C</span></code></a> to specify the configuration.
+For example:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cpack -G ZIP -C Debug</span>
 </pre></div>
 </div>
@@ -138,7 +140,7 @@ executable and verify that it works.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -146,7 +148,7 @@ executable and verify that it works.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -172,7 +174,7 @@ executable and verify that it works.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Tutorial</a> &#187;</li>
@@ -181,8 +183,8 @@ executable and verify that it works.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

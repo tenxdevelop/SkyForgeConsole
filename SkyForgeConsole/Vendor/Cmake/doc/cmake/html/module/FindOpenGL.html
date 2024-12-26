@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindOpenGL &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindOpenGL &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,18 +57,18 @@
           <div class="body" role="main">
             
   <section id="findopengl">
-<span id="module:FindOpenGL"></span><h1>FindOpenGL<a class="headerlink" href="#findopengl" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindOpenGL"></span><h1>FindOpenGL<a class="headerlink" href="#findopengl" title="Link to this heading">¶</a></h1>
 <p>FindModule for OpenGL and OpenGL Utility Library (GLU).</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 3.2: </span>X11 is no longer added as a dependency on Unix/Linux systems.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>GLVND support on Linux.  See the <a class="reference internal" href="#linux-specific"><span class="std std-ref">Linux-specific</span></a> section below.</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>GLVND support on Linux.  See the <a class="reference internal" href="#linux-specific"><span class="std std-ref">Linux-specific</span></a> section below.</p>
 </div>
 <section id="optional-components">
-<h2>Optional COMPONENTS<a class="headerlink" href="#optional-components" title="Permalink to this heading">¶</a></h2>
+<h2>Optional COMPONENTS<a class="headerlink" href="#optional-components" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>This module respects several optional COMPONENTS:</p>
 <dl>
@@ -80,21 +79,21 @@
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL</span></code></dt><dd><p>The cross platform API for 3D graphics.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">GLES2</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>A subset of OpenGL API for embedded systems with limited capabilities.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">GLES3</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>A subset of OpenGL API for embedded systems with more capabilities.</p>
 </dd>
 </dl>
 </section>
 <section id="imported-targets">
-<h2>IMPORTED Targets<a class="headerlink" href="#imported-targets" title="Permalink to this heading">¶</a></h2>
+<h2>IMPORTED Targets<a class="headerlink" href="#imported-targets" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>This module defines the <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets:</p>
 <dl class="simple">
@@ -104,7 +103,7 @@
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>Additionally, the following GLVND-specific library targets are defined:</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>Additionally, the following GLVND-specific library targets are defined:</p>
 </div>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL::OpenGL</span></code></dt><dd><p>Defined to libOpenGL if the system is GLVND-based.</p>
@@ -114,21 +113,21 @@
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL::EGL</span></code></dt><dd><p>Defined if the system has EGL.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL::GLES2</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>Defined if the system has GLES2.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL::GLES3</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>Defined if the system has GLES3.</p>
 </dd>
 </dl>
 </section>
 <section id="result-variables">
-<h2>Result Variables<a class="headerlink" href="#result-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <p>This module sets the following variables:</p>
-<dl class="simple">
+<dl>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_FOUND</span></code></dt><dd><p>True, if the system has OpenGL and all components are found.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_XMESA_FOUND</span></code></dt><dd><p>True, if the system has XMESA.</p>
@@ -145,7 +144,8 @@
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OpenGL::GLES3</span></code></dt><dd><p>Defined if the system has GLES3.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">OPENGL_INCLUDE_DIR</span></code></dt><dd><p>Path to the OpenGL include directory.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">OPENGL_INCLUDE_DIR</span></code></dt><dd><p>Path to the OpenGL include directory.
+The <code class="docutils literal notranslate"><span class="pre">OPENGL_INCLUDE_DIRS</span></code> variable is preferred.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_EGL_INCLUDE_DIRS</span></code></dt><dd><p>Path to the EGL include directory.</p>
 </dd>
@@ -153,13 +153,18 @@
 On Linux, this assumes GLX and is never correct for EGL-based targets.
 Clients are encouraged to use the <code class="docutils literal notranslate"><span class="pre">OpenGL::*</span></code> import targets instead.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">OPENGL_INCLUDE_DIRS</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Paths to the OpenGL include directories.</p>
+</dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>Variables for GLVND-specific libraries <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code>, <code class="docutils literal notranslate"><span class="pre">EGL</span></code> and <code class="docutils literal notranslate"><span class="pre">GLX</span></code>.</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>Variables for GLVND-specific libraries <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code>, <code class="docutils literal notranslate"><span class="pre">EGL</span></code> and <code class="docutils literal notranslate"><span class="pre">GLX</span></code>.</p>
 </div>
 </section>
 <section id="cache-variables">
-<h2>Cache variables<a class="headerlink" href="#cache-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Cache variables<a class="headerlink" href="#cache-variables" title="Link to this heading">¶</a></h2>
 <p>The following cache variables may also be set:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_egl_LIBRARY</span></code></dt><dd><p>Path to the EGL library.</p>
@@ -174,22 +179,27 @@ Clients are encouraged to use the <code class="docutils literal notranslate"><sp
 targets.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_gles2_LIBRARY</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>Path to the OpenGL GLES2 library.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OPENGL_gles3_LIBRARY</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>Path to the OpenGL GLES3 library.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">OPENGL_GLU_INCLUDE_DIR</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Path to the OpenGL GLU include directory.</p>
+</dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>Variables for GLVND-specific libraries <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code>, <code class="docutils literal notranslate"><span class="pre">EGL</span></code> and <code class="docutils literal notranslate"><span class="pre">GLX</span></code>.</p>
+<p><span class="versionmodified added">Added in version 3.10: </span>Variables for GLVND-specific libraries <code class="docutils literal notranslate"><span class="pre">OpenGL</span></code>, <code class="docutils literal notranslate"><span class="pre">EGL</span></code> and <code class="docutils literal notranslate"><span class="pre">GLX</span></code>.</p>
 </div>
 </section>
 <section id="linux-specific">
-<span id="id1"></span><h2>Linux-specific<a class="headerlink" href="#linux-specific" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Linux-specific<a class="headerlink" href="#linux-specific" title="Link to this heading">¶</a></h2>
 <p>Some Linux systems utilize GLVND as a new ABI for OpenGL.  GLVND separates
 context libraries from OpenGL itself; OpenGL lives in &quot;libOpenGL&quot;, and
 contexts are defined in &quot;libGLX&quot; or &quot;libEGL&quot;.  GLVND is currently the only way
@@ -226,10 +236,22 @@ module does not currently support that; contributions welcome.</p>
 GLVND.  For non-GLVND Linux and other systems these are left undefined.</p>
 </section>
 <section id="macos-specific">
-<h2>macOS-Specific<a class="headerlink" href="#macos-specific" title="Permalink to this heading">¶</a></h2>
-<p>On OSX FindOpenGL defaults to using the framework version of OpenGL. People
-will have to change the cache values of OPENGL_glu_LIBRARY and
-OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.</p>
+<h2>macOS-Specific<a class="headerlink" href="#macos-specific" title="Link to this heading">¶</a></h2>
+<p>On macOS this module defaults to using the macOS-native framework
+version of OpenGL.  To use the X11 version of OpenGL on macOS, one
+can disable searching of frameworks.  For example:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">find_package(</span><span class="no">X11</span><span class="nf">)</span>
+<span class="nf">if(</span><span class="no">APPLE</span><span class="w"> </span><span class="no">AND</span><span class="w"> </span><span class="no">X11_FOUND</span><span class="nf">)</span>
+<span class="w">  </span><span class="nf">set(</span><span class="no">CMAKE_FIND_FRAMEWORK</span><span class="w"> </span><span class="no">NEVER</span><span class="nf">)</span>
+<span class="w">  </span><span class="nf">find_package(</span><span class="nb">OpenGL</span><span class="nf">)</span>
+<span class="w">  </span><span class="nf">unset(</span><span class="no">CMAKE_FIND_FRAMEWORK</span><span class="nf">)</span>
+<span class="nf">else()</span>
+<span class="w">  </span><span class="nf">find_package(</span><span class="nb">OpenGL</span><span class="nf">)</span>
+<span class="nf">endif()</span>
+</pre></div>
+</div>
+<p>An end user building this project may need to point CMake at their
+X11 installation, e.g., with <code class="docutils literal notranslate"><span class="pre">-DOpenGL_ROOT=/opt/X11</span></code>.</p>
 </section>
 </section>
 
@@ -272,7 +294,7 @@ OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -280,7 +302,7 @@ OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -306,7 +328,7 @@ OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -315,8 +337,8 @@ OPENGL_gl_LIBRARY to use OpenGL with X11 on OSX.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

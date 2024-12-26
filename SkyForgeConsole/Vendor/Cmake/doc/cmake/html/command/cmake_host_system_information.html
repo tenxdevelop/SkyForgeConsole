@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>cmake_host_system_information &mdash; CMake 3.28.1 Documentation</title>
+  <title>cmake_host_system_information &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,10 +57,10 @@
           <div class="body" role="main">
             
   <section id="cmake-host-system-information">
-<span id="command:cmake_host_system_information"></span><h1>cmake_host_system_information<a class="headerlink" href="#cmake-host-system-information" title="Permalink to this heading">¶</a></h1>
+<span id="command:cmake_host_system_information"></span><h1>cmake_host_system_information<a class="headerlink" href="#cmake-host-system-information" title="Link to this heading">¶</a></h1>
 <p>Query various host system information.</p>
 <section id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
 <pre class="literal-block"><a class="reference internal" href="#query-host-system-specific-information">Query host system specific information</a>
   cmake_host_system_information(RESULT &lt;variable&gt; QUERY &lt;key&gt; ...)
 
@@ -69,7 +68,7 @@
   cmake_host_system_information(RESULT &lt;variable&gt; QUERY WINDOWS_REGISTRY &lt;key&gt; ...)</pre>
 </section>
 <section id="query-host-system-specific-information">
-<h2>Query host system specific information<a class="headerlink" href="#query-host-system-specific-information" title="Permalink to this heading">¶</a></h2>
+<h2>Query host system specific information<a class="headerlink" href="#query-host-system-specific-information" title="Link to this heading">¶</a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmake_host_system_information(</span><span class="no">RESULT</span><span class="w"> </span><span class="nv">&lt;variable&gt;</span><span class="w"> </span><span class="no">QUERY</span><span class="w"> </span><span class="nv">&lt;key&gt;</span><span class="w"> </span><span class="p">...</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -95,117 +94,117 @@ queried.  The list of queried values is stored in <code class="docutils literal 
 <dt><code class="docutils literal notranslate"><span class="pre">AVAILABLE_PHYSICAL_MEMORY</span></code></dt><dd><p>Available physical memory in MiB <a class="footnote-reference brackets" href="#mebibytes" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">IS_64BIT</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor is 64Bit</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_FPU</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor has floating point unit</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_MMX</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports MMX instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_MMX_PLUS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports Ext. MMX instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_SSE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports SSE instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_SSE2</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports SSE2 instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_SSE_FP</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports SSE FP instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_SSE_MMX</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports SSE MMX instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_AMD_3DNOW</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports 3DNow instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_AMD_3DNOW_PLUS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor supports 3DNow+ instructions</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_IA64</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if IA64 processor emulating x86</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HAS_SERIAL_NUMBER</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>One if processor has serial number</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PROCESSOR_SERIAL_NUMBER</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Processor serial number</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PROCESSOR_NAME</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Human readable processor name</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">PROCESSOR_DESCRIPTION</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Human readable full processor description</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OS_NAME</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>See <span class="target" id="index-0-variable:CMAKE_HOST_SYSTEM_NAME"></span><a class="reference internal" href="../variable/CMAKE_HOST_SYSTEM_NAME.html#variable:CMAKE_HOST_SYSTEM_NAME" title="CMAKE_HOST_SYSTEM_NAME"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_HOST_SYSTEM_NAME</span></code></a></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OS_RELEASE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>The OS sub-type e.g. on Windows <code class="docutils literal notranslate"><span class="pre">Professional</span></code></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OS_VERSION</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>The OS build ID</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OS_PLATFORM</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>See <span class="target" id="index-0-variable:CMAKE_HOST_SYSTEM_PROCESSOR"></span><a class="reference internal" href="../variable/CMAKE_HOST_SYSTEM_PROCESSOR.html#variable:CMAKE_HOST_SYSTEM_PROCESSOR" title="CMAKE_HOST_SYSTEM_PROCESSOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_HOST_SYSTEM_PROCESSOR</span></code></a></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">MSYSTEM_PREFIX</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Available only on Windows hosts.  In a MSYS or MinGW development
 environment that sets the <code class="docutils literal notranslate"><span class="pre">MSYSTEM</span></code> environment variable, this
 is its installation prefix.  Otherwise, this is the empty string.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">DISTRIB_INFO</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>Read <code class="file docutils literal notranslate"><span class="pre">/etc/os-release</span></code> file and define the given <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code>
 into a list of read variables</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">DISTRIB_&lt;name&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
-<p>Get the <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> variable (see <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/os-release.html">man 5 os-release</a>) if it exists in the
+<p>Get the <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> variable (see <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/os-release.html">man 5 os-release</a>) if it exists in the
 <code class="file docutils literal notranslate"><span class="pre">/etc/os-release</span></code> file</p>
 <p>Example:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmake_host_system_information(</span><span class="no">RESULT</span><span class="w"> </span><span class="no">PRETTY_NAME</span><span class="w"> </span><span class="no">QUERY</span><span class="w"> </span><span class="no">DISTRIB_PRETTY_NAME</span><span class="nf">)</span>
@@ -239,12 +238,12 @@ into a list of read variables</p>
 <p>If <code class="file docutils literal notranslate"><span class="pre">/etc/os-release</span></code> file is not found, the command tries to gather OS
 identification via fallback scripts.  The fallback script can use <a class="reference external" href="http://linuxmafia.com/faq/Admin/release-files.html">various
 distribution-specific files</a> to collect OS identification data and map it
-into <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/os-release.html">man 5 os-release</a> variables.</p>
+into <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/latest/os-release.html">man 5 os-release</a> variables.</p>
 <section id="fallback-interface-variables">
-<h3>Fallback Interface Variables<a class="headerlink" href="#fallback-interface-variables" title="Permalink to this heading">¶</a></h3>
+<h3>Fallback Interface Variables<a class="headerlink" href="#fallback-interface-variables" title="Link to this heading">¶</a></h3>
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CMAKE_GET_OS_RELEASE_FALLBACK_SCRIPTS">
-<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_SCRIPTS</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_SCRIPTS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_SCRIPTS</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_SCRIPTS" title="Link to this definition">¶</a></dt>
 <dd><p>In addition to the scripts shipped with CMake, a user may append full
 paths to his script(s) to the this list.  The script filename has the
 following format: <code class="docutils literal notranslate"><span class="pre">NNN-&lt;name&gt;.cmake</span></code>, where <code class="docutils literal notranslate"><span class="pre">NNN</span></code> is three digits
@@ -253,7 +252,7 @@ used to apply collected scripts in a specific order.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_&lt;varname&gt;">
-<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_&lt;varname&gt;</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_<varname>" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_&lt;varname&gt;</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_<varname>" title="Link to this definition">¶</a></dt>
 <dd><p>Variables collected by the user provided fallback script
 ought to be assigned to CMake variables using this naming
 convention.  Example, the <code class="docutils literal notranslate"><span class="pre">ID</span></code> variable from the manual becomes
@@ -262,7 +261,7 @@ convention.  Example, the <code class="docutils literal notranslate"><span class
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT">
-<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_RESULT</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_RESULT</span></span><a class="headerlink" href="#variable:CMAKE_GET_OS_RELEASE_FALLBACK_RESULT" title="Link to this definition">¶</a></dt>
 <dd><p>The fallback script ought to store names of all assigned
 <code class="docutils literal notranslate"><span class="pre">CMAKE_GET_OS_RELEASE_FALLBACK_RESULT_&lt;varname&gt;</span></code> variables in this list.</p>
 </dd></dl>
@@ -305,7 +304,7 @@ convention.  Example, the <code class="docutils literal notranslate"><span class
 </div>
 <p class="rubric">Footnotes</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="mebibytes" role="note">
+<aside class="footnote brackets" id="mebibytes" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>,<a role="doc-backlink" href="#id3">3</a>,<a role="doc-backlink" href="#id4">4</a>)</span>
 <p>One MiB (mebibyte) is equal to 1024x1024 bytes.</p>
@@ -314,9 +313,9 @@ convention.  Example, the <code class="docutils literal notranslate"><span class
 </section>
 </section>
 <section id="query-windows-registry">
-<span id="id5"></span><h2>Query Windows registry<a class="headerlink" href="#query-windows-registry" title="Permalink to this heading">¶</a></h2>
+<span id="id5"></span><h2>Query Windows registry<a class="headerlink" href="#query-windows-registry" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cmake_host_system_information(RESULT &lt;variable&gt;
                               QUERY WINDOWS_REGISTRY &lt;key&gt; [VALUE_NAMES|SUBKEYS|VALUE &lt;name&gt;]
@@ -473,7 +472,7 @@ variable holds an empty string.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -481,7 +480,7 @@ variable holds an empty string.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -507,7 +506,7 @@ variable holds an empty string.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -516,8 +515,8 @@ variable holds an empty string.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

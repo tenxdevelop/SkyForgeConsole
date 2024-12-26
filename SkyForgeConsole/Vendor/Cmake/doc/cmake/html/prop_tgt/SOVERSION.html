@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>SOVERSION &mdash; CMake 3.28.1 Documentation</title>
+  <title>SOVERSION &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" accesskey="U">cmake-properties(7)</a> &#187;</li>
@@ -58,22 +57,29 @@
           <div class="body" role="main">
             
   <section id="soversion">
-<span id="prop_tgt:SOVERSION"></span><h1>SOVERSION<a class="headerlink" href="#soversion" title="Permalink to this heading">¶</a></h1>
-<p>What version number is this target.</p>
+<span id="prop_tgt:SOVERSION"></span><h1>SOVERSION<a class="headerlink" href="#soversion" title="Link to this heading">¶</a></h1>
+<p>ABI version number of a shared library target.</p>
 <p>For shared libraries <span class="target" id="index-0-prop_tgt:VERSION"></span><a class="reference internal" href="VERSION.html#prop_tgt:VERSION" title="VERSION"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">VERSION</span></code></a> and <code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code> can be used to
-specify the build version and API version respectively.  When building or
+specify the build version and ABI version respectively.  When building or
 installing appropriate symlinks are created if the platform supports
 symlinks and the linker supports so-names.  If only one of both is
 specified the missing is assumed to have the same version number.
 <code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code> is ignored if <span class="target" id="index-0-prop_tgt:NO_SONAME"></span><a class="reference internal" href="NO_SONAME.html#prop_tgt:NO_SONAME" title="NO_SONAME"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">NO_SONAME</span></code></a> property is set.</p>
+<p>A common convention is to specify both <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> and <code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code>
+such that <code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code> matches the first component of <code class="docutils literal notranslate"><span class="pre">VERSION</span></code>:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">set_target_properties(</span><span class="nb">mylib</span><span class="w"> </span><span class="no">PROPERTIES</span><span class="w"> </span><span class="no">VERSION</span><span class="w"> </span><span class="m">1.2.3</span><span class="w"> </span><span class="no">SOVERSION</span><span class="w"> </span><span class="m">1</span><span class="nf">)</span>
+</pre></div>
+</div>
+<p>The idea is that breaking changes to the ABI increment both the
+<code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code> and the major <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> number.</p>
 <section id="windows-versions">
-<h2>Windows Versions<a class="headerlink" href="#windows-versions" title="Permalink to this heading">¶</a></h2>
+<h2>Windows Versions<a class="headerlink" href="#windows-versions" title="Link to this heading">¶</a></h2>
 <p>For shared libraries and executables on Windows the <span class="target" id="index-1-prop_tgt:VERSION"></span><a class="reference internal" href="VERSION.html#prop_tgt:VERSION" title="VERSION"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">VERSION</span></code></a>
 attribute is parsed to extract a <code class="docutils literal notranslate"><span class="pre">&lt;major&gt;.&lt;minor&gt;</span></code> version number.
 These numbers are used as the image version of the binary.</p>
 </section>
 <section id="mach-o-versions">
-<h2>Mach-O Versions<a class="headerlink" href="#mach-o-versions" title="Permalink to this heading">¶</a></h2>
+<h2>Mach-O Versions<a class="headerlink" href="#mach-o-versions" title="Link to this heading">¶</a></h2>
 <p>For shared libraries and executables on Mach-O systems (e.g. macOS, iOS),
 the <code class="docutils literal notranslate"><span class="pre">SOVERSION</span></code> property corresponds to the <em>compatibility version</em> and
 <span class="target" id="index-2-prop_tgt:VERSION"></span><a class="reference internal" href="VERSION.html#prop_tgt:VERSION" title="VERSION"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">VERSION</span></code></a> corresponds to the <em>current version</em> (unless Mach-O
@@ -125,7 +131,7 @@ command.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -133,7 +139,7 @@ command.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -159,7 +165,7 @@ command.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" >cmake-properties(7)</a> &#187;</li>
@@ -168,8 +174,8 @@ command.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

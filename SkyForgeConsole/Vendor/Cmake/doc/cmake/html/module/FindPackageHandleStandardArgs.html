@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindPackageHandleStandardArgs &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindPackageHandleStandardArgs &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,12 +57,12 @@
           <div class="body" role="main">
             
   <section id="findpackagehandlestandardargs">
-<span id="module:FindPackageHandleStandardArgs"></span><h1>FindPackageHandleStandardArgs<a class="headerlink" href="#findpackagehandlestandardargs" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindPackageHandleStandardArgs"></span><h1>FindPackageHandleStandardArgs<a class="headerlink" href="#findpackagehandlestandardargs" title="Link to this heading">¶</a></h1>
 <p>This module provides functions intended to be used in <a class="reference internal" href="../manual/cmake-developer.7.html#find-modules"><span class="std std-ref">Find Modules</span></a>
 implementing <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package(&lt;packagename&gt;)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package(&lt;PackageName&gt;)</span></code></a> calls.</p>
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:find_package_handle_standard_args">
-<span class="sig-name descname"><span class="pre">find_package_handle_standard_args</span></span><a class="headerlink" href="#command:find_package_handle_standard_args" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_package_handle_standard_args</span></span><a class="headerlink" href="#command:find_package_handle_standard_args" title="Link to this definition">¶</a></dt>
 <dd><p>This command handles the <code class="docutils literal notranslate"><span class="pre">REQUIRED</span></code>, <code class="docutils literal notranslate"><span class="pre">QUIET</span></code> and version-related
 arguments of <span class="target" id="index-1-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a>.  It also sets the
 <code class="docutils literal notranslate"><span class="pre">&lt;PackageName&gt;_FOUND</span></code> variable.  The package is considered found if all
@@ -125,7 +124,7 @@ version and the version which has been actually found, both
 if the version is ok or not.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">HANDLE_VERSION_RANGE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>Enable handling of a version range, if one is specified. Without this
 option, a developer warning will be displayed if a version range is
@@ -145,7 +144,7 @@ will automatically check whether the package configuration file
 was found.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">REASON_FAILURE_MESSAGE</span> <span class="pre">&lt;reason-failure-message&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16.</span></p>
+<p><span class="versionmodified added">Added in version 3.16.</span></p>
 </div>
 <p>Specify a custom message of the reason for the failure which will be
 appended to the default generated message.</p>
@@ -154,7 +153,7 @@ appended to the default generated message.</p>
 generated message.  Not recommended.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">NAME_MISMATCHED</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.17.</span></p>
+<p><span class="versionmodified added">Added in version 3.17.</span></p>
 </div>
 <p>Indicate that the <code class="docutils literal notranslate"><span class="pre">&lt;PackageName&gt;</span></code> does not match
 <code class="docutils literal notranslate"><span class="pre">${CMAKE_FIND_PACKAGE_NAME}</span></code>. This is usually a mistake and raises a
@@ -211,9 +210,9 @@ directory for <code class="docutils literal notranslate"><span class="pre">autom
 message.</p>
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:find_package_check_version">
-<span class="sig-name descname"><span class="pre">find_package_check_version</span></span><a class="headerlink" href="#command:find_package_check_version" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_package_check_version</span></span><a class="headerlink" href="#command:find_package_check_version" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>Helper function which can be used to check if a <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> is valid
 against version-related arguments of <span class="target" id="index-5-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a>.</p>
@@ -271,7 +270,7 @@ specified.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -279,7 +278,7 @@ specified.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -305,7 +304,7 @@ specified.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -314,8 +313,8 @@ specified.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

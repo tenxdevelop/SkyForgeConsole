@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_INSTALL_PREFIX &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_INSTALL_PREFIX &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" accesskey="U">cmake-variables(7)</a> &#187;</li>
@@ -58,12 +57,21 @@
           <div class="body" role="main">
             
   <section id="cmake-install-prefix">
-<span id="variable:CMAKE_INSTALL_PREFIX"></span><h1>CMAKE_INSTALL_PREFIX<a class="headerlink" href="#cmake-install-prefix" title="Permalink to this heading">¶</a></h1>
+<span id="variable:CMAKE_INSTALL_PREFIX"></span><h1>CMAKE_INSTALL_PREFIX<a class="headerlink" href="#cmake-install-prefix" title="Link to this heading">¶</a></h1>
 <p>Install directory used by <span class="target" id="index-0-command:install"></span><a class="reference internal" href="../command/install.html#command:install" title="install"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">install()</span></code></a>.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">install</span></code> is invoked or <code class="docutils literal notranslate"><span class="pre">INSTALL</span></code> is built, this directory is
-prepended onto all install directories.  This variable defaults to
-<code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> on UNIX and <code class="docutils literal notranslate"><span class="pre">c:/Program</span> <span class="pre">Files/${PROJECT_NAME}</span></code> on Windows.
-See <span class="target" id="index-0-variable:CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT"></span><a class="reference internal" href="CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT.html#variable:CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT" title="CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT</span></code></a> for how a
+prepended onto all install directories.</p>
+<p>This variable defaults as follows:</p>
+<ul>
+<li><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29: </span>If the <span class="target" id="index-0-envvar:CMAKE_INSTALL_PREFIX"></span><a class="reference internal" href="../envvar/CMAKE_INSTALL_PREFIX.html#envvar:CMAKE_INSTALL_PREFIX" title="CMAKE_INSTALL_PREFIX"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code></a> environment variable is set,
+its value is used as default for this variable.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c:/Program</span> <span class="pre">Files/${PROJECT_NAME}</span></code> on Windows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/usr/local</span></code> on UNIX platforms.</p></li>
+</ul>
+<p>See <span class="target" id="index-0-variable:CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT"></span><a class="reference internal" href="CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT.html#variable:CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT" title="CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT</span></code></a> for how a
 project might choose its own default.</p>
 <p>On UNIX one can use the <code class="docutils literal notranslate"><span class="pre">DESTDIR</span></code> mechanism in order to relocate the
 whole installation to a staging area.  See the <span class="target" id="index-0-envvar:DESTDIR"></span><a class="reference internal" href="../envvar/DESTDIR.html#envvar:DESTDIR" title="DESTDIR"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">DESTDIR</span></code></a> environment
@@ -113,7 +121,7 @@ option:</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -121,7 +129,7 @@ option:</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -147,7 +155,7 @@ option:</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" >cmake-variables(7)</a> &#187;</li>
@@ -156,8 +164,8 @@ option:</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

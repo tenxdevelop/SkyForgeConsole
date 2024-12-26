@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>define_property &mdash; CMake 3.28.1 Documentation</title>
+  <title>define_property &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="define-property">
-<span id="command:define_property"></span><h1>define_property<a class="headerlink" href="#define-property" title="Permalink to this heading">¶</a></h1>
+<span id="command:define_property"></span><h1>define_property<a class="headerlink" href="#define-property" title="Link to this heading">¶</a></h1>
 <p>Define and document custom properties.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">define_property(</span><span class="o">&lt;</span><span class="no">GLOBAL</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">DIRECTORY</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">TARGET</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">SOURCE</span><span class="w"> </span><span class="p">|</span>
 <span class="w">                 </span><span class="no">TEST</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">VARIABLE</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="no">CACHED_VARIABLE</span><span class="o">&gt;</span>
@@ -114,17 +113,50 @@ project via corresponding options to the <span class="target" id="index-4-comman
 <p><span class="versionmodified changed">Changed in version 3.23: </span>The <code class="docutils literal notranslate"><span class="pre">BRIEF_DOCS</span></code> and <code class="docutils literal notranslate"><span class="pre">FULL_DOCS</span></code> options are optional.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23: </span>The <code class="docutils literal notranslate"><span class="pre">INITIALIZE_FROM_VARIABLE</span></code> option specifies a variable from which the
+<p><span class="versionmodified added">Added in version 3.23: </span>The <code class="docutils literal notranslate"><span class="pre">INITIALIZE_FROM_VARIABLE</span></code> option specifies a variable from which the
 property should be initialized. It can only be used with target properties.
 The <code class="docutils literal notranslate"><span class="pre">&lt;variable&gt;</span></code> name must end with the property name and must not begin
 with <code class="docutils literal notranslate"><span class="pre">CMAKE_</span></code> or <code class="docutils literal notranslate"><span class="pre">_CMAKE_</span></code>. The property name must contain at least one
 underscore. It is recommended that the property name have a prefix specific
 to the project.</p>
 </div>
+<section id="property-redefinition">
+<h2>Property Redefinition<a class="headerlink" href="#property-redefinition" title="Link to this heading">¶</a></h2>
+<p>Once a property is defined for a particular type of scope, it cannot be
+redefined. Attempts to redefine an existing property by calling
+<span class="target" id="index-0-command:define_property"></span><a class="reference internal" href="#command:define_property" title="define_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">define_property()</span></code></a> with the same scope type and property name
+will be silently ignored. Defining the same property name for two different
+kinds of scope is valid.</p>
+<p><span class="target" id="index-5-command:get_property"></span><a class="reference internal" href="get_property.html#command:get_property" title="get_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">get_property()</span></code></a> can be used to determine whether a property is
+already defined for a particular kind of scope, and if so, to examine its
+definition. For example:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Initial definition</span>
+<span class="nf">define_property(</span><span class="no">TARGET</span><span class="w"> </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">MY_NEW_PROP</span>
+<span class="w">  </span><span class="no">BRIEF_DOCS</span><span class="w"> </span><span class="s">&quot;My new custom property&quot;</span>
+<span class="nf">)</span>
+
+<span class="c"># Later examination</span>
+<span class="nf">get_property(</span><span class="nb">my_new_prop_exists</span>
+<span class="w">  </span><span class="no">TARGET</span><span class="w"> </span><span class="no">NONE</span>
+<span class="w">  </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">MY_NEW_PROP</span>
+<span class="w">  </span><span class="no">DEFINED</span>
+<span class="nf">)</span>
+
+<span class="nf">if(</span><span class="nb">my_new_prop_exists</span><span class="nf">)</span>
+<span class="w">  </span><span class="nf">get_property(</span><span class="nb">my_new_prop_docs</span>
+<span class="w">    </span><span class="no">TARGET</span><span class="w"> </span><span class="no">NONE</span>
+<span class="w">    </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">MY_NEW_PROP</span>
+<span class="w">    </span><span class="no">BRIEF_DOCS</span>
+<span class="w">  </span><span class="nf">)</span>
+<span class="w">  </span><span class="c"># ${my_new_prop_docs} is now set to &quot;My new custom property&quot;</span>
+<span class="nf">endif()</span>
+</pre></div>
+</div>
+</section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p><span class="target" id="index-5-command:get_property"></span><a class="reference internal" href="get_property.html#command:get_property" title="get_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">get_property()</span></code></a></p></li>
+<li><p><span class="target" id="index-6-command:get_property"></span><a class="reference internal" href="get_property.html#command:get_property" title="get_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">get_property()</span></code></a></p></li>
 <li><p><span class="target" id="index-3-command:set_property"></span><a class="reference internal" href="set_property.html#command:set_property" title="set_property"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">set_property()</span></code></a></p></li>
 </ul>
 </section>
@@ -141,6 +173,7 @@ to the project.</p>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">define_property</a><ul>
+<li><a class="reference internal" href="#property-redefinition">Property Redefinition</a></li>
 <li><a class="reference internal" href="#see-also">See Also</a></li>
 </ul>
 </li>
@@ -164,7 +197,7 @@ to the project.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -172,7 +205,7 @@ to the project.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -198,7 +231,7 @@ to the project.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -207,8 +240,8 @@ to the project.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

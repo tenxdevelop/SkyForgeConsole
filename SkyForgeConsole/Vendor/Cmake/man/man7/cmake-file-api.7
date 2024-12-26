@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-FILE-API" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-FILE-API" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-file-api \- CMake File-Based API
 .SH INTRODUCTION
@@ -45,8 +45,8 @@ of files within the API directory.  API file layout versioning is
 orthogonal to the versioning of \fI\%Object Kinds\fP used in replies.
 This version of CMake supports only one API version, \fI\%API v1\fP\&.
 .sp
-New in version 3.27: Projects may also submit queries for the current run using the
-\fI\%cmake_file_api()\fP command.
+Added in version 3.27: Projects may also submit queries for the current run using the
+\X'tty: link #command:cmake_file_api'\fI\%cmake_file_api()\fP\X'tty: link' command.
 
 .SH API V1
 .sp
@@ -69,6 +69,10 @@ Clients may look for and read a reply index file at any time.
 Clients may optionally create the \fBreply/\fP directory at any time
 and monitor it for the appearance of a new reply index file.
 .UNINDENT
+.sp
+Added in version 3.31: Users can add query files to \fBapi/v1/query\fP inside the
+\X'tty: link #envvar:CMAKE_CONFIG_DIR'\fI\%CMAKE_CONFIG_DIR\fP\X'tty: link' to create user\-wide queries for all CMake projects.
+
 .SS v1 Shared Stateless Query Files
 .sp
 Shared stateless query files allow clients to share requests for
@@ -339,7 +343,7 @@ It has members for \fBcmake\fP, \fBctest\fP, and \fBcpack\fP
 whose values are JSON strings specifying the absolute path to each tool,
 represented with forward slashes.  It also has a \fBroot\fP member for
 the absolute path to the directory containing CMake resources like the
-\fBModules/\fP directory (see \fI\%CMAKE_ROOT\fP).
+\fBModules/\fP directory (see \X'tty: link #variable:CMAKE_ROOT'\fI\%CMAKE_ROOT\fP\X'tty: link').
 .TP
 .B \fBgenerator\fP
 A JSON object describing the CMake generator used for the build.
@@ -354,7 +358,7 @@ configurations.
 A string specifying the name of the generator.
 .TP
 .B \fBplatform\fP
-If the generator supports \fI\%CMAKE_GENERATOR_PLATFORM\fP,
+If the generator supports \X'tty: link #variable:CMAKE_GENERATOR_PLATFORM'\fI\%CMAKE_GENERATOR_PLATFORM\fP\X'tty: link',
 this is a string specifying the generator platform name.
 .UNINDENT
 .UNINDENT
@@ -506,7 +510,7 @@ modeled by CMake.
 .sp
 There is only one \fBcodemodel\fP object major version, version 2.
 Version 1 does not exist to avoid confusion with that from
-\fI\%cmake\-server(7)\fP mode.
+\X'tty: link #manual:cmake-server(7)'\fI\%cmake\-server(7)\fP\X'tty: link' mode.
 .SS \(dqcodemodel\(dq version 2
 .sp
 \fBcodemodel\fP object version 2 is a JSON object:
@@ -517,7 +521,7 @@ Version 1 does not exist to avoid confusion with that from
 .ft C
 {
   \(dqkind\(dq: \(dqcodemodel\(dq,
-  \(dqversion\(dq: { \(dqmajor\(dq: 2, \(dqminor\(dq: 6 },
+  \(dqversion\(dq: { \(dqmajor\(dq: 2, \(dqminor\(dq: 7 },
   \(dqpaths\(dq: {
     \(dqsource\(dq: \(dq/path/to/top\-level\-source\-dir\(dq,
     \(dqbuild\(dq: \(dq/path/to/top\-level\-build\-dir\(dq
@@ -598,9 +602,9 @@ represented with forward slashes.
 .B \fBconfigurations\fP
 A JSON array of entries corresponding to available build configurations.
 On single\-configuration generators there is one entry for the value
-of the \fI\%CMAKE_BUILD_TYPE\fP variable.  For multi\-configuration
+of the \X'tty: link #variable:CMAKE_BUILD_TYPE'\fI\%CMAKE_BUILD_TYPE\fP\X'tty: link' variable.  For multi\-configuration
 generators there is an entry for each configuration listed in the
-\fI\%CMAKE_CONFIGURATION_TYPES\fP variable.
+\X'tty: link #variable:CMAKE_CONFIGURATION_TYPES'\fI\%CMAKE_CONFIGURATION_TYPES\fP\X'tty: link' variable.
 Each entry is a JSON object containing members:
 .INDENT 7.0
 .TP
@@ -637,7 +641,7 @@ directory that added this directory as a subdirectory.
 .B \fBchildIndexes\fP
 Optional member that is present when the directory has subdirectories.
 The value is a JSON array of entries corresponding to child directories
-created by the \fI\%add_subdirectory()\fP or \fI\%subdirs()\fP
+created by the \X'tty: link #command:add_subdirectory'\fI\%add_subdirectory()\fP\X'tty: link' or \X'tty: link #command:subdirs'\fI\%subdirs()\fP\X'tty: link'
 command.  Each entry is an unsigned integer 0\-based index of another
 entry in the main \fBdirectories\fP array.
 .TP
@@ -654,7 +658,7 @@ unsigned integer 0\-based index into the main \fBtargets\fP array.
 .B \fBminimumCMakeVersion\fP
 Optional member present when a minimum required version of CMake is
 known for the directory.  This is the \fB<min>\fP version given to the
-most local call to the \fI\%cmake_minimum_required(VERSION)\fP
+most local call to the \X'tty: link #command:cmake_minimum_required'\fI\%cmake_minimum_required(VERSION)\fP\X'tty: link'
 command in the directory itself or one of its ancestors.
 The value is a JSON object with one member:
 .INDENT 7.0
@@ -679,7 +683,7 @@ arbitrary string.
 .B \fBhasInstallRule\fP
 Optional member that is present with boolean value \fBtrue\fP when
 the directory or one of its subdirectories contains any
-\fI\%install()\fP rules, i.e. whether a \fBmake install\fP
+\X'tty: link #command:install'\fI\%install()\fP\X'tty: link' rules, i.e. whether a \fBmake install\fP
 or equivalent rule is available.
 .TP
 .B \fBjsonFile\fP
@@ -694,7 +698,7 @@ This field was added in codemodel version 2.3.
 A JSON array of entries corresponding to the top\-level project
 and sub\-projects defined in the build system.  Each (sub\-)project
 corresponds to a source directory whose \fBCMakeLists.txt\fP file
-calls the \fI\%project()\fP command with a project name different
+calls the \X'tty: link #command:project'\fI\%project()\fP\X'tty: link' command with a project name different
 from its parent directory.  The first entry corresponds to the
 top\-level project.
 .sp
@@ -702,7 +706,7 @@ Each entry is a JSON object containing members:
 .INDENT 7.0
 .TP
 .B \fBname\fP
-A string specifying the name given to the \fI\%project()\fP command.
+A string specifying the name given to the \X'tty: link #command:project'\fI\%project()\fP\X'tty: link' command.
 .TP
 .B \fBparentIndex\fP
 Optional member that is present when the project is not top\-level.
@@ -731,8 +735,8 @@ unsigned integer 0\-based index into the main \fBtargets\fP array.
 .TP
 .B \fBtargets\fP
 A JSON array of entries corresponding to the build system targets.
-Such targets are created by calls to \fI\%add_executable()\fP,
-\fI\%add_library()\fP, and \fI\%add_custom_target()\fP, excluding
+Such targets are created by calls to \X'tty: link #command:add_executable'\fI\%add_executable()\fP\X'tty: link',
+\X'tty: link #command:add_library'\fI\%add_library()\fP\X'tty: link', and \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link', excluding
 imported targets and interface libraries (which do not generate any
 build rules).  Each entry is a JSON object containing members:
 .INDENT 7.0
@@ -786,13 +790,13 @@ Otherwise the path is absolute.
 .UNINDENT
 .TP
 .B \fBinstallers\fP
-A JSON array of entries corresponding to \fI\%install()\fP rules.
+A JSON array of entries corresponding to \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' rules.
 Each entry is a JSON object containing members:
 .INDENT 7.0
 .TP
 .B \fBcomponent\fP
 A string specifying the component selected by the corresponding
-\fI\%install()\fP command invocation.
+\X'tty: link #command:install'\fI\%install()\fP\X'tty: link' command invocation.
 .TP
 .B \fBdestination\fP
 Optional member that is present for specific \fBtype\fP values below.
@@ -834,21 +838,21 @@ of the following, with some variants providing additional members:
 .INDENT 7.0
 .TP
 .B \fBfile\fP
-An \fI\%install(FILES)\fP or \fI\%install(PROGRAMS)\fP call.
+An \X'tty: link #files'\fI\%install(FILES)\fP\X'tty: link' or \X'tty: link #programs'\fI\%install(PROGRAMS)\fP\X'tty: link' call.
 The \fBdestination\fP and \fBpaths\fP members are populated, with paths
 under the top\-level \fIsource\fP directory expressed relative to it.
 The \fBisOptional\fP member may exist.
 This type has no additional members.
 .TP
 .B \fBdirectory\fP
-An \fI\%install(DIRECTORY)\fP call.
+An \X'tty: link #directory'\fI\%install(DIRECTORY)\fP\X'tty: link' call.
 The \fBdestination\fP and \fBpaths\fP members are populated, with paths
 under the top\-level \fIsource\fP directory expressed relative to it.
 The \fBisOptional\fP member may exist.
 This type has no additional members.
 .TP
 .B \fBtarget\fP
-An \fI\%install(TARGETS)\fP call.
+An \X'tty: link #targets'\fI\%install(TARGETS)\fP\X'tty: link' call.
 The \fBdestination\fP and \fBpaths\fP members are populated, with paths
 under the top\-level \fIbuild\fP directory expressed relative to it.
 The \fBisOptional\fP member may exist.
@@ -856,7 +860,7 @@ This type has additional members \fBtargetId\fP, \fBtargetIndex\fP,
 \fBtargetIsImportLibrary\fP, and \fBtargetInstallNamelink\fP\&.
 .TP
 .B \fBexport\fP
-An \fI\%install(EXPORT)\fP call.
+An \X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link' call.
 The \fBdestination\fP and \fBpaths\fP members are populated, with paths
 under the top\-level \fIbuild\fP directory expressed relative to it.
 The \fBpaths\fP entries refer to files generated automatically by
@@ -865,26 +869,26 @@ private implementation details.
 This type has additional members \fBexportName\fP and \fBexportTargets\fP\&.
 .TP
 .B \fBscript\fP
-An \fI\%install(SCRIPT)\fP call.
+An \X'tty: link #script'\fI\%install(SCRIPT)\fP\X'tty: link' call.
 This type has additional member \fBscriptFile\fP\&.
 .TP
 .B \fBcode\fP
-An \fI\%install(CODE)\fP call.
+An \X'tty: link #code'\fI\%install(CODE)\fP\X'tty: link' call.
 This type has no additional members.
 .TP
 .B \fBimportedRuntimeArtifacts\fP
-An \fI\%install(IMPORTED_RUNTIME_ARTIFACTS)\fP call.
+An \X'tty: link #imported-runtime-artifacts'\fI\%install(IMPORTED_RUNTIME_ARTIFACTS)\fP\X'tty: link' call.
 The \fBdestination\fP member is populated. The \fBisOptional\fP member may
 exist. This type has no additional members.
 .TP
 .B \fBruntimeDependencySet\fP
-An \fI\%install(RUNTIME_DEPENDENCY_SET)\fP call or an
-\fI\%install(TARGETS)\fP call with \fBRUNTIME_DEPENDENCIES\fP\&. The
+An \X'tty: link #runtime-dependency-set'\fI\%install(RUNTIME_DEPENDENCY_SET)\fP\X'tty: link' call or an
+\X'tty: link #targets'\fI\%install(TARGETS)\fP\X'tty: link' call with \fBRUNTIME_DEPENDENCIES\fP\&. The
 \fBdestination\fP member is populated. This type has additional members
 \fBruntimeDependencySetName\fP and \fBruntimeDependencySetType\fP\&.
 .TP
 .B \fBfileSet\fP
-An \fI\%install(TARGETS)\fP call with \fBFILE_SET\fP\&.
+An \X'tty: link #targets'\fI\%install(TARGETS)\fP\X'tty: link' call with \fBFILE_SET\fP\&.
 The \fBdestination\fP and \fBpaths\fP members are populated.
 The \fBisOptional\fP member may exist.
 This type has additional members \fBfileSetName\fP, \fBfileSetType\fP,
@@ -895,16 +899,16 @@ This type was added in codemodel version 2.4.
 .TP
 .B \fBisExcludeFromAll\fP
 Optional member that is present with boolean value \fBtrue\fP when
-\fI\%install()\fP is called with the \fBEXCLUDE_FROM_ALL\fP option.
+\X'tty: link #command:install'\fI\%install()\fP\X'tty: link' is called with the \fBEXCLUDE_FROM_ALL\fP option.
 .TP
 .B \fBisForAllComponents\fP
 Optional member that is present with boolean value \fBtrue\fP when
-\fI\%install(SCRIPT|CODE)\fP is called with the
+\X'tty: link #command:install'\fI\%install(SCRIPT|CODE)\fP\X'tty: link' is called with the
 \fBALL_COMPONENTS\fP option.
 .TP
 .B \fBisOptional\fP
 Optional member that is present with boolean value \fBtrue\fP when
-\fI\%install()\fP is called with the \fBOPTIONAL\fP option.
+\X'tty: link #command:install'\fI\%install()\fP\X'tty: link' is called with the \fBOPTIONAL\fP option.
 This is allowed when \fBtype\fP is \fBfile\fP, \fBdirectory\fP, or \fBtarget\fP\&.
 .TP
 .B \fBtargetId\fP
@@ -926,7 +930,7 @@ AIX linker import file.  If present, it has boolean value \fBtrue\fP\&.
 .B \fBtargetInstallNamelink\fP
 Optional member that is present when \fBtype\fP is \fBtarget\fP and
 the installer corresponds to a target that may use symbolic links
-to implement the \fI\%VERSION\fP and \fI\%SOVERSION\fP
+to implement the \X'tty: link #prop_tgt:VERSION'\fI\%VERSION\fP\X'tty: link' and \X'tty: link #prop_tgt:SOVERSION'\fI\%SOVERSION\fP\X'tty: link'
 target properties.
 The value is a string indicating how the installer is supposed to
 handle the symlinks: \fBskip\fP means the installer should skip the
@@ -957,7 +961,7 @@ object\(aqs \fBtargets\fP array for the target.
 .B \fBruntimeDependencySetName\fP
 Optional member that is present when \fBtype\fP is \fBruntimeDependencySet\fP
 and the installer was created by an
-\fI\%install(RUNTIME_DEPENDENCY_SET)\fP call. The value is a string
+\X'tty: link #runtime-dependency-set'\fI\%install(RUNTIME_DEPENDENCY_SET)\fP\X'tty: link' call. The value is a string
 specifying the name of the runtime dependency set that was installed.
 .TP
 .B \fBruntimeDependencySetType\fP
@@ -989,8 +993,8 @@ This field was added in codemodel version 2.4.
 .B \fBfileSetDirectories\fP
 Optional member that is present when \fBtype\fP is \fBfileSet\fP\&. The value
 is a list of strings with the file set\(aqs base directories (determined by
-genex\-evaluation of \fI\%HEADER_DIRS\fP or
-\fI\%HEADER_DIRS_<NAME>\fP).
+genex\-evaluation of \X'tty: link #prop_tgt:HEADER_DIRS'\fI\%HEADER_DIRS\fP\X'tty: link' or
+\X'tty: link #prop_tgt:HEADER_DIRS_<NAME>'\fI\%HEADER_DIRS_<NAME>\fP\X'tty: link').
 .sp
 This field was added in codemodel version 2.4.
 .TP
@@ -1020,7 +1024,7 @@ Otherwise the path is absolute.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%install()\fP or other command invocation that added this
+the \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' or other command invocation that added this
 installer is available.  The value is an unsigned integer 0\-based
 index into the \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
 .UNINDENT
@@ -1056,7 +1060,7 @@ The value is an unsigned integer 0\-based index into the
 \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
 .TP
 .B \fBfolder\fP
-Optional member that is present when the \fI\%FOLDER\fP target
+Optional member that is present when the \X'tty: link #prop_tgt:FOLDER'\fI\%FOLDER\fP\X'tty: link' target
 property is set.  The value is a JSON object with one member:
 .INDENT 7.0
 .TP
@@ -1108,7 +1112,7 @@ target is provided by CMake\(aqs build system generator rather than by
 a command in the source code.
 .TP
 .B \fBinstall\fP
-Optional member that is present when the target has an \fI\%install()\fP
+Optional member that is present when the target has an \X'tty: link #command:install'\fI\%install()\fP\X'tty: link'
 rule.  The value is a JSON object with members:
 .INDENT 7.0
 .TP
@@ -1117,7 +1121,7 @@ A JSON object specifying the installation prefix.  It has one member:
 .INDENT 7.0
 .TP
 .B \fBpath\fP
-A string specifying the value of \fI\%CMAKE_INSTALL_PREFIX\fP\&.
+A string specifying the value of \X'tty: link #variable:CMAKE_INSTALL_PREFIX'\fI\%CMAKE_INSTALL_PREFIX\fP\X'tty: link'\&.
 .UNINDENT
 .TP
 .B \fBdestinations\fP
@@ -1131,11 +1135,45 @@ be absolute or relative to the install prefix.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%install()\fP command invocation that specified this
+the \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' command invocation that specified this
 destination is available.  The value is an unsigned integer 0\-based
 index into the \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
 .UNINDENT
 .UNINDENT
+.TP
+.B \fBlaunchers\fP
+Optional member that is present on executable targets that have
+at least one launcher specified by the project.  The value is a
+JSON array of entries corresponding to the specified launchers.
+Each entry is a JSON object with members:
+.INDENT 7.0
+.TP
+.B \fBcommand\fP
+A string specifying the path to the launcher on disk, represented
+with forward slashes. If the file is inside the top\-level source
+directory then the path is specified relative to that directory.
+.TP
+.B \fBarguments\fP
+Optional member that is present when the launcher command has
+arguments preceding the executable to be launched.  The value
+is a JSON array of strings representing the arguments.
+.TP
+.B \fBtype\fP
+A string specifying the type of launcher.  The value is one of
+the following:
+.INDENT 7.0
+.TP
+.B \fBemulator\fP
+An emulator for the target platform when cross\-compiling.
+See the \X'tty: link #prop_tgt:CROSSCOMPILING_EMULATOR'\fI\%CROSSCOMPILING_EMULATOR\fP\X'tty: link' target property.
+.TP
+.B \fBtest\fP
+A start program for the execution of tests.
+See the \X'tty: link #prop_tgt:TEST_LAUNCHER'\fI\%TEST_LAUNCHER\fP\X'tty: link' target property.
+.UNINDENT
+.UNINDENT
+.sp
+This field was added in codemodel version 2.7.
 .TP
 .B \fBlink\fP
 Optional member that is present for executables and shared library
@@ -1177,8 +1215,8 @@ when link\-time optimization (a.k.a. interprocedural optimization
 or link\-time code generation) is enabled.
 .TP
 .B \fBsysroot\fP
-Optional member that is present when the \fI\%CMAKE_SYSROOT_LINK\fP
-or \fI\%CMAKE_SYSROOT\fP variable is defined.  The value is a
+Optional member that is present when the \X'tty: link #variable:CMAKE_SYSROOT_LINK'\fI\%CMAKE_SYSROOT_LINK\fP\X'tty: link'
+or \X'tty: link #variable:CMAKE_SYSROOT'\fI\%CMAKE_SYSROOT\fP\X'tty: link' variable is defined.  The value is a
 JSON object with one member:
 .INDENT 7.0
 .TP
@@ -1229,7 +1267,7 @@ This matches the main \fBid\fP member of the other target.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%add_dependencies()\fP, \fI\%target_link_libraries()\fP,
+the \X'tty: link #command:add_dependencies'\fI\%add_dependencies()\fP\X'tty: link', \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link',
 or other command invocation that created this dependency is
 available.  The value is an unsigned integer 0\-based index into
 the \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
@@ -1245,7 +1283,7 @@ A string specifying the name of the file set.
 .TP
 .B \fBtype\fP
 A string specifying the type of the file set.  See
-\fI\%target_sources()\fP supported file set types.
+\X'tty: link #command:target_sources'\fI\%target_sources()\fP\X'tty: link' supported file set types.
 .TP
 .B \fBvisibility\fP
 A string specifying the visibility of the file set; one of \fBPUBLIC\fP,
@@ -1278,13 +1316,13 @@ The value is an unsigned integer 0\-based index into the
 .TP
 .B \fBsourceGroupIndex\fP
 Optional member that is present when the source is part of a source
-group either via the \fI\%source_group()\fP command or by default.
+group either via the \X'tty: link #command:source_group'\fI\%source_group()\fP\X'tty: link' command or by default.
 The value is an unsigned integer 0\-based index into the
 \fBsourceGroups\fP array.
 .TP
 .B \fBisGenerated\fP
 Optional member that is present with boolean value \fBtrue\fP if
-the source is \fI\%GENERATED\fP\&.
+the source is \X'tty: link #prop_sf:GENERATED'\fI\%GENERATED\fP\X'tty: link'\&.
 .TP
 .B \fBfileSetIndex\fP
 Optional member that is present when the source is part of a file set.
@@ -1295,8 +1333,8 @@ This field was added in codemodel version 2.5.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%target_sources()\fP, \fI\%add_executable()\fP,
-\fI\%add_library()\fP, \fI\%add_custom_target()\fP, or other
+the \X'tty: link #command:target_sources'\fI\%target_sources()\fP\X'tty: link', \X'tty: link #command:add_executable'\fI\%add_executable()\fP\X'tty: link',
+\X'tty: link #command:add_library'\fI\%add_library()\fP\X'tty: link', \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link', or other
 command invocation that added this source to the target is
 available.  The value is an unsigned integer 0\-based index into
 the \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
@@ -1304,7 +1342,7 @@ the \fBbacktraceGraph\fP member\(aqs \fBnodes\fP array.
 .TP
 .B \fBsourceGroups\fP
 Optional member that is present when sources are grouped together by
-the \fI\%source_group()\fP command or by default.  The value is a
+the \X'tty: link #command:source_group'\fI\%source_group()\fP\X'tty: link' command or by default.  The value is a
 JSON array of entries corresponding to the groups.  Each entry is
 a JSON object with members:
 .INDENT 7.0
@@ -1336,7 +1374,7 @@ of the toolchain is used to compile the source file.
 .TP
 .B \fBlanguageStandard\fP
 Optional member that is present when the language standard is set
-explicitly (e.g. via \fI\%CXX_STANDARD\fP) or implicitly by
+explicitly (e.g. via \X'tty: link #prop_tgt:CXX_STANDARD'\fI\%CXX_STANDARD\fP\X'tty: link') or implicitly by
 compile features.  Each entry is a JSON object with two members:
 .INDENT 7.0
 .TP
@@ -1384,7 +1422,7 @@ the include directory is marked as a system include directory.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%target_include_directories()\fP or other command invocation
+the \X'tty: link #command:target_include_directories'\fI\%target_include_directories()\fP\X'tty: link' or other command invocation
 that added this include directory is available.  The value is
 an unsigned integer 0\-based index into the \fBbacktraceGraph\fP
 member\(aqs \fBnodes\fP array.
@@ -1406,7 +1444,7 @@ the framework is marked as a system one.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%target_link_libraries()\fP or other command invocation
+the \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' or other command invocation
 that added this framework is available.  The value is
 an unsigned integer 0\-based index into the \fBbacktraceGraph\fP
 member\(aqs \fBnodes\fP array.
@@ -1415,8 +1453,8 @@ member\(aqs \fBnodes\fP array.
 This field was added in codemodel version 2.6.
 .TP
 .B \fBprecompileHeaders\fP
-Optional member that is present when \fI\%target_precompile_headers()\fP
-or other command invocations set \fI\%PRECOMPILE_HEADERS\fP on the
+Optional member that is present when \X'tty: link #command:target_precompile_headers'\fI\%target_precompile_headers()\fP\X'tty: link'
+or other command invocations set \X'tty: link #prop_tgt:PRECOMPILE_HEADERS'\fI\%PRECOMPILE_HEADERS\fP\X'tty: link' on the
 target.  The value is a JSON array with an entry for each header.  Each
 entry is a JSON object with members:
 .INDENT 7.0
@@ -1426,7 +1464,7 @@ Full path to the precompile header file.
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%target_precompile_headers()\fP or other command invocation
+the \X'tty: link #command:target_precompile_headers'\fI\%target_precompile_headers()\fP\X'tty: link' or other command invocation
 that added this precompiled header is available.  The value is an
 unsigned integer 0\-based index into the \fBbacktraceGraph\fP member\(aqs
 \fBnodes\fP array.
@@ -1446,7 +1484,7 @@ A string specifying the preprocessor definition in the format
 .TP
 .B \fBbacktrace\fP
 Optional member that is present when a CMake language backtrace to
-the \fI\%target_compile_definitions()\fP or other command invocation
+the \X'tty: link #command:target_compile_definitions'\fI\%target_compile_definitions()\fP\X'tty: link' or other command invocation
 that added this preprocessor definition is available.  The value is
 an unsigned integer 0\-based index into the \fBbacktraceGraph\fP
 member\(aqs \fBnodes\fP array.
@@ -1454,7 +1492,7 @@ member\(aqs \fBnodes\fP array.
 .TP
 .B \fBsysroot\fP
 Optional member that is present when the
-\fI\%CMAKE_SYSROOT_COMPILE\fP or \fI\%CMAKE_SYSROOT\fP
+\X'tty: link #variable:CMAKE_SYSROOT_COMPILE'\fI\%CMAKE_SYSROOT_COMPILE\fP\X'tty: link' or \X'tty: link #variable:CMAKE_SYSROOT'\fI\%CMAKE_SYSROOT\fP\X'tty: link'
 variable is defined.  The value is a JSON object with one member:
 .INDENT 7.0
 .TP
@@ -1513,7 +1551,7 @@ Otherwise the path is absolute.
 .SS Object Kind \(dqconfigureLog\(dq
 .sp
 The \fBconfigureLog\fP object kind describes the location and contents of
-a \fI\%cmake\-configure\-log(7)\fP file.
+a \X'tty: link #manual:cmake-configure-log(7)'\fI\%cmake\-configure\-log(7)\fP\X'tty: link' file.
 .sp
 There is only one \fBconfigureLog\fP object major version, version 1.
 .SS \(dqconfigureLog\(dq version 1
@@ -1541,12 +1579,12 @@ The members specific to \fBconfigureLog\fP objects are:
 .B \fBpath\fP
 A string specifying the path to the configure log file.
 Clients must read the log file from this path, which may be
-different than the path documented by \fI\%cmake\-configure\-log(7)\fP\&.
+different than the path documented by \X'tty: link #manual:cmake-configure-log(7)'\fI\%cmake\-configure\-log(7)\fP\X'tty: link'\&.
 The log file may not exist if no events are logged.
 .TP
 .B \fBeventKindNames\fP
 A JSON array whose entries are each a JSON string naming one
-of the \fI\%cmake\-configure\-log(7)\fP versioned event kinds.
+of the \X'tty: link #manual:cmake-configure-log(7)'\fI\%cmake\-configure\-log(7)\fP\X'tty: link' versioned event kinds.
 At most one version of each configure log event kind will be listed.
 Although the configure log may contain other (versioned) event kinds,
 clients must ignore those that are not listed in this field.
@@ -1554,12 +1592,12 @@ clients must ignore those that are not listed in this field.
 .SS Object Kind \(dqcache\(dq
 .sp
 The \fBcache\fP object kind lists cache entries.  These are the
-\fI\%Variables\fP stored in the persistent cache
+\X'tty: link #cmake-language-variables'\fI\%Variables\fP\X'tty: link' stored in the persistent cache
 (\fBCMakeCache.txt\fP) for the build tree.
 .sp
 There is only one \fBcache\fP object major version, version 2.
 Version 1 does not exist to avoid confusion with that from
-\fI\%cmake\-server(7)\fP mode.
+\X'tty: link #manual:cmake-server(7)'\fI\%cmake\-server(7)\fP\X'tty: link' mode.
 .SS \(dqcache\(dq version 2
 .sp
 \fBcache\fP object version 2 is a JSON object:
@@ -1617,11 +1655,11 @@ A string specifying the value of the entry.
 .TP
 .B \fBtype\fP
 A string specifying the type of the entry used by
-\fI\%cmake\-gui(1)\fP to choose a widget for editing.
+\X'tty: link #manual:cmake-gui(1)'\fI\%cmake\-gui(1)\fP\X'tty: link' to choose a widget for editing.
 .TP
 .B \fBproperties\fP
 A JSON array of entries specifying associated
-\fI\%cache entry properties\fP\&.
+\X'tty: link #cache-entry-properties'\fI\%cache entry properties\fP\X'tty: link'\&.
 Each entry is a JSON object containing members:
 .INDENT 7.0
 .TP
@@ -1650,7 +1688,7 @@ There is only one \fBcmakeFiles\fP object major version, version 1.
 .ft C
 {
   \(dqkind\(dq: \(dqcmakeFiles\(dq,
-  \(dqversion\(dq: { \(dqmajor\(dq: 1, \(dqminor\(dq: 0 },
+  \(dqversion\(dq: { \(dqmajor\(dq: 1, \(dqminor\(dq: 1 },
   \(dqpaths\(dq: {
     \(dqbuild\(dq: \(dq/path/to/top\-level\-build\-dir\(dq,
     \(dqsource\(dq: \(dq/path/to/top\-level\-source\-dir\(dq
@@ -1671,6 +1709,16 @@ There is only one \fBcmakeFiles\fP object major version, version 1.
       \(dqisCMake\(dq: true,
       \(dqisExternal\(dq: true,
       \(dqpath\(dq: \(dq/path/to/cmake/Modules/CMakeGenericSystem.cmake\(dq
+    }
+  ],
+  \(dqglobsDependent\(dq: [
+    {
+      \(dqexpression\(dq: \(dqsrc/*.cxx\(dq,
+      \(dqrecurse\(dq: true,
+      \(dqfiles\(dq: [
+        \(dqsrc/foo.cxx\(dq,
+        \(dqsrc/bar.cxx\(dq
+      ]
     }
   ]
 }
@@ -1721,6 +1769,46 @@ source or build directories.
 .B \fBisCMake\fP
 Optional member that is present with boolean value \fBtrue\fP
 if the path specifies a file in the CMake installation.
+.UNINDENT
+.TP
+.B \fBglobsDependent\fP
+Optional member that is present when the project calls \X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link'
+or \X'tty: link #glob-recurse'\fI\%file(GLOB_RECURSE)\fP\X'tty: link' with the \fBCONFIGURE_DEPENDS\fP option.
+The value is a JSON array of JSON objects, each specifying a globbing
+expression and the list of paths it matched.  If the globbing expression
+no longer matches the same list of paths, CMake considers the build system
+to be out of date.
+.sp
+This field was added in \fBcmakeFiles\fP version 1.1.
+.sp
+The members of each entry are:
+.INDENT 7.0
+.TP
+.B \fBexpression\fP
+A string specifying the globbing expression.
+.TP
+.B \fBrecurse\fP
+Optional member that is present with boolean value \fBtrue\fP
+if the entry corresponds to a \X'tty: link #glob-recurse'\fI\%file(GLOB_RECURSE)\fP\X'tty: link' call.
+Otherwise the entry corresponds to a \X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link' call.
+.TP
+.B \fBlistDirectories\fP
+Optional member that is present with boolean value \fBtrue\fP if
+\X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link' was called without \fBLIST_DIRECTORIES false\fP or
+\X'tty: link #glob-recurse'\fI\%file(GLOB_RECURSE)\fP\X'tty: link' was called with \fBLIST_DIRECTORIES true\fP\&.
+.TP
+.B \fBfollowSymlinks\fP
+Optional member that is present with boolean value \fBtrue\fP if
+\X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link' was called with the \fBFOLLOW_SYMLINKS\fP option.
+.TP
+.B \fBrelative\fP
+Optional member that is present if \X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link' was called
+with the \fBRELATIVE <path>\fP option.  The value is a string containing
+the \fB<path>\fP given.
+.TP
+.B \fBpaths\fP
+A JSON array of strings specifying the paths matched by the call
+to \X'tty: link #glob'\fI\%file(GLOB)\fP\X'tty: link' or \X'tty: link #glob-recurse'\fI\%file(GLOB_RECURSE)\fP\X'tty: link'\&.
 .UNINDENT
 .UNINDENT
 .SS Object Kind \(dqtoolchains\(dq
@@ -1818,7 +1906,7 @@ associated with a particular language. The members of each entry are:
 .B \fBlanguage\fP
 A JSON string specifying the toolchain language, like C or CXX. Language
 names are the same as language names that can be passed to the
-\fI\%project()\fP command. Because CMake only supports a single toolchain
+\X'tty: link #command:project'\fI\%project()\fP\X'tty: link' command. Because CMake only supports a single toolchain
 per language, this field can be used as a key.
 .TP
 .B \fBcompiler\fP
@@ -1827,24 +1915,24 @@ A JSON object containing members:
 .TP
 .B \fBpath\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_COMPILER\fP variable is defined for the current
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER'\fI\%CMAKE_<LANG>_COMPILER\fP\X'tty: link' variable is defined for the current
 language. Its value is a JSON string holding the path to the compiler.
 .TP
 .B \fBid\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_COMPILER_ID\fP variable is defined for the current
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER_ID'\fI\%CMAKE_<LANG>_COMPILER_ID\fP\X'tty: link' variable is defined for the current
 language. Its value is a JSON string holding the ID (GNU, MSVC, etc.) of
 the compiler.
 .TP
 .B \fBversion\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_COMPILER_VERSION\fP variable is defined for the
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER_VERSION'\fI\%CMAKE_<LANG>_COMPILER_VERSION\fP\X'tty: link' variable is defined for the
 current language. Its value is a JSON string holding the version of the
 compiler.
 .TP
 .B \fBtarget\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_COMPILER_TARGET\fP variable is defined for the
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER_TARGET'\fI\%CMAKE_<LANG>_COMPILER_TARGET\fP\X'tty: link' variable is defined for the
 current language. Its value is a JSON string holding the cross\-compiling
 target of the compiler.
 .TP
@@ -1854,28 +1942,28 @@ A JSON object containing members:
 .TP
 .B \fBincludeDirectories\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_IMPLICIT_INCLUDE_DIRECTORIES\fP variable is
+\X'tty: link #variable:CMAKE_<LANG>_IMPLICIT_INCLUDE_DIRECTORIES'\fI\%CMAKE_<LANG>_IMPLICIT_INCLUDE_DIRECTORIES\fP\X'tty: link' variable is
 defined for the current language. Its value is a JSON array of JSON
 strings where each string holds a path to an implicit include
 directory for the compiler.
 .TP
 .B \fBlinkDirectories\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_IMPLICIT_LINK_DIRECTORIES\fP variable is
+\X'tty: link #variable:CMAKE_<LANG>_IMPLICIT_LINK_DIRECTORIES'\fI\%CMAKE_<LANG>_IMPLICIT_LINK_DIRECTORIES\fP\X'tty: link' variable is
 defined for the current language. Its value is a JSON array of JSON
 strings where each string holds a path to an implicit link directory
 for the compiler.
 .TP
 .B \fBlinkFrameworkDirectories\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES\fP variable
+\X'tty: link #variable:CMAKE_<LANG>_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES'\fI\%CMAKE_<LANG>_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES\fP\X'tty: link' variable
 is defined for the current language. Its value is a JSON array of JSON
 strings where each string holds a path to an implicit link framework
 directory for the compiler.
 .TP
 .B \fBlinkLibraries\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_IMPLICIT_LINK_LIBRARIES\fP variable is defined
+\X'tty: link #variable:CMAKE_<LANG>_IMPLICIT_LINK_LIBRARIES'\fI\%CMAKE_<LANG>_IMPLICIT_LINK_LIBRARIES\fP\X'tty: link' variable is defined
 for the current language. Its value is a JSON array of JSON strings
 where each string holds a path to an implicit link library for the
 compiler.
@@ -1884,13 +1972,13 @@ compiler.
 .TP
 .B \fBsourceFileExtensions\fP
 Optional member that is present when the
-\fI\%CMAKE_<LANG>_SOURCE_FILE_EXTENSIONS\fP variable is defined for
+\X'tty: link #variable:CMAKE_<LANG>_SOURCE_FILE_EXTENSIONS'\fI\%CMAKE_<LANG>_SOURCE_FILE_EXTENSIONS\fP\X'tty: link' variable is defined for
 the current language. Its value is a JSON array of JSON strings where each
 each string holds a file extension (without the leading dot) for the
 language.
 .UNINDENT
 .UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

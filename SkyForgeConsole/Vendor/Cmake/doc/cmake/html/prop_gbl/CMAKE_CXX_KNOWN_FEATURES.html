@@ -1,24 +1,23 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_CXX_KNOWN_FEATURES &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_CXX_KNOWN_FEATURES &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CMAKE_ROLE" href="CMAKE_ROLE.html" />
+    <link rel="next" title="CMAKE_HIP_KNOWN_FEATURES" href="CMAKE_HIP_KNOWN_FEATURES.html" />
     <link rel="prev" title="CMAKE_CUDA_KNOWN_FEATURES" href="CMAKE_CUDA_KNOWN_FEATURES.html" />
  
 
@@ -31,7 +30,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="CMAKE_ROLE.html" title="CMAKE_ROLE"
+          <a href="CMAKE_HIP_KNOWN_FEATURES.html" title="CMAKE_HIP_KNOWN_FEATURES"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="CMAKE_CUDA_KNOWN_FEATURES.html" title="CMAKE_CUDA_KNOWN_FEATURES"
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" accesskey="U">cmake-properties(7)</a> &#187;</li>
@@ -58,9 +57,9 @@
           <div class="body" role="main">
             
   <section id="cmake-cxx-known-features">
-<span id="prop_gbl:CMAKE_CXX_KNOWN_FEATURES"></span><h1>CMAKE_CXX_KNOWN_FEATURES<a class="headerlink" href="#cmake-cxx-known-features" title="Permalink to this heading">¶</a></h1>
+<span id="prop_gbl:CMAKE_CXX_KNOWN_FEATURES"></span><h1>CMAKE_CXX_KNOWN_FEATURES<a class="headerlink" href="#cmake-cxx-known-features" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>List of C++ features known to this version of CMake.</p>
 <p>The features listed in this global property may be known to be available to the
@@ -71,9 +70,9 @@ command.  See the <span class="target" id="index-0-manual:cmake-compile-features
 compile features and a list of supported compilers.</p>
 <p>The features known to this version of CMake are listed below.</p>
 <section id="high-level-meta-features-indicating-c-standard-support">
-<h2>High level meta features indicating C++ standard support<a class="headerlink" href="#high-level-meta-features-indicating-c-standard-support" title="Permalink to this heading">¶</a></h2>
+<h2>High level meta features indicating C++ standard support<a class="headerlink" href="#high-level-meta-features-indicating-c-standard-support" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>The following meta features indicate general support for the associated
 language standard.  It reflects the language support claimed by the compiler,
@@ -88,17 +87,17 @@ but it does not necessarily imply complete conformance to that standard.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_std_17</span></code></dt><dd><p>Compiler mode is at least C++ 17.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_std_20</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.12.</span></p>
+<p><span class="versionmodified added">Added in version 3.12.</span></p>
 </div>
 <p>Compiler mode is at least C++ 20.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_std_23</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.20.</span></p>
+<p><span class="versionmodified added">Added in version 3.20.</span></p>
 </div>
 <p>Compiler mode is at least C++ 23.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_std_26</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.30.</span></p>
 </div>
 <p>Compiler mode is at least C++ 26.</p>
 </dd>
@@ -113,7 +112,7 @@ or if the <span class="target" id="index-0-prop_tgt:&lt;LANG&gt;_STANDARD"></spa
 </div>
 </section>
 <section id="low-level-individual-compile-features">
-<h2>Low level individual compile features<a class="headerlink" href="#low-level-individual-compile-features" title="Permalink to this heading">¶</a></h2>
+<h2>Low level individual compile features<a class="headerlink" href="#low-level-individual-compile-features" title="Link to this heading">¶</a></h2>
 <p>For C++ 11 and C++ 14, compilers were sometimes slow to implement certain
 language features.  CMake provided some individual compile features to help
 projects determine whether specific features were available.  These individual
@@ -123,14 +122,14 @@ for C++ 17 or later.</p>
 <p>See the <span class="target" id="index-1-manual:cmake-compile-features(7)"></span><a class="reference internal" href="../manual/cmake-compile-features.7.html#manual:cmake-compile-features(7)" title="cmake-compile-features(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-compile-features(7)</span></code></a> manual for further discussion of
 the use of individual compile features.</p>
 <section id="individual-features-from-c-98">
-<h3>Individual features from C++ 98<a class="headerlink" href="#individual-features-from-c-98" title="Permalink to this heading">¶</a></h3>
+<h3>Individual features from C++ 98<a class="headerlink" href="#individual-features-from-c-98" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_template_template_parameters</span></code></dt><dd><p>Template template parameters, as defined in <code class="docutils literal notranslate"><span class="pre">ISO/IEC</span> <span class="pre">14882:1998</span></code>.</p>
 </dd>
 </dl>
 </section>
 <section id="individual-features-from-c-11">
-<h3>Individual features from C++ 11<a class="headerlink" href="#individual-features-from-c-11" title="Permalink to this heading">¶</a></h3>
+<h3>Individual features from C++ 11<a class="headerlink" href="#individual-features-from-c-11" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_alias_templates</span></code></dt><dd><p>Template aliases, as defined in <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2258.pdf">N2258</a>.</p>
 </dd>
@@ -226,7 +225,7 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
 </dl>
 </section>
 <section id="individual-features-from-c-14">
-<h3>Individual features from C++ 14<a class="headerlink" href="#individual-features-from-c-14" title="Permalink to this heading">¶</a></h3>
+<h3>Individual features from C++ 14<a class="headerlink" href="#individual-features-from-c-14" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">cxx_aggregate_default_initializers</span></code></dt><dd><p>Aggregate default initializers, as defined in <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3605.html">N3605</a>.</p>
 </dd>
@@ -285,8 +284,8 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="CMAKE_ROLE.html"
-                          title="next chapter">CMAKE_ROLE</a></p>
+    <p class="topless"><a href="CMAKE_HIP_KNOWN_FEATURES.html"
+                          title="next chapter">CMAKE_HIP_KNOWN_FEATURES</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -295,7 +294,7 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -303,7 +302,7 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -316,7 +315,7 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="CMAKE_ROLE.html" title="CMAKE_ROLE"
+          <a href="CMAKE_HIP_KNOWN_FEATURES.html" title="CMAKE_HIP_KNOWN_FEATURES"
              >next</a> |</li>
         <li class="right" >
           <a href="CMAKE_CUDA_KNOWN_FEATURES.html" title="CMAKE_CUDA_KNOWN_FEATURES"
@@ -329,7 +328,7 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" >cmake-properties(7)</a> &#187;</li>
@@ -338,8 +337,8 @@ and <a class="reference external" href="https://www.open-std.org/jtc1/sc22/wg21/
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CPACK-GENERATORS" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CPACK-GENERATORS" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cpack-generators \- CPack Generator Reference
 .SH GENERATORS
@@ -56,16 +56,16 @@ ZIP (\fB\&.zip\fP)
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.1: 7Z and TXZ formats support.
+Added in version 3.1: 7Z and TXZ formats support.
 
 .sp
-New in version 3.16: TZST format support.
+Added in version 3.16: TZST format support.
 
 .sp
 When this generator is called from \fBCPackSourceConfig.cmake\fP (or through
 the \fBpackage_source\fP target), then the generated archive will contain all
 files in the project directory, except those specified in
-\fI\%CPACK_SOURCE_IGNORE_FILES\fP\&.  The following is one example of
+\X'tty: link #variable:CPACK_SOURCE_IGNORE_FILES'\fI\%CPACK_SOURCE_IGNORE_FILES\fP\X'tty: link'\&.  The following is one example of
 packaging all source files of a project:
 .INDENT 0.0
 .INDENT 3.5
@@ -87,9 +87,9 @@ include(CPack)
 .sp
 When this generator is called from \fBCPackConfig.cmake\fP (or through the
 \fBpackage\fP target), then the generated archive will contain all files
-that have been installed via CMake\(aqs \fI\%install()\fP command (and the
-deprecated commands \fI\%install_files()\fP, \fI\%install_programs()\fP,
-and \fI\%install_targets()\fP).
+that have been installed via CMake\(aqs \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' command (and the
+deprecated commands \X'tty: link #command:install_files'\fI\%install_files()\fP\X'tty: link', \X'tty: link #command:install_programs'\fI\%install_programs()\fP\X'tty: link',
+and \X'tty: link #command:install_targets'\fI\%install_targets()\fP\X'tty: link').
 .SS Variables specific to CPack Archive generator
 .INDENT 0.0
 .TP
@@ -108,13 +108,13 @@ The extension is determined from the archive format (see list above) and
 automatically appended to the file name. Note that \fB<component>\fP is all
 uppercase in the variable name.
 .sp
-New in version 3.9: Per\-component \fBCPACK_ARCHIVE_<component>_FILE_NAME\fP variables.
+Added in version 3.9: Per\-component \fBCPACK_ARCHIVE_<component>_FILE_NAME\fP variables.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_ARCHIVE_FILE_EXTENSION
-New in version 3.25.
+Added in version 3.25.
 
 .sp
 Package file extension.
@@ -143,31 +143,27 @@ These variables are used by the Archive generator, but are also available to
 CPack generators which are essentially archives at their core. These include:
 .INDENT 0.0
 .IP \(bu 2
-\fI\%CPack Cygwin Generator\fP
+\X'tty: link #cpack_gen:CPack Cygwin Generator'\fI\%CPack Cygwin Generator\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CPack FreeBSD Generator\fP
+\X'tty: link #cpack_gen:CPack FreeBSD Generator'\fI\%CPack FreeBSD Generator\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_ARCHIVE_THREADS
 The number of threads to use when performing the compression.
 .sp
-New in version 3.18.
+Added in version 3.18.
 
 .INDENT 7.0
 .TP
 .B Default
-\fB1\fP
+value of \X'tty: link #variable:CPACK_THREADS'\fI\%CPACK_THREADS\fP\X'tty: link'
 .UNINDENT
 .sp
 If set to \fB0\fP, the number of available cores on the machine will be used instead.
-The default is \fB1\fP which limits compression to a single thread. Note that
-not all compression modes support threading in all environments. Currently,
-only the XZ compression may support it.
+Note that not all compression modes support threading in all environments.
 .sp
-See also the \fI\%CPACK_THREADS\fP variable.
-.sp
-New in version 3.21: Official CMake binaries available on \fBcmake.org\fP now ship
+Added in version 3.21: Official CMake binaries available on \fBcmake.org\fP now ship
 with a \fBliblzma\fP that supports parallel compression.
 Older versions did not.
 
@@ -211,7 +207,7 @@ macOS Finder. Optional.
 .INDENT 0.0
 .TP
 .B CPACK_BUNDLE_APPLE_CERT_APP
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 The name of your Apple supplied code signing certificate for the application.
@@ -222,7 +218,7 @@ the application will not be signed.
 .INDENT 0.0
 .TP
 .B CPACK_BUNDLE_APPLE_ENTITLEMENTS
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 The name of the Property List (\fB\&.plist\fP) file that contains your Apple
@@ -232,7 +228,7 @@ for submission to the macOS App Store.
 .INDENT 0.0
 .TP
 .B CPACK_BUNDLE_APPLE_CODESIGN_FILES
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 A list of additional files that you wish to be signed. You do not need to
@@ -242,7 +238,7 @@ list any frameworks and plugins that are included in your app bundle.
 .INDENT 0.0
 .TP
 .B CPACK_BUNDLE_APPLE_CODESIGN_PARAMETER
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Additional parameter that will passed to \fBcodesign\fP\&.
@@ -251,7 +247,7 @@ Default value: \fB\-\-deep \-f\fP
 .INDENT 0.0
 .TP
 .B CPACK_COMMAND_CODESIGN
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 Path to the \fBcodesign(1)\fP command used to sign applications with an
@@ -265,7 +261,7 @@ Cygwin CPack generator (Cygwin).
 .SS Variables affecting the CPack Cygwin generator
 .INDENT 0.0
 .IP \(bu 2
-New in version 3.18: \fI\%CPACK_ARCHIVE_THREADS\fP
+Added in version 3.18: \X'tty: link #variable:CPACK_ARCHIVE_THREADS'\fI\%CPACK_ARCHIVE_THREADS\fP\X'tty: link'
 
 .UNINDENT
 .SS Variables specific to CPack Cygwin generator
@@ -293,9 +289,9 @@ The Cygwin build script.  FIXME: This documentation is incomplete.
 The built in (binary) CPack DEB generator (Unix only)
 .SS Variables specific to CPack Debian (DEB) generator
 .sp
-The CPack DEB generator may be used to create DEB package using \fI\%CPack\fP\&.
-The CPack DEB generator is a \fI\%CPack\fP generator thus it uses the
-\fBCPACK_XXX\fP variables used by \fI\%CPack\fP\&.
+The CPack DEB generator may be used to create DEB package using \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
+The CPack DEB generator is a \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link' generator thus it uses the
+\fBCPACK_XXX\fP variables used by \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
 .sp
 The CPack DEB generator should work on any Linux host but it will produce
 better deb package when Debian specific tools \fBdpkg\-xxx\fP are usable on
@@ -315,9 +311,9 @@ reasons and are no longer maintained but may still prove useful:
 .INDENT 3.5
 .INDENT 0.0
 .IP \(bu 2
-\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/Configuration\fP
+\X'tty: link https://gitlab.kitware.com/cmake/community/-/wikis/doc/cpack/Configuration'\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/Configuration\fP\X'tty: link'
 .IP \(bu 2
-\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/PackageGenerators#deb\-unix\-only\fP
+\X'tty: link https://gitlab.kitware.com/cmake/community/-/wikis/doc/cpack/PackageGenerators#deb-unix-only'\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/PackageGenerators#deb\-unix\-only\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -354,7 +350,7 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_NAME\fP for non\-component based
+\X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link' for non\-component based
 installations
 .IP \(bu 2
 \fI\%CPACK_DEBIAN_PACKAGE_NAME\fP suffixed with \fB\-<COMPONENT>\fP
@@ -362,17 +358,17 @@ for component\-based installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_NAME\fP variables.
+Added in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_NAME\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-controlfields.html#s\-f\-source\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-source'\fI\%https://www.debian.org/doc/debian\-policy/ch\-controlfields.html#s\-f\-source\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_FILE_NAME
 .TP
 .B CPACK_DEBIAN_<COMPONENT>_FILE_NAME
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 Package file name.
@@ -385,8 +381,11 @@ Yes
 \fB<CPACK_PACKAGE_FILE_NAME>[\-<component>].deb\fP
 .UNINDENT
 .sp
-This may be set to \fBDEB\-DEFAULT\fP to allow the CPack DEB generator to generate
-package file name by itself in deb format:
+This may be set to:
+.INDENT 7.0
+.TP
+.B \fBDEB\-DEFAULT\fP
+Tell CPack to automatically generate the package file name in deb format:
 .INDENT 7.0
 .INDENT 3.5
 .sp
@@ -398,34 +397,31 @@ package file name by itself in deb format:
 .UNINDENT
 .UNINDENT
 .sp
-Alternatively provided package file name must end
-with either \fB\&.deb\fP or \fB\&.ipk\fP suffix.
+This setting recommended as the preferred behavior, but for backward
+compatibility with the CPack DEB generator in CMake prior to version 3.6,
+this is not the default.   Without this, duplicate names may occur.
+Duplicate files get overwritten and it is up to the packager to set
+the variables in a manner that will prevent such errors.
+.TP
+.B \fB<file\-name>[.deb]\fP
+Use the given file name.
 .sp
-New in version 3.10: \fB\&.ipk\fP suffix used by OPKG packaging system.
+Changed in version 3.29: The \fB\&.deb\fP suffix will be automatically added if the file name does
+not end in \fB\&.deb\fP or \fB\&.ipk\fP\&.  Previously the suffix was required.
+
+.TP
+.B \fB<file\-name>.ipk\fP
+Added in version 3.10.
 
 .sp
-\fBNOTE:\fP
-.INDENT 7.0
-.INDENT 3.5
-Preferred setting of this variable is \fBDEB\-DEFAULT\fP but for backward
-compatibility with the CPack DEB generator in CMake prior to version 3.6 this
-feature is disabled by default.
-.UNINDENT
-.UNINDENT
-.sp
-\fBNOTE:\fP
-.INDENT 7.0
-.INDENT 3.5
-By using non default filenames duplicate names may occur. Duplicate files
-get overwritten and it is up to the packager to set the variables in a
-manner that will prevent such errors.
-.UNINDENT
+Use the given file name.
+The \fB\&.ipk\fP suffix is used by the OPKG packaging system.
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_PACKAGE_EPOCH
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 The Debian package epoch
@@ -451,7 +447,7 @@ The Debian package version
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_VERSION\fP
+\X'tty: link #variable:CPACK_PACKAGE_VERSION'\fI\%CPACK_PACKAGE_VERSION\fP\X'tty: link'
 .UNINDENT
 .sp
 This variable may contain only alphanumerics (A\-Za\-z0\-9) and the characters
@@ -473,7 +469,7 @@ warning is reported instead.
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_PACKAGE_RELEASE
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 The Debian package release \- Debian revision number.
@@ -508,7 +504,7 @@ Output of \fBdpkg \-\-print\-architecture\fP (or \fBi386\fP
 if \fBdpkg\fP is not found)
 .UNINDENT
 .sp
-New in version 3.6: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_ARCHITECTURE\fP variables.
+Added in version 3.6: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_ARCHITECTURE\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -532,7 +528,7 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.3: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_DEPENDS\fP variables.
+Added in version 3.3: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_DEPENDS\fP variables.
 
 .sp
 \fBNOTE:\fP
@@ -549,6 +545,15 @@ component.
 .UNINDENT
 .UNINDENT
 .sp
+Changed in version 3.31: The variable is always expanded as a list. Before it was expanded only
+if used in cooperation with \fI\%CPACK_DEB_COMPONENT_INSTALL\fP,
+\fI\%CPACK_DEBIAN_PACKAGE_SHLIBDEPS\fP or
+\fI\%CPACK_DEBIAN_<COMPONENT>_PACKAGE_SHLIBDEPS\fP\&.
+This meant that if a component had no shared libraries discovered
+(e.g. a package composed only of scripts) you had to join the list
+by yourself to obtain a valid Depends field.
+
+.sp
 Example:
 .INDENT 7.0
 .INDENT 3.5
@@ -556,6 +561,7 @@ Example:
 .nf
 .ft C
 set(CPACK_DEBIAN_PACKAGE_DEPENDS \(dqlibc6 (>= 2.3.1\-6), libc6 (< 2.4)\(dq)
+list(APPEND CPACK_DEBIAN_PACKAGE_DEPENDS cmake)
 .ft P
 .fi
 .UNINDENT
@@ -564,11 +570,11 @@ set(CPACK_DEBIAN_PACKAGE_DEPENDS \(dqlibc6 (>= 2.3.1\-6), libc6 (< 2.4)\(dq)
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_ENABLE_COMPONENT_DEPENDS
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 Sets inter\-component dependencies if listed with
-\fI\%CPACK_COMPONENT_<compName>_DEPENDS\fP variables.
+\X'tty: link #variable:CPACK_COMPONENT_<compName>_DEPENDS'\fI\%CPACK_COMPONENT_<compName>_DEPENDS\fP\X'tty: link' variables.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -608,24 +614,24 @@ Yes
 \fI\%CPACK_DEBIAN_<COMPONENT>_DESCRIPTION\fP (component
 based installers only) if set, or \fI\%CPACK_DEBIAN_PACKAGE_DESCRIPTION\fP if set, or
 .IP \(bu 2
-\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP (component
-based installers only) if set, or \fI\%CPACK_PACKAGE_DESCRIPTION\fP if set, or
+\X'tty: link #variable:CPACK_COMPONENT_<compName>_DESCRIPTION'\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP\X'tty: link' (component
+based installers only) if set, or \X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION'\fI\%CPACK_PACKAGE_DESCRIPTION\fP\X'tty: link' if set, or
 .IP \(bu 2
-content of the file specified in \fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP if set
+content of the file specified in \X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_FILE'\fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP\X'tty: link' if set
 .UNINDENT
 .UNINDENT
 .sp
-If after that description is not set, \fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP going to be
-used if set. Otherwise, \fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP will be added as the first
-line of description as defined in \fI\%Debian Policy Manual\fP\&.
+If after that description is not set, \X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link' going to be
+used if set. Otherwise, \X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link' will be added as the first
+line of description as defined in \X'tty: link https://www.debian.org/doc/debian-policy/ch-controlfields.html#description'\fI\%Debian Policy Manual\fP\X'tty: link'\&.
 .sp
-New in version 3.3: Per\-component \fBCPACK_COMPONENT_<compName>_DESCRIPTION\fP variables.
+Added in version 3.3: Per\-component \fBCPACK_COMPONENT_<compName>_DESCRIPTION\fP variables.
 
 .sp
-New in version 3.16: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_DESCRIPTION\fP variables.
+Added in version 3.16: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_DESCRIPTION\fP variables.
 
 .sp
-New in version 3.16: The \fBCPACK_PACKAGE_DESCRIPTION_FILE\fP variable.
+Added in version 3.16: The \fBCPACK_PACKAGE_DESCRIPTION_FILE\fP variable.
 
 .UNINDENT
 .INDENT 0.0
@@ -643,15 +649,15 @@ Yes
 \fBdevel\fP
 .UNINDENT
 .sp
-New in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION\fP variables.
+Added in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SECTION\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-archive.html#s\-subsections\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections'\fI\%https://www.debian.org/doc/debian\-policy/ch\-archive.html#s\-subsections\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_ARCHIVE_TYPE
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Deprecated since version 3.14.
@@ -682,7 +688,7 @@ will be emitted.
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_COMPRESSION_TYPE
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 The compression used for creating the Debian package.
@@ -713,7 +719,7 @@ bzip2 Burrows–Wheeler algorithm
 GNU Gzip compression
 .TP
 .B \fBzstd\fP
-New in version 3.22.
+Added in version 3.22.
 
 .sp
 Zstandard compression
@@ -737,10 +743,10 @@ Yes
 \fBoptional\fP
 .UNINDENT
 .sp
-New in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PRIORITY\fP variables.
+Added in version 3.5: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PRIORITY\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-archive.html#s\-priorities\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities'\fI\%https://www.debian.org/doc/debian\-policy/ch\-archive.html#s\-priorities\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -754,10 +760,10 @@ upstream documentation or information may be found.
 No
 .TP
 .B Default
-\fI\%CMAKE_PROJECT_HOMEPAGE_URL\fP
+\X'tty: link #variable:CMAKE_PROJECT_HOMEPAGE_URL'\fI\%CMAKE_PROJECT_HOMEPAGE_URL\fP\X'tty: link'
 .UNINDENT
 .sp
-New in version 3.12: The \fBCMAKE_PROJECT_HOMEPAGE_URL\fP variable.
+Added in version 3.12: The \fBCMAKE_PROJECT_HOMEPAGE_URL\fP variable.
 
 .sp
 \fBNOTE:\fP
@@ -792,10 +798,10 @@ No
 \fBNOTE:\fP
 .INDENT 7.0
 .INDENT 3.5
-You may need set \fI\%CMAKE_INSTALL_RPATH\fP to an appropriate value
+You may need set \X'tty: link #variable:CMAKE_INSTALL_RPATH'\fI\%CMAKE_INSTALL_RPATH\fP\X'tty: link' to an appropriate value
 if you use this feature, because if you don\(aqt \fBdpkg\-shlibdeps\fP
 may fail to find your own shared libs.
-See \fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cmake/RPATH\-handling\fP
+See \X'tty: link https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling'\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cmake/RPATH\-handling\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .sp
@@ -809,16 +815,16 @@ shared libraries that could not get resolved otherwise.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.3: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SHLIBDEPS\fP variables.
+Added in version 3.3: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SHLIBDEPS\fP variables.
 
 .sp
-New in version 3.6: Correct handling of \fB$ORIGIN\fP in \fI\%CMAKE_INSTALL_RPATH\fP\&.
+Added in version 3.6: Correct handling of \fB$ORIGIN\fP in \X'tty: link #variable:CMAKE_INSTALL_RPATH'\fI\%CMAKE_INSTALL_RPATH\fP\X'tty: link'\&.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_PACKAGE_SHLIBDEPS_PRIVATE_DIRS
-New in version 3.20.
+Added in version 3.20.
 
 .sp
 May be set to a list of directories that will be given to \fBdpkg\-shlibdeps\fP
@@ -836,7 +842,7 @@ None
 \fBNOTE:\fP
 .INDENT 7.0
 .INDENT 3.5
-You should prefer to set \fI\%CMAKE_INSTALL_RPATH\fP to an appropriate
+You should prefer to set \X'tty: link #variable:CMAKE_INSTALL_RPATH'\fI\%CMAKE_INSTALL_RPATH\fP\X'tty: link' to an appropriate
 value if you use \fBdpkg\-shlibdeps\fP\&. The current option is really only
 needed for private shared library dependencies.
 .UNINDENT
@@ -881,10 +887,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PREDEPENDS\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PREDEPENDS\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -910,10 +916,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_ENHANCES\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_ENHANCES\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -942,10 +948,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_BREAKS\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_BREAKS\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-breaks\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-breaks'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-breaks\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -971,10 +977,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_CONFLICTS\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_CONFLICTS\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-conflicts\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-conflicts'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-conflicts\fP\X'tty: link'
 .sp
 \fBNOTE:\fP
 .INDENT 7.0
@@ -1010,10 +1016,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PROVIDES\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_PROVIDES\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-virtual\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-virtual'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-virtual\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1038,10 +1044,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_REPLACES\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_REPLACES\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1066,10 +1072,10 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_RECOMMENDS\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_RECOMMENDS\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1093,15 +1099,15 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SUGGESTS\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_SUGGESTS\fP variables.
 
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-relationships.html#s-binarydeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-relationships.html#s\-binarydeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_PACKAGE_GENERATE_SHLIBS
-New in version 3.6.
+Added in version 3.6.
 
 .INDENT 7.0
 .TP
@@ -1120,14 +1126,14 @@ Allows to generate shlibs control file automatically. Compatibility is defined b
 .INDENT 3.5
 Libraries are only considered if they have both library name and version
 set. This can be done by setting SOVERSION property with
-\fI\%set_target_properties()\fP command.
+\X'tty: link #command:set_target_properties'\fI\%set_target_properties()\fP\X'tty: link' command.
 .UNINDENT
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DEBIAN_PACKAGE_GENERATE_SHLIBS_POLICY
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 Compatibility policy for auto\-generated shlibs control file.
@@ -1143,7 +1149,7 @@ No
 Defines compatibility policy for auto\-generated shlibs control file.
 Possible values: \fB=\fP, \fB>=\fP
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-sharedlibs.html#s\-sharedlibs\-shlibdeps\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-shlibdeps'\fI\%https://www.debian.org/doc/debian\-policy/ch\-sharedlibs.html#s\-sharedlibs\-shlibdeps\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1175,7 +1181,7 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_EXTRA\fP variables.
+Added in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_EXTRA\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -1183,7 +1189,7 @@ New in version 3.4: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_E
 .B CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION
 .TP
 .B CPACK_DEBIAN_<COMPONENT>_PACKAGE_CONTROL_STRICT_PERMISSION
-New in version 3.4.
+Added in version 3.4.
 
 .sp
 This variable indicates if the Debian policy on control files should be
@@ -1211,7 +1217,7 @@ set(CPACK_DEBIAN_PACKAGE_CONTROL_STRICT_PERMISSION TRUE)
 .sp
 This overrides the permissions on the original files, following the rules
 set by Debian policy
-\fI\%https://www.debian.org/doc/debian\-policy/ch\-files.html#s\-permissions\-owners\fP
+\X'tty: link https://www.debian.org/doc/debian-policy/ch-files.html#s-permissions-owners'\fI\%https://www.debian.org/doc/debian\-policy/ch\-files.html#s\-permissions\-owners\fP\X'tty: link'
 .sp
 \fBNOTE:\fP
 .INDENT 7.0
@@ -1228,7 +1234,7 @@ flag prior to the generation of the package.
 .B CPACK_DEBIAN_PACKAGE_SOURCE
 .TP
 .B CPACK_DEBIAN_<COMPONENT>_PACKAGE_SOURCE
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 Sets the \fBSource\fP field of the binary Debian package.
@@ -1251,7 +1257,7 @@ installations.
 .UNINDENT
 .UNINDENT
 .sp
-See \fI\%https://www.debian.org/doc/debian\-policy/ch\-controlfields.html#s\-f\-source\fP
+See \X'tty: link https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-source'\fI\%https://www.debian.org/doc/debian\-policy/ch\-controlfields.html#s\-f\-source\fP\X'tty: link'
 .sp
 \fBNOTE:\fP
 .INDENT 7.0
@@ -1261,9 +1267,46 @@ revision number of the referenced source package as well.
 .UNINDENT
 .UNINDENT
 .UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_DEBIAN_PACKAGE_MULTIARCH
+.TP
+.B CPACK_DEBIAN_<COMPONENT>_PACKAGE_MULTIARCH
+Sets the \fIMulti\-Arch\fP field of the Debian package.
+Packages can declare in their control file how they should handle
+situations, where packages for different architectures are being installed
+on the same machine.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+.INDENT 7.0
+.IP \(bu 2
+An empty string for non\-component based installations
+.IP \(bu 2
+\fI\%CPACK_DEBIAN_PACKAGE_MULTIARCH\fP for component\-based
+installations.
+.UNINDENT
+.UNINDENT
+.sp
+Added in version 3.31: Per\-component \fBCPACK_DEBIAN_<COMPONENT>_PACKAGE_MULTIARCH\fP variables.
+
+.sp
+See \X'tty: link https://wiki.debian.org/MultiArch/Hints'\fI\%https://wiki.debian.org/MultiArch/Hints\fP\X'tty: link'
+.sp
+\fBNOTE:\fP
+.INDENT 7.0
+.INDENT 3.5
+This value is validated. It must be one of the following values:
+\fBsame\fP, \fBforeign\fP, \fBallowed\fP\&.
+.UNINDENT
+.UNINDENT
+.UNINDENT
 .SS Packaging of debug information
 .sp
-New in version 3.13.
+Added in version 3.13.
 
 .sp
 Dbgsym packages contain debug symbols for debugging packaged binaries.
@@ -1297,16 +1340,16 @@ which results in debuginfo only being available in the dbgsym package.
 .INDENT 0.0
 .INDENT 3.5
 Binaries must contain debug symbols before packaging so use either \fBDebug\fP
-or \fBRelWithDebInfo\fP for \fI\%CMAKE_BUILD_TYPE\fP variable value.
+or \fBRelWithDebInfo\fP for \X'tty: link #variable:CMAKE_BUILD_TYPE'\fI\%CMAKE_BUILD_TYPE\fP\X'tty: link' variable value.
 .sp
-Additionally, if \fI\%CPACK_STRIP_FILES\fP is set, the files will be stripped before
+Additionally, if \X'tty: link #variable:CPACK_STRIP_FILES'\fI\%CPACK_STRIP_FILES\fP\X'tty: link' is set, the files will be stripped before
 they get to the DEB generator, so will not contain debug symbols and
-a dbgsym package will not get built. Do not use with \fI\%CPACK_STRIP_FILES\fP\&.
+a dbgsym package will not get built. Do not use with \X'tty: link #variable:CPACK_STRIP_FILES'\fI\%CPACK_STRIP_FILES\fP\X'tty: link'\&.
 .UNINDENT
 .UNINDENT
 .SS Building Debian packages on Windows
 .sp
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 To communicate UNIX file permissions from the install stage
@@ -1317,7 +1360,7 @@ When a filesystem without ADT support is used only owner read/write
 permissions can be preserved.
 .SS Reproducible packages
 .sp
-New in version 3.13.
+Added in version 3.13.
 
 .sp
 The environment variable \fBSOURCE_DATE_EPOCH\fP may be set to a UNIX
@@ -1338,7 +1381,7 @@ The volume name of the generated disk image.
 .INDENT 7.0
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_FILE_NAME\fP
+\X'tty: link #variable:CPACK_PACKAGE_FILE_NAME'\fI\%CPACK_PACKAGE_FILE_NAME\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -1367,7 +1410,7 @@ from which the \fB\&.DS_Store\fP file can then be extracted.
 .INDENT 0.0
 .TP
 .B CPACK_DMG_DS_STORE_SETUP_SCRIPT
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 Path to a custom AppleScript file.  This AppleScript is used to generate
@@ -1394,7 +1437,7 @@ installed.  By default no background image is set.
 .INDENT 0.0
 .TP
 .B CPACK_DMG_DISABLE_APPLICATIONS_SYMLINK
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 Default behavior is to include a symlink to \fB/Applications\fP in the DMG.
@@ -1403,7 +1446,7 @@ Set this option to \fBON\fP to avoid adding the symlink.
 .INDENT 0.0
 .TP
 .B CPACK_DMG_SLA_USE_RESOURCE_FILE_LICENSE
-New in version 3.23.
+Added in version 3.23.
 
 .INDENT 7.0
 .TP
@@ -1411,22 +1454,22 @@ New in version 3.23.
 \fBOFF\fP
 .UNINDENT
 .sp
-Control whether \fI\%CPACK_RESOURCE_FILE_LICENSE\fP, if set to a
+Control whether \X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link', if set to a
 non\-default value, is used as the license agreement provided when
 mounting the DMG.  If \fBCPACK_DMG_SLA_USE_RESOURCE_FILE_LICENSE\fP is
-not set, \fI\%cpack(1)\fP defaults to off.
+not set, \X'tty: link #manual:cpack(1)'\fI\%cpack(1)\fP\X'tty: link' defaults to off.
 .sp
-In a CMake project that uses the \fI\%CPack\fP module to generate
+In a CMake project that uses the \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link' module to generate
 \fBCPackConfig.cmake\fP, \fBCPACK_DMG_SLA_USE_RESOURCE_FILE_LICENSE\fP
 must be explicitly enabled by the project to activate the SLA.
-See policy \fI\%CMP0133\fP\&.
+See policy \X'tty: link #policy:CMP0133'\fI\%CMP0133\fP\X'tty: link'\&.
 .sp
 \fBNOTE:\fP
 .INDENT 7.0
 .INDENT 3.5
 This option was added in response to macOS 12.0\(aqs deprecation of
 the \fBhdiutil udifrez\fP command to make its use optional.
-CPack 3.22 and below always use \fI\%CPACK_RESOURCE_FILE_LICENSE\fP,
+CPack 3.22 and below always use \X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link',
 if set to a non\-default value, as the DMG license.
 .UNINDENT
 .UNINDENT
@@ -1434,25 +1477,25 @@ if set to a non\-default value, as the DMG license.
 .INDENT 0.0
 .TP
 .B CPACK_DMG_SLA_DIR
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 Directory where license and menu files for different languages are stored.
 Setting this causes CPack to look for a \fB<language>.menu.txt\fP and
 \fB<language>.license.txt\fP or \fB<language>.license.rtf\fP file for every
 language defined in \fI\%CPACK_DMG_SLA_LANGUAGES\fP\&.  If both this variable and
-\fI\%CPACK_RESOURCE_FILE_LICENSE\fP are set, CPack will only look for the menu
+\X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link' are set, CPack will only look for the menu
 files and use the same license file for all languages.  If both
 \fB<language>.license.txt\fP and \fB<language>.license.rtf\fP exist, the \fB\&.txt\fP
 file will be used.
 .sp
-New in version 3.17: RTF support.
+Added in version 3.17: RTF support.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_DMG_SLA_LANGUAGES
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 Languages for which a license agreement is provided when mounting the
@@ -1487,11 +1530,11 @@ specified by the \fI\%CPACK_DMG_SLA_DIR\fP variable.
 .INDENT 0.0
 .TP
 .B CPACK_DMG_<component>_FILE_NAME
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 File name when packaging \fB<component>\fP as its own DMG
-(\fI\%CPACK_COMPONENTS_GROUPING\fP set to \fBIGNORE\fP).
+(\X'tty: link #variable:CPACK_COMPONENTS_GROUPING'\fI\%CPACK_COMPONENTS_GROUPING\fP\X'tty: link' set to \fBIGNORE\fP).
 .INDENT 7.0
 .TP
 .B Default
@@ -1501,7 +1544,7 @@ File name when packaging \fB<component>\fP as its own DMG
 .INDENT 0.0
 .TP
 .B CPACK_DMG_FILESYSTEM
-New in version 3.21.
+Added in version 3.21.
 
 .INDENT 7.0
 .TP
@@ -1536,7 +1579,7 @@ specify its location if the auto\-detection fails to find it).
 .UNINDENT
 .SS CPack External Generator
 .sp
-New in version 3.13.
+Added in version 3.13.
 
 .sp
 CPack provides many generators to create packages for a variety of platforms
@@ -1565,8 +1608,8 @@ taken care of by the generator when enabled through the
 .SS JSON Format
 .sp
 The JSON metadata file contains a list of CPack components and component groups,
-the various options passed to \fI\%cpack_add_component()\fP and
-\fI\%cpack_add_component_group()\fP, the dependencies between the components
+the various options passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link' and
+\X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link', the dependencies between the components
 and component groups, and various other options passed to CPack.
 .sp
 The JSON\(aqs root object will always provide two fields:
@@ -1604,46 +1647,46 @@ The name of the component. This is always the same as the key in the
 .TP
 .B \fBdisplayName\fP
 The value of the \fBDISPLAY_NAME\fP field passed to
-\fI\%cpack_add_component()\fP\&.
+\X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&.
 .TP
 .B \fBdescription\fP
 The value of the \fBDESCRIPTION\fP field passed to
-\fI\%cpack_add_component()\fP\&.
+\X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&.
 .TP
 .B \fBisHidden\fP
-True if \fBHIDDEN\fP was passed to \fI\%cpack_add_component()\fP, false if
+True if \fBHIDDEN\fP was passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link', false if
 it was not.
 .TP
 .B \fBisRequired\fP
-True if \fBREQUIRED\fP was passed to \fI\%cpack_add_component()\fP, false if
+True if \fBREQUIRED\fP was passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link', false if
 it was not.
 .TP
 .B \fBisDisabledByDefault\fP
-True if \fBDISABLED\fP was passed to \fI\%cpack_add_component()\fP, false if
+True if \fBDISABLED\fP was passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link', false if
 it was not.
 .TP
 .B \fBgroup\fP
-Only present if \fBGROUP\fP was passed to \fI\%cpack_add_component()\fP\&. If
+Only present if \fBGROUP\fP was passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&. If
 so, this field is a string value containing the component\(aqs group.
 .TP
 .B \fBdependencies\fP
 An array of components the component depends on. This contains the values
-in the \fBDEPENDS\fP argument passed to \fI\%cpack_add_component()\fP\&. If no
+in the \fBDEPENDS\fP argument passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&. If no
 \fBDEPENDS\fP argument was passed, this is an empty list.
 .TP
 .B \fBinstallationTypes\fP
 An array of installation types the component is part of. This contains the
 values in the \fBINSTALL_TYPES\fP argument passed to
-\fI\%cpack_add_component()\fP\&. If no \fBINSTALL_TYPES\fP argument was
+\X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&. If no \fBINSTALL_TYPES\fP argument was
 passed, this is an empty list.
 .TP
 .B \fBisDownloaded\fP
-True if \fBDOWNLOADED\fP was passed to \fI\%cpack_add_component()\fP, false
+True if \fBDOWNLOADED\fP was passed to \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link', false
 if it was not.
 .TP
 .B \fBarchiveFile\fP
 The name of the archive file passed with the \fBARCHIVE_FILE\fP argument to
-\fI\%cpack_add_component()\fP\&. If no \fBARCHIVE_FILE\fP argument was passed,
+\X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link'\&. If no \fBARCHIVE_FILE\fP argument was passed,
 this is an empty string.
 .UNINDENT
 .TP
@@ -1659,23 +1702,23 @@ The name of the component group. This is always the same as the key in the
 .TP
 .B \fBdisplayName\fP
 The value of the \fBDISPLAY_NAME\fP field passed to
-\fI\%cpack_add_component_group()\fP\&.
+\X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link'\&.
 .TP
 .B \fBdescription\fP
 The value of the \fBDESCRIPTION\fP field passed to
-\fI\%cpack_add_component_group()\fP\&.
+\X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link'\&.
 .TP
 .B \fBparentGroup\fP
 Only present if \fBPARENT_GROUP\fP was passed to
-\fI\%cpack_add_component_group()\fP\&. If so, this field is a string value
+\X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link'\&. If so, this field is a string value
 containing the component group\(aqs parent group.
 .TP
 .B \fBisExpandedByDefault\fP
-True if \fBEXPANDED\fP was passed to \fI\%cpack_add_component_group()\fP,
+True if \fBEXPANDED\fP was passed to \X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link',
 false if it was not.
 .TP
 .B \fBisBold\fP
-True if \fBBOLD_TITLE\fP was passed to \fI\%cpack_add_component_group()\fP,
+True if \fBBOLD_TITLE\fP was passed to \X'tty: link #command:cpack_add_component_group'\fI\%cpack_add_component_group()\fP\X'tty: link',
 false if it was not.
 .TP
 .B \fBcomponents\fP
@@ -1700,7 +1743,7 @@ the \fBinstallationTypes\fP object.
 .TP
 .B \fBdisplayName\fP
 The value of the \fBDISPLAY_NAME\fP field passed to
-\fI\%cpack_add_install_type()\fP\&.
+\X'tty: link #command:cpack_add_install_type'\fI\%cpack_add_install_type()\fP\X'tty: link'\&.
 .TP
 .B \fBindex\fP
 The integer index of the installation type in the list.
@@ -1709,12 +1752,12 @@ The integer index of the installation type in the list.
 .B \fBprojects\fP
 The \fBprojects\fP field is an array of objects describing CMake projects which
 comprise the CPack project. The values in this field are derived from
-\fI\%CPACK_INSTALL_CMAKE_PROJECTS\fP\&. In most cases, this will be only a
+\X'tty: link #variable:CPACK_INSTALL_CMAKE_PROJECTS'\fI\%CPACK_INSTALL_CMAKE_PROJECTS\fP\X'tty: link'\&. In most cases, this will be only a
 single project. The project objects have the following fields:
 .INDENT 7.0
 .TP
 .B \fBprojectName\fP
-The project name passed to \fI\%CPACK_INSTALL_CMAKE_PROJECTS\fP\&.
+The project name passed to \X'tty: link #variable:CPACK_INSTALL_CMAKE_PROJECTS'\fI\%CPACK_INSTALL_CMAKE_PROJECTS\fP\X'tty: link'\&.
 .TP
 .B \fBcomponent\fP
 The name of the component or component set which comprises the project.
@@ -1728,48 +1771,48 @@ The subdirectory to install the project into inside the CPack package.
 .UNINDENT
 .TP
 .B \fBpackageName\fP
-The package name given in \fI\%CPACK_PACKAGE_NAME\fP\&. Only present if
+The package name given in \X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link'\&. Only present if
 this option is set.
 .TP
 .B \fBpackageVersion\fP
-The package version given in \fI\%CPACK_PACKAGE_VERSION\fP\&. Only present
+The package version given in \X'tty: link #variable:CPACK_PACKAGE_VERSION'\fI\%CPACK_PACKAGE_VERSION\fP\X'tty: link'\&. Only present
 if this option is set.
 .TP
 .B \fBpackageDescriptionFile\fP
 The package description file given in
-\fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP\&. Only present if this option is
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_FILE'\fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP\X'tty: link'\&. Only present if this option is
 set.
 .TP
 .B \fBpackageDescriptionSummary\fP
 The package description summary given in
-\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\&. Only present if this option is
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link'\&. Only present if this option is
 set.
 .TP
 .B \fBbuildConfig\fP
-The build configuration given to CPack with the \fI\%cpack \-C\fP option.
+The build configuration given to CPack with the \X'tty: link #cmdoption-cpack-C'\fI\%cpack \-C\fP\X'tty: link' option.
 Only present if this option is set.
 .TP
 .B \fBdefaultDirectoryPermissions\fP
 The default directory permissions given in
-\fI\%CPACK_INSTALL_DEFAULT_DIRECTORY_PERMISSIONS\fP\&. Only present if this
+\X'tty: link #variable:CPACK_INSTALL_DEFAULT_DIRECTORY_PERMISSIONS'\fI\%CPACK_INSTALL_DEFAULT_DIRECTORY_PERMISSIONS\fP\X'tty: link'\&. Only present if this
 option is set.
 .TP
 .B \fBsetDestdir\fP
-True if \fI\%CPACK_SET_DESTDIR\fP is true, false if it is not.
+True if \X'tty: link #variable:CPACK_SET_DESTDIR'\fI\%CPACK_SET_DESTDIR\fP\X'tty: link' is true, false if it is not.
 .TP
 .B \fBpackagingInstallPrefix\fP
-The install prefix given in \fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\&. Only
-present if \fI\%CPACK_SET_DESTDIR\fP is true.
+The install prefix given in \X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link'\&. Only
+present if \X'tty: link #variable:CPACK_SET_DESTDIR'\fI\%CPACK_SET_DESTDIR\fP\X'tty: link' is true.
 .TP
 .B \fBstripFiles\fP
-True if \fI\%CPACK_STRIP_FILES\fP is true, false if it is not.
+True if \X'tty: link #variable:CPACK_STRIP_FILES'\fI\%CPACK_STRIP_FILES\fP\X'tty: link' is true, false if it is not.
 .TP
 .B \fBwarnOnAbsoluteInstallDestination\fP
-True if \fI\%CPACK_WARN_ON_ABSOLUTE_INSTALL_DESTINATION\fP is true, false
+True if \X'tty: link #variable:CPACK_WARN_ON_ABSOLUTE_INSTALL_DESTINATION'\fI\%CPACK_WARN_ON_ABSOLUTE_INSTALL_DESTINATION\fP\X'tty: link' is true, false
 if it is not.
 .TP
 .B \fBerrorOnAbsoluteInstallDestination\fP
-True if \fI\%CPACK_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION\fP is true,
+True if \X'tty: link #variable:CPACK_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION'\fI\%CPACK_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION\fP\X'tty: link' is true,
 false if it is not.
 .UNINDENT
 .SS Variables specific to CPack External generator
@@ -1827,36 +1870,36 @@ the variables defined by the CPack config file.
 .INDENT 0.0
 .TP
 .B CPACK_EXTERNAL_BUILT_PACKAGES
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 The \fBCPACK_EXTERNAL_PACKAGE_SCRIPT\fP script may set this list variable to the
 full paths of generated package files.  CPack will copy these files from the
 staging directory back to the top build directory and possibly produce
-checksum files if the \fI\%CPACK_PACKAGE_CHECKSUM\fP is set.
+checksum files if the \X'tty: link #variable:CPACK_PACKAGE_CHECKSUM'\fI\%CPACK_PACKAGE_CHECKSUM\fP\X'tty: link' is set.
 .UNINDENT
 .SS CPack FreeBSD Generator
 .sp
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 The built in (binary) CPack FreeBSD (pkg) generator (Unix only)
 .SS Variables affecting the CPack FreeBSD (pkg) generator
 .INDENT 0.0
 .IP \(bu 2
-New in version 3.18: \fI\%CPACK_ARCHIVE_THREADS\fP
+Added in version 3.18: \X'tty: link #variable:CPACK_ARCHIVE_THREADS'\fI\%CPACK_ARCHIVE_THREADS\fP\X'tty: link'
 
 .UNINDENT
 .SS Variables specific to CPack FreeBSD (pkg) generator
 .sp
 The CPack FreeBSD generator may be used to create pkg(8) packages \-\- these may
 be used on FreeBSD, DragonflyBSD, NetBSD, OpenBSD, but also on Linux or OSX,
-depending on the installed package\-management tools \-\- using \fI\%CPack\fP\&.
+depending on the installed package\-management tools \-\- using \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
 .sp
-The CPack FreeBSD generator is a \fI\%CPack\fP generator and uses the
-\fBCPACK_XXX\fP variables used by \fI\%CPack\fP\&. It tries to reuse packaging
+The CPack FreeBSD generator is a \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link' generator and uses the
+\fBCPACK_XXX\fP variables used by \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&. It tries to reuse packaging
 information that may already be specified for Debian packages for the
-\fI\%CPack DEB Generator\fP\&. It also tries to reuse RPM packaging
+\X'tty: link #cpack_gen:CPack DEB Generator'\fI\%CPack DEB Generator\fP\X'tty: link'\&. It also tries to reuse RPM packaging
 information when Debian does not specify.
 .sp
 The CPack FreeBSD generator should work on any host with libpkg installed. The
@@ -1870,7 +1913,7 @@ CMake.
 .sp
 All of the variables can be set specifically for FreeBSD packaging in
 the CPackConfig file or in CMakeLists.txt, but most of them have defaults
-that use general settings (e.g. \fI\%CMAKE_PROJECT_NAME\fP) or Debian\-specific
+that use general settings (e.g. \X'tty: link #variable:CMAKE_PROJECT_NAME'\fI\%CMAKE_PROJECT_NAME\fP\X'tty: link') or Debian\-specific
 variables when those make sense (e.g. the homepage of an upstream project
 is usually unchanged by the flavor of packaging). When there is no Debian
 information to fall back on, but the RPM packaging has it, fall back to
@@ -1888,7 +1931,7 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_NAME\fP (this is always set by CPack itself,
+\X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link' (this is always set by CPack itself,
 based on CMAKE_PROJECT_NAME).
 .UNINDENT
 .UNINDENT
@@ -1906,7 +1949,7 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP (this is always set
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link' (this is always set
 by CPack itself, if nothing else sets it explicitly).
 .UNINDENT
 .UNINDENT
@@ -1924,14 +1967,14 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_DEBIAN_PACKAGE_DESCRIPTION\fP (this may be set already
+\X'tty: link #variable:CPACK_DEBIAN_PACKAGE_DESCRIPTION'\fI\%CPACK_DEBIAN_PACKAGE_DESCRIPTION\fP\X'tty: link' (this may be set already
 for Debian packaging, so it is used as a fallback).
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP (this is always set
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link' (this is always set
 by CPack itself, if nothing else sets it explicitly).
 .IP \(bu 2
-\fI\%PROJECT_DESCRIPTION\fP (this can be set with the \fBDESCRIPTION\fP
-parameter for \fI\%project()\fP).
+\X'tty: link #variable:PROJECT_DESCRIPTION'\fI\%PROJECT_DESCRIPTION\fP\X'tty: link' (this can be set with the \fBDESCRIPTION\fP
+parameter for \X'tty: link #command:project'\fI\%project()\fP\X'tty: link').
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -1949,14 +1992,14 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_HOMEPAGE_URL\fP, or if that is not set,
+\X'tty: link #variable:CPACK_PACKAGE_HOMEPAGE_URL'\fI\%CPACK_PACKAGE_HOMEPAGE_URL\fP\X'tty: link', or if that is not set,
 .IP \(bu 2
-\fI\%CPACK_DEBIAN_PACKAGE_HOMEPAGE\fP (this may be set already
+\X'tty: link #variable:CPACK_DEBIAN_PACKAGE_HOMEPAGE'\fI\%CPACK_DEBIAN_PACKAGE_HOMEPAGE\fP\X'tty: link' (this may be set already
 for Debian packaging, so it is used as a fallback).
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.12: The \fBCPACK_PACKAGE_HOMEPAGE_URL\fP variable.
+Added in version 3.12: The \fBCPACK_PACKAGE_HOMEPAGE_URL\fP variable.
 
 .UNINDENT
 .INDENT 0.0
@@ -1973,7 +2016,7 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_RPM_PACKAGE_LICENSE\fP
+\X'tty: link #variable:CPACK_RPM_PACKAGE_LICENSE'\fI\%CPACK_RPM_PACKAGE_LICENSE\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -2054,11 +2097,11 @@ empty
 .UNINDENT
 .SS CPack Inno Setup Generator
 .sp
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Inno Setup is a free installer for Windows programs by Jordan Russell and
-Martijn Laan (\fI\%https://jrsoftware.org/isinfo.php\fP).
+Martijn Laan (\X'tty: link https://jrsoftware.org/isinfo.php'\fI\%https://jrsoftware.org/isinfo.php\fP\X'tty: link').
 .sp
 This documentation explains Inno Setup generator specific options.
 .sp
@@ -2066,7 +2109,11 @@ The generator provides a lot of options like components. Unfortunately, not
 all features (e.g. component dependencies) are currently supported by
 Inno Setup and they\(aqre ignored by the generator for now.
 .sp
-CPack requires Inno Setup 6 or greater and only works on Windows.
+CPack requires Inno Setup 6 or greater.
+.sp
+Added in version 3.30: The generator is now available on non\-Windows hosts,
+but requires Wine to run the Inno Setup tools.
+
 .SS Variables specific to CPack Inno Setup generator
 .sp
 You can use the following variables to change the behavior of the CPack
@@ -2082,7 +2129,7 @@ refer to the documentation of Inno Setup for more information.
 .sp
 If you\(aqre asked to provide the path to any file, you can always give an
 absolute path or in most cases the relative path from the top\-level directory
-where all files being installed by an \fI\%install()\fP instruction reside.
+where all files being installed by an \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' instruction reside.
 .sp
 CPack tries to escape quotes and other special characters for you. However,
 using special characters could cause problems.
@@ -2130,7 +2177,7 @@ target architecture of the installer. This also affects the Program Files
 folder or registry keys being used.
 .sp
 CPack tries to determine the correct value with a try compile (see
-\fI\%CMAKE_SIZEOF_VOID_P\fP), but this option can be manually specified
+\X'tty: link #variable:CMAKE_SIZEOF_VOID_P'\fI\%CMAKE_SIZEOF_VOID_P\fP\X'tty: link'), but this option can be manually specified
 too (especially when using \fBia64\fP or cross\-platform compilation).
 .INDENT 7.0
 .TP
@@ -2185,13 +2232,13 @@ application shortcuts will appear in the top\-level start menu folder.
 Yes
 .TP
 .B Default
-The value of \fI\%CPACK_PACKAGE_NAME\fP
+The value of \X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_INNOSETUP_LANGUAGES
-A \fI\%semicolon\-separated list\fP of languages you want
+A \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of languages you want
 Inno Setup to include.
 .sp
 Currently available: \fBarmenian\fP, \fBbrazilianPortuguese\fP, \fBbulgarian\fP,
@@ -2213,7 +2260,7 @@ Yes
 .TP
 .B CPACK_INNOSETUP_IGNORE_LICENSE_PAGE
 If you don\(aqt specify a license file using
-\fI\%CPACK_RESOURCE_FILE_LICENSE\fP, CPack uses a file for demonstration
+\X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link', CPack uses a file for demonstration
 purposes. If you want the installer to ignore license files at all, you can
 enable this option.
 .INDENT 7.0
@@ -2229,7 +2276,7 @@ Yes
 .TP
 .B CPACK_INNOSETUP_IGNORE_README_PAGE
 If you don\(aqt specify a readme file using
-\fI\%CPACK_RESOURCE_FILE_README\fP, CPack uses a file for demonstration
+\X'tty: link #variable:CPACK_RESOURCE_FILE_README'\fI\%CPACK_RESOURCE_FILE_README\fP\X'tty: link', CPack uses a file for demonstration
 purposes. If you want the installer to ignore readme files at all, you can
 enable this option. Make sure the option is disabled when using
 a custom readme file.
@@ -2272,7 +2319,7 @@ Yes
 .B CPACK_INNOSETUP_ICON_FILE
 The path to a custom installer \fB\&.ico\fP file.
 .sp
-Use \fI\%CPACK_PACKAGE_ICON\fP to customize the bitmap file being shown
+Use \X'tty: link #variable:CPACK_PACKAGE_ICON'\fI\%CPACK_PACKAGE_ICON\fP\X'tty: link' to customize the bitmap file being shown
 in the wizard.
 .INDENT 7.0
 .TP
@@ -2323,14 +2370,14 @@ No
 .UNINDENT
 .SS File Specific Variables
 .sp
-Although all files being installed by an \fI\%install()\fP instruction are
+Although all files being installed by an \X'tty: link #command:install'\fI\%install()\fP\X'tty: link' instruction are
 automatically processed and added to the installer, there are some variables
 to customize the installation process.
 .sp
 Before using executables (only \fB\&.exe\fP or \fB\&.com\fP) in shortcuts
-(e.g. \fI\%CPACK_CREATE_DESKTOP_LINKS\fP) or \fB[Run]\fP entries, you\(aqve to
+(e.g. \X'tty: link #variable:CPACK_CREATE_DESKTOP_LINKS'\fI\%CPACK_CREATE_DESKTOP_LINKS\fP\X'tty: link') or \fB[Run]\fP entries, you\(aqve to
 add the raw file name (without path and extension) to
-\fI\%CPACK_PACKAGE_EXECUTABLES\fP and create a start menu shortcut
+\X'tty: link #variable:CPACK_PACKAGE_EXECUTABLES'\fI\%CPACK_PACKAGE_EXECUTABLES\fP\X'tty: link' and create a start menu shortcut
 for them.
 .sp
 If you have two files with the same raw name (e.g. \fBa/executable.exe\fP and
@@ -2340,7 +2387,7 @@ result in undefined behavior and is not recommended.
 .TP
 .B CPACK_INNOSETUP_CUSTOM_INSTALL_INSTRUCTIONS
 This variable should contain a
-\fI\%semicolon\-separated list\fP of pairs \fBpath\fP,
+\X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of pairs \fBpath\fP,
 \fBinstruction\fP and can be used to customize the install command being
 automatically created for each file or directory.
 .sp
@@ -2386,7 +2433,7 @@ You would do this by using \fBmy_file.txt\fP as \fBpath\fP and
 \fBSource: \(dqmy_file.txt\(dq; DestDir: \(dq{userdocs}\(dq; Flags: ignoreversion uninsneveruninstall\fP
 as \fBinstruction\fP\&.
 .sp
-You\(aqve to take care of the \fI\%escaping problem\fP\&.
+You\(aqve to take care of the \X'tty: link https://cmake.org/cmake/help/book/mastering-cmake/chapter/Packaging%20With%20CPack.html#adding-custom-cpack-options'\fI\%escaping problem\fP\X'tty: link'\&.
 So the CMake command would be:
 .INDENT 7.0
 .INDENT 3.5
@@ -2400,14 +2447,14 @@ set(CPACK_INNOSETUP_CUSTOM_INSTALL_INSTRUCTIONS \(dqmy_file.txt;Source: \e\e\e\(
 .UNINDENT
 .sp
 To improve readability, you should go around the escaping problem by using
-\fI\%CPACK_VERBATIM_VARIABLES\fP or by placing the instruction into a
+\X'tty: link #variable:CPACK_VERBATIM_VARIABLES'\fI\%CPACK_VERBATIM_VARIABLES\fP\X'tty: link' or by placing the instruction into a
 separate CPack project config file.
 .sp
 If you customize the install instruction of a specific file, you lose the
 connection to its component. To go around, manually add
 \fBComponents: <component>\fP\&. You also need to add its shortcuts and \fB[Run]\fP
 entries by yourself in a custom section, since the executable won\(aqt be found
-anymore by \fI\%CPACK_PACKAGE_EXECUTABLES\fP\&.
+anymore by \X'tty: link #variable:CPACK_PACKAGE_EXECUTABLES'\fI\%CPACK_PACKAGE_EXECUTABLES\fP\X'tty: link'\&.
 .sp
 Here\(aqs another example (Note: You\(aqve to go around the escaping problem for
 the example to work):
@@ -2433,9 +2480,9 @@ No
 .TP
 .B CPACK_INNOSETUP_MENU_LINKS
 This variable should contain a
-\fI\%semicolon\-separated list\fP of pairs \fBlink\fP,
+\X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of pairs \fBlink\fP,
 \fBlink name\fP and can be used to add shortcuts into the start menu folder
-beside those of the executables (see \fI\%CPACK_PACKAGE_EXECUTABLES\fP).
+beside those of the executables (see \X'tty: link #variable:CPACK_PACKAGE_EXECUTABLES'\fI\%CPACK_PACKAGE_EXECUTABLES\fP\X'tty: link').
 While \fBlink name\fP is the label, \fBlink\fP can be a URL or a path relative to
 the installation directory.
 .sp
@@ -2475,8 +2522,8 @@ Yes
 .INDENT 0.0
 .TP
 .B CPACK_INNOSETUP_RUN_EXECUTABLES
-A \fI\%semicolon\-separated list\fP of executables being
-specified in \fI\%CPACK_PACKAGE_EXECUTABLES\fP which the user can run
+A \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of executables being
+specified in \X'tty: link #variable:CPACK_PACKAGE_EXECUTABLES'\fI\%CPACK_PACKAGE_EXECUTABLES\fP\X'tty: link' which the user can run
 when the installer finishes.
 .sp
 They\(aqre internally added to the \fB[Run]\fP section.
@@ -2543,12 +2590,12 @@ Yes
 .INDENT 0.0
 .TP
 .B CPACK_INNOSETUP_EXECUTABLE_ARGUMENTS
-A \fI\%semicolon\-separated list\fP of extra
+A \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of extra
 command\-line options for the Inno Setup Script Compiler command.
 .sp
 For example: \fB/Qp;/Smysigntool=$p\fP
 .sp
-Take care of the \fI\%escaping problem\fP\&.
+Take care of the \X'tty: link https://cmake.org/cmake/help/book/mastering-cmake/chapter/Packaging%20With%20CPack.html#adding-custom-cpack-options'\fI\%escaping problem\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -2592,7 +2639,7 @@ AppComments={#emit \(dq\(aqMy Macro\(aq has the value: \(dq + MyMacro}
 .UNINDENT
 .UNINDENT
 .sp
-Take care of the \fI\%escaping problem\fP\&.
+Take care of the \X'tty: link https://cmake.org/cmake/help/book/mastering-cmake/chapter/Packaging%20With%20CPack.html#adding-custom-cpack-options'\fI\%escaping problem\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -2602,7 +2649,7 @@ No
 .INDENT 0.0
 .TP
 .B CPACK_INNOSETUP_EXTRA_SCRIPTS
-A \fI\%semicolon\-separated list\fP of paths to
+A \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of paths to
 additional \fB\&.iss\fP script files to be processed.
 .sp
 They\(aqre internally included at the top of the output script file using a
@@ -2621,7 +2668,7 @@ No
 .INDENT 0.0
 .TP
 .B CPACK_INNOSETUP_CODE_FILES
-A \fI\%semicolon\-separated list\fP of paths to
+A \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of paths to
 additional Pascal files to be processed.
 .sp
 This variable is actually the same as
@@ -2639,22 +2686,22 @@ No
 .UNINDENT
 .SS CPack IFW Generator
 .sp
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Configure and run the Qt Installer Framework to generate a Qt installer.
 .SS Overview
 .sp
-This \fI\%cpack generator\fP generates
-configuration and meta information for the \fI\%Qt Installer Framework\fP (QtIFW),
+This \X'tty: link #manual:cpack-generators(7)'\fI\%cpack generator\fP\X'tty: link' generates
+configuration and meta information for the \X'tty: link https://doc.qt.io/qtinstallerframework/index.html'\fI\%Qt Installer Framework\fP\X'tty: link' (QtIFW),
 and runs QtIFW tools to generate a Qt installer.
 .sp
 QtIFW provides tools and utilities to create installers for
-the platforms supported by \fI\%Qt\fP: Linux,
+the platforms supported by \X'tty: link https://www.qt.io'\fI\%Qt\fP\X'tty: link': Linux,
 Microsoft Windows, and macOS.
 .sp
 To make use of this generator, QtIFW needs to be installed.
-The \fI\%CPackIFW\fP module looks for the location of the
+The \X'tty: link #module:CPackIFW'\fI\%CPackIFW\fP\X'tty: link' module looks for the location of the
 QtIFW command\-line utilities, and defines several commands to
 control the behavior of this generator. See \fI\%Hints for Finding QtIFW\fP\&.
 .SS Variables
@@ -2665,7 +2712,7 @@ generator.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_VERBOSE
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Set to \fBON\fP to enable addition debug output.
@@ -2676,13 +2723,13 @@ By default is \fBOFF\fP\&.
 .TP
 .B CPACK_IFW_PACKAGE_TITLE
 Name of the installer as displayed on the title bar.
-If not specified, it defaults to \fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\&.
+If not specified, it defaults to \X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_PUBLISHER
 Publisher of the software (as shown in the Windows Control Panel).
-If not specified, it defaults to \fI\%CPACK_PACKAGE_VENDOR\fP\&.
+If not specified, it defaults to \X'tty: link #variable:CPACK_PACKAGE_VENDOR'\fI\%CPACK_PACKAGE_VENDOR\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2711,7 +2758,7 @@ It must be an absolute path.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_WATERMARK
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Filename for a watermark image in PNG format, used as
@@ -2720,7 +2767,7 @@ Filename for a watermark image in PNG format, used as
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_BANNER
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Filename for a banner image in PNG format, used as \fBQWizard::BannerPixmap\fP\&.
@@ -2729,7 +2776,7 @@ It must be an absolute path.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_BACKGROUND
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Filename for a background image in PNG format, used as
@@ -2739,7 +2786,7 @@ absolute path.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_WIZARD_STYLE
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Wizard style to be used (\fBModern\fP, \fBMac\fP, \fBAero\fP or \fBClassic\fP).
@@ -2747,7 +2794,7 @@ Wizard style to be used (\fBModern\fP, \fBMac\fP, \fBAero\fP or \fBClassic\fP).
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_WIZARD_DEFAULT_WIDTH
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Default width of the wizard in pixels. Setting a banner image will override
@@ -2756,7 +2803,7 @@ this.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_WIZARD_DEFAULT_HEIGHT
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Default height of the wizard in pixels. Setting a watermark image will
@@ -2765,7 +2812,7 @@ override this.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_WIZARD_SHOW_PAGE_LIST
-New in version 3.20.
+Added in version 3.20.
 
 .sp
 Set to \fBOFF\fP if the widget listing installer pages on the left side of the
@@ -2777,7 +2824,7 @@ later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_TITLE_COLOR
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Color of the titles and subtitles (takes an HTML color code, such as
@@ -2786,7 +2833,7 @@ Color of the titles and subtitles (takes an HTML color code, such as
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_STYLE_SHEET
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Filename for a stylesheet. It must be an absolute path.
@@ -2795,11 +2842,11 @@ Filename for a stylesheet. It must be an absolute path.
 .TP
 .B CPACK_IFW_TARGET_DIRECTORY
 Default target directory for installation.
-If \fI\%CPACK_PACKAGE_INSTALL_DIRECTORY\fP is set, this defaults to
+If \X'tty: link #variable:CPACK_PACKAGE_INSTALL_DIRECTORY'\fI\%CPACK_PACKAGE_INSTALL_DIRECTORY\fP\X'tty: link' is set, this defaults to
 \fB@ApplicationsDir@/${CPACK_PACKAGE_INSTALL_DIRECTORY}\fP\&. If that variable
 isn\(aqt set either, the default used is \fB@RootDir@/usr/local\fP\&.
 Predefined variables of the form \fB@...@\fP are expanded by the
-\fI\%QtIFW scripting engine\fP\&.
+\X'tty: link https://doc.qt.io/qtinstallerframework/scripting.html'\fI\%QtIFW scripting engine\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2811,7 +2858,7 @@ You can use predefined variables.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_REMOVE_TARGET_DIR
-New in version 3.11.
+Added in version 3.11.
 
 .sp
 Set to \fBOFF\fP if the target directory should not be deleted when uninstalling.
@@ -2832,7 +2879,7 @@ specified.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_START_MENU_DIRECTORY
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Name of the default program group for the product in the Windows Start menu.
@@ -2841,7 +2888,7 @@ If not specified, it defaults to \fI\%CPACK_IFW_PACKAGE_NAME\fP\&.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_MAINTENANCE_TOOL_NAME
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Filename of the generated maintenance tool.
@@ -2852,7 +2899,7 @@ If not specified, QtIFW provides a default name (\fBmaintenancetool\fP).
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_MAINTENANCE_TOOL_INI_FILE
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Filename for the configuration of the generated maintenance tool.
@@ -2862,7 +2909,7 @@ If not specified, QtIFW uses a default file name (\fBmaintenancetool.ini\fP).
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_ALLOW_NON_ASCII_CHARACTERS
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Set to \fBON\fP if the installation path can contain non\-ASCII characters.
@@ -2872,7 +2919,7 @@ allow non\-ASCII characters.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_ALLOW_SPACE_IN_PATH
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Set to \fBOFF\fP if the installation path cannot contain space characters.
@@ -2882,7 +2929,7 @@ Is \fBON\fP for QtIFW less 2.0 tools.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_DISABLE_COMMAND_LINE_INTERFACE
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Set to \fBON\fP if command line interface features should be disabled.
@@ -2892,7 +2939,7 @@ later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_CONTROL_SCRIPT
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Filename for a custom installer control script.
@@ -2900,20 +2947,20 @@ Filename for a custom installer control script.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_RESOURCES
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 List of additional resources (\fB\&.qrc\fP files) to include in the installer
 binary. They should be specified as absolute paths and no two resource files
 can have the same file name.
 .sp
-You can use the \fI\%cpack_ifw_add_package_resources()\fP command to resolve
+You can use the \X'tty: link #command:cpack_ifw_add_package_resources'\fI\%cpack_ifw_add_package_resources()\fP\X'tty: link' command to resolve
 relative paths.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_FILE_EXTENSION
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 The target binary extension.
@@ -2933,20 +2980,20 @@ On Mac, the target is created as an DMG disk image with the extension
 The list of remote repositories.
 .sp
 The default value of this variable is computed by CPack and contains
-all repositories added with \fI\%cpack_ifw_add_repository()\fP
-or updated with \fI\%cpack_ifw_update_repository()\fP\&.
+all repositories added with \X'tty: link #command:cpack_ifw_add_repository'\fI\%cpack_ifw_add_repository()\fP\X'tty: link'
+or updated with \X'tty: link #command:cpack_ifw_update_repository'\fI\%cpack_ifw_update_repository()\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_IFW_DOWNLOAD_ALL
 If this is \fBON\fP, all components will be downloaded. If not set, the
-behavior is determined by whether \fI\%cpack_configure_downloads()\fP has
+behavior is determined by whether \X'tty: link #command:cpack_configure_downloads'\fI\%cpack_configure_downloads()\fP\X'tty: link' has
 been called with the \fBALL\fP option or not.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_PRODUCT_IMAGES
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 A list of images to be shown on the \fBPerformInstallationPage\fP\&. These
@@ -2956,8 +3003,20 @@ This feature is available for QtIFW 4.0.0 and later.
 .UNINDENT
 .INDENT 0.0
 .TP
+.B CPACK_IFW_PACKAGE_PRODUCT_IMAGE_URLS
+Added in version 3.31.
+
+.sp
+A list of URLs associated with the ProductImages.
+Only used if  \fBCPACK_IFW_PACKAGE_PRODUCT_IMAGES\fP is defined
+and it has the same size.
+.sp
+This feature is available for QtIFW 4.0.0 and later.
+.UNINDENT
+.INDENT 0.0
+.TP
 .B CPACK_IFW_PACKAGE_RUN_PROGRAM
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Command executed after the installer is finished, if the user accepts the
@@ -2970,7 +3029,7 @@ This feature is available for QtIFW 4.0.0 and later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_RUN_PROGRAM_ARGUMENTS
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 List of arguments passed to the program specified in
@@ -2981,7 +3040,7 @@ This feature is available for QtIFW 4.0.0 and later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_RUN_PROGRAM_DESCRIPTION
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Text shown next to the check box for running the program after the
@@ -2994,7 +3053,7 @@ This feature is available for QtIFW 4.0.0 and later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_PACKAGE_SIGNING_IDENTITY
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Allows specifying a code signing identity to be used for signing the generated
@@ -3003,7 +3062,7 @@ app bundle. Only available on macOS, ignored on other platforms.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_ARCHIVE_FORMAT
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Set the format used when packaging new component data archives. If you omit
@@ -3034,7 +3093,7 @@ This feature is available for QtIFW 4.2.0 and later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_ARCHIVE_COMPRESSION
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Archive compression level. The allowable values are:
@@ -3085,7 +3144,7 @@ dependent components.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_REPOSITORIES_DIRECTORIES
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Additional prepared repository directories that will be used to resolve and
@@ -3097,20 +3156,20 @@ This feature is available for QtIFW 3.1 and later.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_FRAMEWORK_VERSION
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 The version of the QtIFW tools that will be used. This variable is set
-by the \fI\%CPackIFW\fP module.
+by the \X'tty: link #module:CPackIFW'\fI\%CPackIFW\fP\X'tty: link' module.
 .UNINDENT
 .sp
 The following variables provide the locations of the QtIFW
-command\-line tools as discovered by the \fI\%CPackIFW\fP module.
+command\-line tools as discovered by the \X'tty: link #module:CPackIFW'\fI\%CPackIFW\fP\X'tty: link' module.
 These variables are cached, and may be configured if needed.
 .INDENT 0.0
 .TP
 .B CPACK_IFW_ARCHIVEGEN_EXECUTABLE
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 The path to \fBarchivegen\fP\&.
@@ -3139,11 +3198,11 @@ The path to \fBdevtool\fP\&.
 .sp
 Generally, the CPack \fBIFW\fP generator automatically finds QtIFW tools.
 The following (in order of precedence) can also be set to augment the
-locations normally searched by \fI\%find_program()\fP:
+locations normally searched by \X'tty: link #command:find_program'\fI\%find_program()\fP\X'tty: link':
 .INDENT 0.0
 .TP
 .B CPACK_IFW_ROOT
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 CMake variable
@@ -3151,7 +3210,7 @@ CMake variable
 .INDENT 0.0
 .TP
 .B CPACK_IFW_ROOT
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 Environment variable
@@ -3183,22 +3242,22 @@ that all packaged files are fully contained in the installer executable.
 In contrast, an \fIonline installer\fP will download some or all components from
 a remote server.
 .sp
-The \fBDOWNLOADED\fP option in the \fI\%cpack_add_component()\fP command
+The \fBDOWNLOADED\fP option in the \X'tty: link #command:cpack_add_component'\fI\%cpack_add_component()\fP\X'tty: link' command
 specifies that a component is to be downloaded. Alternatively, the \fBALL\fP
-option in the \fI\%cpack_configure_downloads()\fP command specifies that
+option in the \X'tty: link #command:cpack_configure_downloads'\fI\%cpack_configure_downloads()\fP\X'tty: link' command specifies that
 \fIall\fP components are to be be downloaded.
 .sp
-The \fI\%cpack_ifw_add_repository()\fP command and the
+The \X'tty: link #command:cpack_ifw_add_repository'\fI\%cpack_ifw_add_repository()\fP\X'tty: link' command and the
 \fI\%CPACK_IFW_DOWNLOAD_ALL\fP variable allow for more specific
 configuration.
 .sp
 When there are online components, CPack will write them to archive files.
-The help page of the \fI\%CPackComponent\fP module, especially the section
-on the \fI\%cpack_configure_downloads()\fP function, explains how to make
+The help page of the \X'tty: link #module:CPackComponent'\fI\%CPackComponent\fP\X'tty: link' module, especially the section
+on the \X'tty: link #command:cpack_configure_downloads'\fI\%cpack_configure_downloads()\fP\X'tty: link' function, explains how to make
 these files accessible from a download URL.
 .SS Internationalization
 .sp
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 Some variables and command arguments support internationalization via
@@ -3235,21 +3294,21 @@ Qt Installer Framework Manual:
 .INDENT 0.0
 .IP \(bu 2
 Index page:
-\fI\%https://doc.qt.io/qtinstallerframework/index.html\fP
+\X'tty: link https://doc.qt.io/qtinstallerframework/index.html'\fI\%https://doc.qt.io/qtinstallerframework/index.html\fP\X'tty: link'
 .IP \(bu 2
 Component Scripting:
-\fI\%https://doc.qt.io/qtinstallerframework/scripting.html\fP
+\X'tty: link https://doc.qt.io/qtinstallerframework/scripting.html'\fI\%https://doc.qt.io/qtinstallerframework/scripting.html\fP\X'tty: link'
 .IP \(bu 2
 Predefined Variables:
-\fI\%https://doc.qt.io/qtinstallerframework/scripting.html#predefined\-variables\fP
+\X'tty: link https://doc.qt.io/qtinstallerframework/scripting.html#predefined-variables'\fI\%https://doc.qt.io/qtinstallerframework/scripting.html#predefined\-variables\fP\X'tty: link'
 .IP \(bu 2
 Promoting Updates:
-\fI\%https://doc.qt.io/qtinstallerframework/ifw\-updates.html\fP
+\X'tty: link https://doc.qt.io/qtinstallerframework/ifw-updates.html'\fI\%https://doc.qt.io/qtinstallerframework/ifw\-updates.html\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B Download Qt Installer Framework for your platform from Qt site:
-\fI\%https://download.qt.io/official_releases/qt\-installer\-framework\fP
+\X'tty: link https://download.qt.io/official_releases/qt-installer-framework'\fI\%https://download.qt.io/official_releases/qt\-installer\-framework\fP\X'tty: link'
 .UNINDENT
 .SS CPack NSIS Generator
 .sp
@@ -3288,7 +3347,7 @@ undocumented.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_MUI_WELCOMEFINISHPAGE_BITMAP
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 The filename of a bitmap to use as the NSIS \fBMUI_WELCOMEFINISHPAGE_BITMAP\fP\&.
@@ -3296,7 +3355,7 @@ The filename of a bitmap to use as the NSIS \fBMUI_WELCOMEFINISHPAGE_BITMAP\fP\&
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_MUI_UNWELCOMEFINISHPAGE_BITMAP
-New in version 3.5.
+Added in version 3.5.
 
 .sp
 The filename of a bitmap to use as the NSIS \fBMUI_UNWELCOMEFINISHPAGE_BITMAP\fP\&.
@@ -3374,7 +3433,7 @@ process.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_<compName>_INSTALL_DIRECTORY
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Custom install directory for the specified component \fB<compName>\fP instead
@@ -3425,7 +3484,7 @@ set(CPACK_NSIS_MENU_LINKS
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_UNINSTALL_NAME
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Specify the name of the program to uninstall the version.
@@ -3434,7 +3493,7 @@ Default is \fBUninstall\fP\&.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_WELCOME_TITLE
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 The title to display on the top of the page for the welcome page.
@@ -3442,7 +3501,7 @@ The title to display on the top of the page for the welcome page.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_WELCOME_TITLE_3LINES
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Display the title in the welcome page on 3 lines instead of 2.
@@ -3450,7 +3509,7 @@ Display the title in the welcome page on 3 lines instead of 2.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_FINISH_TITLE
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 The title to display on the top of the page for the finish page.
@@ -3458,7 +3517,7 @@ The title to display on the top of the page for the finish page.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_FINISH_TITLE_3LINES
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Display the title in the finish page on 3 lines instead of 2.
@@ -3466,7 +3525,7 @@ Display the title in the finish page on 3 lines instead of 2.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_MUI_HEADERIMAGE
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 The image to display on the header of installers pages.
@@ -3474,7 +3533,7 @@ The image to display on the header of installers pages.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_MANIFEST_DPI_AWARE
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 If set, declares that the installer is DPI\-aware.
@@ -3482,7 +3541,7 @@ If set, declares that the installer is DPI\-aware.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_BRANDING_TEXT
-New in version 3.20.
+Added in version 3.20.
 
 .sp
 If set, updates the text at the bottom of the install window.
@@ -3491,7 +3550,7 @@ To set the string to blank, use a space (\(dq \(dq).
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_BRANDING_TEXT_TRIM_POSITION
-New in version 3.20.
+Added in version 3.20.
 
 .sp
 If set, trim down the size of the control to the size of the branding text string.
@@ -3501,7 +3560,7 @@ If not specified, the default behavior is \fBLEFT\fP\&.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_EXECUTABLE
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 If set, specify the name of the NSIS executable. Default is \fBmakensis\fP\&.
@@ -3509,7 +3568,7 @@ If set, specify the name of the NSIS executable. Default is \fBmakensis\fP\&.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_IGNORE_LICENSE_PAGE
-New in version 3.22.
+Added in version 3.22.
 
 .sp
 If set, do not display the page containing the license during installation.
@@ -3517,10 +3576,10 @@ If set, do not display the page containing the license during installation.
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_EXECUTABLE_PRE_ARGUMENTS
-New in version 3.25.
+Added in version 3.25.
 
 .sp
-This variable is a \fI\%semicolon\-separated list\fP of
+This variable is a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of
 arguments to prepend to the nsis script to run.
 If the arguments do not start with a \fB/\fP or a \fB\-\fP, it will add one
 automatically to the corresponding arguments.
@@ -3542,10 +3601,10 @@ and \fB<postArgs>...\fP  is constructed from \fBCPACK_NSIS_EXECUTABLE_POST_ARGUM
 .INDENT 0.0
 .TP
 .B CPACK_NSIS_EXECUTABLE_POST_ARGUMENTS
-New in version 3.25.
+Added in version 3.25.
 
 .sp
-This variable is a \fI\%semicolon\-separated list\fP of
+This variable is a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' of
 arguments to append to the nsis script to run.
 If the arguments do not start with a \fB/\fP or a \fB\-\fP, it will add one
 automatically to the corresponding arguments.
@@ -3566,7 +3625,7 @@ and \fB<postArgs>...\fP  is constructed from \fBCPACK_NSIS_EXECUTABLE_POST_ARGUM
 .UNINDENT
 .SS CPack NuGet Generator
 .sp
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 When build a NuGet package there is no direct way to control an output
@@ -3575,16 +3634,16 @@ is no \fBCPACK_NUGET_PACKAGE_FILE_NAME\fP variable. To form the output filename
 NuGet uses the package name and the version according to its built\-in rules.
 .sp
 Also, be aware that including a top level directory
-(\fI\%CPACK_INCLUDE_TOPLEVEL_DIRECTORY\fP) is ignored by this generator.
+(\X'tty: link #variable:CPACK_INCLUDE_TOPLEVEL_DIRECTORY'\fI\%CPACK_INCLUDE_TOPLEVEL_DIRECTORY\fP\X'tty: link') is ignored by this generator.
 .SS Variables specific to CPack NuGet generator
 .sp
 The CPack NuGet generator may be used to create NuGet packages using
-\fI\%CPack\fP\&. The CPack NuGet generator is a \fI\%CPack\fP generator thus
-it uses the \fBCPACK_XXX\fP variables used by \fI\%CPack\fP\&.
+\X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&. The CPack NuGet generator is a \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link' generator thus
+it uses the \fBCPACK_XXX\fP variables used by \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
 .sp
 The CPack NuGet generator has specific features which are controlled by the
 specifics \fBCPACK_NUGET_XXX\fP variables. In the \(dqone per group\(dq mode
-(see \fI\%CPACK_COMPONENTS_GROUPING\fP), \fB<compName>\fP placeholder
+(see \X'tty: link #variable:CPACK_COMPONENTS_GROUPING'\fI\%CPACK_COMPONENTS_GROUPING\fP\X'tty: link'), \fB<compName>\fP placeholder
 in the variables below would contain a group name (uppercased and turned into
 a \(dqC\(dq identifier).
 .sp
@@ -3604,18 +3663,32 @@ No
 .UNINDENT
 .INDENT 0.0
 .TP
+.B CPACK_NUGET_PACKAGE_DEBUG
+Enable debug messages while executing CPack NuGet generator.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+\fBOFF\fP
+.UNINDENT
+.UNINDENT
+.SS Required metadata variables
+.INDENT 0.0
+.TP
 .B CPACK_NUGET_PACKAGE_NAME
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_NAME
 The NUGET package name. \fBCPACK_NUGET_PACKAGE_NAME\fP is used as the
-package \fBid\fP on \fI\%nuget.org\fP
+package \fBid\fP on \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'
 .INDENT 7.0
 .TP
 .B Mandatory
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_NAME\fP
+\X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -3630,7 +3703,7 @@ The NuGet package version.
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_VERSION\fP
+\X'tty: link #variable:CPACK_PACKAGE_VERSION'\fI\%CPACK_PACKAGE_VERSION\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -3647,11 +3720,11 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP,
+\X'tty: link #variable:CPACK_COMPONENT_<compName>_DESCRIPTION'\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP\X'tty: link',
 .IP \(bu 2
 \fBCPACK_COMPONENT_GROUP_<groupName>_DESCRIPTION\fP,
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_DESCRIPTION\fP
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION'\fI\%CPACK_PACKAGE_DESCRIPTION\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -3661,8 +3734,8 @@ Yes
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_AUTHORS
 A comma\-separated list of packages authors, matching the profile names
-on \fI\%nuget.org\fP\&. These are displayed in the NuGet Gallery on
-\fI\%nuget.org\fP and are used to cross\-reference packages by the same
+on \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'\&. These are displayed in the NuGet Gallery on
+\X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link' and are used to cross\-reference packages by the same
 authors.
 .INDENT 7.0
 .TP
@@ -3670,39 +3743,21 @@ authors.
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_VENDOR\fP
+\X'tty: link #variable:CPACK_PACKAGE_VENDOR'\fI\%CPACK_PACKAGE_VENDOR\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
-.INDENT 0.0
-.TP
-.B CPACK_NUGET_PACKAGE_TITLE
-.TP
-.B CPACK_NUGET_<compName>_PACKAGE_TITLE
-A human\-friendly title of the package, typically used in UI displays
-as on \fI\%nuget.org\fP and the Package Manager in Visual Studio. If not
-specified, the package ID is used.
-.INDENT 7.0
-.TP
-.B Mandatory
-No
-.TP
-.B Default
-.INDENT 7.0
-.IP \(bu 2
-\fI\%CPACK_COMPONENT_<compName>_DISPLAY_NAME\fP,
-.IP \(bu 2
-\fBCPACK_COMPONENT_GROUP_<groupName>_DISPLAY_NAME\fP
-.UNINDENT
-.UNINDENT
-.UNINDENT
+.SS Optional metadata variables
 .INDENT 0.0
 .TP
 .B CPACK_NUGET_PACKAGE_OWNERS
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_OWNERS
+Deprecated since version 3.30: Use authors (\fI\%CPACK_NUGET_PACKAGE_AUTHORS\fP) instead.
+
+.sp
 A comma\-separated list of the package creators using profile names
-on \fI\%nuget.org\fP\&. This is often the same list as in authors,
-and is ignored when uploading the package to \fI\%nuget.org\fP\&.
+on \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'\&. This is often the same list as in authors,
+and is ignored when uploading the package to \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -3718,14 +3773,14 @@ None
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_HOMEPAGE_URL
 An URL for the package\(aqs home page, often shown in UI displays as well
-as \fI\%nuget.org\fP\&.
+as \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
 No
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_HOMEPAGE_URL\fP
+\X'tty: link #variable:CPACK_PACKAGE_HOMEPAGE_URL'\fI\%CPACK_PACKAGE_HOMEPAGE_URL\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -3735,12 +3790,12 @@ No
 .B CPACK_NUGET_<compName>_PACKAGE_LICENSEURL
 Deprecated since version 3.20: Use a local license file
 (\fI\%CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME\fP)
-or a \fI\%SPDX license identifier\fP
+or a \X'tty: link https://spdx.org/licenses'\fI\%SPDX license identifier\fP\X'tty: link'
 (\fI\%CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION\fP) instead.
 
 .sp
 An URL for the package\(aqs license, often shown in UI displays as well
-as on \fI\%nuget.org\fP\&.
+as on \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -3748,32 +3803,9 @@ No
 .TP
 .B Default
 None
-.UNINDENT
-.UNINDENT
-.INDENT 0.0
 .TP
-.B CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION
-.TP
-.B CPACK_NUGET_<compName>_PACKAGE_LICENSE_EXPRESSION
-New in version 3.20.
-
-.sp
-A Software Package Data Exchange \fI\%SPDX license identifier\fP such as
-\fBMIT\fP, \fBBSD\-3\-Clause\fP, or \fBLGPL\-3.0\-or\-later\fP\&. In the case of a
-choice of licenses or more complex restrictions, compound license
-expressions may be formed using boolean operators, for example
-\fBMIT OR BSD\-3\-Clause\fP\&.  See the \fI\%SPDX specification\fP for guidance
-on forming complex license expressions.
-.sp
-If \fI\%CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME\fP is specified,
-\fBCPACK_NUGET_PACKAGE_LICENSE_EXPRESSION\fP is ignored.
-.INDENT 7.0
-.TP
-.B Mandatory
-No
-.TP
-.B Default
-None
+.B Supported
+NuGet 4.9.0 and above
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -3781,13 +3813,42 @@ None
 .B CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_LICENSE_FILE_NAME
+Added in version 3.20.
+
+.sp
 The package\(aqs license file in \fB\&.txt\fP or \fB\&.md\fP format.
 .sp
 If \fBCPACK_NUGET_PACKAGE_LICENSE_FILE_NAME\fP is specified,
 \fBCPACK_NUGET_PACKAGE_LICENSE_EXPRESSION\fP is ignored.
-.sp
-New in version 3.20.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 4.9.0 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_LICENSE_EXPRESSION
+Added in version 3.20.
 
+.sp
+A Software Package Data Exchange \X'tty: link https://spdx.org/licenses'\fI\%SPDX license identifier\fP\X'tty: link' such as
+\fBMIT\fP, \fBBSD\-3\-Clause\fP, or \fBLGPL\-3.0\-or\-later\fP\&. In the case of a
+choice of licenses or more complex restrictions, compound license
+expressions may be formed using boolean operators, for example
+\fBMIT OR BSD\-3\-Clause\fP\&.  See the \X'tty: link https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions'\fI\%SPDX specification\fP\X'tty: link' for guidance
+on forming complex license expressions.
+.sp
+If \fI\%CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME\fP is specified,
+\fBCPACK_NUGET_PACKAGE_LICENSE_EXPRESSION\fP is ignored.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -3818,6 +3879,50 @@ None
 .UNINDENT
 .INDENT 0.0
 .TP
+.B CPACK_NUGET_PACKAGE_ICON
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_ICON
+Added in version 3.20.
+
+.sp
+The filename of a 64x64 image with transparency background to use as the
+icon for the package in UI display.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 5.3.0 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_README
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_README
+Added in version 3.30.
+
+.sp
+The package path relative to the root of the package to a readme file.
+Supported file formats include only Markdown (\fB*.md\fP).
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 5.10.0 preview 2 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
 .B CPACK_NUGET_PACKAGE_REQUIRE_LICENSE_ACCEPTANCE
 When set to a true value, the user will be prompted to accept the license
 before installing the package.
@@ -3832,28 +3937,13 @@ None
 .UNINDENT
 .INDENT 0.0
 .TP
-.B CPACK_NUGET_PACKAGE_ICON
-.TP
-.B CPACK_NUGET_<compName>_PACKAGE_ICON
-New in version 3.20.
-
-.sp
-The filename of a 64x64 image with transparency background to use as the
-icon for the package in UI display.
-.INDENT 7.0
-.TP
-.B Mandatory
-No
-.TP
-.B Default
-None
-.UNINDENT
-.UNINDENT
-.INDENT 0.0
-.TP
 .B CPACK_NUGET_PACKAGE_DESCRIPTION_SUMMARY
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_DESCRIPTION_SUMMARY
+Deprecated since version 3.30: Summary is being deprecated. Use description
+(\fI\%CPACK_NUGET_PACKAGE_DESCRIPTION\fP) instead.
+
+.sp
 A short description of the package for UI display. If omitted, a
 truncated version of description is used.
 .INDENT 7.0
@@ -3862,7 +3952,7 @@ truncated version of description is used.
 No
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -3902,7 +3992,7 @@ None
 .B CPACK_NUGET_PACKAGE_LANGUAGE
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_LANGUAGE
-New in version 3.20.
+Added in version 3.20.
 
 .sp
 Locale specifier for the package, for example \fBen_CA\fP\&.
@@ -3934,10 +4024,137 @@ None
 .UNINDENT
 .INDENT 0.0
 .TP
+.B CPACK_NUGET_PACKAGE_REPOSITORY_URL
+.TP
+.B CPACK_NUGET_<compName>_REPOSITORY_URL
+.INDENT 7.0
+.INDENT 3.5
+Added in version 3.30.
+
+.UNINDENT
+.UNINDENT
+.sp
+Repository metadata allows you to map the \fB*.nupkg\fP to the repository
+that built it. This should be a publicly available URL that can be invoked
+directly by a version control software. It should not be an HTML page as
+this is meant for the computer.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 4.0 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_REPOSITORY_TYPE
+.TP
+.B CPACK_NUGET_<compName>_REPOSITORY_TYPE
+.INDENT 7.0
+.INDENT 3.5
+Added in version 3.30.
+
+.UNINDENT
+.UNINDENT
+.sp
+A type of the VCS repository.  When uploading a package to \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link', the
+type is limited to 100 characters.
+.INDENT 7.0
+.TP
+.B Mandatory
+Yes, if repository URL has been specified
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 4.0 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_REPOSITORY_BRANCH
+.TP
+.B CPACK_NUGET_<compName>_REPOSITORY_BRANCH
+.INDENT 7.0
+.INDENT 3.5
+Added in version 3.30.
+
+.UNINDENT
+.UNINDENT
+.sp
+A VSC branch name to build the package.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 4.6 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_REPOSITORY_COMMIT
+.TP
+.B CPACK_NUGET_<compName>_REPOSITORY_COMMIT
+.INDENT 7.0
+.INDENT 3.5
+Added in version 3.30.
+
+.UNINDENT
+.UNINDENT
+.sp
+A SHA\-1 hash of the commit to build the package.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.TP
+.B Supported
+NuGet 4.6 and above
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_TITLE
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_TITLE
+A human\-friendly title of the package, typically used in UI displays
+as on \X'tty: link https://www.nuget.org'\fI\%nuget.org\fP\X'tty: link' and the Package Manager in Visual Studio. If not
+specified, the package ID is used.
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+.INDENT 7.0
+.IP \(bu 2
+\X'tty: link #variable:CPACK_COMPONENT_<compName>_DISPLAY_NAME'\fI\%CPACK_COMPONENT_<compName>_DISPLAY_NAME\fP\X'tty: link',
+.IP \(bu 2
+\fBCPACK_COMPONENT_GROUP_<groupName>_DISPLAY_NAME\fP
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Dependencies specification
+.INDENT 0.0
+.TP
 .B CPACK_NUGET_PACKAGE_DEPENDENCIES
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_DEPENDENCIES
-A list of package dependencies.
+A list of default (not framework\-specific) package dependencies.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -3952,9 +4169,8 @@ None
 .B CPACK_NUGET_PACKAGE_DEPENDENCIES_<dependency>_VERSION
 .TP
 .B CPACK_NUGET_<compName>_PACKAGE_DEPENDENCIES_<dependency>_VERSION
-A \fI\%version specification\fP for the particular dependency, where
-\fB<dependency>\fP is an item of the dependency list (see above)
-transformed with \fI\%string(MAKE_C_IDENTIFIER)\fP command.
+A \X'tty: link https://learn.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges'\fI\%version specification\fP\X'tty: link' for the particular dependency, where
+\fB<dependency>\fP is an item of the dependency list (see above).
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -3966,26 +4182,108 @@ None
 .UNINDENT
 .INDENT 0.0
 .TP
-.B CPACK_NUGET_PACKAGE_DEBUG
-Enable debug messages while executing CPack NuGet generator.
+.B CPACK_NUGET_PACKAGE_TFMS
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_TFMS
+Added in version 3.30.
+
+.sp
+A list of Target Framework Monikers (TFMs) for the package, e.g., \(dqnet47;netcoreapp21\(dq.
+For each of these TFMs a \X'tty: link https://learn.microsoft.com/en-us/nuget/reference/nuspec#dependency-groups'\fI\%dependency group\fP\X'tty: link' will be generated in the dependencies block of the NuGet
+package. Framework\-specific dependencies can be added to these groups with the TFM
+dependency lists (see below).
+.sp
+This variable is particularly useful for fixing warnings \X'tty: link https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu5128'\fI\%NU5128\fP\X'tty: link'\&.
 .INDENT 7.0
 .TP
 .B Mandatory
 No
 .TP
 .B Default
-\fBOFF\fP
+None
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_DEPENDENCIES_<tfm>
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_DEPENDENCIES_<tfm>
+Added in version 3.30.
+
+.sp
+A list of package dependencies that apply specifically to the \fB<tfm>\fP framework, where \fB<tfm>\fP
+is an item from the TFMs list (see above).
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_NUGET_PACKAGE_DEPENDENCIES_<tfm>_<dependency>_VERSION
+.TP
+.B CPACK_NUGET_<compName>_PACKAGE_DEPENDENCIES_<tfm>_<dependency>_VERSION
+Added in version 3.30.
+
+.sp
+A \X'tty: link https://learn.microsoft.com/en-us/nuget/concepts/package-versioning#version-ranges'\fI\%version specification\fP\X'tty: link' for the particular framework\-specific dependency, where
+\fB<dependency>\fP is an item of the \fB<tfm>\fP\-specific dependency list (see above).
+.INDENT 7.0
+.TP
+.B Mandatory
+No
+.TP
+.B Default
+None
+.UNINDENT
+.UNINDENT
+.SS Example usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+set(CPACK_GENERATOR NuGet)
+# Set up package metadata
+set(CPACK_PACKAGE_NAME SamplePackage)
+set(CPACK_PACKAGE_VERSION \(dq1.0.0\(dq)
+set(CPACK_PACKAGE_VENDOR \(dqExample Inc\(dq)
+set(CPACK_NUGET_PACKAGE_AUTHORS \(dqExampleInc\(dq)
+set(CPACK_PACKAGE_DESCRIPTION \(dqA .NET wrapper around the foobar library for frobbling bratchens\(dq)
+set(CPACK_PACKAGE_HOMEPAGE_URL \(dqhttps://www.example.com\(dq)
+set(CPACK_NUGET_PACKAGE_REPOSITORY_URL \(dqhttps://github.com/example/libfoobar.git\(dq)
+set(CPACK_NUGET_PACKAGE_REPOSITORY_TYPE git)
+set(CPACK_NUGET_PACKAGE_LICENSE_EXPRESSION \(dqMIT\(dq)
+# Set up dependencies
+set(CPACK_NUGET_PACKAGE_TFMS \(dqnet4;net6.0\(dq)
+set(CPACK_NUGET_PACKAGE_DEPENDENCIES_net4 \(dqFoo;Bar\(dq)
+# NB: If a version number is omitted, the dependency will not be created
+set(CPACK_NUGET_PACKAGE_DEPENDENCIES_net4_Foo_VERSION \(dq1.23\(dq)
+set(CPACK_NUGET_PACKAGE_DEPENDENCIES_net4_Bar_VERSION \(dq4.3.2\(dq)
+# NB: General dependencies (not framework\-specific) go in this variable
+set(CPACK_NUGET_PACKAGE_DEPENDENCIES \(dqBaz\(dq)
+set(CPACK_NUGET_PACKAGE_DEPENDENCIES_Baz_VERSION \(dq9.8.6\(dq)
+# NB: Since \(dqnet6.0\(dq was listed but no dependencies have been specified, an empty group
+# will be added to the nuspec file for this framework. This can be used to address warning NU5128.
+
+include(CPack)
+.ft P
+.fi
 .UNINDENT
 .UNINDENT
 .SS CPack PackageMaker Generator
 .sp
 Removed.  This once generated PackageMaker installers, but the
 generator has been removed since CMake 3.24.  Xcode no longer distributes
-the PackageMaker tools.  Use the \fI\%CPack productbuild Generator\fP
+the PackageMaker tools.  Use the \X'tty: link #cpack_gen:CPack productbuild Generator'\fI\%CPack productbuild Generator\fP\X'tty: link'
 instead.
 .SS CPack productbuild Generator
 .sp
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 productbuild CPack generator (macOS).
@@ -4004,7 +4302,7 @@ auto\-detection fails to find it).
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_IDENTIFIER
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Set the unique (non\-localized) product identifier to be associated with the
@@ -4014,7 +4312,7 @@ appended to this value.
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_IDENTITY_NAME
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Adds a digital signature to the resulting package.
@@ -4022,7 +4320,7 @@ Adds a digital signature to the resulting package.
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_KEYCHAIN_PATH
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Specify a specific keychain to search for the signing identity.
@@ -4037,7 +4335,7 @@ command (or specify its location if the auto\-detection fails to find it).
 .INDENT 0.0
 .TP
 .B CPACK_PKGBUILD_IDENTITY_NAME
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Adds a digital signature to the resulting package.
@@ -4045,7 +4343,7 @@ Adds a digital signature to the resulting package.
 .INDENT 0.0
 .TP
 .B CPACK_PKGBUILD_KEYCHAIN_PATH
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Specify a specific keychain to search for the signing identity.
@@ -4069,24 +4367,25 @@ defined for a given component.
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_RESOURCES_DIR
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 If specified the productbuild generator copies files from this directory
 (including subdirectories) to the \fBResources\fP directory. This is done
-before the \fI\%CPACK_RESOURCE_FILE_WELCOME\fP,
-\fI\%CPACK_RESOURCE_FILE_README\fP, and
-\fI\%CPACK_RESOURCE_FILE_LICENSE\fP files are copied.
+before the \X'tty: link #variable:CPACK_RESOURCE_FILE_WELCOME'\fI\%CPACK_RESOURCE_FILE_WELCOME\fP\X'tty: link',
+\X'tty: link #variable:CPACK_RESOURCE_FILE_README'\fI\%CPACK_RESOURCE_FILE_README\fP\X'tty: link', and
+\X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link' files are copied.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_DOMAINS
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 This option enables more granular control over where the product may be
-installed. When it is set to true, a \fBdomains\fP element of the following
-form will be added to the productbuild Distribution XML:
+installed. When it is set to true (see policy \X'tty: link #policy:CMP0161'\fI\%CMP0161\fP\X'tty: link'), a
+\fBdomains\fP element of the following form will be added to the
+productbuild Distribution XML:
 .INDENT 7.0
 .INDENT 3.5
 .sp
@@ -4106,7 +4405,7 @@ The default values are as shown above, but can be overridden with
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_DOMAINS_ANYWHERE
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 May be used to override the \fBenable_anywhere\fP attribute in the \fBdomains\fP
@@ -4119,7 +4418,7 @@ to have any effect.
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_DOMAINS_USER
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 May be used to override the \fBenable_currentUserHome\fP attribute in the
@@ -4144,7 +4443,7 @@ to have any effect.
 .INDENT 0.0
 .TP
 .B CPACK_PRODUCTBUILD_DOMAINS_ROOT
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 May be used to override the \fBenable_localSystem\fP attribute in the
@@ -4157,7 +4456,7 @@ to have any effect.
 .UNINDENT
 .SS Background Image
 .sp
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 This group of variables controls the background image of the generated
@@ -4229,33 +4528,33 @@ CPack uses a template file to generate the \fBdistribution.dist\fP file used
 internally by this package generator. Ordinarily, CMake provides the template
 file, but projects may supply their own by placing a file called
 \fBCPack.distribution.dist.in\fP in one of the directories listed in the
-\fI\%CMAKE_MODULE_PATH\fP variable. CPack will then pick up the project\(aqs
+\X'tty: link #variable:CMAKE_MODULE_PATH'\fI\%CMAKE_MODULE_PATH\fP\X'tty: link' variable. CPack will then pick up the project\(aqs
 template file instead of using its own.
 .sp
 The \fBdistribution.dist\fP file is generated by performing substitutions
-similar to the \fI\%configure_file()\fP command. Any variable set when
+similar to the \X'tty: link #command:configure_file'\fI\%configure_file()\fP\X'tty: link' command. Any variable set when
 CPack runs will be available for substitution using the usual \fB@...@\fP
 form. The following variables are also set internally and made available for
 substitution:
 .INDENT 0.0
 .TP
 .B \fBCPACK_RESOURCE_FILE_LICENSE_NOPATH\fP
-Same as \fI\%CPACK_RESOURCE_FILE_LICENSE\fP except without the path.
+Same as \X'tty: link #variable:CPACK_RESOURCE_FILE_LICENSE'\fI\%CPACK_RESOURCE_FILE_LICENSE\fP\X'tty: link' except without the path.
 The named file will be available in the same directory as the generated
 \fBdistribution.dist\fP file.
 .TP
 .B \fBCPACK_RESOURCE_FILE_README_NOPATH\fP
-Same as \fI\%CPACK_RESOURCE_FILE_README\fP except without the path.
+Same as \X'tty: link #variable:CPACK_RESOURCE_FILE_README'\fI\%CPACK_RESOURCE_FILE_README\fP\X'tty: link' except without the path.
 The named file will be available in the same directory as the generated
 \fBdistribution.dist\fP file.
 .TP
 .B \fBCPACK_RESOURCE_FILE_WELCOME_NOPATH\fP
-Same as \fI\%CPACK_RESOURCE_FILE_WELCOME\fP except without the path.
+Same as \X'tty: link #variable:CPACK_RESOURCE_FILE_WELCOME'\fI\%CPACK_RESOURCE_FILE_WELCOME\fP\X'tty: link' except without the path.
 The named file will be available in the same directory as the generated
 \fBdistribution.dist\fP file.
 .TP
 .B \fBCPACK_APPLE_PKG_INSTALLER_CONTENT\fP
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 This contains all the XML elements that specify installer\-wide options
@@ -4274,9 +4573,9 @@ any domain details. Use \fBCPACK_APPLE_PKG_INSTALLER_CONTENT\fP instead.
 The built in (binary) CPack RPM generator (Unix only)
 .SS Variables specific to CPack RPM generator
 .sp
-The CPack RPM generator may be used to create RPM packages using \fI\%CPack\fP\&.
-The CPack RPM generator is a \fI\%CPack\fP generator thus it uses the
-\fBCPACK_XXX\fP variables used by \fI\%CPack\fP\&.
+The CPack RPM generator may be used to create RPM packages using \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
+The CPack RPM generator is a \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link' generator thus it uses the
+\fBCPACK_XXX\fP variables used by \X'tty: link #module:CPack'\fI\%CPack\fP\X'tty: link'\&.
 .sp
 The CPack RPM generator has specific features which are controlled by the specifics
 \fBCPACK_RPM_XXX\fP variables.
@@ -4286,7 +4585,7 @@ The CPack RPM generator has specific features which are controlled by the specif
 \fBgrouping name\fP written in upper case. It may be either a component name or
 a component GROUP name. Usually, those variables correspond to RPM spec file
 entities. One may find information about spec files here
-\fI\%https://rpm.org/documentation\fP\&.
+\X'tty: link https://rpm.org/documentation'\fI\%https://rpm.org/documentation\fP\X'tty: link'\&.
 .sp
 Changed in version 3.6: \fI<COMPONENT>\fP part of variables is preferred to be in upper case (e.g. if
 component is named \fBfoo\fP then use \fBCPACK_RPM_FOO_XXXX\fP variable
@@ -4306,9 +4605,9 @@ reasons and are no longer maintained but may still prove useful:
 .INDENT 3.5
 .INDENT 0.0
 .IP \(bu 2
-\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/Configuration\fP
+\X'tty: link https://gitlab.kitware.com/cmake/community/-/wikis/doc/cpack/Configuration'\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/Configuration\fP\X'tty: link'
 .IP \(bu 2
-\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/PackageGenerators#rpm\-unix\-only\fP
+\X'tty: link https://gitlab.kitware.com/cmake/community/-/wikis/doc/cpack/PackageGenerators#rpm-unix-only'\fI\%https://gitlab.kitware.com/cmake/community/\-/wikis/doc/cpack/PackageGenerators#rpm\-unix\-only\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -4342,10 +4641,10 @@ The RPM package summary.
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_SUMMARY'\fI\%CPACK_PACKAGE_DESCRIPTION_SUMMARY\fP\X'tty: link'
 .UNINDENT
 .sp
-New in version 3.2: Per\-component \fBCPACK_RPM_<component>_PACKAGE_SUMMARY\fP variables.
+Added in version 3.2: Per\-component \fBCPACK_RPM_<component>_PACKAGE_SUMMARY\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -4360,10 +4659,10 @@ The RPM package name.
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_NAME\fP
+\X'tty: link #variable:CPACK_PACKAGE_NAME'\fI\%CPACK_PACKAGE_NAME\fP\X'tty: link'
 .UNINDENT
 .sp
-New in version 3.5: Per\-component \fBCPACK_RPM_<component>_PACKAGE_NAME\fP variables.
+Added in version 3.5: Per\-component \fBCPACK_RPM_<component>_PACKAGE_NAME\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -4371,7 +4670,7 @@ New in version 3.5: Per\-component \fBCPACK_RPM_<component>_PACKAGE_NAME\fP vari
 .B CPACK_RPM_FILE_NAME
 .TP
 .B CPACK_RPM_<component>_FILE_NAME
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 Package file name.
@@ -4385,9 +4684,19 @@ Yes
 replaced by \(aq\-\(aq
 .UNINDENT
 .sp
-This may be set to \fBRPM\-DEFAULT\fP to allow \fBrpmbuild\fP tool to generate package
-file name by itself.
-Alternatively provided package file name must end with \fB\&.rpm\fP suffix.
+This may be set to:
+.INDENT 7.0
+.TP
+.B \fBRPM\-DEFAULT\fP
+Tell \fBrpmbuild\fP to automatically generate the package file name.
+.TP
+.B \fB<file\-name>[.rpm]\fP
+Use the given file name.
+.sp
+Changed in version 3.29: The \fB\&.rpm\fP suffix will be automatically added if missing.
+Previously the suffix was required.
+
+.UNINDENT
 .sp
 \fBNOTE:\fP
 .INDENT 7.0
@@ -4406,7 +4715,7 @@ prevent such errors.
 .INDENT 0.0
 .TP
 .B CPACK_RPM_MAIN_COMPONENT
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Main component that is packaged without component suffix.
@@ -4425,7 +4734,7 @@ package name.
 .INDENT 0.0
 .TP
 .B CPACK_RPM_PACKAGE_EPOCH
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 The RPM package epoch
@@ -4450,7 +4759,7 @@ The RPM package version.
 Yes
 .TP
 .B Default
-\fI\%CPACK_PACKAGE_VERSION\fP
+\X'tty: link #variable:CPACK_PACKAGE_VERSION'\fI\%CPACK_PACKAGE_VERSION\fP\X'tty: link'
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
@@ -4470,7 +4779,7 @@ Native architecture output by \fBuname \-m\fP
 .sp
 This may be set to \fBnoarch\fP if you know you are building a \fBnoarch\fP package.
 .sp
-New in version 3.3: Per\-component \fBCPACK_RPM_<component>_PACKAGE_ARCHITECTURE\fP variables.
+Added in version 3.3: Per\-component \fBCPACK_RPM_<component>_PACKAGE_ARCHITECTURE\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -4504,7 +4813,7 @@ This is the string that goes into the RPM \fBRelease:\fP field. Some distros
 .INDENT 0.0
 .TP
 .B CPACK_RPM_PACKAGE_RELEASE_DIST
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 The dist tag that is added  RPM \fBRelease:\fP field.
@@ -4549,7 +4858,7 @@ Yes
 \(dqunknown\(dq
 .UNINDENT
 .sp
-New in version 3.5: Per\-component \fBCPACK_RPM_<component>_PACKAGE_GROUP\fP variables.
+Added in version 3.5: Per\-component \fBCPACK_RPM_<component>_PACKAGE_GROUP\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -4577,10 +4886,10 @@ The projects URL.
 No
 .TP
 .B Default
-\fI\%CMAKE_PROJECT_HOMEPAGE_URL\fP
+\X'tty: link #variable:CMAKE_PROJECT_HOMEPAGE_URL'\fI\%CMAKE_PROJECT_HOMEPAGE_URL\fP\X'tty: link'
 .UNINDENT
 .sp
-New in version 3.12: The \fBCMAKE_PROJECT_HOMEPAGE_URL\fP variable.
+Added in version 3.12: The \fBCMAKE_PROJECT_HOMEPAGE_URL\fP variable.
 
 .UNINDENT
 .INDENT 0.0
@@ -4597,17 +4906,17 @@ Yes
 .B Default
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP
+\X'tty: link #variable:CPACK_COMPONENT_<compName>_DESCRIPTION'\fI\%CPACK_COMPONENT_<compName>_DESCRIPTION\fP\X'tty: link'
 (component based installers only) if set,
 .IP \(bu 2
-\fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP
+\X'tty: link #variable:CPACK_PACKAGE_DESCRIPTION_FILE'\fI\%CPACK_PACKAGE_DESCRIPTION_FILE\fP\X'tty: link'
 if set, or
 .IP \(bu 2
 \fBno package description available\fP
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.2: Per\-component \fBCPACK_RPM_<component>_PACKAGE_DESCRIPTION\fP variables.
+Added in version 3.2: Per\-component \fBCPACK_RPM_<component>_PACKAGE_DESCRIPTION\fP variables.
 
 .UNINDENT
 .INDENT 0.0
@@ -4624,9 +4933,8 @@ No
 .UNINDENT
 .sp
 May be used to override RPM compression type to be used to build the
-RPM. For example some Linux distribution now default to \fBlzma\fP or \fBxz\fP
-compression whereas older cannot use such RPM. Using this one can enforce
-compression type to be used.
+RPM. For example some Linux distributions default to \fBxz\fP or \fBzstd\fP\&.
+Using this, one can specify a specific compression type to be used.
 .sp
 Possible values are:
 .INDENT 7.0
@@ -4644,6 +4952,12 @@ bzip2 Burrows–Wheeler algorithm
 .TP
 .B \fBgzip\fP
 GNU Gzip compression
+.TP
+.B \fBzstd\fP
+Added in version 3.31.
+
+.sp
+Zstandard compression
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -4805,7 +5119,7 @@ rpm \-qp \-\-conflicts file.rpm
 .B CPACK_RPM_PACKAGE_REQUIRES_PRE
 .TP
 .B CPACK_RPM_<component>_PACKAGE_REQUIRES_PRE
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 RPM spec requires(pre) field.
@@ -4835,7 +5149,7 @@ set(CPACK_RPM_PACKAGE_REQUIRES_PRE \(dqshadow\-utils, initscripts\(dq)
 .B CPACK_RPM_PACKAGE_REQUIRES_POST
 .TP
 .B CPACK_RPM_<component>_PACKAGE_REQUIRES_POST
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 RPM spec requires(post) field.
@@ -4865,7 +5179,7 @@ set(CPACK_RPM_PACKAGE_REQUIRES_POST \(dqshadow\-utils, initscripts\(dq)
 .B CPACK_RPM_PACKAGE_REQUIRES_POSTUN
 .TP
 .B CPACK_RPM_<component>_PACKAGE_REQUIRES_POSTUN
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 RPM spec requires(postun) field.
@@ -4896,7 +5210,7 @@ set(CPACK_RPM_PACKAGE_REQUIRES_POSTUN \(dqshadow\-utils, initscripts\(dq)
 .B CPACK_RPM_PACKAGE_REQUIRES_PREUN
 .TP
 .B CPACK_RPM_<component>_PACKAGE_REQUIRES_PREUN
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 RPM spec requires(preun) field.
@@ -5011,8 +5325,8 @@ rpm \-\-prefix or \-\-relocate
 .UNINDENT
 .sp
 in order to install it at an alternate place see rpm(8). Note that
-currently this may fail if \fI\%CPACK_SET_DESTDIR\fP is set to \fBON\fP\&. If
-\fI\%CPACK_SET_DESTDIR\fP is set then you will get a warning message but
+currently this may fail if \X'tty: link #variable:CPACK_SET_DESTDIR'\fI\%CPACK_SET_DESTDIR\fP\X'tty: link' is set to \fBON\fP\&. If
+\X'tty: link #variable:CPACK_SET_DESTDIR'\fI\%CPACK_SET_DESTDIR\fP\X'tty: link' is set then you will get a warning message but
 if there is file installed with absolute path you\(aqll get unexpected behavior.
 .UNINDENT
 .INDENT 0.0
@@ -5168,7 +5482,7 @@ rpm \-qp \-\-scripts  package.rpm
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.18: The \fBCPACK_RPM_PRE_TRANS_SCRIPT_FILE\fP variable.
+Added in version 3.18: The \fBCPACK_RPM_PRE_TRANS_SCRIPT_FILE\fP variable.
 
 .UNINDENT
 .INDENT 0.0
@@ -5207,7 +5521,7 @@ rpm \-qp \-\-scripts  package.rpm
 .UNINDENT
 .UNINDENT
 .sp
-New in version 3.18: The \fBCPACK_RPM_POST_TRANS_SCRIPT_FILE\fP variable.
+Added in version 3.18: The \fBCPACK_RPM_POST_TRANS_SCRIPT_FILE\fP variable.
 
 .UNINDENT
 .INDENT 0.0
@@ -5231,7 +5545,7 @@ user specified files of the \fBCPACK_RPM_<COMPONENT>_USER_FILELIST\fP list will
 be removed from the generated list. If referring to directories do
 not add a trailing slash.
 .sp
-New in version 3.8: You can have multiple directives per line, as in
+Added in version 3.8: You can have multiple directives per line, as in
 \fB%attr(600,root,root) %config(noreplace)\fP\&.
 
 .UNINDENT
@@ -5298,7 +5612,7 @@ variable is defined by the user then the CPack RPM generator will NOT any of
 the default path. If you want to add some path to the default list then you
 can use \fI\%CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION\fP variable.
 .sp
-New in version 3.10: Added \fB/usr/share/aclocal\fP to the default list of excludes.
+Added in version 3.10: Added \fB/usr/share/aclocal\fP to the default list of excludes.
 
 .UNINDENT
 .INDENT 0.0
@@ -5320,7 +5634,7 @@ default list of excluded paths. See
 .INDENT 0.0
 .TP
 .B CPACK_RPM_RELOCATION_PATHS
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 Packages relocation paths list.
@@ -5335,7 +5649,7 @@ No
 May be used to specify more than one relocation path per relocatable RPM.
 Variable contains a list of relocation paths that if relative are prefixed
 by the value of \fI\%CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX\fP or by the
-value of \fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP if the component version
+value of \X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link' if the component version
 is not provided.
 Variable is not component based as its content can be used to set a different
 path prefix for e.g. binary dir and documentation dir at the same time.
@@ -5346,12 +5660,12 @@ path to be added. Package will not contain any relocation paths if there are
 no files/directories/symbolic links on any of the provided prefix locations.
 Packages that either do not contain any relocation paths or contain
 files/directories/symbolic links that are outside relocation paths print
-out an \fI\%AUTHOR_WARNING\fP that RPM will be partially relocatable.
+out an \X'tty: link #command:message'\fI\%AUTHOR_WARNING\fP\X'tty: link' that RPM will be partially relocatable.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 Per component relocation path install prefix.
@@ -5361,10 +5675,10 @@ Per component relocation path install prefix.
 No
 .TP
 .B Default
-\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP
+\X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link'
 .UNINDENT
 .sp
-May be used to set per component \fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP
+May be used to set per component \X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link'
 for relocatable RPM packages.
 .UNINDENT
 .INDENT 0.0
@@ -5372,7 +5686,7 @@ for relocatable RPM packages.
 .B CPACK_RPM_NO_INSTALL_PREFIX_RELOCATION
 .TP
 .B CPACK_RPM_NO_<COMPONENT>_INSTALL_PREFIX_RELOCATION
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Removal of default install prefix from relocation paths list.
@@ -5382,19 +5696,19 @@ Removal of default install prefix from relocation paths list.
 No
 .TP
 .B Default
-\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP or
+\X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link' or
 \fI\%CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX\fP
 are treated as one of relocation paths
 .UNINDENT
 .sp
-May be used to remove \fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP and
+May be used to remove \X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link' and
 \fI\%CPACK_RPM_<COMPONENT>_PACKAGE_PREFIX\fP
 from relocatable RPM prefix paths.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_RPM_ADDITIONAL_MAN_DIRS
-New in version 3.3.
+Added in version 3.3.
 
 .INDENT 7.0
 .TP
@@ -5444,7 +5758,7 @@ added to RPM configuration by the operating system.
 .B CPACK_RPM_DEFAULT_USER
 .TP
 .B CPACK_RPM_<compName>_DEFAULT_USER
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 default user ownership of RPM content
@@ -5465,7 +5779,7 @@ Note that \fB<compName>\fP must be in upper\-case.
 .B CPACK_RPM_DEFAULT_GROUP
 .TP
 .B CPACK_RPM_<compName>_DEFAULT_GROUP
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 default group ownership of RPM content
@@ -5486,7 +5800,7 @@ Note that \fB<compName>\fP must be in upper\-case.
 .B CPACK_RPM_DEFAULT_FILE_PERMISSIONS
 .TP
 .B CPACK_RPM_<compName>_DEFAULT_FILE_PERMISSIONS
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 default permissions used for packaged files
@@ -5529,7 +5843,7 @@ Note that \fB<compName>\fP must be in upper\-case.
 .B CPACK_RPM_DEFAULT_DIR_PERMISSIONS
 .TP
 .B CPACK_RPM_<compName>_DEFAULT_DIR_PERMISSIONS
-New in version 3.6.
+Added in version 3.6.
 
 .sp
 default permissions used for packaged directories
@@ -5549,7 +5863,7 @@ Note that \fB<compName>\fP must be in upper\-case.
 .INDENT 0.0
 .TP
 .B CPACK_RPM_INSTALL_WITH_EXEC
-New in version 3.11.
+Added in version 3.11.
 
 .sp
 force execute permissions on programs and shared libraries
@@ -5576,7 +5890,7 @@ separation of debug symbols from the binary for debuginfo packages.
 .UNINDENT
 .SS Packaging of Symbolic Links
 .sp
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 The CPack RPM generator supports packaging of symbolic links:
@@ -5625,7 +5939,7 @@ invalid location.
 .UNINDENT
 .SS Packaging of debug information
 .sp
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Debuginfo packages contain debug symbols and sources for debugging packaged
@@ -5652,11 +5966,11 @@ No
 .INDENT 0.0
 .INDENT 3.5
 Binaries must contain debug symbols before packaging so use either \fBDebug\fP
-or \fBRelWithDebInfo\fP for \fI\%CMAKE_BUILD_TYPE\fP variable value.
+or \fBRelWithDebInfo\fP for \X'tty: link #variable:CMAKE_BUILD_TYPE'\fI\%CMAKE_BUILD_TYPE\fP\X'tty: link' variable value.
 .sp
-Additionally, if \fI\%CPACK_STRIP_FILES\fP is set, the files will be stripped before
+Additionally, if \X'tty: link #variable:CPACK_STRIP_FILES'\fI\%CPACK_STRIP_FILES\fP\X'tty: link' is set, the files will be stripped before
 they get to the RPM generator, so will not contain debug symbols and
-a debuginfo package will not get built. Do not use with \fI\%CPACK_STRIP_FILES\fP\&.
+a debuginfo package will not get built. Do not use with \X'tty: link #variable:CPACK_STRIP_FILES'\fI\%CPACK_STRIP_FILES\fP\X'tty: link'\&.
 .UNINDENT
 .UNINDENT
 .sp
@@ -5686,7 +6000,7 @@ Yes if \fI\%CPACK_RPM_DEBUGINFO_PACKAGE\fP is set
 .INDENT 0.0
 .INDENT 3.5
 For CMake project \fI\%CPACK_BUILD_SOURCE_DIRS\fP is set by default to
-point to \fI\%CMAKE_SOURCE_DIR\fP and \fI\%CMAKE_BINARY_DIR\fP paths.
+point to \X'tty: link #variable:CMAKE_SOURCE_DIR'\fI\%CMAKE_SOURCE_DIR\fP\X'tty: link' and \X'tty: link #variable:CMAKE_BINARY_DIR'\fI\%CMAKE_BINARY_DIR\fP\X'tty: link' paths.
 .UNINDENT
 .UNINDENT
 .sp
@@ -5770,7 +6084,7 @@ No
 .INDENT 0.0
 .TP
 .B CPACK_RPM_DEBUGINFO_SINGLE_PACKAGE
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Create a single debuginfo package even if components packaging is set.
@@ -5804,7 +6118,7 @@ is set then \fI\%CPACK_RPM_DEBUGINFO_PACKAGE\fP is automatically set to
 .B CPACK_RPM_DEBUGINFO_FILE_NAME
 .TP
 .B CPACK_RPM_<component>_DEBUGINFO_FILE_NAME
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 Debuginfo package file name.
@@ -5838,11 +6152,11 @@ file name \- disabled by default but can be enabled by setting the variable to
 .UNINDENT
 .SS Packaging of sources (SRPM)
 .sp
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 SRPM packaging is enabled by setting \fI\%CPACK_RPM_PACKAGE_SOURCES\fP
-variable while usually using \fI\%CPACK_INSTALLED_DIRECTORIES\fP variable
+variable while usually using \X'tty: link #variable:CPACK_INSTALLED_DIRECTORIES'\fI\%CPACK_INSTALLED_DIRECTORIES\fP\X'tty: link' variable
 to provide directory containing CMakeLists.txt and source files.
 .sp
 For CMake projects SRPM package would be produced by executing:
@@ -5860,10 +6174,10 @@ cpack \-G RPM \-\-config ./CPackSourceConfig.cmake
 \fBNOTE:\fP
 .INDENT 0.0
 .INDENT 3.5
-Produced SRPM package is expected to be built with \fI\%cmake(1)\fP executable
-and packaged with \fI\%cpack(1)\fP executable so CMakeLists.txt has to be
+Produced SRPM package is expected to be built with \X'tty: link #manual:cmake(1)'\fI\%cmake(1)\fP\X'tty: link' executable
+and packaged with \X'tty: link #manual:cpack(1)'\fI\%cpack(1)\fP\X'tty: link' executable so CMakeLists.txt has to be
 located in root source directory and must be able to generate binary rpm
-packages by executing \fI\%cpack \-G\fP command. The two executables as well as
+packages by executing \X'tty: link #cmdoption-cpack-G'\fI\%cpack \-G\fP\X'tty: link' command. The two executables as well as
 rpmbuild must also be present when generating binary rpm packages from the
 produced SRPM package.
 .UNINDENT
@@ -5927,7 +6241,7 @@ generated files.
 .INDENT 0.0
 .TP
 .B CPACK_RPM_SOURCE_PKG_BUILD_PARAMS
-Additional command\-line parameters provided to \fI\%cmake(1)\fP executable.
+Additional command\-line parameters provided to \X'tty: link #manual:cmake(1)'\fI\%cmake(1)\fP\X'tty: link' executable.
 .INDENT 7.0
 .TP
 .B Mandatory
@@ -5939,7 +6253,7 @@ No
 .INDENT 0.0
 .TP
 .B CPACK_RPM_SOURCE_PKG_PACKAGING_INSTALL_PREFIX
-Packaging install prefix that would be provided in \fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP
+Packaging install prefix that would be provided in \X'tty: link #variable:CPACK_PACKAGING_INSTALL_PREFIX'\fI\%CPACK_PACKAGING_INSTALL_PREFIX\fP\X'tty: link'
 variable for producing binary RPM packages.
 .INDENT 7.0
 .TP
@@ -5979,7 +6293,7 @@ set(CPACK_RPM_BUILDREQUIRES \(dqpython >= 2.5.0, cmake >= 2.8\(dq)
 .INDENT 0.0
 .TP
 .B CPACK_RPM_REQUIRES_EXCLUDE_FROM
-New in version 3.22.
+Added in version 3.22.
 
 .INDENT 7.0
 .TP
@@ -6005,14 +6319,161 @@ set(CPACK_RPM_REQUIRES_EXCLUDE_FROM \(dqbin/libqsqloci.*\e\e.so.*\(dq)
 .UNINDENT
 .SS CPack WIX Generator
 .sp
-CPack WIX generator specific options
+Use the \X'tty: link https://wixtoolset.org/'\fI\%WiX Toolset\fP\X'tty: link' to produce a Windows Installer \fB\&.msi\fP database.
 .sp
-New in version 3.7: Support \fI\%CPACK_COMPONENT_<compName>_DISABLED\fP variable.
+Added in version 3.7: The \X'tty: link #variable:CPACK_COMPONENT_<compName>_DISABLED'\fI\%CPACK_COMPONENT_<compName>_DISABLED\fP\X'tty: link' variable is now
+supported.
 
+.SS WiX Toolsets
+.sp
+CPack selects one of the following variants of the WiX Toolset
+based on the \fI\%CPACK_WIX_VERSION\fP variable:
+.INDENT 0.0
+.IP \(bu 2
+\fI\%WiX .NET Tools\fP
+.IP \(bu 2
+\fI\%WiX Toolset v3\fP
+.UNINDENT
+.SS WiX .NET Tools
+.sp
+Packaging is performed using the following tools:
+.INDENT 0.0
+.TP
+.B \fBwix build\fP
+Build WiX source files directly into a Windows Installer \fB\&.msi\fP database.
+.sp
+Invocations may be customized using tool\-specific variables:
+.INDENT 7.0
+.IP \(bu 2
+\fI\%CPACK_WIX_BUILD_EXTENSIONS\fP
+.IP \(bu 2
+\fI\%CPACK_WIX_BUILD_EXTRA_FLAGS\fP
+.UNINDENT
+.UNINDENT
+.sp
+WiX extensions must be named with the form \fBWixToolset.<Name>.wixext\fP\&.
+.sp
+CPack expects the \fBwix\fP .NET tool to be available for command\-line use
+with any required WiX extensions already installed.  Be sure the \fBwix\fP
+version is compatible with \fI\%CPACK_WIX_VERSION\fP, and that WiX
+extension versions match the \fBwix\fP tool version.  For example:
+.INDENT 0.0
+.IP 1. 3
+Install the \fBwix\fP command\-line tool using \fBdotnet\fP\&.
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+To install \fBwix\fP globally for the current user:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dotnet tool install \-\-global wix \-\-version 4.0.4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This places \fBwix.exe\fP in \fB%USERPROFILE%\e.dotnet\etools\fP and adds
+the directory to the current user\(aqs \fBPATH\fP environment variable.
+.sp
+Or, to install \fBwix\fP in a specific path, e.g., in \fBc:\eWiX\fP:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dotnet tool install \-\-tool\-path c:\eWiX wix \-\-version 4.0.4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This places \fBwix.exe\fP in \fBc:\eWiX\fP, but does \fInot\fP add it to the
+current user\(aqs \fBPATH\fP environment variable.  The \fBWIX\fP environment
+variable may be set to tell CPack where to find the tool,
+e.g., \fBset WIX=c:\eWiX\fP\&.
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.IP 2. 3
+Add the WiX \fBUI\fP extension, needed by CPack\(aqs default WiX template:
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+wix extension add \-\-global WixToolset.UI.wixext/4.0.4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Extensions added globally are stored in \fB%USERPROFILE%\e.wix\fP, or if the
+\fBWIX_EXTENSIONS\fP environment variable is set, in \fB%WIX_EXTENSIONS%\e.wix\fP\&.
+.UNINDENT
+.UNINDENT
+.SS WiX Toolset v3
+.sp
+Packaging is performed using the following tools:
+.INDENT 0.0
+.TP
+.B \fBcandle\fP
+Compiles WiX source files into \fB\&.wixobj\fP files.
+.sp
+Invocations may be customized using tool\-specific variables:
+.INDENT 7.0
+.IP \(bu 2
+\fI\%CPACK_WIX_CANDLE_EXTENSIONS\fP
+.IP \(bu 2
+\fI\%CPACK_WIX_CANDLE_EXTRA_FLAGS\fP
+.UNINDENT
+.TP
+.B \fBlight\fP
+Links \fB\&.wixobj\fP files into a Windows Installer \fB\&.msi\fP database.
+.sp
+Invocations may be customized using tool\-specific variables:
+.INDENT 7.0
+.IP \(bu 2
+\fI\%CPACK_WIX_LIGHT_EXTENSIONS\fP
+.IP \(bu 2
+\fI\%CPACK_WIX_LIGHT_EXTRA_FLAGS\fP
+.UNINDENT
+.UNINDENT
+.sp
+CPack invokes both tools as needed.  Intermediate \fB\&.wixobj\fP files
+are considered implementation details.
+.sp
+WiX extensions must be named with the form \fBWix<Name>Extension\fP\&.
+.sp
+CPack expects the above tools to be available for command\-line
+use via the \fBPATH\fP\&.  Or, if the \fBWIX\fP environment variable is set,
+CPack looks for the tools in \fB%WIX%\fP and \fB%WIX%\ebin\fP\&.
 .SS Variables specific to CPack WIX generator
 .sp
 The following variables are specific to the installers built on
 Windows using WiX.
+.INDENT 0.0
+.TP
+.B CPACK_WIX_VERSION
+Added in version 3.30.
+
+.sp
+Specify the version of WiX Toolset for which the configuration
+is written.  The value must be one of
+.INDENT 7.0
+.TP
+.B \fB4\fP
+Package using \fI\%WiX .NET Tools\fP\&.
+.TP
+.B \fB3\fP
+Package using \fI\%WiX Toolset v3\fP\&.  This is the default.
+.UNINDENT
+.UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_UPGRADE_GUID
@@ -6082,8 +6543,15 @@ If set, this icon is used in place of the default icon.
 .INDENT 0.0
 .TP
 .B CPACK_WIX_UI_REF
-This variable allows you to override the Id of the \fB<UIRef>\fP element
-in the WiX template.
+Specify the WiX \fBUI\fP extension\(aqs dialog set:
+.INDENT 7.0
+.IP \(bu 2
+With \fI\%WiX .NET Tools\fP, this is the Id of the
+\fB<ui:WixUI>\fP element in the default WiX template.
+.IP \(bu 2
+With \fI\%WiX Toolset v3\fP, this is the Id of the
+\fB<UIRef>\fP element in the default WiX template.
+.UNINDENT
 .sp
 The default is \fBWixUI_InstallDir\fP in case no CPack components have
 been defined and \fBWixUI_FeatureTree\fP otherwise.
@@ -6115,7 +6583,7 @@ Start menu folder name for launcher.
 .sp
 If this variable is not set, it will be initialized with CPACK_PACKAGE_NAME
 .sp
-New in version 3.16: If this variable is set to \fB\&.\fP, then application shortcuts will be
+Added in version 3.16: If this variable is set to \fB\&.\fP, then application shortcuts will be
 created directly in the start menu and the uninstaller shortcut will be
 omitted.
 
@@ -6125,11 +6593,11 @@ omitted.
 .B CPACK_WIX_CULTURES
 Language(s) of the installer
 .sp
-Languages are compiled into the WixUI extension library.  To use them,
+Languages are compiled into the Wix \fBUI\fP extension library.  To use them,
 simply provide the name of the culture.  If you specify more than one
 culture identifier in a comma or semicolon delimited list, the first one
 that is found will be used.  You can find a list of supported languages at:
-\fI\%https://wixtoolset.org/docs/v3/wixui/wixui_localization/\fP
+\X'tty: link https://wixtoolset.org/docs/v3/wixui/wixui_localization/'\fI\%https://wixtoolset.org/docs/v3/wixui/wixui_localization/\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -6138,7 +6606,8 @@ Template file for WiX generation
 .sp
 If this variable is set, the specified template will be used to generate
 the WiX wxs file.  This should be used if further customization of the
-output is required.
+output is required. The template contents will override the effect of most
+\fBCPACK_WIX_\fP variables.
 .sp
 If this variable is not set, the default MSI template included with CMake
 will be used.
@@ -6149,7 +6618,7 @@ will be used.
 Optional list of XML files with fragments to be inserted into
 generated WiX sources.
 .sp
-New in version 3.5: Support listing multiple patch files.
+Added in version 3.5: Support listing multiple patch files.
 
 .sp
 This optional variable can be used to specify an XML file that the
@@ -6185,7 +6654,7 @@ fragmentContent = element * \- CPackWiXFragment
 Currently fragments can be injected into most
 Component, File, Directory and Feature elements.
 .sp
-New in version 3.3: The following additional special Ids can be used:
+Added in version 3.3: The following additional special Ids can be used:
 .INDENT 7.0
 .IP \(bu 2
 \fB#PRODUCT\fP for the \fB<Product>\fP element.
@@ -6194,10 +6663,10 @@ New in version 3.3: The following additional special Ids can be used:
 .UNINDENT
 
 .sp
-New in version 3.7: Support patching arbitrary \fB<Feature>\fP elements.
+Added in version 3.7: Support patching arbitrary \fB<Feature>\fP elements.
 
 .sp
-New in version 3.9: Allow setting additional attributes.
+Added in version 3.9: Allow setting additional attributes.
 
 .sp
 The following example illustrates how this works.
@@ -6237,42 +6706,38 @@ into it:
 .B CPACK_WIX_EXTRA_SOURCES
 Extra WiX source files
 .sp
-This variable provides an optional list of extra WiX source files (.wxs)
-that should be compiled and linked.  The full path to source files is
-required.
+This variable provides an optional list of extra WiX source files (\fB\&.wxs\fP)
+that should be compiled and linked.  The paths must be absolute.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_EXTRA_OBJECTS
-Extra WiX object files or libraries
+Extra WiX object files or libraries to use with \fI\%WiX Toolset v3\fP\&.
 .sp
-This variable provides an optional list of extra WiX object (.wixobj)
-and/or WiX library (.wixlib) files.  The full path to objects and libraries
-is required.
+This variable provides an optional list of extra WiX object (\fB\&.wixobj\fP)
+and/or WiX library (\fB\&.wixlib\fP) files.  The paths must be absolute.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_EXTENSIONS
-This variable provides a list of additional extensions for the WiX
-tools light and candle.
+Specify a list of additional extensions for WiX tools.
+See \fI\%WiX Toolsets\fP for extension naming patterns.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_<TOOL>_EXTENSIONS
-This is the tool specific version of CPACK_WIX_EXTENSIONS.
-\fB<TOOL>\fP can be either LIGHT or CANDLE.
+Specify a list of additional extensions for a specific WiX tool.
+See \fI\%WiX Toolsets\fP for possible \fB<TOOL>\fP names.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_<TOOL>_EXTRA_FLAGS
-This list variable allows you to pass additional
-flags to the WiX tool \fB<TOOL>\fP\&.
+Specify a list of additional command\-line flags for a specific WiX tool.
+See \fI\%WiX Toolsets\fP for possible \fB<TOOL>\fP names.
 .sp
 Use it at your own risk.
 Future versions of CPack may generate flags which may be in conflict
 with your own flags.
-.sp
-\fB<TOOL>\fP can be either LIGHT or CANDLE.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -6284,12 +6749,12 @@ The value for \fB<PackageName>\fP is provided by this variable.
 .sp
 Assuming you also install a CMake configuration file this will
 allow other CMake projects to find your package with
-the \fI\%find_package()\fP command.
+the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_PROPERTY_<PROPERTY>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 This variable can be used to provide a value for
@@ -6316,7 +6781,7 @@ ARPSIZE \- Size (in kilobytes) of the application
 .INDENT 0.0
 .TP
 .B CPACK_WIX_ROOT_FEATURE_TITLE
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Sets the name of the root install feature in the WIX installer. Same as
@@ -6325,7 +6790,7 @@ CPACK_COMPONENT_<compName>_DISPLAY_NAME for components.
 .INDENT 0.0
 .TP
 .B CPACK_WIX_ROOT_FEATURE_DESCRIPTION
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Sets the description of the root install feature in the WIX installer. Same as
@@ -6334,7 +6799,7 @@ CPACK_COMPONENT_<compName>_DESCRIPTION for components.
 .INDENT 0.0
 .TP
 .B CPACK_WIX_SKIP_PROGRAM_FOLDER
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 If this variable is set to true, the default install location
@@ -6363,7 +6828,7 @@ installation is performed.
 .INDENT 0.0
 .TP
 .B CPACK_WIX_ROOT_FOLDER_ID
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 This variable allows specification of a custom root folder ID.
@@ -6387,29 +6852,29 @@ installation via the \fBWIX\fP environment variable instead.
 .INDENT 0.0
 .TP
 .B CPACK_WIX_CUSTOM_XMLNS
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 This variable provides a list of custom namespace declarations that are necessary
 for using WiX extensions. Each declaration should be in the form name=url, where
 name is the plain namespace without the usual xmlns: prefix and url is an unquoted
 namespace url. A list of commonly known WiX schemata can be found here:
-\fI\%https://wixtoolset.org/docs/v3/xsd/\fP
+\X'tty: link https://wixtoolset.org/docs/v3/xsd/'\fI\%https://wixtoolset.org/docs/v3/xsd/\fP\X'tty: link'
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_SKIP_WIX_UI_EXTENSION
-New in version 3.23.
+Added in version 3.23.
 
 .sp
-If this variable is set then the inclusion of WixUIExtensions is skipped,
-i.e. the \fB\-ext \(dqWixUIExtension\(dq\fP command line is not included during
-the execution of the WiX light tool.
+If this variable is set to true, the default inclusion of the WiX \fBUI\fP
+extension is skipped, i.e., the \fB\-ext WixUIExtension\fP or
+\fB\-ext WixToolset.UI.wixext\fP flag is not passed to WiX tools.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B CPACK_WIX_ARCHITECTURE
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 This variable can be optionally set to specify the target architecture
@@ -6417,7 +6882,55 @@ of the installer. May for example be set to \fBx64\fP or \fBarm64\fP\&.
 .sp
 When unspecified, CPack will default to \fBx64\fP or \fBx86\fP\&.
 .UNINDENT
+.INDENT 0.0
+.TP
+.B CPACK_WIX_INSTALL_SCOPE
+Added in version 3.29.
+
+.sp
+This variable can be optionally set to specify the \fBInstallScope\fP
+of the installer:
+.INDENT 7.0
+.TP
+.B \fBperMachine\fP
+Create an installer that installs for all users and requires
+administrative privileges.  Start menu entries created by the
+installer are visible to all users.
+.sp
+This is the default.  See policy \X'tty: link #policy:CMP0172'\fI\%CMP0172\fP\X'tty: link'\&.
+.TP
+.B \fBperUser\fP
+Not yet supported. This is reserved for future use.
+.TP
+.B \fBNONE\fP
+Create an installer without any \fBInstallScope\fP attribute.
+.sp
+This is supported only if \fI\%CPACK_WIX_VERSION\fP is not set,
+or is set to \fB3\fP\&.
+.sp
+Deprecated since version 3.29: This value is only for compatibility with the inconsistent behavior used
+by CPack 3.28 and older.  The resulting installer requires administrative
+privileges and installs into the system\-wide \fBProgramFiles\fP directory,
+but the start menu entry and uninstaller registration are created only
+for the current user.
+
+.sp
+\fBWARNING:\fP
+.INDENT 7.0
+.INDENT 3.5
+An installation performed by an installer created without any
+\fBInstallScope\fP cannot be cleanly updated or replaced by an
+installer with an \fBInstallScope\fP\&.  In order to transition
+a project\(aqs installers from \fBNONE\fP to \fBperMachine\fP, the
+latter installer should be distributed with instructions to
+first manually uninstall any older version.
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+See \X'tty: link https://wixtoolset.org/docs/v3/xsd/wix/package/'\fI\%https://wixtoolset.org/docs/v3/xsd/wix/package/\fP\X'tty: link'
+.UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

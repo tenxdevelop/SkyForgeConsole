@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Visual Studio 17 2022 &mdash; CMake 3.28.1 Documentation</title>
+  <title>Visual Studio 17 2022 &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-generators.7.html" accesskey="U">cmake-generators(7)</a> &#187;</li>
@@ -58,24 +57,24 @@
           <div class="body" role="main">
             
   <section id="visual-studio-17-2022">
-<span id="generator:Visual Studio 17 2022"></span><h1>Visual Studio 17 2022<a class="headerlink" href="#visual-studio-17-2022" title="Permalink to this heading">¶</a></h1>
+<span id="generator:Visual Studio 17 2022"></span><h1>Visual Studio 17 2022<a class="headerlink" href="#visual-studio-17-2022" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Generates Visual Studio 17 (VS 2022) project files.</p>
 <section id="project-types">
-<h2>Project Types<a class="headerlink" href="#project-types" title="Permalink to this heading">¶</a></h2>
+<h2>Project Types<a class="headerlink" href="#project-types" title="Link to this heading">¶</a></h2>
 <p>Only Visual C++ and C# projects may be generated (and Fortran with
 Intel compiler integration).  Other types of projects (JavaScript,
 Powershell, Python, etc.) are not supported.</p>
 </section>
 <section id="instance-selection">
-<h2>Instance Selection<a class="headerlink" href="#instance-selection" title="Permalink to this heading">¶</a></h2>
+<h2>Instance Selection<a class="headerlink" href="#instance-selection" title="Link to this heading">¶</a></h2>
 <p>VS 2022 supports multiple installations on the same machine.  The
 <span class="target" id="index-0-variable:CMAKE_GENERATOR_INSTANCE"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_INSTANCE.html#variable:CMAKE_GENERATOR_INSTANCE" title="CMAKE_GENERATOR_INSTANCE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_INSTANCE</span></code></a> variable may be used to select one.</p>
 </section>
 <section id="platform-selection">
-<h2>Platform Selection<a class="headerlink" href="#platform-selection" title="Permalink to this heading">¶</a></h2>
+<h2>Platform Selection<a class="headerlink" href="#platform-selection" title="Link to this heading">¶</a></h2>
 <p>The default target platform name (architecture) is that of the host
 and is provided in the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_NAME_DEFAULT"></span><a class="reference internal" href="../variable/CMAKE_VS_PLATFORM_NAME_DEFAULT.html#variable:CMAKE_VS_PLATFORM_NAME_DEFAULT" title="CMAKE_VS_PLATFORM_NAME_DEFAULT"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_NAME_DEFAULT</span></code></a> variable.</p>
 <p>The <span class="target" id="index-0-variable:CMAKE_GENERATOR_PLATFORM"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_PLATFORM.html#variable:CMAKE_GENERATOR_PLATFORM" title="CMAKE_GENERATOR_PLATFORM"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_PLATFORM</span></code></a> variable may be set, perhaps
@@ -89,7 +88,7 @@ name (architecture).  For example:</p>
 </ul>
 </section>
 <section id="toolset-selection">
-<h2>Toolset Selection<a class="headerlink" href="#toolset-selection" title="Permalink to this heading">¶</a></h2>
+<h2>Toolset Selection<a class="headerlink" href="#toolset-selection" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">v143</span></code> toolset that comes with VS 17 2022 is selected by default.
 The <span class="target" id="index-0-variable:CMAKE_GENERATOR_TOOLSET"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_TOOLSET.html#variable:CMAKE_GENERATOR_TOOLSET" title="CMAKE_GENERATOR_TOOLSET"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_TOOLSET</span></code></a> option may be set, perhaps
 via the <a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-T"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-T</span></code></a> option, to specify another toolset.</p>
@@ -141,7 +140,7 @@ See the <span class="target" id="index-1-variable:CMAKE_GENERATOR_TOOLSET"></spa
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -149,7 +148,7 @@ See the <span class="target" id="index-1-variable:CMAKE_GENERATOR_TOOLSET"></spa
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -175,7 +174,7 @@ See the <span class="target" id="index-1-variable:CMAKE_GENERATOR_TOOLSET"></spa
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-generators.7.html" >cmake-generators(7)</a> &#187;</li>
@@ -184,8 +183,8 @@ See the <span class="target" id="index-1-variable:CMAKE_GENERATOR_TOOLSET"></spa
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

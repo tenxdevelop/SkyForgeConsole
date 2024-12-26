@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>ISPC_INSTRUCTION_SETS &mdash; CMake 3.28.1 Documentation</title>
+  <title>ISPC_INSTRUCTION_SETS &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" accesskey="U">cmake-properties(7)</a> &#187;</li>
@@ -58,9 +57,9 @@
           <div class="body" role="main">
             
   <section id="ispc-instruction-sets">
-<span id="prop_tgt:ISPC_INSTRUCTION_SETS"></span><h1>ISPC_INSTRUCTION_SETS<a class="headerlink" href="#ispc-instruction-sets" title="Permalink to this heading">¶</a></h1>
+<span id="prop_tgt:ISPC_INSTRUCTION_SETS"></span><h1>ISPC_INSTRUCTION_SETS<a class="headerlink" href="#ispc-instruction-sets" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>List of instruction set architectures to generate code for.</p>
 <p>This property is initialized by the value of the <span class="target" id="index-0-variable:CMAKE_ISPC_INSTRUCTION_SETS"></span><a class="reference internal" href="../variable/CMAKE_ISPC_INSTRUCTION_SETS.html#variable:CMAKE_ISPC_INSTRUCTION_SETS" title="CMAKE_ISPC_INSTRUCTION_SETS"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_ISPC_INSTRUCTION_SETS</span></code></a>
@@ -68,7 +67,7 @@ variable if it is set when a target is created.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ISPC_INSTRUCTION_SETS</span></code> target property must be used when generating for multiple
 instruction sets so that CMake can track what object files will be generated.</p>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">set_property(</span><span class="no">TARGET</span><span class="w"> </span><span class="nb">tgt</span><span class="w"> </span><span class="no">PROPERTY</span><span class="w"> </span><span class="no">ISPC_INSTRUCTION_SETS</span><span class="w"> </span><span class="nb">avx2-i32x4</span><span class="w"> </span><span class="nb">avx512skx-i32x835</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -110,7 +109,7 @@ instruction sets so that CMake can track what object files will be generated.</p
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -118,7 +117,7 @@ instruction sets so that CMake can track what object files will be generated.</p
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -144,7 +143,7 @@ instruction sets so that CMake can track what object files will be generated.</p
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" >cmake-properties(7)</a> &#187;</li>
@@ -153,8 +152,8 @@ instruction sets so that CMake can track what object files will be generated.</p
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

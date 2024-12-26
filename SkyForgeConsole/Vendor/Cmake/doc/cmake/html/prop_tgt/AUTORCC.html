@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>AUTORCC &mdash; CMake 3.28.1 Documentation</title>
+  <title>AUTORCC &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" accesskey="U">cmake-properties(7)</a> &#187;</li>
@@ -58,11 +57,11 @@
           <div class="body" role="main">
             
   <section id="autorcc">
-<span id="prop_tgt:AUTORCC"></span><h1>AUTORCC<a class="headerlink" href="#autorcc" title="Permalink to this heading">¶</a></h1>
+<span id="prop_tgt:AUTORCC"></span><h1>AUTORCC<a class="headerlink" href="#autorcc" title="Link to this heading">¶</a></h1>
 <p>Should the target be processed with auto-rcc (for Qt projects).</p>
 <p><code class="docutils literal notranslate"><span class="pre">AUTORCC</span></code> is a boolean specifying whether CMake will handle
 the Qt <code class="docutils literal notranslate"><span class="pre">rcc</span></code> code generator automatically, i.e. without having to use
-commands like <span class="target" id="index-0-module:FindQt4"></span><a class="reference internal" href="../module/FindQt4.html#module:FindQt4" title="FindQt4"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">QT4_ADD_RESOURCES()</span></code></a>, <code class="docutils literal notranslate"><span class="pre">QT5_ADD_RESOURCES()</span></code>,
+commands like <span class="target" id="index-0-module:FindQt4"></span><a class="reference internal" href="../module/FindQt4.html#module:FindQt4" title="FindQt4"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">QT4_ADD_RESOURCES()</span></code></a>, <a class="reference external" href="https://doc.qt.io/qt-5/qtcore-cmake-qt5-add-resources.html">qt5_add_resources()</a>,
 etc.  Currently, Qt versions 4 to 6 are supported.</p>
 <p>When this property is <code class="docutils literal notranslate"><span class="pre">ON</span></code>, CMake will handle <code class="docutils literal notranslate"><span class="pre">.qrc</span></code> files added
 as target sources at build time and invoke <code class="docutils literal notranslate"><span class="pre">rcc</span></code> accordingly.
@@ -77,7 +76,7 @@ generate unspecified unique output file names for <code class="docutils literal 
 <code class="docutils literal notranslate"><span class="pre">Q_INIT_RESOURCE()</span></code> or <code class="docutils literal notranslate"><span class="pre">Q_CLEANUP_RESOURCE()</span></code> need to be used, the
 <code class="docutils literal notranslate"><span class="pre">.qrc</span></code> file name must be unique.</p>
 <section id="modifiers">
-<h2>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this heading">¶</a></h2>
+<h2>Modifiers<a class="headerlink" href="#modifiers" title="Link to this heading">¶</a></h2>
 <p><span class="target" id="index-0-prop_tgt:AUTORCC_EXECUTABLE"></span><a class="reference internal" href="AUTORCC_EXECUTABLE.html#prop_tgt:AUTORCC_EXECUTABLE" title="AUTORCC_EXECUTABLE"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">AUTORCC_EXECUTABLE</span></code></a>:
 The <code class="docutils literal notranslate"><span class="pre">rcc</span></code> executable will be detected automatically, but can be forced to
 a certain binary by setting this target property.</p>
@@ -141,7 +140,7 @@ with Qt.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -149,7 +148,7 @@ with Qt.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -175,7 +174,7 @@ with Qt.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-properties.7.html" >cmake-properties(7)</a> &#187;</li>
@@ -184,8 +183,8 @@ with Qt.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

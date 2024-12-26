@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMake 3.10 Release Notes &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMake 3.10 Release Notes &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Release Notes</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="cmake-3-10-release-notes">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink">CMake 3.10 Release Notes</a><a class="headerlink" href="#cmake-3-10-release-notes" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">CMake 3.10 Release Notes</a><a class="headerlink" href="#cmake-3-10-release-notes" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -92,9 +91,9 @@
 </nav>
 <p>Changes made since CMake 3.9 include the following.</p>
 <section id="new-features">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h2>
 <section id="platforms">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Platforms</a><a class="headerlink" href="#platforms" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Platforms</a><a class="headerlink" href="#platforms" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <a class="reference external" href="https://github.com/flang-compiler/flang">flang</a> Fortran compiler is now supported, with compiler id <code class="docutils literal notranslate"><span class="pre">Flang</span></code>.</p></li>
 <li><p>A new minimal platform file for <code class="docutils literal notranslate"><span class="pre">Midipix</span></code> was added.</p></li>
@@ -104,7 +103,7 @@ Visual Studio 2017 Update 4 and above offer an ARM64 toolchain.</p></li>
 </ul>
 </section>
 <section id="generators">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Generators</a><a class="headerlink" href="#generators" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Generators</a><a class="headerlink" href="#generators" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <a class="reference internal" href="../manual/cmake-generators.7.html#makefile-generators"><span class="std std-ref">Makefile Generators</span></a> and the <span class="target" id="index-0-generator:Ninja"></span><a class="reference internal" href="../generator/Ninja.html#generator:Ninja" title="Ninja"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Ninja</span></code></a> generator learned
 to add compiler launcher tools like ccache along with the compiler for the
@@ -117,7 +116,7 @@ See the <span class="target" id="index-0-variable:CMAKE_CODEBLOCKS_EXCLUDE_EXTER
 </ul>
 </section>
 <section id="commands">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-command:cmake_host_system_information"></span><a class="reference internal" href="../command/cmake_host_system_information.html#command:cmake_host_system_information" title="cmake_host_system_information"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">cmake_host_system_information()</span></code></a> command learned more keys
 to get information about the processor capabilities and the host OS
@@ -140,14 +139,14 @@ for full weekday name and <code class="docutils literal notranslate"><span class
 </ul>
 </section>
 <section id="variables">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <span class="target" id="index-0-variable:CMAKE_DIRECTORY_LABELS"></span><a class="reference internal" href="../variable/CMAKE_DIRECTORY_LABELS.html#variable:CMAKE_DIRECTORY_LABELS" title="CMAKE_DIRECTORY_LABELS"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_DIRECTORY_LABELS</span></code></a> variable was added to specify
 labels for all tests in a directory.</p></li>
 </ul>
 </section>
 <section id="properties">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <span class="target" id="index-0-prop_tgt:&lt;LANG&gt;_CPPCHECK"></span><a class="reference internal" href="../prop_tgt/LANG_CPPCHECK.html#prop_tgt:&lt;LANG&gt;_CPPCHECK" title="&lt;LANG&gt;_CPPCHECK"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">&lt;LANG&gt;_CPPCHECK</span></code></a> target property and supporting
 <span class="target" id="index-0-variable:CMAKE_&lt;LANG&gt;_CPPCHECK"></span><a class="reference internal" href="../variable/CMAKE_LANG_CPPCHECK.html#variable:CMAKE_&lt;LANG&gt;_CPPCHECK" title="CMAKE_&lt;LANG&gt;_CPPCHECK"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_&lt;LANG&gt;_CPPCHECK</span></code></a> variable were introduced to tell
@@ -168,7 +167,7 @@ details of <code class="docutils literal notranslate"><span class="pre">.hlsl</s
 </ul>
 </section>
 <section id="modules">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-module:FindCurses"></span><a class="reference internal" href="../module/FindCurses.html#module:FindCurses" title="FindCurses"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FindCurses</span></code></a> module gained a <code class="docutils literal notranslate"><span class="pre">CURSES_NEED_WIDE</span></code> option
 to request the wide-character variant.</p></li>
@@ -212,7 +211,7 @@ for installing Intel compiler runtimes.</p></li>
 </ul>
 </section>
 <section id="autogen">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Autogen</a><a class="headerlink" href="#autogen" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Autogen</a><a class="headerlink" href="#autogen" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>When using <span class="target" id="index-0-prop_tgt:AUTOMOC"></span><a class="reference internal" href="../prop_tgt/AUTOMOC.html#prop_tgt:AUTOMOC" title="AUTOMOC"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">AUTOMOC</span></code></a> or <span class="target" id="index-0-prop_tgt:AUTOUIC"></span><a class="reference internal" href="../prop_tgt/AUTOUIC.html#prop_tgt:AUTOUIC" title="AUTOUIC"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">AUTOUIC</span></code></a> with a
 multi configuration generator (e.g. <span class="target" id="index-0-generator:Xcode"></span><a class="reference internal" href="../generator/Xcode.html#generator:Xcode" title="Xcode"><code class="xref cmake cmake-generator docutils literal notranslate"><span class="pre">Xcode</span></code></a>),
@@ -237,7 +236,7 @@ to enable or disable the generation of the compiler pre definitions file
 </ul>
 </section>
 <section id="ctest">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">CTest</a><a class="headerlink" href="#ctest" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">CTest</a><a class="headerlink" href="#ctest" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <span class="target" id="index-0-variable:CTEST_LABELS_FOR_SUBPROJECTS"></span><a class="reference internal" href="../variable/CTEST_LABELS_FOR_SUBPROJECTS.html#variable:CTEST_LABELS_FOR_SUBPROJECTS" title="CTEST_LABELS_FOR_SUBPROJECTS"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CTEST_LABELS_FOR_SUBPROJECTS</span></code></a> CTest module variable and CTest
 script variable were added to specify a list of labels that should be
@@ -247,7 +246,7 @@ set it in the <code class="docutils literal notranslate"><span class="pre">CTest
 </ul>
 </section>
 <section id="cpack">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <span class="target" id="index-0-cpack_gen:CPack FreeBSD Generator"></span><a class="reference internal" href="../cpack_gen/freebsd.html#cpack_gen:CPack FreeBSD Generator" title="CPack FreeBSD Generator"><code class="xref cmake cmake-cpack_gen docutils literal notranslate"><span class="pre">CPack</span> <span class="pre">FreeBSD</span> <span class="pre">Generator</span></code></a> was added for FreeBSD <code class="docutils literal notranslate"><span class="pre">pkg(8)</span></code>.</p></li>
 <li><p>The <span class="target" id="index-0-cpack_gen:CPack DEB Generator"></span><a class="reference internal" href="../cpack_gen/deb.html#cpack_gen:CPack DEB Generator" title="CPack DEB Generator"><code class="xref cmake cmake-cpack_gen docutils literal notranslate"><span class="pre">CPack</span> <span class="pre">DEB</span> <span class="pre">Generator</span></code></a> was enabled on Windows.  While not
@@ -276,7 +275,7 @@ See <span class="target" id="index-0-variable:CPACK_RPM_PACKAGE_EPOCH"></span><a
 </ul>
 </section>
 <section id="other">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Other</a><a class="headerlink" href="#other" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Other</a><a class="headerlink" href="#other" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-manual:cmake(1)"></span><a class="reference internal" href="../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake(1)</span></code></a> <code class="docutils literal notranslate"><span class="pre">-E</span></code> mode gained support for <code class="docutils literal notranslate"><span class="pre">sha1sum</span></code>,
 <code class="docutils literal notranslate"><span class="pre">sha224sum</span></code>, <code class="docutils literal notranslate"><span class="pre">sha256sum</span></code>, <code class="docutils literal notranslate"><span class="pre">sha384sum</span></code>, and <code class="docutils literal notranslate"><span class="pre">sha512sum</span></code>.</p></li>
@@ -287,7 +286,7 @@ graph as solid, dashed and dotted edges.</p></li>
 </section>
 </section>
 <section id="deprecated-and-removed-features">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Support for building CMake itself with C++98 compilers was dropped.
 CMake is now implemented using C++11.</p></li>
@@ -297,7 +296,7 @@ Use CMake 3.9 or lower instead for HP-UX support.</p></li>
 </ul>
 </section>
 <section id="other-changes">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>On FreeBSD the C++ compiler named <code class="docutils literal notranslate"><span class="pre">c++</span></code> is now the preferred default.</p></li>
 <li><p>The <span class="target" id="index-0-command:file"></span><a class="reference internal" href="../command/file.html#generate" title="file(generate)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">file(GENERATE)</span></code></a> command now interprets relative paths
@@ -313,10 +312,10 @@ not changed.</p></li>
 </ul>
 </section>
 <section id="updates">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Link to this heading">¶</a></h2>
 <p>Changes made since CMake 3.10.0 include the following.</p>
 <section id="id1">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.10.1</a><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.10.1</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-manual:cmake-server(7)"></span><a class="reference internal" href="../manual/cmake-server.7.html#manual:cmake-server(7)" title="cmake-server(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-server(7)</span></code></a> <code class="docutils literal notranslate"><span class="pre">codemodel</span></code> response cross-references
 field added by 3.10.0 has been dropped due to excessive memory usage.
@@ -324,7 +323,7 @@ Another approach will be needed to provide backtrace information.</p></li>
 </ul>
 </section>
 <section id="release-notes-3-10-3">
-<span id="id2"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">3.10.3</a><a class="headerlink" href="#release-notes-3-10-3" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">3.10.3</a><a class="headerlink" href="#release-notes-3-10-3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>CMake 3.10.1 added a <code class="docutils literal notranslate"><span class="pre">TIMEOUT</span></code> option to <span class="target" id="index-1-command:gtest_discover_tests"></span><a class="reference internal" href="../module/GoogleTest.html#command:gtest_discover_tests" title="gtest_discover_tests"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">gtest_discover_tests()</span></code></a>
 from the <span class="target" id="index-1-module:GoogleTest"></span><a class="reference internal" href="../module/GoogleTest.html#module:GoogleTest" title="GoogleTest"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">GoogleTest</span></code></a> module.  That keyword clashed with the
@@ -392,7 +391,7 @@ ambiguous behavior of the <span class="target" id="index-2-command:gtest_discove
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -400,7 +399,7 @@ ambiguous behavior of the <span class="target" id="index-2-command:gtest_discove
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -426,7 +425,7 @@ ambiguous behavior of the <span class="target" id="index-2-command:gtest_discove
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Release Notes</a> &#187;</li>
@@ -435,8 +434,8 @@ ambiguous behavior of the <span class="target" id="index-2-command:gtest_discove
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

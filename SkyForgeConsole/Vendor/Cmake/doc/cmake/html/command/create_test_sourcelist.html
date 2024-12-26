@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>create_test_sourcelist &mdash; CMake 3.28.1 Documentation</title>
+  <title>create_test_sourcelist &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,31 +57,61 @@
           <div class="body" role="main">
             
   <section id="create-test-sourcelist">
-<span id="command:create_test_sourcelist"></span><h1>create_test_sourcelist<a class="headerlink" href="#create-test-sourcelist" title="Permalink to this heading">¶</a></h1>
-<p>Create a test driver and source list for building test programs.</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">create_test_sourcelist(</span><span class="nv">&lt;sourceListName&gt;</span><span class="w"> </span><span class="nv">&lt;driverName&gt;</span>
-<span class="w">                       </span><span class="nv">&lt;tests&gt;</span><span class="w"> </span><span class="p">...</span>
-<span class="w">                       </span><span class="p">[</span><span class="no">EXTRA_INCLUDE</span><span class="w"> </span><span class="nv">&lt;include&gt;</span><span class="p">]</span>
-<span class="w">                       </span><span class="p">[</span><span class="no">FUNCTION</span><span class="w"> </span><span class="nv">&lt;function&gt;</span><span class="p">]</span><span class="nf">)</span>
+<span id="command:create_test_sourcelist"></span><h1>create_test_sourcelist<a class="headerlink" href="#create-test-sourcelist" title="Link to this heading">¶</a></h1>
+<p>Create a test driver program that links together many small tests into a
+single executable.  This is useful when building static executables with
+large libraries to shrink the total required size.</p>
+<dl class="cmake signature">
+<dt class="sig sig-object cmake" id="original">
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">create_test_sourcelist(</span></span><span class="nv"><span class="pre">&lt;sourceListName&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;driverName&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;test&gt;...</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;options&gt;...</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#original" title="Link to this definition">¶</a></dt>
+<dd><p>Generate a test driver source file from a list of individual test sources
+and provide a combined list of sources that can be built as an executable.</p>
+<p>The options are:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;sourceListName&gt;</span></code></dt><dd><p>The name of a variable in which to store the list of source files needed
+to build the test driver.  The list will contain the <code class="docutils literal notranslate"><span class="pre">&lt;test&gt;...</span></code> sources
+and the generated <code class="docutils literal notranslate"><span class="pre">&lt;driverName&gt;</span></code> source.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.29: </span>The test driver source is listed by absolute path in the build tree.
+Previously it was listed only as <code class="docutils literal notranslate"><span class="pre">&lt;driverName&gt;</span></code>.</p>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;driverName&gt;</span></code></dt><dd><p>Name of the test driver source file to be generated into the build tree.
+The source file will contain a <code class="docutils literal notranslate"><span class="pre">main()</span></code> program entry point that
+dispatches to whatever test is named on the command line.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">&lt;test&gt;...</span></code></dt><dd><p>Test source files to be added to the driver binary.  Each test source
+file must have a function in it that is the same name as the file with the
+extension removed.  For example, a <code class="docutils literal notranslate"><span class="pre">foo.cxx</span></code> test source might contain:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A test driver is a program that links together many small tests into a single
-executable.  This is useful when building static executables with large
-libraries to shrink the total required size.  The list of source files needed
-to build the test driver will be in <code class="docutils literal notranslate"><span class="pre">sourceListName</span></code>.  <code class="docutils literal notranslate"><span class="pre">driverName</span></code> is the
-name of the test driver program. The rest of the arguments consist of a list
-of test source files and can be semicolon separated.  Each test source file
-should have a function in it that is the same name as the file with no
-extension (<code class="docutils literal notranslate"><span class="pre">foo.cxx</span></code> should have <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">foo(int,</span> <span class="pre">char*[]);</span></code>). <code class="docutils literal notranslate"><span class="pre">driverName</span></code>
-will be able to call each of the tests by name on the command line.  If
-<code class="docutils literal notranslate"><span class="pre">EXTRA_INCLUDE</span></code> is specified, then the next argument is included into the
-generated file. If <code class="docutils literal notranslate"><span class="pre">FUNCTION</span></code> is specified, then the next argument is taken
-as a function name that is passed pointers to <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>.  This can
-be used to add extra command line processing to each test.  The
-<code class="docutils literal notranslate"><span class="pre">CMAKE_TESTDRIVER_BEFORE_TESTMAIN</span></code> cmake variable can be set to have code
-that will be placed directly before calling the test <code class="docutils literal notranslate"><span class="pre">main</span></code> function.
-<code class="docutils literal notranslate"><span class="pre">CMAKE_TESTDRIVER_AFTER_TESTMAIN</span></code> can be set to have code that will be
-placed directly after the call to the test <code class="docutils literal notranslate"><span class="pre">main</span></code> function.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EXTRA_INCLUDE</span> <span class="pre">&lt;header&gt;</span></code></dt><dd><p>Specify a header file to <code class="docutils literal notranslate"><span class="pre">#include</span></code> in the generated test driver source.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">FUNCTION</span> <span class="pre">&lt;function&gt;</span></code></dt><dd><p>Specify a function to be called with pointers to <code class="docutils literal notranslate"><span class="pre">argc</span></code> and <code class="docutils literal notranslate"><span class="pre">argv</span></code>.
+The function may be provided in the <code class="docutils literal notranslate"><span class="pre">EXTRA_INCLUDE</span></code> header:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">function</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">pargc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">***</span><span class="w"> </span><span class="n">pargv</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be used to add extra command line processing to each test.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Additionally, some CMake variables affect test driver generation:</p>
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CMAKE_TESTDRIVER_BEFORE_TESTMAIN">
+<span class="sig-name descname"><span class="pre">CMAKE_TESTDRIVER_BEFORE_TESTMAIN</span></span><a class="headerlink" href="#variable:CMAKE_TESTDRIVER_BEFORE_TESTMAIN" title="Link to this definition">¶</a></dt>
+<dd><p>Code to be placed directly before calling each test's function.</p>
+</dd></dl>
+
+<dl class="cmake variable">
+<dt class="sig sig-object cmake" id="variable:CMAKE_TESTDRIVER_AFTER_TESTMAIN">
+<span class="sig-name descname"><span class="pre">CMAKE_TESTDRIVER_AFTER_TESTMAIN</span></span><a class="headerlink" href="#variable:CMAKE_TESTDRIVER_AFTER_TESTMAIN" title="Link to this definition">¶</a></dt>
+<dd><p>Code to be placed directly after the call to each test's function.</p>
+</dd></dl>
+
 </section>
 
 
@@ -109,7 +138,7 @@ placed directly after the call to the test <code class="docutils literal notrans
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -117,7 +146,7 @@ placed directly after the call to the test <code class="docutils literal notrans
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -143,7 +172,7 @@ placed directly after the call to the test <code class="docutils literal notrans
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -152,8 +181,8 @@ placed directly after the call to the test <code class="docutils literal notrans
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

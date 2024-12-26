@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>cmake(1) &mdash; CMake 3.28.1 Documentation</title>
+  <title>cmake(1) &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">cmake(1)</a></li> 
@@ -57,9 +56,9 @@
           <div class="body" role="main">
             
   <span class="target" id="manual:cmake(1)"></span><section id="cmake-1">
-<h1>cmake(1)<a class="headerlink" href="#cmake-1" title="Permalink to this heading">¶</a></h1>
+<h1>cmake(1)<a class="headerlink" href="#cmake-1" title="Link to this heading">¶</a></h1>
 <section id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
 <pre class="literal-block"><a class="reference internal" href="#generate-a-project-buildsystem">Generate a Project Buildsystem</a>
  cmake [&lt;options&gt;] -B &lt;path-to-build&gt; [-S &lt;path-to-source&gt;]
  cmake [&lt;options&gt;] &lt;path-to-source | path-to-existing-build&gt;
@@ -83,13 +82,13 @@
  cmake --find-package [&lt;options&gt;]
 
 <a class="reference internal" href="#run-a-workflow-preset">Run a Workflow Preset</a>
- cmake --workflow [&lt;options&gt;]
+ cmake --workflow &lt;options&gt;
 
 <a class="reference internal" href="#view-help">View Help</a>
  cmake --help[-&lt;topic&gt;]</pre>
 </section>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>The <strong class="program">cmake</strong> executable is the command-line interface of the cross-platform
 buildsystem generator CMake.  The above <a class="reference internal" href="#synopsis">Synopsis</a> lists various actions
 the tool can perform as described in sections below.</p>
@@ -108,7 +107,7 @@ see <span class="target" id="index-0-manual:ctest(1)"></span><a class="reference
 of this manual.</p>
 </section>
 <section id="introduction-to-cmake-buildsystems">
-<h2>Introduction to CMake Buildsystems<a class="headerlink" href="#introduction-to-cmake-buildsystems" title="Permalink to this heading">¶</a></h2>
+<h2>Introduction to CMake Buildsystems<a class="headerlink" href="#introduction-to-cmake-buildsystems" title="Link to this heading">¶</a></h2>
 <p>A <em>buildsystem</em> describes how to build a project's executables and libraries
 from its source code using a <em>build tool</em> to automate the process.  For
 example, a buildsystem may be a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for use with a command-line
@@ -150,13 +149,13 @@ is already configured in the shell.  When using one of the
 </dl>
 </section>
 <section id="generate-a-project-buildsystem">
-<span id="id1"></span><h2>Generate a Project Buildsystem<a class="headerlink" href="#generate-a-project-buildsystem" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Generate a Project Buildsystem<a class="headerlink" href="#generate-a-project-buildsystem" title="Link to this heading">¶</a></h2>
 <p>Run CMake with one of the following command signatures to specify the
 source and build trees and generate a buildsystem:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">[&lt;options&gt;]</span> <span class="pre">-B</span> <span class="pre">&lt;path-to-build&gt;</span> <span class="pre">[-S</span> <span class="pre">&lt;path-to-source&gt;]</span></code></p>
 <blockquote>
 <div><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13.</span></p>
+<p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
 <p>Uses <code class="docutils literal notranslate"><span class="pre">&lt;path-to-build&gt;</span></code> as the build tree and <code class="docutils literal notranslate"><span class="pre">&lt;path-to-source&gt;</span></code>
 as the source tree.  The specified paths may be absolute or relative
@@ -257,23 +256,23 @@ build tool to build the project.  For example, after using the
 <p>Alternatively, one may use <strong class="program">cmake</strong> to <a class="reference internal" href="#build-a-project">Build a Project</a> by
 automatically choosing and invoking the appropriate native build tool.</p>
 <section id="options">
-<span id="cmake-options"></span><h3>Options<a class="headerlink" href="#options" title="Permalink to this heading">¶</a></h3>
+<span id="cmake-options"></span><h3>Options<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-S">
-<span id="cmdoption-cmake-s"></span><span class="sig-name descname"><span class="pre">-S</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-source&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-S" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-S</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-source&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-S" title="Link to this definition">¶</a></dt>
 <dd><p>Path to root directory of the CMake project to build.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-B">
-<span id="cmdoption-cmake-b"></span><span class="sig-name descname"><span class="pre">-B</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-build&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-B" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-B</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-build&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-B" title="Link to this definition">¶</a></dt>
 <dd><p>Path to directory which CMake will use as the root of build directory.</p>
 <p>If the directory doesn't already exist CMake will make it.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-C">
-<span id="cmdoption-cmake-c"></span><span class="sig-name descname"><span class="pre">-C</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;initial-cache&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-C" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-C</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;initial-cache&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-C" title="Link to this definition">¶</a></dt>
 <dd><p>Pre-load a script to populate the cache.</p>
 <p>When CMake is first run in an empty build tree, it creates a
 <code class="docutils literal notranslate"><span class="pre">CMakeCache.txt</span></code> file and populates it with customizable settings for
@@ -289,7 +288,7 @@ within the script evaluate to the top-level source and build tree.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-D">
-<span id="cmdoption-cmake-d"></span><span id="cmdoption-cmake-D"></span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;:&lt;type&gt;=&lt;value&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-D" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-D"></span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;:&lt;type&gt;=&lt;value&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-D" title="Link to this definition">¶</a></dt>
 <dd><p>Create or update a CMake <code class="docutils literal notranslate"><span class="pre">CACHE</span></code> entry.</p>
 <p>When CMake is first run in an empty build tree, it creates a
 <code class="docutils literal notranslate"><span class="pre">CMakeCache.txt</span></code> file and populates it with customizable settings for
@@ -324,7 +323,7 @@ precedence regardless of order because of the nature of non-<code class="docutil
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-U">
-<span id="cmdoption-cmake-u"></span><span class="sig-name descname"><span class="pre">-U</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;globbing_expr&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-U" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-U</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;globbing_expr&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-U" title="Link to this definition">¶</a></dt>
 <dd><p>Remove matching entries from CMake <code class="docutils literal notranslate"><span class="pre">CACHE</span></code>.</p>
 <p>This option may be used to remove one or more variables from the
 <code class="docutils literal notranslate"><span class="pre">CMakeCache.txt</span></code> file, globbing expressions using <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code> are
@@ -335,7 +334,7 @@ desired.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-G">
-<span id="cmdoption-cmake-g"></span><span class="sig-name descname"><span class="pre">-G</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;generator-name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-G" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-G</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;generator-name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-G" title="Link to this definition">¶</a></dt>
 <dd><p>Specify a build system generator.</p>
 <p>CMake may support multiple native build systems on certain
 platforms.  A generator is responsible for generating a particular
@@ -347,7 +346,7 @@ variable and otherwise falls back to a builtin default selection.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-T">
-<span id="cmdoption-cmake-t"></span><span class="sig-name descname"><span class="pre">-T</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;toolset-spec&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-T" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-T</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;toolset-spec&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-T" title="Link to this definition">¶</a></dt>
 <dd><p>Toolset specification for the generator, if supported.</p>
 <p>Some CMake generators support a toolset specification to tell
 the native build system how to choose a compiler.  See the
@@ -356,7 +355,7 @@ the native build system how to choose a compiler.  See the
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-A">
-<span id="cmdoption-cmake-a"></span><span class="sig-name descname"><span class="pre">-A</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;platform-name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-A" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-A</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;platform-name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-A" title="Link to this definition">¶</a></dt>
 <dd><p>Specify platform name if supported by generator.</p>
 <p>Some CMake generators support a platform name to be given to the
 native build system to choose a compiler or SDK.  See the
@@ -365,19 +364,21 @@ native build system to choose a compiler or SDK.  See the
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-toolchain">
-<span class="sig-name descname"><span class="pre">--toolchain</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-toolchain" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--toolchain</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;path-to-file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-toolchain" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Specify the cross compiling toolchain file, equivalent to setting
-<span class="target" id="index-0-variable:CMAKE_TOOLCHAIN_FILE"></span><a class="reference internal" href="../variable/CMAKE_TOOLCHAIN_FILE.html#variable:CMAKE_TOOLCHAIN_FILE" title="CMAKE_TOOLCHAIN_FILE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TOOLCHAIN_FILE</span></code></a> variable.</p>
+<span class="target" id="index-0-variable:CMAKE_TOOLCHAIN_FILE"></span><a class="reference internal" href="../variable/CMAKE_TOOLCHAIN_FILE.html#variable:CMAKE_TOOLCHAIN_FILE" title="CMAKE_TOOLCHAIN_FILE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TOOLCHAIN_FILE</span></code></a> variable. Relative paths are interpreted as
+relative to the build directory, and if not found, relative to the source
+directory.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-prefix">
-<span class="sig-name descname"><span class="pre">--install-prefix</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;directory&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-prefix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--install-prefix</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;directory&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-prefix" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Specify the installation directory, used by the
 <span class="target" id="index-0-variable:CMAKE_INSTALL_PREFIX"></span><a class="reference internal" href="../variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX" title="CMAKE_INSTALL_PREFIX"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code></a> variable. Must be an absolute path.</p>
@@ -385,7 +386,7 @@ native build system to choose a compiler or SDK.  See the
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Wno-dev">
-<span id="cmdoption-cmake-wno-dev"></span><span class="sig-name descname"><span class="pre">-Wno-dev</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wno-dev" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Wno-dev</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wno-dev" title="Link to this definition">¶</a></dt>
 <dd><p>Suppress developer warnings.</p>
 <p>Suppress warnings that are meant for the author of the
 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files. By default this will also turn off
@@ -394,7 +395,7 @@ deprecation warnings.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Wdev">
-<span id="cmdoption-cmake-wdev"></span><span class="sig-name descname"><span class="pre">-Wdev</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wdev" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Wdev</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wdev" title="Link to this definition">¶</a></dt>
 <dd><p>Enable developer warnings.</p>
 <p>Enable warnings that are meant for the author of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>
 files. By default this will also turn on deprecation warnings.</p>
@@ -402,7 +403,7 @@ files. By default this will also turn on deprecation warnings.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Wdeprecated">
-<span id="cmdoption-cmake-wdeprecated"></span><span class="sig-name descname"><span class="pre">-Wdeprecated</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wdeprecated" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Wdeprecated</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wdeprecated" title="Link to this definition">¶</a></dt>
 <dd><p>Enable deprecated functionality warnings.</p>
 <p>Enable warnings for usage of deprecated functionality, that are meant
 for the author of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files.</p>
@@ -410,7 +411,7 @@ for the author of the <code class="docutils literal notranslate"><span class="pr
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Wno-deprecated">
-<span id="cmdoption-cmake-wno-deprecated"></span><span class="sig-name descname"><span class="pre">-Wno-deprecated</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wno-deprecated" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Wno-deprecated</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-Wno-deprecated" title="Link to this definition">¶</a></dt>
 <dd><p>Suppress deprecated functionality warnings.</p>
 <p>Suppress warnings for usage of deprecated functionality, that are meant
 for the author of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files.</p>
@@ -418,7 +419,7 @@ for the author of the <code class="docutils literal notranslate"><span class="pr
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Werror">
-<span id="cmdoption-cmake-werror"></span><span class="sig-name descname"><span class="pre">-Werror</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;what&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-Werror" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Werror</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;what&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-Werror" title="Link to this definition">¶</a></dt>
 <dd><p>Treat CMake warnings as errors. <code class="docutils literal notranslate"><span class="pre">&lt;what&gt;</span></code> must be one of the following:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">dev</span></code></dt><dd><p>Make developer warnings errors.</p>
@@ -434,7 +435,7 @@ for the author of the <code class="docutils literal notranslate"><span class="pr
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-Wno-error">
-<span id="cmdoption-cmake-wno-error"></span><span class="sig-name descname"><span class="pre">-Wno-error</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;what&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-Wno-error" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-Wno-error</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;what&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-Wno-error" title="Link to this definition">¶</a></dt>
 <dd><p>Do not treat CMake warnings as errors. <code class="docutils literal notranslate"><span class="pre">&lt;what&gt;</span></code> must be one of the following:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">dev</span></code></dt><dd><p>Make warnings that are meant for the author of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files not
@@ -448,18 +449,24 @@ for the author of the <code class="docutils literal notranslate"><span class="pr
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-fresh">
-<span class="sig-name descname"><span class="pre">--fresh</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-fresh" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--fresh</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-fresh" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <p>Perform a fresh configuration of the build tree.
 This removes any existing <code class="docutils literal notranslate"><span class="pre">CMakeCache.txt</span></code> file and associated
 <code class="docutils literal notranslate"><span class="pre">CMakeFiles/</span></code> directory, and recreates them from scratch.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.30: </span>For dependencies previously populated by <span class="target" id="index-0-module:FetchContent"></span><a class="reference internal" href="../module/FetchContent.html#module:FetchContent" title="FetchContent"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FetchContent</span></code></a> with the
+<code class="docutils literal notranslate"><span class="pre">NEW</span></code> setting for policy <span class="target" id="index-0-policy:CMP0168"></span><a class="reference internal" href="../policy/CMP0168.html#policy:CMP0168" title="CMP0168"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0168</span></code></a>, their stamp and script files
+from any previous run will be removed. The download, update, and patch
+steps will therefore be forced to re-execute.</p>
+</div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-L-A-H">
-<span id="cmdoption-cmake-l-a-h"></span><span class="sig-name descname"><span class="pre">-L[A][H]</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-L-A-H" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-L[A][H]</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-L-A-H" title="Link to this definition">¶</a></dt>
 <dd><p>List non-advanced cached variables.</p>
 <p>List <code class="docutils literal notranslate"><span class="pre">CACHE</span></code> variables will run CMake and list all the variables from
 the CMake <code class="docutils literal notranslate"><span class="pre">CACHE</span></code> that are not marked as <code class="docutils literal notranslate"><span class="pre">INTERNAL</span></code> or <span class="target" id="index-0-prop_cache:ADVANCED"></span><a class="reference internal" href="../prop_cache/ADVANCED.html#prop_cache:ADVANCED" title="ADVANCED"><code class="xref cmake cmake-prop_cache docutils literal notranslate"><span class="pre">ADVANCED</span></code></a>.
@@ -471,8 +478,21 @@ display help for each variable.</p>
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-cmake-LR-A-H">
+<span class="sig-name descname"><span class="pre">-LR[A][H]</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;regex&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-LR-A-H" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.31.</span></p>
+</div>
+<p>Show specific non-advanced cached variables</p>
+<p>Show non-<code class="docutils literal notranslate"><span class="pre">INTERNAL</span></code> nor <span class="target" id="index-1-prop_cache:ADVANCED"></span><a class="reference internal" href="../prop_cache/ADVANCED.html#prop_cache:ADVANCED" title="ADVANCED"><code class="xref cmake cmake-prop_cache docutils literal notranslate"><span class="pre">ADVANCED</span></code></a> variables from the CMake
+<code class="docutils literal notranslate"><span class="pre">CACHE</span></code> that match the given regex. If <code class="docutils literal notranslate"><span class="pre">A</span></code> is specified, then it
+will also show advanced variables.  If <code class="docutils literal notranslate"><span class="pre">H</span></code> is specified, it will also
+display help for each variable.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-N">
-<span id="cmdoption-cmake-n"></span><span class="sig-name descname"><span class="pre">-N</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-N" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-N</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-N" title="Link to this definition">¶</a></dt>
 <dd><p>View mode only.</p>
 <p>Only load the cache.  Do not actually run configure and generate
 steps.</p>
@@ -480,7 +500,7 @@ steps.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-graphviz">
-<span class="sig-name descname"><span class="pre">--graphviz</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-graphviz" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--graphviz</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-graphviz" title="Link to this definition">¶</a></dt>
 <dd><p>Generate graphviz of dependencies, see <span class="target" id="index-0-module:CMakeGraphVizOptions"></span><a class="reference internal" href="../module/CMakeGraphVizOptions.html#module:CMakeGraphVizOptions" title="CMakeGraphVizOptions"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">CMakeGraphVizOptions</span></code></a> for more.</p>
 <p>Generate a graphviz input file that will contain all the library and
 executable dependencies in the project.  See the documentation for
@@ -489,7 +509,7 @@ executable dependencies in the project.  See the documentation for
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-system-information">
-<span class="sig-name descname"><span class="pre">--system-information</span></span><span class="sig-prename descclassname"> <span class="pre">[file]</span></span><a class="headerlink" href="#cmdoption-cmake-system-information" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--system-information</span></span><span class="sig-prename descclassname"> <span class="pre">[file]</span></span><a class="headerlink" href="#cmdoption-cmake-system-information" title="Link to this definition">¶</a></dt>
 <dd><p>Dump information about this system.</p>
 <p>Dump a wide range of information about the current system.  If run
 from the top of a binary tree for a CMake project it will dump
@@ -497,9 +517,22 @@ additional information such as the cache, log files etc.</p>
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-cmake-print-config-dir">
+<span class="sig-name descname"><span class="pre">--print-config-dir</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-print-config-dir" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.31.</span></p>
+</div>
+<p>Print CMake config directory for user-wide FileAPI queries.</p>
+<p>See <span class="target" id="index-0-envvar:CMAKE_CONFIG_DIR"></span><a class="reference internal" href="../envvar/CMAKE_CONFIG_DIR.html#envvar:CMAKE_CONFIG_DIR" title="CMAKE_CONFIG_DIR"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">CMAKE_CONFIG_DIR</span></code></a> for more details.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-log-level">
-<span class="sig-name descname"><span class="pre">--log-level</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;level&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-log-level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the log <code class="docutils literal notranslate"><span class="pre">&lt;level&gt;</span></code>.</p>
+<span class="sig-name descname"><span class="pre">--log-level</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;level&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-log-level" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.16.</span></p>
+</div>
+<p>Set the log <code class="docutils literal notranslate"><span class="pre">&lt;level&gt;</span></code>.</p>
 <p>The <span class="target" id="index-0-command:message"></span><a class="reference internal" href="../command/message.html#command:message" title="message"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">message()</span></code></a> command will only output messages of the specified
 log level or higher.  The valid log levels are <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>,
 <code class="docutils literal notranslate"><span class="pre">NOTICE</span></code>, <code class="docutils literal notranslate"><span class="pre">STATUS</span></code> (default), <code class="docutils literal notranslate"><span class="pre">VERBOSE</span></code>, <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, or <code class="docutils literal notranslate"><span class="pre">TRACE</span></code>.</p>
@@ -510,14 +543,14 @@ option takes precedence.</p>
 <p>For backward compatibility reasons, <code class="docutils literal notranslate"><span class="pre">--loglevel</span></code> is also accepted as a
 synonym for this option.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25: </span>See the <span class="target" id="index-0-command:cmake_language"></span><a class="reference internal" href="../command/cmake_language.html#command:cmake_language" title="cmake_language"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">cmake_language()</span></code></a> command for a way to
+<p><span class="versionmodified added">Added in version 3.25: </span>See the <span class="target" id="index-0-command:cmake_language"></span><a class="reference internal" href="../command/cmake_language.html#command:cmake_language" title="cmake_language"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">cmake_language()</span></code></a> command for a way to
 <a class="reference internal" href="../command/cmake_language.html#query-message-log-level"><span class="std std-ref">query the current message logging level</span></a>.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-log-context">
-<span class="sig-name descname"><span class="pre">--log-context</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-log-context" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--log-context</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-log-context" title="Link to this definition">¶</a></dt>
 <dd><p>Enable the <span class="target" id="index-1-command:message"></span><a class="reference internal" href="../command/message.html#command:message" title="message"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">message()</span></code></a> command outputting context attached to each
 message.</p>
 <p>This option turns on showing context for the current CMake run only.
@@ -529,7 +562,7 @@ is ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debug-trycompile">
-<span class="sig-name descname"><span class="pre">--debug-trycompile</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-trycompile" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debug-trycompile</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-trycompile" title="Link to this definition">¶</a></dt>
 <dd><p>Do not delete the files and directories created for
 <span class="target" id="index-0-command:try_compile"></span><a class="reference internal" href="../command/try_compile.html#command:try_compile" title="try_compile"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">try_compile()</span></code></a> / <span class="target" id="index-0-command:try_run"></span><a class="reference internal" href="../command/try_run.html#command:try_run" title="try_run"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">try_run()</span></code></a> calls.
 This is useful in debugging failed checks.</p>
@@ -542,14 +575,14 @@ pass or fail incorrectly.  This option is best used only when debugging.</p>
 is effectively a <span class="target" id="index-3-command:try_compile"></span><a class="reference internal" href="../command/try_compile.html#command:try_compile" title="try_compile"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">try_compile()</span></code></a>.  Any combination of the two
 is subject to the potential issues described.)</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25: </span>When this option is enabled, every try-compile check prints a log
+<p><span class="versionmodified added">Added in version 3.25: </span>When this option is enabled, every try-compile check prints a log
 message reporting the directory in which the check is performed.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debug-output">
-<span class="sig-name descname"><span class="pre">--debug-output</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-output" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debug-output</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-output" title="Link to this definition">¶</a></dt>
 <dd><p>Put cmake in a debug mode.</p>
 <p>Print extra information during the cmake run like stack traces with
 <span class="target" id="index-2-command:message"></span><a class="reference internal" href="../command/message.html#command:message" title="message(send_error)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">message(SEND_ERROR)</span></code></a> calls.</p>
@@ -557,9 +590,9 @@ message reporting the directory in which the check is performed.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debug-find">
-<span class="sig-name descname"><span class="pre">--debug-find</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-find" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debug-find</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debug-find" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.17.</span></p>
+<p><span class="versionmodified added">Added in version 3.17.</span></p>
 </div>
 <p>Put cmake find commands in a debug mode.</p>
 <p>Print extra find call information during the cmake run to standard
@@ -570,9 +603,9 @@ a more local part of the project.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debug-find-pkg">
-<span class="sig-name descname"><span class="pre">--debug-find-pkg</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;pkg&gt;[,...]</span></span><a class="headerlink" href="#cmdoption-cmake-debug-find-pkg" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debug-find-pkg</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;pkg&gt;[,...]</span></span><a class="headerlink" href="#cmdoption-cmake-debug-find-pkg" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23.</span></p>
+<p><span class="versionmodified added">Added in version 3.23.</span></p>
 </div>
 <p>Put cmake find commands in a debug mode when running under calls
 to <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package(&lt;pkg&gt;)</span></code></a>, where <code class="docutils literal notranslate"><span class="pre">&lt;pkg&gt;</span></code>
@@ -584,9 +617,9 @@ to the specified packages.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debug-find-var">
-<span class="sig-name descname"><span class="pre">--debug-find-var</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;var&gt;[,...]</span></span><a class="headerlink" href="#cmdoption-cmake-debug-find-var" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debug-find-var</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;var&gt;[,...]</span></span><a class="headerlink" href="#cmdoption-cmake-debug-find-var" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23.</span></p>
+<p><span class="versionmodified added">Added in version 3.23.</span></p>
 </div>
 <p>Put cmake find commands in a debug mode when called with <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code>
 as the result variable, where <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> is an entry in the given
@@ -597,23 +630,23 @@ to the specified variable names.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-trace">
-<span class="sig-name descname"><span class="pre">--trace</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--trace</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-trace" title="Link to this definition">¶</a></dt>
 <dd><p>Put cmake in trace mode.</p>
 <p>Print a trace of all calls made and from where.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-trace-expand">
-<span class="sig-name descname"><span class="pre">--trace-expand</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-trace-expand" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--trace-expand</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-trace-expand" title="Link to this definition">¶</a></dt>
 <dd><p>Put cmake in trace mode.</p>
 <p>Like <a class="reference internal" href="#cmdoption-cmake-trace"><code class="xref std std-option docutils literal notranslate"><span class="pre">--trace</span></code></a>, but with variables expanded.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-trace-format">
-<span class="sig-name descname"><span class="pre">--trace-format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--trace-format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-format" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.17.</span></p>
+<p><span class="versionmodified added">Added in version 3.17.</span></p>
 </div>
 <p>Put cmake in trace mode and sets the trace output format.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;format&gt;</span></code> can be one of the following values.</p>
@@ -626,7 +659,7 @@ default format.</p>
 separated by a newline ( <code class="docutils literal notranslate"><span class="pre">\n</span></code> ). It is guaranteed that no
 newline characters will be present inside a JSON document.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">JSON trace format</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">JSON trace format</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/full/path/to/the/CMake/file.txt&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
@@ -672,7 +705,7 @@ was added in minor version 2 of the <code class="docutils literal notranslate"><
 <p>Additionally, the first JSON document outputted contains the
 <code class="docutils literal notranslate"><span class="pre">version</span></code> key for the current major and minor version of the</p>
 <div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">JSON version format</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">JSON version format</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;major&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -695,27 +728,27 @@ major and minor components following semantic version conventions.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-trace-source">
-<span class="sig-name descname"><span class="pre">--trace-source</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-source" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--trace-source</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-source" title="Link to this definition">¶</a></dt>
 <dd><p>Put cmake in trace mode, but output only lines of a specified file.</p>
 <p>Multiple options are allowed.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-trace-redirect">
-<span class="sig-name descname"><span class="pre">--trace-redirect</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-redirect" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--trace-redirect</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-trace-redirect" title="Link to this definition">¶</a></dt>
 <dd><p>Put cmake in trace mode and redirect trace output to a file instead of stderr.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-warn-uninitialized">
-<span class="sig-name descname"><span class="pre">--warn-uninitialized</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-warn-uninitialized" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--warn-uninitialized</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-warn-uninitialized" title="Link to this definition">¶</a></dt>
 <dd><p>Warn about uninitialized values.</p>
 <p>Print a warning when an uninitialized variable is used.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-warn-unused-vars">
-<span class="sig-name descname"><span class="pre">--warn-unused-vars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-warn-unused-vars" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--warn-unused-vars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-warn-unused-vars" title="Link to this definition">¶</a></dt>
 <dd><p>Does nothing.  In CMake versions 3.2 and below this enabled warnings about
 unused variables.  In CMake versions 3.3 through 3.18 the option was broken.
 In CMake 3.19 and above the option has been removed.</p>
@@ -723,7 +756,7 @@ In CMake 3.19 and above the option has been removed.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-no-warn-unused-cli">
-<span class="sig-name descname"><span class="pre">--no-warn-unused-cli</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-no-warn-unused-cli" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--no-warn-unused-cli</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-no-warn-unused-cli" title="Link to this definition">¶</a></dt>
 <dd><p>Don't warn about command line options.</p>
 <p>Don't find variables that are declared on the command line, but not
 used.</p>
@@ -731,7 +764,7 @@ used.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-check-system-vars">
-<span class="sig-name descname"><span class="pre">--check-system-vars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-check-system-vars" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--check-system-vars</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-check-system-vars" title="Link to this definition">¶</a></dt>
 <dd><p>Find problems with variable usage in system files.</p>
 <p>Normally, unused and uninitialized variables are searched for only
 in <span class="target" id="index-1-variable:CMAKE_SOURCE_DIR"></span><a class="reference internal" href="../variable/CMAKE_SOURCE_DIR.html#variable:CMAKE_SOURCE_DIR" title="CMAKE_SOURCE_DIR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_SOURCE_DIR</span></code></a> and <span class="target" id="index-1-variable:CMAKE_BINARY_DIR"></span><a class="reference internal" href="../variable/CMAKE_BINARY_DIR.html#variable:CMAKE_BINARY_DIR" title="CMAKE_BINARY_DIR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_BINARY_DIR</span></code></a>.
@@ -740,9 +773,9 @@ This flag tells CMake to warn about other files as well.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-compile-no-warning-as-error">
-<span class="sig-name descname"><span class="pre">--compile-no-warning-as-error</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-compile-no-warning-as-error" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--compile-no-warning-as-error</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-compile-no-warning-as-error" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <p>Ignore target property <span class="target" id="index-0-prop_tgt:COMPILE_WARNING_AS_ERROR"></span><a class="reference internal" href="../prop_tgt/COMPILE_WARNING_AS_ERROR.html#prop_tgt:COMPILE_WARNING_AS_ERROR" title="COMPILE_WARNING_AS_ERROR"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">COMPILE_WARNING_AS_ERROR</span></code></a> and variable
 <span class="target" id="index-0-variable:CMAKE_COMPILE_WARNING_AS_ERROR"></span><a class="reference internal" href="../variable/CMAKE_COMPILE_WARNING_AS_ERROR.html#variable:CMAKE_COMPILE_WARNING_AS_ERROR" title="CMAKE_COMPILE_WARNING_AS_ERROR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_COMPILE_WARNING_AS_ERROR</span></code></a>, preventing warnings from being
@@ -751,9 +784,9 @@ treated as errors on compile.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-profiling-output">
-<span class="sig-name descname"><span class="pre">--profiling-output</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;path&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-profiling-output" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--profiling-output</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;path&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-profiling-output" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>Used in conjunction with
 <a class="reference internal" href="#cmdoption-cmake-profiling-format"><code class="xref std std-option docutils literal notranslate"><span class="pre">--profiling-format</span></code></a> to output to a
@@ -762,7 +795,7 @@ given path.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-profiling-format">
-<span class="sig-name descname"><span class="pre">--profiling-format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-profiling-format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--profiling-format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-profiling-format" title="Link to this definition">¶</a></dt>
 <dd><p>Enable the output of profiling data of CMake script in the given format.</p>
 <p>This can aid performance analysis of CMake scripts executed. Third party
 applications should be used to process the output into human readable format.</p>
@@ -774,34 +807,40 @@ Compass.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-preset">
-<span id="cmdoption-cmake-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-preset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads a <span class="target" id="index-0-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">preset</span></code></a> from
-<code class="docutils literal notranslate"><span class="pre">&lt;path-to-source&gt;/CMakePresets.json</span></code> and
-<code class="docutils literal notranslate"><span class="pre">&lt;path-to-source&gt;/CMakeUserPresets.json</span></code>. The preset may specify the
-generator and the build directory, and a list of variables and other
-arguments to pass to CMake. The current working directory must contain
-CMake preset files. The <span class="target" id="index-1-manual:cmake-gui(1)"></span><a class="reference internal" href="cmake-gui.1.html#manual:cmake-gui(1)" title="cmake-gui(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">CMake</span> <span class="pre">GUI</span></code></a> can
-also recognize <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code> files. For
-full details on these files, see <span class="target" id="index-1-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-presets(7)</span></code></a>.</p>
-<p>The presets are read before all other command line options. The options
-specified by the preset (variables, generator, etc.) can all be overridden by
-manually specifying them on the command line. For example, if the preset sets
-a variable called <code class="docutils literal notranslate"><span class="pre">MYVAR</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>, but the user sets it to <code class="docutils literal notranslate"><span class="pre">2</span></code> with a
-<code class="docutils literal notranslate"><span class="pre">-D</span></code> argument, the value <code class="docutils literal notranslate"><span class="pre">2</span></code> is preferred.</p>
+<span id="cmdoption-cmake-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-preset" title="Link to this definition">¶</a></dt>
+<dd><p>Reads a <span class="target" id="index-0-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">preset</span></code></a> from <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code> files, which must be located in the same directory
+as the top level <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file. The preset may specify the
+generator, the build directory, a list of variables, and other arguments to
+pass to CMake. At least one of <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> or
+<code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code> must be present.
+The <span class="target" id="index-1-manual:cmake-gui(1)"></span><a class="reference internal" href="cmake-gui.1.html#manual:cmake-gui(1)" title="cmake-gui(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">CMake</span> <span class="pre">GUI</span></code></a> also recognizes and supports
+<code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code> files. For full details
+on these files, see <span class="target" id="index-1-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-presets(7)</span></code></a>.</p>
+<p>The presets are read before all other command line options, although the
+<a class="reference internal" href="#cmdoption-cmake-S"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a> option can be used to specify the source directory
+containing the <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code> files.
+If <a class="reference internal" href="#cmdoption-cmake-S"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a> is not given, the current directory is assumed to
+be the top level source directory and must contain the presets files. The
+options specified by the chosen preset (variables, generator, etc.) can all
+be overridden by manually specifying them on the command line. For example,
+if the preset sets a variable called <code class="docutils literal notranslate"><span class="pre">MYVAR</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code>, but the user sets
+it to <code class="docutils literal notranslate"><span class="pre">2</span></code> with a <code class="docutils literal notranslate"><span class="pre">-D</span></code> argument, the value <code class="docutils literal notranslate"><span class="pre">2</span></code> is preferred.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-list-presets">
-<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"><span class="pre">[=&lt;type&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-list-presets" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"><span class="pre">[=&lt;type&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-list-presets" title="Link to this definition">¶</a></dt>
 <dd><p>Lists the available presets of the specified <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code>.  Valid values for
 <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> are <code class="docutils literal notranslate"><span class="pre">configure</span></code>, <code class="docutils literal notranslate"><span class="pre">build</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">package</span></code>, or <code class="docutils literal notranslate"><span class="pre">all</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">&lt;type&gt;</span></code> is omitted, <code class="docutils literal notranslate"><span class="pre">configure</span></code> is assumed.  The current working
-directory must contain CMake preset files.</p>
+directory must contain CMake preset files unless the <a class="reference internal" href="#cmdoption-cmake-S"><code class="xref std std-option docutils literal notranslate"><span class="pre">-S</span></code></a>
+option is used to specify a different top level source directory.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debugger">
-<span class="sig-name descname"><span class="pre">--debugger</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debugger" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--debugger</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-debugger" title="Link to this definition">¶</a></dt>
 <dd><p>Enables interactive debugging of the CMake language. CMake exposes a debugging
 interface on the pipe named by <a class="reference internal" href="#cmdoption-cmake-debugger-pipe"><code class="xref std std-option docutils literal notranslate"><span class="pre">--debugger-pipe</span></code></a>
 that conforms to the <a class="reference external" href="https://microsoft.github.io/debug-adapter-protocol/">Debug Adapter Protocol</a> specification with the following
@@ -809,7 +848,7 @@ modifications.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">initialize</span></code> response includes an additional field named <code class="docutils literal notranslate"><span class="pre">cmakeVersion</span></code>
 which specifies the version of CMake being debugged.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">Debugger initialize response</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">Debugger initialize response</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;cmakeVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;major&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
@@ -836,21 +875,21 @@ which specifies the version of CMake being debugged.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debugger-pipe">
-<span id="cmdoption-cmake-debugger-pipe"></span><span class="sig-name descname"><span class="pre">--debugger-pipe</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pipe</span> <span class="pre">name&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--debugger-pipe</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;pipe</span> <span class="pre">name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-debugger-pipe" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-debugger-pipe"></span><span class="sig-name descname"><span class="pre">--debugger-pipe</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;pipe</span> <span class="pre">name&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--debugger-pipe</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;pipe</span> <span class="pre">name&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-debugger-pipe" title="Link to this definition">¶</a></dt>
 <dd><p>Name of the pipe (on Windows) or domain socket (on Unix) to use for
 debugger communication.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-debugger-dap-log">
-<span id="cmdoption-cmake-debugger-dap-log"></span><span class="sig-name descname"><span class="pre">--debugger-dap-log</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;log</span> <span class="pre">path&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--debugger-dap-log</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;log</span> <span class="pre">path&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-debugger-dap-log" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-debugger-dap-log"></span><span class="sig-name descname"><span class="pre">--debugger-dap-log</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;log</span> <span class="pre">path&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--debugger-dap-log</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;log</span> <span class="pre">path&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-debugger-dap-log" title="Link to this definition">¶</a></dt>
 <dd><p>Logs all debugger communication to the specified file.</p>
 </dd></dl>
 
 </section>
 </section>
 <section id="build-a-project">
-<span id="build-tool-mode"></span><h2>Build a Project<a class="headerlink" href="#build-a-project" title="Permalink to this heading">¶</a></h2>
+<span id="build-tool-mode"></span><h2>Build a Project<a class="headerlink" href="#build-a-project" title="Link to this heading">¶</a></h2>
 <p>CMake provides a command-line signature to build an already-generated
 project binary tree:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--build<span class="w"> </span>&lt;dir&gt;<span class="w">             </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--<span class="w"> </span>&lt;build-tool-options&gt;<span class="o">]</span>
@@ -861,14 +900,14 @@ cmake<span class="w"> </span>--build<span class="w"> </span>--preset<span class=
 following options:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build">
-<span class="sig-name descname"><span class="pre">--build</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--build</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build" title="Link to this definition">¶</a></dt>
 <dd><p>Project binary directory to be built.  This is required (unless a preset
 is specified) and must be first.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-preset">
-<span id="cmdoption-cmake-build-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-preset" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-build-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-preset" title="Link to this definition">¶</a></dt>
 <dd><p>Use a build preset to specify build options. The project binary directory
 is inferred from the <code class="docutils literal notranslate"><span class="pre">configurePreset</span></code> key. The current working directory
 must contain CMake preset files.
@@ -877,16 +916,16 @@ See <span class="target" id="index-2-manual:cmake-presets(7)"></span><a class="r
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-list-presets">
-<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-list-presets" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-list-presets" title="Link to this definition">¶</a></dt>
 <dd><p>Lists the available build presets. The current working directory must
 contain CMake preset files.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-j">
-<span id="cmdoption-cmake-build-parallel"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;jobs&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--parallel</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;jobs&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-build-j" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-build-parallel"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;jobs&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--parallel</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;jobs&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-build-j" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.12.</span></p>
+<p><span class="versionmodified added">Added in version 3.12.</span></p>
 </div>
 <p>The maximum number of concurrent processes to use when building.
 If <code class="docutils literal notranslate"><span class="pre">&lt;jobs&gt;</span></code> is omitted the native build tool's default number is used.</p>
@@ -898,29 +937,29 @@ value of <code class="docutils literal notranslate"><span class="pre">1</span></
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-t">
-<span id="cmdoption-cmake-build-target"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;tgt&gt;...</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--target</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;tgt&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-build-t" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-build-target"></span><span class="sig-name descname"><span class="pre">-t</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;tgt&gt;...</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--target</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;tgt&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-build-t" title="Link to this definition">¶</a></dt>
 <dd><p>Build <code class="docutils literal notranslate"><span class="pre">&lt;tgt&gt;</span></code> instead of the default target.  Multiple targets may be
 given, separated by spaces.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-config">
-<span class="sig-name descname"><span class="pre">--config</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cfg&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--config</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cfg&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-config" title="Link to this definition">¶</a></dt>
 <dd><p>For multi-configuration tools, choose configuration <code class="docutils literal notranslate"><span class="pre">&lt;cfg&gt;</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-clean-first">
-<span class="sig-name descname"><span class="pre">--clean-first</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-clean-first" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--clean-first</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-clean-first" title="Link to this definition">¶</a></dt>
 <dd><p>Build target <code class="docutils literal notranslate"><span class="pre">clean</span></code> first, then build.
 (To clean only, use <a class="reference internal" href="#cmdoption-cmake-build-t"><code class="xref std std-option docutils literal notranslate"><span class="pre">--target</span> <span class="pre">clean</span></code></a>.)</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-resolve-package-references">
-<span class="sig-name descname"><span class="pre">--resolve-package-references</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-resolve-package-references" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--resolve-package-references</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-build-resolve-package-references" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23.</span></p>
+<p><span class="versionmodified added">Added in version 3.23.</span></p>
 </div>
 <p>Resolve remote package references from external package managers (e.g. NuGet)
 before build. When <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;</span></code> is set to <code class="docutils literal notranslate"><span class="pre">on</span></code> (default), packages will be
@@ -942,13 +981,13 @@ are restored using NuGet. It can be disabled by setting the
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-use-stderr">
-<span class="sig-name descname"><span class="pre">--use-stderr</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-use-stderr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--use-stderr</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-use-stderr" title="Link to this definition">¶</a></dt>
 <dd><p>Ignored.  Behavior is default in CMake &gt;= 3.0.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-build-v">
-<span id="cmdoption-cmake-build-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-v" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-build-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-build-v" title="Link to this definition">¶</a></dt>
 <dd><p>Enable verbose output - if supported - including the build commands to be
 executed.</p>
 <p>This option can be omitted if <span class="target" id="index-0-envvar:VERBOSE"></span><a class="reference internal" href="../envvar/VERBOSE.html#envvar:VERBOSE" title="VERBOSE"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">VERBOSE</span></code></a> environment variable or
@@ -957,14 +996,14 @@ executed.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake--build-0">
-<span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake--build-0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake--build-0" title="Link to this definition">¶</a></dt>
 <dd><p>Pass remaining options to the native tool.</p>
 </dd></dl>
 
 <p>Run <a class="reference internal" href="#cmdoption-cmake-build"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span></code></a> with no options for quick help.</p>
 </section>
 <section id="install-a-project">
-<h2>Install a Project<a class="headerlink" href="#install-a-project" title="Permalink to this heading">¶</a></h2>
+<h2>Install a Project<a class="headerlink" href="#install-a-project" title="Link to this heading">¶</a></h2>
 <p>CMake provides a command-line signature to install an already-generated
 project binary tree:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--install<span class="w"> </span>&lt;dir&gt;<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
@@ -975,51 +1014,63 @@ using the generated build system or the native build tool.
 The options are:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install">
-<span class="sig-name descname"><span class="pre">--install</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--install</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install" title="Link to this definition">¶</a></dt>
 <dd><p>Project binary directory to install. This is required and must be first.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-config">
-<span class="sig-name descname"><span class="pre">--config</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cfg&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-config" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--config</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cfg&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-config" title="Link to this definition">¶</a></dt>
 <dd><p>For multi-configuration generators, choose configuration <code class="docutils literal notranslate"><span class="pre">&lt;cfg&gt;</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-component">
-<span class="sig-name descname"><span class="pre">--component</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;comp&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-component" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--component</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;comp&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-component" title="Link to this definition">¶</a></dt>
 <dd><p>Component-based install. Only install component <code class="docutils literal notranslate"><span class="pre">&lt;comp&gt;</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-default-directory-permissions">
-<span class="sig-name descname"><span class="pre">--default-directory-permissions</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;permissions&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-default-directory-permissions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--default-directory-permissions</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;permissions&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-default-directory-permissions" title="Link to this definition">¶</a></dt>
 <dd><p>Default directory install permissions. Permissions in format <code class="docutils literal notranslate"><span class="pre">&lt;u=rwx,g=rx,o=rx&gt;</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake--install-0">
-<span class="sig-name descname"><span class="pre">--prefix</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prefix&gt;</span></span><a class="headerlink" href="#cmdoption-cmake--install-0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--prefix</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prefix&gt;</span></span><a class="headerlink" href="#cmdoption-cmake--install-0" title="Link to this definition">¶</a></dt>
 <dd><p>Override the installation prefix, <span class="target" id="index-1-variable:CMAKE_INSTALL_PREFIX"></span><a class="reference internal" href="../variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX" title="CMAKE_INSTALL_PREFIX"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code></a>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-strip">
-<span class="sig-name descname"><span class="pre">--strip</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-install-strip" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--strip</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-install-strip" title="Link to this definition">¶</a></dt>
 <dd><p>Strip before installing.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-install-v">
-<span id="cmdoption-cmake-install-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-install-v" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-install-verbose"></span><span class="sig-name descname"><span class="pre">-v</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-install-v" title="Link to this definition">¶</a></dt>
 <dd><p>Enable verbose output.</p>
 <p>This option can be omitted if <span class="target" id="index-1-envvar:VERBOSE"></span><a class="reference internal" href="../envvar/VERBOSE.html#envvar:VERBOSE" title="VERBOSE"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">VERBOSE</span></code></a> environment variable is set.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-cmake-install-j">
+<span id="cmdoption-cmake-install-parallel"></span><span class="sig-name descname"><span class="pre">-j</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;jobs&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--parallel</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;jobs&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-install-j" title="Link to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.31.</span></p>
+</div>
+<p>Install in parallel using the given number of jobs. Only available if
+<span class="target" id="index-0-prop_gbl:INSTALL_PARALLEL"></span><a class="reference internal" href="../prop_gbl/INSTALL_PARALLEL.html#prop_gbl:INSTALL_PARALLEL" title="INSTALL_PARALLEL"><code class="xref cmake cmake-prop_gbl docutils literal notranslate"><span class="pre">INSTALL_PARALLEL</span></code></a> is enabled. The
+<span class="target" id="index-0-envvar:CMAKE_INSTALL_PARALLEL_LEVEL"></span><a class="reference internal" href="../envvar/CMAKE_INSTALL_PARALLEL_LEVEL.html#envvar:CMAKE_INSTALL_PARALLEL_LEVEL" title="CMAKE_INSTALL_PARALLEL_LEVEL"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PARALLEL_LEVEL</span></code></a> environment variable specifies a
+default parallel level when this option is not provided.</p>
 </dd></dl>
 
 <p>Run <a class="reference internal" href="#cmdoption-cmake-install"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--install</span></code></a> with no options for quick help.</p>
 </section>
 <section id="open-a-project">
-<h2>Open a Project<a class="headerlink" href="#open-a-project" title="Permalink to this heading">¶</a></h2>
+<h2>Open a Project<a class="headerlink" href="#open-a-project" title="Link to this heading">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--open<span class="w"> </span>&lt;dir&gt;
 </pre></div>
 </div>
@@ -1027,19 +1078,19 @@ The options are:</p>
 supported by some generators.</p>
 </section>
 <section id="run-a-script">
-<span id="script-processing-mode"></span><h2>Run a Script<a class="headerlink" href="#run-a-script" title="Permalink to this heading">¶</a></h2>
+<span id="script-processing-mode"></span><h2>Run a Script<a class="headerlink" href="#run-a-script" title="Link to this heading">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span><span class="o">[</span>-D<span class="w"> </span>&lt;var&gt;<span class="o">=</span>&lt;value&gt;<span class="o">]</span>...<span class="w"> </span>-P<span class="w"> </span>&lt;cmake-script-file&gt;<span class="w"> </span><span class="o">[</span>--<span class="w"> </span>&lt;unparsed-options&gt;...<span class="o">]</span>
 </pre></div>
 </div>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-P-D">
-<span id="cmdoption-cmake-p-d"></span><span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-P-D" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-D</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;=&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-P-D" title="Link to this definition">¶</a></dt>
 <dd><p>Define a variable for script mode.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-P">
-<span id="cmdoption-cmake-p"></span><span class="sig-name descname"><span class="pre">-P</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmake-script-file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-P" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-P</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmake-script-file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-P" title="Link to this definition">¶</a></dt>
 <dd><p>Process the given cmake file as a script written in the CMake
 language.  No configure or generate step is performed and the cache
 is not modified.  If variables are defined using <code class="docutils literal notranslate"><span class="pre">-D</span></code>, this must be
@@ -1051,23 +1102,23 @@ in the set of <span class="target" id="index-0-variable:CMAKE_ARGV0"></span><a c
 script (including the <code class="docutils literal notranslate"><span class="pre">--</span></code> itself).</p>
 </section>
 <section id="run-a-command-line-tool">
-<span id="id2"></span><h2>Run a Command-Line Tool<a class="headerlink" href="#run-a-command-line-tool" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>Run a Command-Line Tool<a class="headerlink" href="#run-a-command-line-tool" title="Link to this heading">¶</a></h2>
 <p>CMake provides builtin command-line tools through the signature</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-E<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
 </pre></div>
 </div>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E">
-<span id="cmdoption-cmake-e"></span><span class="sig-name descname"><span class="pre">-E</span></span><span class="sig-prename descclassname"> <span class="pre">[help]</span></span><a class="headerlink" href="#cmdoption-cmake-E" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">-E</span></span><span class="sig-prename descclassname"> <span class="pre">[help]</span></span><a class="headerlink" href="#cmdoption-cmake-E" title="Link to this definition">¶</a></dt>
 <dd><p>Run <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-E</span></code> or <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-E</span> <span class="pre">help</span></code> for a summary of commands.</p>
 </dd></dl>
 
 <p>Available commands are:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-capabilities">
-<span id="cmdoption-cmake-e-arg-capabilities"></span><span class="sig-name descname"><span class="pre">capabilities</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-capabilities" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">capabilities</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-capabilities" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Report cmake capabilities in JSON format. The output is a JSON object
 with the following keys:</p>
@@ -1098,7 +1149,7 @@ following keys:</p>
 <dt><code class="docutils literal notranslate"><span class="pre">platformSupport</span></code></dt><dd><p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the generator supports platforms and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">supportedPlatforms</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Optional member that may be present when the generator supports
 platform specification via <span class="target" id="index-1-variable:CMAKE_GENERATOR_PLATFORM"></span><a class="reference internal" href="../variable/CMAKE_GENERATOR_PLATFORM.html#variable:CMAKE_GENERATOR_PLATFORM" title="CMAKE_GENERATOR_PLATFORM"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_GENERATOR_PLATFORM</span></code></a>
@@ -1130,12 +1181,12 @@ version components.</p>
 Always false since CMake 3.20.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">tls</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">true</span></code> if TLS support is enabled and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">debugger</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">true</span></code> if the <a class="reference internal" href="#cmdoption-cmake-debugger"><code class="xref std std-option docutils literal notranslate"><span class="pre">--debugger</span></code></a> mode
 is supported and <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise.</p>
@@ -1145,16 +1196,16 @@ is supported and <code class="docutils literal notranslate"><span class="pre">fa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-cat">
-<span id="cmdoption-cmake-e-arg-cat"></span><span class="sig-name descname"><span class="pre">cat</span></span><span class="sig-prename descclassname"> <span class="pre">[--]</span> <span class="pre">&lt;files&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-cat" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">cat</span></span><span class="sig-prename descclassname"> <span class="pre">[--]</span> <span class="pre">&lt;files&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-cat" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>Concatenate files and print on the standard output.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_cat-0">
-<span id="cmdoption-cmake-e-cat"></span><span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_cat-0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_cat-0" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <p>Added support for the double dash argument <code class="docutils literal notranslate"><span class="pre">--</span></code>. This basic implementation
 of <code class="docutils literal notranslate"><span class="pre">cat</span></code> does not support any options, so using a option starting with
@@ -1162,25 +1213,28 @@ of <code class="docutils literal notranslate"><span class="pre">cat</span></code
 case a file starts with <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
 </dd></dl>
 
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29: </span><code class="docutils literal notranslate"><span class="pre">cat</span></code> can now print the standard input by passing the <code class="docutils literal notranslate"><span class="pre">-</span></code> argument.</p>
+</div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-chdir">
-<span id="cmdoption-cmake-e-arg-chdir"></span><span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span> <span class="pre">&lt;cmd&gt;</span> <span class="pre">[&lt;arg&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-chdir" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">chdir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;</span> <span class="pre">&lt;cmd&gt;</span> <span class="pre">[&lt;arg&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-chdir" title="Link to this definition">¶</a></dt>
 <dd><p>Change the current working directory and run a command.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-compare_files">
-<span id="cmdoption-cmake-e-arg-compare-files"></span><span class="sig-name descname"><span class="pre">compare_files</span></span><span class="sig-prename descclassname"> <span class="pre">[--ignore-eol]</span> <span class="pre">&lt;file1&gt;</span> <span class="pre">&lt;file2&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-compare_files" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compare_files</span></span><span class="sig-prename descclassname"> <span class="pre">[--ignore-eol]</span> <span class="pre">&lt;file1&gt;</span> <span class="pre">&lt;file2&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-compare_files" title="Link to this definition">¶</a></dt>
 <dd><p>Check if <code class="docutils literal notranslate"><span class="pre">&lt;file1&gt;</span></code> is same as <code class="docutils literal notranslate"><span class="pre">&lt;file2&gt;</span></code>. If files are the same,
 then returns <code class="docutils literal notranslate"><span class="pre">0</span></code>, if not it returns <code class="docutils literal notranslate"><span class="pre">1</span></code>.  In case of invalid
 arguments, it returns 2.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_compare_files-ignore-eol">
-<span id="cmdoption-cmake-e-compare-files-ignore-eol"></span><span class="sig-name descname"><span class="pre">--ignore-eol</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_compare_files-ignore-eol" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--ignore-eol</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_compare_files-ignore-eol" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.14.</span></p>
+<p><span class="versionmodified added">Added in version 3.14.</span></p>
 </div>
 <p>The option implies line-wise comparison and ignores LF/CRLF differences.</p>
 </dd></dl>
@@ -1189,7 +1243,7 @@ arguments, it returns 2.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-copy">
-<span id="cmdoption-cmake-e-arg-copy"></span><span id="cmdoption-cmake-E-arg-copy"></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-prename descclassname"> <span class="pre">-t</span> <span class="pre">&lt;destination&gt;</span> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-E-arg-copy"></span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-prename descclassname"> <span class="pre">-t</span> <span class="pre">&lt;destination&gt;</span> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy" title="Link to this definition">¶</a></dt>
 <dd><p>Copy files to <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> (either file or directory).
 If multiple files are specified, or if <code class="docutils literal notranslate"><span class="pre">-t</span></code> is specified, the
 <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> must be directory and it must exist. If <code class="docutils literal notranslate"><span class="pre">-t</span></code> is not
@@ -1197,33 +1251,33 @@ specified, the last argument is assumed to be the <code class="docutils literal 
 Wildcards are not supported. <code class="docutils literal notranslate"><span class="pre">copy</span></code> does follow symlinks. That means it
 does not copy symlinks, but the files or directories it point to.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>Support for multiple input files.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Support for multiple input files.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26: </span>Support for <code class="docutils literal notranslate"><span class="pre">-t</span></code> argument.</p>
+<p><span class="versionmodified added">Added in version 3.26: </span>Support for <code class="docutils literal notranslate"><span class="pre">-t</span></code> argument.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-copy_directory">
-<span id="cmdoption-cmake-e-arg-copy-directory"></span><span class="sig-name descname"><span class="pre">copy_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_directory" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_directory" title="Link to this definition">¶</a></dt>
 <dd><p>Copy content of <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;...</span></code> directories to <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> directory.
 If <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> directory does not exist it will be created.
 <code class="docutils literal notranslate"><span class="pre">copy_directory</span></code> does follow symlinks.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>Support for multiple input directories.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Support for multiple input directories.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>The command now fails when the source directory does not exist.
+<p><span class="versionmodified added">Added in version 3.15: </span>The command now fails when the source directory does not exist.
 Previously it succeeded by creating an empty destination directory.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-copy_directory_if_different">
-<span id="cmdoption-cmake-e-arg-copy-directory-if-different"></span><span class="sig-name descname"><span class="pre">copy_directory_if_different</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_directory_if_different" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy_directory_if_different</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_directory_if_different" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26.</span></p>
+<p><span class="versionmodified added">Added in version 3.26.</span></p>
 </div>
 <p>Copy changed content of <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;...</span></code> directories to <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> directory.
 If <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> directory does not exist it will be created.</p>
@@ -1233,23 +1287,23 @@ The command fails when the source directory does not exist.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-copy_if_different">
-<span id="cmdoption-cmake-e-arg-copy-if-different"></span><span class="sig-name descname"><span class="pre">copy_if_different</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_if_different" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copy_if_different</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span> <span class="pre">&lt;destination&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-copy_if_different" title="Link to this definition">¶</a></dt>
 <dd><p>Copy files to <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> (either file or directory) if
 they have changed.
 If multiple files are specified, the <code class="docutils literal notranslate"><span class="pre">&lt;destination&gt;</span></code> must be
 directory and it must exist.
 <code class="docutils literal notranslate"><span class="pre">copy_if_different</span></code> does follow symlinks.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>Support for multiple input files.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Support for multiple input files.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-create_symlink">
-<span id="cmdoption-cmake-e-arg-create-symlink"></span><span class="sig-name descname"><span class="pre">create_symlink</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;old&gt;</span> <span class="pre">&lt;new&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-create_symlink" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">create_symlink</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;old&gt;</span> <span class="pre">&lt;new&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-create_symlink" title="Link to this definition">¶</a></dt>
 <dd><p>Create a symbolic link <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;</span></code> naming <code class="docutils literal notranslate"><span class="pre">&lt;old&gt;</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span>Support for creating symlinks on Windows.</p>
+<p><span class="versionmodified added">Added in version 3.13: </span>Support for creating symlinks on Windows.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1259,9 +1313,9 @@ directory and it must exist.
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-create_hardlink">
-<span id="cmdoption-cmake-e-arg-create-hardlink"></span><span class="sig-name descname"><span class="pre">create_hardlink</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;old&gt;</span> <span class="pre">&lt;new&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-create_hardlink" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">create_hardlink</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;old&gt;</span> <span class="pre">&lt;new&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-create_hardlink" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>Create a hard link <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;</span></code> naming <code class="docutils literal notranslate"><span class="pre">&lt;old&gt;</span></code>.</p>
 <div class="admonition note">
@@ -1273,40 +1327,40 @@ directory and it must exist.
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-echo">
-<span id="cmdoption-cmake-e-arg-echo"></span><span class="sig-name descname"><span class="pre">echo</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;string&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-echo" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">echo</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;string&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-echo" title="Link to this definition">¶</a></dt>
 <dd><p>Displays arguments as text.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-echo_append">
-<span id="cmdoption-cmake-e-arg-echo-append"></span><span class="sig-name descname"><span class="pre">echo_append</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;string&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-echo_append" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">echo_append</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;string&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-echo_append" title="Link to this definition">¶</a></dt>
 <dd><p>Displays arguments as text but no new line.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-env">
-<span id="cmdoption-cmake-e-arg-env"></span><span class="sig-name descname"><span class="pre">env</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;options&gt;]</span> <span class="pre">[--]</span> <span class="pre">&lt;command&gt;</span> <span class="pre">[&lt;arg&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">env</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;options&gt;]</span> <span class="pre">[--]</span> <span class="pre">&lt;command&gt;</span> <span class="pre">[&lt;arg&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Run command in a modified environment. Options are:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_env-arg-NAME">
-<span id="cmdoption-cmake-e-env-arg-name"></span><span class="sig-name descname"><span class="pre">NAME</span></span><span class="sig-prename descclassname"><span class="pre">=VALUE</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-arg-NAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NAME</span></span><span class="sig-prename descclassname"><span class="pre">=VALUE</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-arg-NAME" title="Link to this definition">¶</a></dt>
 <dd><p>Replaces the current value of <code class="docutils literal notranslate"><span class="pre">NAME</span></code> with <code class="docutils literal notranslate"><span class="pre">VALUE</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_env-unset">
-<span id="cmdoption-cmake-e-env-unset"></span><span class="sig-name descname"><span class="pre">--unset</span></span><span class="sig-prename descclassname"><span class="pre">=NAME</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-unset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--unset</span></span><span class="sig-prename descclassname"><span class="pre">=NAME</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-unset" title="Link to this definition">¶</a></dt>
 <dd><p>Unsets the current value of <code class="docutils literal notranslate"><span class="pre">NAME</span></code>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_env-modify">
-<span id="cmdoption-cmake-e-env-modify"></span><span class="sig-name descname"><span class="pre">--modify</span></span><span class="sig-prename descclassname"> <span class="pre">ENVIRONMENT_MODIFICATION</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-modify" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--modify</span></span><span class="sig-prename descclassname"> <span class="pre">ENVIRONMENT_MODIFICATION</span></span><a class="headerlink" href="#cmdoption-cmake-E_env-modify" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Apply a single <span class="target" id="index-0-prop_test:ENVIRONMENT_MODIFICATION"></span><a class="reference internal" href="../prop_test/ENVIRONMENT_MODIFICATION.html#prop_test:ENVIRONMENT_MODIFICATION" title="ENVIRONMENT_MODIFICATION"><code class="xref cmake cmake-prop_test docutils literal notranslate"><span class="pre">ENVIRONMENT_MODIFICATION</span></code></a> operation to the
 modified environment.</p>
@@ -1319,9 +1373,9 @@ when <strong class="program">cmake</strong> launched (or unsets it), not to the 
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_env-0">
-<span id="cmdoption-cmake-e-env"></span><span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_env-0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_env-0" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <p>Added support for the double dash argument <code class="docutils literal notranslate"><span class="pre">--</span></code>. Use <code class="docutils literal notranslate"><span class="pre">--</span></code> to stop
 interpreting options/environment variables and treat the next argument as
@@ -1332,33 +1386,33 @@ the command, even if it start with <code class="docutils literal notranslate"><s
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-environment">
-<span id="cmdoption-cmake-e-arg-environment"></span><span class="sig-name descname"><span class="pre">environment</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-environment" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">environment</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-environment" title="Link to this definition">¶</a></dt>
 <dd><p>Display the current environment variables.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-false">
-<span id="cmdoption-cmake-e-arg-false"></span><span class="sig-name descname"><span class="pre">false</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-false" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">false</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-false" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16.</span></p>
+<p><span class="versionmodified added">Added in version 3.16.</span></p>
 </div>
 <p>Do nothing, with an exit code of 1.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-make_directory">
-<span id="cmdoption-cmake-e-arg-make-directory"></span><span class="sig-name descname"><span class="pre">make_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-make_directory" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">make_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-make_directory" title="Link to this definition">¶</a></dt>
 <dd><p>Create <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code> directories.  If necessary, create parent
 directories too.  If a directory already exists it will be
 silently ignored.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>Support for multiple input directories.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Support for multiple input directories.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-md5sum">
-<span id="cmdoption-cmake-e-arg-md5sum"></span><span class="sig-name descname"><span class="pre">md5sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-md5sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">md5sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-md5sum" title="Link to this definition">¶</a></dt>
 <dd><p>Create MD5 checksum of files in <code class="docutils literal notranslate"><span class="pre">md5sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>351abe79cd3800b38cdfb25d45015a15  file1.txt
 052f86c15bbde68af55c7f7b340ab639  file2.txt
@@ -1368,9 +1422,9 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sha1sum">
-<span id="cmdoption-cmake-e-arg-sha1sum"></span><span class="sig-name descname"><span class="pre">sha1sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha1sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sha1sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha1sum" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Create SHA1 checksum of files in <code class="docutils literal notranslate"><span class="pre">sha1sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>4bb7932a29e6f73c97bb9272f2bdc393122f86e0  file1.txt
@@ -1381,9 +1435,9 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sha224sum">
-<span id="cmdoption-cmake-e-arg-sha224sum"></span><span class="sig-name descname"><span class="pre">sha224sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha224sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sha224sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha224sum" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Create SHA224 checksum of files in <code class="docutils literal notranslate"><span class="pre">sha224sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b9b9346bc8437bbda630b0b7ddfc5ea9ca157546dbbf4c613192f930  file1.txt
@@ -1394,9 +1448,9 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sha256sum">
-<span id="cmdoption-cmake-e-arg-sha256sum"></span><span class="sig-name descname"><span class="pre">sha256sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha256sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sha256sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha256sum" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Create SHA256 checksum of files in <code class="docutils literal notranslate"><span class="pre">sha256sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>76713b23615d31680afeb0e9efe94d47d3d4229191198bb46d7485f9cb191acc  file1.txt
@@ -1407,9 +1461,9 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sha384sum">
-<span id="cmdoption-cmake-e-arg-sha384sum"></span><span class="sig-name descname"><span class="pre">sha384sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha384sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sha384sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha384sum" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Create SHA384 checksum of files in <code class="docutils literal notranslate"><span class="pre">sha384sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>acc049fedc091a22f5f2ce39a43b9057fd93c910e9afd76a6411a28a8f2b8a12c73d7129e292f94fc0329c309df49434  file1.txt
@@ -1420,9 +1474,9 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sha512sum">
-<span id="cmdoption-cmake-e-arg-sha512sum"></span><span class="sig-name descname"><span class="pre">sha512sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha512sum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sha512sum</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sha512sum" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Create SHA512 checksum of files in <code class="docutils literal notranslate"><span class="pre">sha512sum</span></code> compatible format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2a78d7a6c5328cfb1467c63beac8ff21794213901eaadafd48e7800289afbc08e5fb3e86aa31116c945ee3d7bf2a6194489ec6101051083d1108defc8e1dba89  file1.txt
@@ -1433,7 +1487,7 @@ silently ignored.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-remove">
-<span id="cmdoption-cmake-e-arg-remove"></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-prename descclassname"> <span class="pre">[-f]</span> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-remove" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-prename descclassname"> <span class="pre">[-f]</span> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-remove" title="Link to this definition">¶</a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.17.</span></p>
 </div>
@@ -1449,7 +1503,7 @@ breaking backwards compatibility. Use <code class="docutils literal notranslate"
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-remove_directory">
-<span id="cmdoption-cmake-e-arg-remove-directory"></span><span class="sig-name descname"><span class="pre">remove_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-remove_directory" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">remove_directory</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-remove_directory" title="Link to this definition">¶</a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.17.</span></p>
 </div>
@@ -1457,25 +1511,25 @@ breaking backwards compatibility. Use <code class="docutils literal notranslate"
 not exist it will be silently ignored.
 Use <code class="docutils literal notranslate"><span class="pre">rm</span></code> instead.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>Support for multiple directories.</p>
+<p><span class="versionmodified added">Added in version 3.15: </span>Support for multiple directories.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16: </span>If <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code> is a symlink to a directory, just the symlink will be removed.</p>
+<p><span class="versionmodified added">Added in version 3.16: </span>If <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code> is a symlink to a directory, just the symlink will be removed.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-rename">
-<span id="cmdoption-cmake-e-arg-rename"></span><span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&lt;newname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-rename" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&lt;newname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-rename" title="Link to this definition">¶</a></dt>
 <dd><p>Rename a file or directory (on one volume). If file with the <code class="docutils literal notranslate"><span class="pre">&lt;newname&gt;</span></code> name
 already exists, then it will be silently replaced.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-rm">
-<span id="cmdoption-cmake-e-arg-rm"></span><span class="sig-name descname"><span class="pre">rm</span></span><span class="sig-prename descclassname"> <span class="pre">[-rRf]</span> <span class="pre">[--]</span> <span class="pre">&lt;file|dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-rm" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">rm</span></span><span class="sig-prename descclassname"> <span class="pre">[-rRf]</span> <span class="pre">[--]</span> <span class="pre">&lt;file|dir&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-rm" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.17.</span></p>
+<p><span class="versionmodified added">Added in version 3.17.</span></p>
 </div>
 <p>Remove the files <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> or directories <code class="docutils literal notranslate"><span class="pre">&lt;dir&gt;</span></code>.
 Use <code class="docutils literal notranslate"><span class="pre">-r</span></code> or <code class="docutils literal notranslate"><span class="pre">-R</span></code> to remove directories and their contents recursively.
@@ -1488,9 +1542,9 @@ remaining arguments as paths, even if they start with <code class="docutils lite
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-sleep">
-<span id="cmdoption-cmake-e-arg-sleep"></span><span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;number&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sleep" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sleep</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;number&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-sleep" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.0.</span></p>
+<p><span class="versionmodified added">Added in version 3.0.</span></p>
 </div>
 <p>Sleep for <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;</span></code> seconds. <code class="docutils literal notranslate"><span class="pre">&lt;number&gt;</span></code> may be a floating point number.
 A practical minimum is about 0.1 seconds due to overhead in starting/stopping
@@ -1503,21 +1557,21 @@ CMake executable. This can be useful in a CMake script to insert a delay:</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-tar">
-<span id="cmdoption-cmake-e-arg-tar"></span><span class="sig-name descname"><span class="pre">tar</span></span><span class="sig-prename descclassname"> <span class="pre">[cxt][vf][zjJ]</span> <span class="pre">file.tar</span> <span class="pre">[&lt;options&gt;]</span> <span class="pre">[--]</span> <span class="pre">[&lt;pathname&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-tar" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">tar</span></span><span class="sig-prename descclassname"> <span class="pre">[cxt][vf][zjJ]</span> <span class="pre">file.tar</span> <span class="pre">[&lt;options&gt;]</span> <span class="pre">[--]</span> <span class="pre">[&lt;pathname&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-tar" title="Link to this definition">¶</a></dt>
 <dd><p>Create or extract a tar or zip archive.  Options are:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-c">
-<span id="cmdoption-cmake-e-tar-arg-c"></span><span class="sig-name descname"><span class="pre">c</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-c" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">c</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-c" title="Link to this definition">¶</a></dt>
 <dd><p>Create a new archive containing the specified files.
 If used, the <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;...</span></code> argument is mandatory.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-x">
-<span id="cmdoption-cmake-e-tar-arg-x"></span><span class="sig-name descname"><span class="pre">x</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-x" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-x" title="Link to this definition">¶</a></dt>
 <dd><p>Extract to disk from the archive.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;...</span></code> argument could be used to extract only selected files
+<p><span class="versionmodified added">Added in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;...</span></code> argument could be used to extract only selected files
 or directories.
 When extracting selected files or directories, you must provide their exact
 names including the path, as printed by list (<code class="docutils literal notranslate"><span class="pre">-t</span></code>).</p>
@@ -1526,55 +1580,55 @@ names including the path, as printed by list (<code class="docutils literal notr
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-t">
-<span id="cmdoption-cmake-e-tar-arg-t"></span><span class="sig-name descname"><span class="pre">t</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-t" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">t</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-t" title="Link to this definition">¶</a></dt>
 <dd><p>List archive contents.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;...</span></code> argument could be used to list only selected files
+<p><span class="versionmodified added">Added in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">&lt;pathname&gt;...</span></code> argument could be used to list only selected files
 or directories.</p>
 </div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-v">
-<span id="cmdoption-cmake-e-tar-arg-v"></span><span class="sig-name descname"><span class="pre">v</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-v" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">v</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-v" title="Link to this definition">¶</a></dt>
 <dd><p>Produce verbose output.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-z">
-<span id="cmdoption-cmake-e-tar-arg-z"></span><span class="sig-name descname"><span class="pre">z</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-z" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">z</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-z" title="Link to this definition">¶</a></dt>
 <dd><p>Compress the resulting archive with gzip.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-j">
-<span id="cmdoption-cmake-e-tar-arg-j"></span><span class="sig-name descname"><span class="pre">j</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-j" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">j</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-j" title="Link to this definition">¶</a></dt>
 <dd><p>Compress the resulting archive with bzip2.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-arg-J">
-<span class="sig-name descname"><span class="pre">J</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-J" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">J</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-arg-J" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Compress the resulting archive with XZ.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-zstd">
-<span id="cmdoption-cmake-e-tar-zstd"></span><span class="sig-name descname"><span class="pre">--zstd</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-zstd" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--zstd</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-zstd" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15.</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 <p>Compress the resulting archive with Zstandard.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-files-from">
-<span id="cmdoption-cmake-e-tar-files-from"></span><span class="sig-name descname"><span class="pre">--files-from</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-files-from" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--files-from</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;file&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-files-from" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Read file names from the given file, one per line.
 Blank lines are ignored.  Lines may not start in <code class="docutils literal notranslate"><span class="pre">-</span></code>
@@ -1584,9 +1638,9 @@ names start in <code class="docutils literal notranslate"><span class="pre">-</s
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-format">
-<span id="cmdoption-cmake-e-tar-format"></span><span class="sig-name descname"><span class="pre">--format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-format" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--format</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;format&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-format" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.3.</span></p>
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
 </div>
 <p>Specify the format of the archive to be created.
 Supported formats are: <code class="docutils literal notranslate"><span class="pre">7zip</span></code>, <code class="docutils literal notranslate"><span class="pre">gnutar</span></code>, <code class="docutils literal notranslate"><span class="pre">pax</span></code>,
@@ -1595,18 +1649,18 @@ Supported formats are: <code class="docutils literal notranslate"><span class="p
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-mtime">
-<span id="cmdoption-cmake-e-tar-mtime"></span><span class="sig-name descname"><span class="pre">--mtime</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;date&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-mtime" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--mtime</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;date&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E_tar-mtime" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Specify modification time recorded in tarball entries.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-touch">
-<span id="cmdoption-cmake-e-tar-touch"></span><span class="sig-name descname"><span class="pre">--touch</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-touch" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--touch</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-touch" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24.</span></p>
+<p><span class="versionmodified added">Added in version 3.24.</span></p>
 </div>
 <p>Use current local timestamp instead of extracting file timestamps
 from the archive.</p>
@@ -1614,19 +1668,19 @@ from the archive.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E_tar-0">
-<span id="cmdoption-cmake-e-tar"></span><span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-0" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E_tar-0" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Stop interpreting options and treat all remaining arguments
 as file names, even if they start with <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
 </dd></dl>
 
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1: </span>LZMA (7zip) support.</p>
+<p><span class="versionmodified added">Added in version 3.1: </span>LZMA (7zip) support.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>The command now continues adding files to an archive even if some of the
+<p><span class="versionmodified added">Added in version 3.15: </span>The command now continues adding files to an archive even if some of the
 files are not readable.  This behavior is more consistent with the classic
 <code class="docutils literal notranslate"><span class="pre">tar</span></code> tool. The command now also parses all flags, and if an invalid flag
 was provided, a warning is issued.</p>
@@ -1635,10 +1689,10 @@ was provided, a warning is issued.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-time">
-<span id="cmdoption-cmake-e-arg-time"></span><span class="sig-name descname"><span class="pre">time</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;command&gt;</span> <span class="pre">[&lt;args&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-time" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">time</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;command&gt;</span> <span class="pre">[&lt;args&gt;...]</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-time" title="Link to this definition">¶</a></dt>
 <dd><p>Run <code class="docutils literal notranslate"><span class="pre">&lt;command&gt;</span></code> and display elapsed time (including overhead of CMake frontend).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>The command now properly passes arguments with spaces or special characters
+<p><span class="versionmodified added">Added in version 3.5: </span>The command now properly passes arguments with spaces or special characters
 through to the child process. This may break scripts that worked around the
 bug with their own extra quoting or escaping.</p>
 </div>
@@ -1646,41 +1700,41 @@ bug with their own extra quoting or escaping.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-touch">
-<span id="cmdoption-cmake-e-arg-touch"></span><span class="sig-name descname"><span class="pre">touch</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-touch" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">touch</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-touch" title="Link to this definition">¶</a></dt>
 <dd><p>Creates <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> if file do not exist.
 If <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> exists, it is changing <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> access and modification times.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-touch_nocreate">
-<span id="cmdoption-cmake-e-arg-touch-nocreate"></span><span class="sig-name descname"><span class="pre">touch_nocreate</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-touch_nocreate" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">touch_nocreate</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;file&gt;...</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-touch_nocreate" title="Link to this definition">¶</a></dt>
 <dd><p>Touch a file if it exists but do not create it.  If a file does
 not exist it will be silently ignored.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-true">
-<span id="cmdoption-cmake-e-arg-true"></span><span class="sig-name descname"><span class="pre">true</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-true" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">true</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-E-arg-true" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16.</span></p>
+<p><span class="versionmodified added">Added in version 3.16.</span></p>
 </div>
 <p>Do nothing, with an exit code of 0.</p>
 </dd></dl>
 
 <section id="windows-specific-command-line-tools">
-<h3>Windows-specific Command-Line Tools<a class="headerlink" href="#windows-specific-command-line-tools" title="Permalink to this heading">¶</a></h3>
+<h3>Windows-specific Command-Line Tools<a class="headerlink" href="#windows-specific-command-line-tools" title="Link to this heading">¶</a></h3>
 <p>The following <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-E</span></code> commands are available only on Windows:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-delete_regv">
-<span id="cmdoption-cmake-e-arg-delete-regv"></span><span class="sig-name descname"><span class="pre">delete_regv</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-delete_regv" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">delete_regv</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-delete_regv" title="Link to this definition">¶</a></dt>
 <dd><p>Delete Windows registry value.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-env_vs8_wince">
-<span id="cmdoption-cmake-e-arg-env-vs8-wince"></span><span class="sig-name descname"><span class="pre">env_vs8_wince</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sdkname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env_vs8_wince" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">env_vs8_wince</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sdkname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env_vs8_wince" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.</span></p>
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
 </div>
 <p>Displays a batch file which sets the environment for the provided
 Windows CE SDK installed in VS2005.</p>
@@ -1688,9 +1742,9 @@ Windows CE SDK installed in VS2005.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-env_vs9_wince">
-<span id="cmdoption-cmake-e-arg-env-vs9-wince"></span><span class="sig-name descname"><span class="pre">env_vs9_wince</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sdkname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env_vs9_wince" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">env_vs9_wince</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sdkname&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-env_vs9_wince" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.2.</span></p>
+<p><span class="versionmodified added">Added in version 3.2.</span></p>
 </div>
 <p>Displays a batch file which sets the environment for the provided
 Windows CE SDK installed in VS2008.</p>
@@ -1698,14 +1752,14 @@ Windows CE SDK installed in VS2008.</p>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-E-arg-write_regv">
-<span id="cmdoption-cmake-e-arg-write-regv"></span><span class="sig-name descname"><span class="pre">write_regv</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;</span> <span class="pre">&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-write_regv" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">write_regv</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;key&gt;</span> <span class="pre">&lt;value&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-E-arg-write_regv" title="Link to this definition">¶</a></dt>
 <dd><p>Write Windows registry value.</p>
 </dd></dl>
 
 </section>
 </section>
 <section id="run-the-find-package-tool">
-<h2>Run the Find-Package Tool<a class="headerlink" href="#run-the-find-package-tool" title="Permalink to this heading">¶</a></h2>
+<span id="find-package-tool-mode"></span><h2>Run the Find-Package Tool<a class="headerlink" href="#run-the-find-package-tool" title="Link to this heading">¶</a></h2>
 <p>CMake provides a pkg-config like helper for Makefile-based projects:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--find-package<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
 </pre></div>
@@ -1721,49 +1775,56 @@ It is kept for compatibility but should not be used in new projects.</p>
 </div>
 </section>
 <section id="run-a-workflow-preset">
-<span id="workflow-mode"></span><h2>Run a Workflow Preset<a class="headerlink" href="#run-a-workflow-preset" title="Permalink to this heading">¶</a></h2>
+<span id="workflow-mode"></span><h2>Run a Workflow Preset<a class="headerlink" href="#run-a-workflow-preset" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p><span class="target" id="index-3-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">CMake</span> <span class="pre">Presets</span></code></a> provides a way to execute multiple
 build steps in order:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--workflow<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--workflow<span class="w"> </span>&lt;options&gt;
 </pre></div>
 </div>
 <p>The options are:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-workflow">
-<span class="sig-name descname"><span class="pre">--workflow</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--workflow</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow" title="Link to this definition">¶</a></dt>
 <dd><p>Select a <a class="reference internal" href="cmake-presets.7.html#workflow-preset"><span class="std std-ref">Workflow Preset</span></a> using one of the following options.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-workflow-preset">
-<span id="cmdoption-cmake-workflow-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-workflow-preset" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-workflow-preset"></span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;preset&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--preset</span></span><span class="sig-prename descclassname"><span class="pre">=&lt;preset&gt;</span></span><a class="headerlink" href="#cmdoption-cmake-workflow-preset" title="Link to this definition">¶</a></dt>
 <dd><p>Use a workflow preset to specify a workflow. The project binary directory
 is inferred from the initial configure preset. The current working directory
 must contain CMake preset files.
 See <span class="target" id="index-4-manual:cmake-presets(7)"></span><a class="reference internal" href="cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">preset</span></code></a> for more details.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.31: </span>When following immediately after the <code class="docutils literal notranslate"><span class="pre">--workflow</span></code> option,
+the <code class="docutils literal notranslate"><span class="pre">--preset</span></code> argument can be omitted and just the <code class="docutils literal notranslate"><span class="pre">&lt;preset&gt;</span></code>
+name can be given.  This means the following syntax is valid:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cmake<span class="w"> </span>--workflow<span class="w"> </span>my-preset
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-workflow-list-presets">
-<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow-list-presets" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--list-presets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow-list-presets" title="Link to this definition">¶</a></dt>
 <dd><p>Lists the available workflow presets. The current working directory must
 contain CMake preset files.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-workflow-fresh">
-<span class="sig-name descname"><span class="pre">--fresh</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow-fresh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform a fresh configuration of the build tree.
-This removes any existing <code class="docutils literal notranslate"><span class="pre">CMakeCache.txt</span></code> file and associated
-<code class="docutils literal notranslate"><span class="pre">CMakeFiles/</span></code> directory, and recreates them from scratch.</p>
+<span class="sig-name descname"><span class="pre">--fresh</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-workflow-fresh" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a fresh configuration of the build tree, which has the same effect
+as <a class="reference internal" href="#cmdoption-cmake-fresh"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--fresh</span></code></a>.</p>
 </dd></dl>
 
 </section>
 <section id="view-help">
-<h2>View Help<a class="headerlink" href="#view-help" title="Permalink to this heading">¶</a></h2>
+<h2>View Help<a class="headerlink" href="#view-help" title="Link to this heading">¶</a></h2>
 <p>To print selected pages from the CMake documentation, use</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>--help<span class="o">[</span>-&lt;topic&gt;<span class="o">]</span>
 </pre></div>
@@ -1771,21 +1832,21 @@ This removes any existing <code class="docutils literal notranslate"><span class
 <p>with one of the following options:</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-version">
-<span id="cmdoption-cmake-version"></span><span id="cmdoption-cmake-V"></span><span id="cmdoption-cmake-v"></span><span class="sig-name descname"><span class="pre">-version</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">/V</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-version" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-version"></span><span id="cmdoption-cmake-V"></span><span class="sig-name descname"><span class="pre">-version</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">/V</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-version" title="Link to this definition">¶</a></dt>
 <dd><p>Show program name/version banner and exit.
 The output is printed to a named <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> if given.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-h">
-<span id="cmdoption-cmake-H"></span><span id="cmdoption-cmake-help"></span><span id="cmdoption-cmake-help"></span><span id="cmdoption-cmake-usage"></span><span id="cmdoption-cmake-0"></span><span id="cmdoption-cmake"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-H</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-help</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-usage</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">/?</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-h" title="Permalink to this definition">¶</a></dt>
+<span id="cmdoption-cmake-H"></span><span id="cmdoption-cmake-help"></span><span id="cmdoption-cmake-help"></span><span id="cmdoption-cmake-usage"></span><span id="cmdoption-cmake-0"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-H</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-help</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-usage</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">/?</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-cmake-h" title="Link to this definition">¶</a></dt>
 <dd><p>Print usage information and exit.</p>
 <p>Usage describes the basic command line interface and its options.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-1">
-<span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;keyword&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-1" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;keyword&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-1" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one CMake keyword.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;keyword&gt;</span></code> can be a property, variable, command, policy, generator
 or module.</p>
@@ -1799,7 +1860,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-full">
-<span class="sig-name descname"><span class="pre">--help-full</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-full" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-full</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-full" title="Link to this definition">¶</a></dt>
 <dd><p>Print all help manuals and exit.</p>
 <p>All manuals are printed in a human-readable text format.
 The output is printed to a named <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> if given.</p>
@@ -1807,7 +1868,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-manual">
-<span class="sig-name descname"><span class="pre">--help-manual</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;man&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-manual" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-manual</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;man&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-manual" title="Link to this definition">¶</a></dt>
 <dd><p>Print one help manual and exit.</p>
 <p>The specified manual is printed in a human-readable text format.
 The output is printed to a named <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> if given.</p>
@@ -1815,7 +1876,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-manual-list">
-<span class="sig-name descname"><span class="pre">--help-manual-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-manual-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-manual-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-manual-list" title="Link to this definition">¶</a></dt>
 <dd><p>List help manuals available and exit.</p>
 <p>The list contains all manuals for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-manual</span></code> option followed by a manual name.
@@ -1824,7 +1885,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-command">
-<span class="sig-name descname"><span class="pre">--help-command</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmd&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-command" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-command</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmd&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-command" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one command and exit.</p>
 <p>The <span class="target" id="index-0-manual:cmake-commands(7)"></span><a class="reference internal" href="cmake-commands.7.html#manual:cmake-commands(7)" title="cmake-commands(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-commands(7)</span></code></a> manual entry for <code class="docutils literal notranslate"><span class="pre">&lt;cmd&gt;</span></code> is
 printed in a human-readable text format.
@@ -1833,7 +1894,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-command-list">
-<span class="sig-name descname"><span class="pre">--help-command-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-command-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-command-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-command-list" title="Link to this definition">¶</a></dt>
 <dd><p>List commands with help available and exit.</p>
 <p>The list contains all commands for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-command</span></code> option followed by a command name.
@@ -1842,7 +1903,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-commands">
-<span class="sig-name descname"><span class="pre">--help-commands</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-commands" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-commands</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-commands" title="Link to this definition">¶</a></dt>
 <dd><p>Print cmake-commands manual and exit.</p>
 <p>The <span class="target" id="index-1-manual:cmake-commands(7)"></span><a class="reference internal" href="cmake-commands.7.html#manual:cmake-commands(7)" title="cmake-commands(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-commands(7)</span></code></a> manual is printed in a
 human-readable text format.
@@ -1851,7 +1912,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-module">
-<span class="sig-name descname"><span class="pre">--help-module</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mod&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-module" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-module</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mod&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-module" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one module and exit.</p>
 <p>The <span class="target" id="index-0-manual:cmake-modules(7)"></span><a class="reference internal" href="cmake-modules.7.html#manual:cmake-modules(7)" title="cmake-modules(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-modules(7)</span></code></a> manual entry for <code class="docutils literal notranslate"><span class="pre">&lt;mod&gt;</span></code> is printed
 in a human-readable text format.
@@ -1860,7 +1921,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-module-list">
-<span class="sig-name descname"><span class="pre">--help-module-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-module-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-module-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-module-list" title="Link to this definition">¶</a></dt>
 <dd><p>List modules with help available and exit.</p>
 <p>The list contains all modules for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-module</span></code> option followed by a module name.
@@ -1869,7 +1930,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-modules">
-<span class="sig-name descname"><span class="pre">--help-modules</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-modules" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-modules</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-modules" title="Link to this definition">¶</a></dt>
 <dd><p>Print cmake-modules manual and exit.</p>
 <p>The <span class="target" id="index-1-manual:cmake-modules(7)"></span><a class="reference internal" href="cmake-modules.7.html#manual:cmake-modules(7)" title="cmake-modules(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-modules(7)</span></code></a> manual is printed in a human-readable
 text format.
@@ -1878,7 +1939,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-policy">
-<span class="sig-name descname"><span class="pre">--help-policy</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmp&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-policy</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;cmp&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policy" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one policy and exit.</p>
 <p>The <span class="target" id="index-0-manual:cmake-policies(7)"></span><a class="reference internal" href="cmake-policies.7.html#manual:cmake-policies(7)" title="cmake-policies(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-policies(7)</span></code></a> manual entry for <code class="docutils literal notranslate"><span class="pre">&lt;cmp&gt;</span></code> is
 printed in a human-readable text format.
@@ -1887,7 +1948,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-policy-list">
-<span class="sig-name descname"><span class="pre">--help-policy-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policy-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-policy-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policy-list" title="Link to this definition">¶</a></dt>
 <dd><p>List policies with help available and exit.</p>
 <p>The list contains all policies for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-policy</span></code> option followed by a policy name.
@@ -1896,7 +1957,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-policies">
-<span class="sig-name descname"><span class="pre">--help-policies</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policies" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-policies</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-policies" title="Link to this definition">¶</a></dt>
 <dd><p>Print cmake-policies manual and exit.</p>
 <p>The <span class="target" id="index-1-manual:cmake-policies(7)"></span><a class="reference internal" href="cmake-policies.7.html#manual:cmake-policies(7)" title="cmake-policies(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-policies(7)</span></code></a> manual is printed in a
 human-readable text format.
@@ -1905,7 +1966,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-property">
-<span class="sig-name descname"><span class="pre">--help-property</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prop&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-property" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-property</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prop&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-property" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one property and exit.</p>
 <p>The <span class="target" id="index-0-manual:cmake-properties(7)"></span><a class="reference internal" href="cmake-properties.7.html#manual:cmake-properties(7)" title="cmake-properties(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-properties(7)</span></code></a> manual entries for <code class="docutils literal notranslate"><span class="pre">&lt;prop&gt;</span></code> are
 printed in a human-readable text format.
@@ -1914,7 +1975,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-property-list">
-<span class="sig-name descname"><span class="pre">--help-property-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-property-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-property-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-property-list" title="Link to this definition">¶</a></dt>
 <dd><p>List properties with help available and exit.</p>
 <p>The list contains all properties for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-property</span></code> option followed by a property name.
@@ -1923,7 +1984,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-properties">
-<span class="sig-name descname"><span class="pre">--help-properties</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-properties" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-properties</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-properties" title="Link to this definition">¶</a></dt>
 <dd><p>Print cmake-properties manual and exit.</p>
 <p>The <span class="target" id="index-1-manual:cmake-properties(7)"></span><a class="reference internal" href="cmake-properties.7.html#manual:cmake-properties(7)" title="cmake-properties(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-properties(7)</span></code></a> manual is printed in a
 human-readable text format.
@@ -1932,7 +1993,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-variable">
-<span class="sig-name descname"><span class="pre">--help-variable</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variable" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-variable</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;var&gt;</span> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variable" title="Link to this definition">¶</a></dt>
 <dd><p>Print help for one variable and exit.</p>
 <p>The <span class="target" id="index-0-manual:cmake-variables(7)"></span><a class="reference internal" href="cmake-variables.7.html#manual:cmake-variables(7)" title="cmake-variables(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-variables(7)</span></code></a> manual entry for <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> is
 printed in a human-readable text format.
@@ -1941,7 +2002,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-variable-list">
-<span class="sig-name descname"><span class="pre">--help-variable-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variable-list" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-variable-list</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variable-list" title="Link to this definition">¶</a></dt>
 <dd><p>List variables with help available and exit.</p>
 <p>The list contains all variables for which help may be obtained by
 using the <code class="docutils literal notranslate"><span class="pre">--help-variable</span></code> option followed by a variable name.
@@ -1950,7 +2011,7 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cmake-help-variables">
-<span class="sig-name descname"><span class="pre">--help-variables</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variables" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">--help-variables</span></span><span class="sig-prename descclassname"> <span class="pre">[&lt;file&gt;]</span></span><a class="headerlink" href="#cmdoption-cmake-help-variables" title="Link to this definition">¶</a></dt>
 <dd><p>Print cmake-variables manual and exit.</p>
 <p>The <span class="target" id="index-1-manual:cmake-variables(7)"></span><a class="reference internal" href="cmake-variables.7.html#manual:cmake-variables(7)" title="cmake-variables(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-variables(7)</span></code></a> manual is printed in a
 human-readable text format.
@@ -1963,13 +2024,13 @@ The output is printed to a named <code class="docutils literal notranslate"><spa
 </div>
 </section>
 <section id="return-value-exit-code">
-<span id="cmake-exit-code"></span><h2>Return Value (Exit Code)<a class="headerlink" href="#return-value-exit-code" title="Permalink to this heading">¶</a></h2>
+<span id="cmake-exit-code"></span><h2>Return Value (Exit Code)<a class="headerlink" href="#return-value-exit-code" title="Link to this heading">¶</a></h2>
 <p>Upon regular termination, the <strong class="program">cmake</strong> executable returns the exit code <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>If termination is caused by the command <span class="target" id="index-3-command:message"></span><a class="reference internal" href="../command/message.html#command:message" title="message(fatal_error)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">message(FATAL_ERROR)</span></code></a>,
 or another error condition, then a non-zero exit code is returned.</p>
 </section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <p>The following resources are available to get help using CMake:</p>
 <dl>
 <dt>Home Page</dt><dd><p><a class="reference external" href="https://cmake.org">https://cmake.org</a></p>
@@ -2039,7 +2100,7 @@ found on this web page.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -2047,7 +2108,7 @@ found on this web page.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -2073,7 +2134,7 @@ found on this web page.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">cmake(1)</a></li> 
@@ -2081,8 +2142,8 @@ found on this web page.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

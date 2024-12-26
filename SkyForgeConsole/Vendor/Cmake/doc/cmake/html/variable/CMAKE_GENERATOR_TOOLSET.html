@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_GENERATOR_TOOLSET &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_GENERATOR_TOOLSET &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" accesskey="U">cmake-variables(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="cmake-generator-toolset">
-<span id="variable:CMAKE_GENERATOR_TOOLSET"></span><h1>CMAKE_GENERATOR_TOOLSET<a class="headerlink" href="#cmake-generator-toolset" title="Permalink to this heading">¶</a></h1>
+<span id="variable:CMAKE_GENERATOR_TOOLSET"></span><h1>CMAKE_GENERATOR_TOOLSET<a class="headerlink" href="#cmake-generator-toolset" title="Link to this heading">¶</a></h1>
 <p>Native build system toolset specification provided by user.</p>
 <p>Some CMake generators support a toolset specification to tell the
 native build system how to choose a compiler.  If the user specifies
@@ -78,7 +77,7 @@ variable, changing the value has undefined behavior.</p>
 </ul>
 <p>See native build system documentation for allowed toolset names.</p>
 <section id="visual-studio-toolset-selection">
-<h2>Visual Studio Toolset Selection<a class="headerlink" href="#visual-studio-toolset-selection" title="Permalink to this heading">¶</a></h2>
+<h2>Visual Studio Toolset Selection<a class="headerlink" href="#visual-studio-toolset-selection" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a> support toolset specification
 using one of these forms:</p>
 <ul class="simple">
@@ -91,13 +90,26 @@ is provided in the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_T
 <p>The <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs form a comma-separated list of options to
 specify generator-specific details of the toolset selection.
 Supported pairs are:</p>
-<dl class="simple">
+<dl>
 <dt><code class="docutils literal notranslate"><span class="pre">cuda=&lt;version&gt;|&lt;path&gt;</span></code></dt><dd><p>Specify the CUDA toolkit version to use or the path to a
 standalone CUDA toolkit directory.  Supported by VS 2010
 and above. The version can only be used with the CUDA
 toolkit VS integration globally installed.
 See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_CUDA.html#variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA" title="CMAKE_VS_PLATFORM_TOOLSET_CUDA"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_CUDA</span></code></a> and
 <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA_CUSTOM_DIR"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_CUDA_CUSTOM_DIR.html#variable:CMAKE_VS_PLATFORM_TOOLSET_CUDA_CUSTOM_DIR" title="CMAKE_VS_PLATFORM_TOOLSET_CUDA_CUSTOM_DIR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_CUDA_CUSTOM_DIR</span></code></a> variables.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fortran=&lt;compiler&gt;</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Specify the Fortran compiler to use, among those that have the required
+Visual Studio Integration feature installed.  The value may be one of:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ifort</span></code></dt><dd><p>Intel classic Fortran compiler.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ifx</span></code></dt><dd><p>Intel oneAPI Fortran compiler.</p>
+</dd>
+</dl>
+<p>See the <span class="target" id="index-0-variable:CMAKE_VS_PLATFORM_TOOLSET_FORTRAN"></span><a class="reference internal" href="CMAKE_VS_PLATFORM_TOOLSET_FORTRAN.html#variable:CMAKE_VS_PLATFORM_TOOLSET_FORTRAN" title="CMAKE_VS_PLATFORM_TOOLSET_FORTRAN"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_VS_PLATFORM_TOOLSET_FORTRAN</span></code></a> variable.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">host=&lt;arch&gt;</span></code></dt><dd><p>Specify the host tools architecture as <code class="docutils literal notranslate"><span class="pre">x64</span></code> or <code class="docutils literal notranslate"><span class="pre">x86</span></code>.
 Supported by VS 2013 and above.
@@ -115,7 +127,7 @@ files (<code class="docutils literal notranslate"><span class="pre">.props</span
 </dl>
 </section>
 <section id="visual-studio-toolset-customization">
-<h2>Visual Studio Toolset Customization<a class="headerlink" href="#visual-studio-toolset-customization" title="Permalink to this heading">¶</a></h2>
+<h2>Visual Studio Toolset Customization<a class="headerlink" href="#visual-studio-toolset-customization" title="Link to this heading">¶</a></h2>
 <p><strong>These are unstable interfaces with no compatibility guarantees</strong>
 because they hook into undocumented internal CMake implementation details.
 Institutions may use these to internally maintain support for non-public
@@ -124,7 +136,7 @@ make updates as changes are made to CMake.</p>
 <p>Additional <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs are available:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">customFlagTableDir=&lt;path&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Specify the absolute path to a directory from which to load custom
 flag tables stored as JSON documents with file names of the form
@@ -175,7 +187,7 @@ flag table files is undocumented.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -183,7 +195,7 @@ flag table files is undocumented.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -209,7 +221,7 @@ flag table files is undocumented.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" >cmake-variables(7)</a> &#187;</li>
@@ -218,8 +230,8 @@ flag table files is undocumented.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

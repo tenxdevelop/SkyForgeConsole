@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>try_compile &mdash; CMake 3.28.1 Documentation</title>
+  <title>try_compile &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="try-compile">
-<span id="command:try_compile"></span><h1><a class="toc-backref" href="#id3" role="doc-backlink">try_compile</a><a class="headerlink" href="#try-compile" title="Permalink to this heading">¶</a></h1>
+<span id="command:try_compile"></span><h1><a class="toc-backref" href="#id3" role="doc-backlink">try_compile</a><a class="headerlink" href="#try-compile" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -75,7 +74,7 @@
 </nav>
 <p>Try building some code.</p>
 <section id="try-compiling-whole-projects">
-<span id="id1"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Try Compiling Whole Projects</a><a class="headerlink" href="#try-compiling-whole-projects" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Try Compiling Whole Projects</a><a class="headerlink" href="#try-compiling-whole-projects" title="Link to this heading">¶</a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">try_compile(</span><span class="nv">&lt;compileResultVar&gt;</span><span class="w"> </span><span class="no">PROJECT</span><span class="w"> </span><span class="nv">&lt;projectName&gt;</span>
 <span class="w">            </span><span class="no">SOURCE_DIR</span><span class="w"> </span><span class="nv">&lt;srcdir&gt;</span>
 <span class="w">            </span><span class="p">[</span><span class="no">BINARY_DIR</span><span class="w"> </span><span class="nv">&lt;bindir&gt;</span><span class="p">]</span>
@@ -88,7 +87,7 @@
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Try building a project.  Build success returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> and build failure
 returns <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> in <code class="docutils literal notranslate"><span class="pre">&lt;compileResultVar&gt;</span></code>.</p>
@@ -105,9 +104,14 @@ Previously this was only done by the
 <a class="reference internal" href="#try-compiling-source-files"><span class="std std-ref">source file</span></a> signature.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26: </span>This command records a
+<p><span class="versionmodified added">Added in version 3.26: </span>This command records a
 <a class="reference internal" href="../manual/cmake-configure-log.7.html#try-compile-configure-log-event"><span class="std std-ref">configure-log try_compile event</span></a>
 if the <code class="docutils literal notranslate"><span class="pre">NO_LOG</span></code> option is not specified.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.30: </span>If the <span class="target" id="index-0-prop_gbl:PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE"></span><a class="reference internal" href="../prop_gbl/PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE.html#prop_gbl:PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE" title="PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE"><code class="xref cmake cmake-prop_gbl docutils literal notranslate"><span class="pre">PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE</span></code></a> global
+property is set to true, <span class="target" id="index-0-variable:CMAKE_PROJECT_TOP_LEVEL_INCLUDES"></span><a class="reference internal" href="../variable/CMAKE_PROJECT_TOP_LEVEL_INCLUDES.html#variable:CMAKE_PROJECT_TOP_LEVEL_INCLUDES" title="CMAKE_PROJECT_TOP_LEVEL_INCLUDES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_PROJECT_TOP_LEVEL_INCLUDES</span></code></a> is
+propagated into the project's build configuration.</p>
 </div>
 <p>This command supports an alternate signature for CMake older than 3.25.
 The signature above is recommended for clarity.</p>
@@ -119,7 +123,7 @@ The signature above is recommended for clarity.</p>
 </div>
 </section>
 <section id="try-compiling-source-files">
-<span id="id2"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Try Compiling Source Files</a><a class="headerlink" href="#try-compiling-source-files" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Try Compiling Source Files</a><a class="headerlink" href="#try-compiling-source-files" title="Link to this heading">¶</a></h2>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">try_compile(</span><span class="nv">&lt;compileResultVar&gt;</span>
 <span class="w">            </span><span class="p">[</span><span class="no">SOURCES_TYPE</span><span class="w"> </span><span class="nv">&lt;type&gt;</span><span class="p">]</span>
 <span class="w">            </span><span class="o">&lt;</span><span class="no">SOURCES</span><span class="w"> </span><span class="nv">&lt;srcfile...&gt;</span><span class="w">                 </span><span class="p">|</span>
@@ -133,6 +137,7 @@ The signature above is recommended for clarity.</p>
 <span class="w">            </span><span class="p">[</span><span class="no">COMPILE_DEFINITIONS</span><span class="w"> </span><span class="nv">&lt;defs&gt;...</span><span class="p">]</span>
 <span class="w">            </span><span class="p">[</span><span class="no">LINK_OPTIONS</span><span class="w"> </span><span class="nv">&lt;options&gt;...</span><span class="p">]</span>
 <span class="w">            </span><span class="p">[</span><span class="no">LINK_LIBRARIES</span><span class="w"> </span><span class="nv">&lt;libs&gt;...</span><span class="p">]</span>
+<span class="w">            </span><span class="p">[</span><span class="no">LINKER_LANGUAGE</span><span class="w"> </span><span class="nv">&lt;lang&gt;</span><span class="p">]</span>
 <span class="w">            </span><span class="p">[</span><span class="no">OUTPUT_VARIABLE</span><span class="w"> </span><span class="nv">&lt;var&gt;</span><span class="p">]</span>
 <span class="w">            </span><span class="p">[</span><span class="no">COPY_FILE</span><span class="w"> </span><span class="nv">&lt;fileName&gt;</span><span class="w"> </span><span class="p">[</span><span class="no">COPY_FILE_ERROR</span><span class="w"> </span><span class="nv">&lt;var&gt;</span><span class="p">]]</span>
 <span class="w">            </span><span class="p">[</span><span class="nv">&lt;LANG&gt;</span><span class="nb">_STANDARD</span><span class="w"> </span><span class="nv">&lt;std&gt;</span><span class="p">]</span>
@@ -142,7 +147,7 @@ The signature above is recommended for clarity.</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Try building an executable or static library from one or more source files
 (which one is determined by the <span class="target" id="index-0-variable:CMAKE_TRY_COMPILE_TARGET_TYPE"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_TARGET_TYPE.html#variable:CMAKE_TRY_COMPILE_TARGET_TYPE" title="CMAKE_TRY_COMPILE_TARGET_TYPE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_TARGET_TYPE</span></code></a>
@@ -196,14 +201,15 @@ call at a time.  Use of the newer signature is recommended to simplify
 debugging of multiple <code class="docutils literal notranslate"><span class="pre">try_compile</span></code> operations.</p>
 </section>
 <section id="options">
-<span id="try-compile-options"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Options</a><a class="headerlink" href="#options" title="Permalink to this heading">¶</a></h2>
+<span id="try-compile-options"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Options</a><a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
 <p>The options for the above signatures are:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">CMAKE_FLAGS</span> <span class="pre">&lt;flags&gt;...</span></code></dt><dd><p>Specify flags of the form <a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-D"><code class="xref std std-option docutils literal notranslate"><span class="pre">-DVAR:TYPE=VALUE</span></code></a> to be passed
 to the <span class="target" id="index-0-manual:cmake(1)"></span><a class="reference internal" href="../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake(1)</span></code></a> command-line used to drive the test build.
 The above example shows how values for variables
-<code class="docutils literal notranslate"><span class="pre">INCLUDE_DIRECTORIES</span></code>, <code class="docutils literal notranslate"><span class="pre">LINK_DIRECTORIES</span></code>, and <code class="docutils literal notranslate"><span class="pre">LINK_LIBRARIES</span></code>
-are used.</p>
+<code class="docutils literal notranslate"><span class="pre">COMPILE_DEFINITIONS</span></code>, <code class="docutils literal notranslate"><span class="pre">INCLUDE_DIRECTORIES</span></code>, <code class="docutils literal notranslate"><span class="pre">LINK_DIRECTORIES</span></code>,
+<code class="docutils literal notranslate"><span class="pre">LINK_LIBRARIES</span></code>, and <code class="docutils literal notranslate"><span class="pre">LINK_OPTIONS</span></code> are used. Compiler options
+can be passed in like <cite>CMAKE_FLAGS -DCOMPILE_DEFINITIONS=-Werror</cite>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">COMPILE_DEFINITIONS</span> <span class="pre">&lt;defs&gt;...</span></code></dt><dd><p>Specify <code class="docutils literal notranslate"><span class="pre">-Ddefinition</span></code> arguments to pass to <span class="target" id="index-0-command:add_definitions"></span><a class="reference internal" href="add_definitions.html#command:add_definitions" title="add_definitions"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_definitions()</span></code></a>
 in the generated test project.</p>
@@ -218,22 +224,33 @@ The list of libraries may refer to system libraries and to
 <a class="reference internal" href="../manual/cmake-buildsystem.7.html#imported-targets"><span class="std std-ref">Imported Targets</span></a> from the calling project.</p>
 <p>If this option is specified, any <code class="docutils literal notranslate"><span class="pre">-DLINK_LIBRARIES=...</span></code> value
 given to the <code class="docutils literal notranslate"><span class="pre">CMAKE_FLAGS</span></code> option will be ignored.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29: </span>Alias targets to imported libraries are also supported.</p>
+</div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">LINK_OPTIONS</span> <span class="pre">&lt;options&gt;...</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.14.</span></p>
+<p><span class="versionmodified added">Added in version 3.14.</span></p>
 </div>
 <p>Specify link step options to pass to <span class="target" id="index-0-command:target_link_options"></span><a class="reference internal" href="target_link_options.html#command:target_link_options" title="target_link_options"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_options()</span></code></a> or to
 set the <span class="target" id="index-0-prop_tgt:STATIC_LIBRARY_OPTIONS"></span><a class="reference internal" href="../prop_tgt/STATIC_LIBRARY_OPTIONS.html#prop_tgt:STATIC_LIBRARY_OPTIONS" title="STATIC_LIBRARY_OPTIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">STATIC_LIBRARY_OPTIONS</span></code></a> target property in the generated
 project, depending on the <span class="target" id="index-3-variable:CMAKE_TRY_COMPILE_TARGET_TYPE"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_TARGET_TYPE.html#variable:CMAKE_TRY_COMPILE_TARGET_TYPE" title="CMAKE_TRY_COMPILE_TARGET_TYPE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_TARGET_TYPE</span></code></a> variable.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">LINKER_LANGUAGE</span> <span class="pre">&lt;lang&gt;</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Specify the <span class="target" id="index-0-prop_tgt:LINKER_LANGUAGE"></span><a class="reference internal" href="../prop_tgt/LINKER_LANGUAGE.html#prop_tgt:LINKER_LANGUAGE" title="LINKER_LANGUAGE"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">LINKER_LANGUAGE</span></code></a> target property of the generated
+project.  When using multiple source files with different languages, set
+this to the language of the source file containing the program entry point,
+e.g., <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">LOG_DESCRIPTION</span> <span class="pre">&lt;text&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26.</span></p>
+<p><span class="versionmodified added">Added in version 3.26.</span></p>
 </div>
 <p>Specify a non-empty text description of the purpose of the check.
 This is recorded in the <span class="target" id="index-0-manual:cmake-configure-log(7)"></span><a class="reference internal" href="../manual/cmake-configure-log.7.html#manual:cmake-configure-log(7)" title="cmake-configure-log(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-configure-log(7)</span></code></a> entry.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">NO_CACHE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>The result will be stored in a normal variable rather than a cache entry.</p>
 <p>The result variable is normally cached so that a simple pattern can be used
@@ -250,14 +267,14 @@ the test is part of a larger inspection), <code class="docutils literal notransl
 leaking the intermediate result variable into the cache.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">NO_LOG</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26.</span></p>
+<p><span class="versionmodified added">Added in version 3.26.</span></p>
 </div>
 <p>Do not record a <span class="target" id="index-1-manual:cmake-configure-log(7)"></span><a class="reference internal" href="../manual/cmake-configure-log.7.html#manual:cmake-configure-log(7)" title="cmake-configure-log(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-configure-log(7)</span></code></a> entry for this call.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OUTPUT_VARIABLE</span> <span class="pre">&lt;var&gt;</span></code></dt><dd><p>Store the output from the build process in the given variable.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_CONTENT</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;content&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Write <code class="docutils literal notranslate"><span class="pre">&lt;content&gt;</span></code> to a file named <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> in the operation directory.
 This can be used to bypass the need to separately write a source file when
@@ -266,7 +283,7 @@ is not allowed to contain path components.</p>
 <p><code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_CONTENT</span></code> may be specified multiple times.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_FILE</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;path&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Copy <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> to a file named <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> in the operation directory. This
 can be used to consolidate files into the operation directory, which may be
@@ -276,7 +293,7 @@ project's source repository) needs to refer to other file(s) created by
 specified <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> is not allowed to contain path components.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_VAR</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;var&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Write the contents of <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code> to a file named <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> in the operation
 directory. This is the same as <code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_CONTENT</span></code>, but takes the
@@ -287,7 +304,7 @@ components.</p>
 <p><code class="docutils literal notranslate"><span class="pre">SOURCE_FROM_VAR</span></code> may be specified multiple times.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">SOURCES_TYPE</span> <span class="pre">&lt;type&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Sources may be classified using the <code class="docutils literal notranslate"><span class="pre">SOURCES_TYPE</span></code> argument. Once
 specified, all subsequent sources specified will be treated as that type
@@ -296,7 +313,7 @@ until another <code class="docutils literal notranslate"><span class="pre">SOURC
 <dt><code class="docutils literal notranslate"><span class="pre">NORMAL</span></code></dt><dd><p>Sources are not added to any <code class="docutils literal notranslate"><span class="pre">FILE_SET</span></code> in the generated project.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">CXX_MODULE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.28.</span></p>
+<p><span class="versionmodified added">Added in version 3.28.</span></p>
 </div>
 <p>Sources are added to a <code class="docutils literal notranslate"><span class="pre">FILE_SET</span></code> of type <code class="docutils literal notranslate"><span class="pre">CXX_MODULES</span></code> in the
 generated project.</p>
@@ -305,14 +322,14 @@ generated project.</p>
 <p>The default type of sources is <code class="docutils literal notranslate"><span class="pre">NORMAL</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;LANG&gt;_STANDARD</span> <span class="pre">&lt;std&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>Specify the <span class="target" id="index-0-prop_tgt:C_STANDARD"></span><a class="reference internal" href="../prop_tgt/C_STANDARD.html#prop_tgt:C_STANDARD" title="C_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">C_STANDARD</span></code></a>, <span class="target" id="index-0-prop_tgt:CXX_STANDARD"></span><a class="reference internal" href="../prop_tgt/CXX_STANDARD.html#prop_tgt:CXX_STANDARD" title="CXX_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CXX_STANDARD</span></code></a>,
 <span class="target" id="index-0-prop_tgt:OBJC_STANDARD"></span><a class="reference internal" href="../prop_tgt/OBJC_STANDARD.html#prop_tgt:OBJC_STANDARD" title="OBJC_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJC_STANDARD</span></code></a>, <span class="target" id="index-0-prop_tgt:OBJCXX_STANDARD"></span><a class="reference internal" href="../prop_tgt/OBJCXX_STANDARD.html#prop_tgt:OBJCXX_STANDARD" title="OBJCXX_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJCXX_STANDARD</span></code></a>,
 or <span class="target" id="index-0-prop_tgt:CUDA_STANDARD"></span><a class="reference internal" href="../prop_tgt/CUDA_STANDARD.html#prop_tgt:CUDA_STANDARD" title="CUDA_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CUDA_STANDARD</span></code></a> target property of the generated project.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;LANG&gt;_STANDARD_REQUIRED</span> <span class="pre">&lt;bool&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>Specify the <span class="target" id="index-0-prop_tgt:C_STANDARD_REQUIRED"></span><a class="reference internal" href="../prop_tgt/C_STANDARD_REQUIRED.html#prop_tgt:C_STANDARD_REQUIRED" title="C_STANDARD_REQUIRED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">C_STANDARD_REQUIRED</span></code></a>,
 <span class="target" id="index-0-prop_tgt:CXX_STANDARD_REQUIRED"></span><a class="reference internal" href="../prop_tgt/CXX_STANDARD_REQUIRED.html#prop_tgt:CXX_STANDARD_REQUIRED" title="CXX_STANDARD_REQUIRED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CXX_STANDARD_REQUIRED</span></code></a>, <span class="target" id="index-0-prop_tgt:OBJC_STANDARD_REQUIRED"></span><a class="reference internal" href="../prop_tgt/OBJC_STANDARD_REQUIRED.html#prop_tgt:OBJC_STANDARD_REQUIRED" title="OBJC_STANDARD_REQUIRED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJC_STANDARD_REQUIRED</span></code></a>,
@@ -320,7 +337,7 @@ or <span class="target" id="index-0-prop_tgt:CUDA_STANDARD"></span><a class="ref
 target property of the generated project.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">&lt;LANG&gt;_EXTENSIONS</span> <span class="pre">&lt;bool&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>Specify the <span class="target" id="index-0-prop_tgt:C_EXTENSIONS"></span><a class="reference internal" href="../prop_tgt/C_EXTENSIONS.html#prop_tgt:C_EXTENSIONS" title="C_EXTENSIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">C_EXTENSIONS</span></code></a>, <span class="target" id="index-0-prop_tgt:CXX_EXTENSIONS"></span><a class="reference internal" href="../prop_tgt/CXX_EXTENSIONS.html#prop_tgt:CXX_EXTENSIONS" title="CXX_EXTENSIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CXX_EXTENSIONS</span></code></a>,
 <span class="target" id="index-0-prop_tgt:OBJC_EXTENSIONS"></span><a class="reference internal" href="../prop_tgt/OBJC_EXTENSIONS.html#prop_tgt:OBJC_EXTENSIONS" title="OBJC_EXTENSIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJC_EXTENSIONS</span></code></a>, <span class="target" id="index-0-prop_tgt:OBJCXX_EXTENSIONS"></span><a class="reference internal" href="../prop_tgt/OBJCXX_EXTENSIONS.html#prop_tgt:OBJCXX_EXTENSIONS" title="OBJCXX_EXTENSIONS"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJCXX_EXTENSIONS</span></code></a>,
@@ -329,9 +346,9 @@ or <span class="target" id="index-0-prop_tgt:CUDA_EXTENSIONS"></span><a class="r
 </dl>
 </section>
 <section id="other-behavior-settings">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Other Behavior Settings</a><a class="headerlink" href="#other-behavior-settings" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Other Behavior Settings</a><a class="headerlink" href="#other-behavior-settings" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4: </span>If set, the following variables are passed in to the generated
+<p><span class="versionmodified added">Added in version 3.4: </span>If set, the following variables are passed in to the generated
 try_compile CMakeLists.txt to initialize compile target properties with
 default values:</p>
 <ul class="simple">
@@ -362,11 +379,11 @@ configuration:</p>
 the test project.</p></li>
 </ul>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>Set the <span class="target" id="index-4-variable:CMAKE_TRY_COMPILE_TARGET_TYPE"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_TARGET_TYPE.html#variable:CMAKE_TRY_COMPILE_TARGET_TYPE" title="CMAKE_TRY_COMPILE_TARGET_TYPE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_TARGET_TYPE</span></code></a> variable to specify
+<p><span class="versionmodified added">Added in version 3.6: </span>Set the <span class="target" id="index-4-variable:CMAKE_TRY_COMPILE_TARGET_TYPE"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_TARGET_TYPE.html#variable:CMAKE_TRY_COMPILE_TARGET_TYPE" title="CMAKE_TRY_COMPILE_TARGET_TYPE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_TARGET_TYPE</span></code></a> variable to specify
 the type of target used for the source file signature.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>Set the <span class="target" id="index-1-variable:CMAKE_TRY_COMPILE_PLATFORM_VARIABLES"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_PLATFORM_VARIABLES.html#variable:CMAKE_TRY_COMPILE_PLATFORM_VARIABLES" title="CMAKE_TRY_COMPILE_PLATFORM_VARIABLES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_PLATFORM_VARIABLES</span></code></a> variable to specify
+<p><span class="versionmodified added">Added in version 3.6: </span>Set the <span class="target" id="index-1-variable:CMAKE_TRY_COMPILE_PLATFORM_VARIABLES"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_PLATFORM_VARIABLES.html#variable:CMAKE_TRY_COMPILE_PLATFORM_VARIABLES" title="CMAKE_TRY_COMPILE_PLATFORM_VARIABLES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_PLATFORM_VARIABLES</span></code></a> variable to specify
 variables that must be propagated into the test project.  This variable is
 meant for use only in toolchain files and is only honored by the
 <code class="docutils literal notranslate"><span class="pre">try_compile()</span></code> command for the source files form, not when given a whole
@@ -402,17 +419,23 @@ system customization cache variables are also propagated into the test
 project.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.24: </span>The <span class="target" id="index-0-variable:CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES.html#variable:CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES" title="CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES</span></code></a> variable may be
+<p><span class="versionmodified added">Added in version 3.24: </span>The <span class="target" id="index-0-variable:CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES"></span><a class="reference internal" href="../variable/CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES.html#variable:CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES" title="CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_TRY_COMPILE_NO_PLATFORM_VARIABLES</span></code></a> variable may be
 set to disable passing platform variables into the test project.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25: </span>If <span class="target" id="index-0-policy:CMP0141"></span><a class="reference internal" href="../policy/CMP0141.html#policy:CMP0141" title="CMP0141"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0141</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">NEW</span></code>, one can use
+<p><span class="versionmodified added">Added in version 3.25: </span>If <span class="target" id="index-0-policy:CMP0141"></span><a class="reference internal" href="../policy/CMP0141.html#policy:CMP0141" title="CMP0141"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0141</span></code></a> is set to <code class="docutils literal notranslate"><span class="pre">NEW</span></code>, one can use
 <span class="target" id="index-0-variable:CMAKE_MSVC_DEBUG_INFORMATION_FORMAT"></span><a class="reference internal" href="../variable/CMAKE_MSVC_DEBUG_INFORMATION_FORMAT.html#variable:CMAKE_MSVC_DEBUG_INFORMATION_FORMAT" title="CMAKE_MSVC_DEBUG_INFORMATION_FORMAT"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_MSVC_DEBUG_INFORMATION_FORMAT</span></code></a> to specify the MSVC debug
 information format.</p>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.30: </span>If the <span class="target" id="index-1-prop_gbl:PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE"></span><a class="reference internal" href="../prop_gbl/PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE.html#prop_gbl:PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE" title="PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE"><code class="xref cmake cmake-prop_gbl docutils literal notranslate"><span class="pre">PROPAGATE_TOP_LEVEL_INCLUDES_TO_TRY_COMPILE</span></code></a> global
+property is set to true, <span class="target" id="index-1-variable:CMAKE_PROJECT_TOP_LEVEL_INCLUDES"></span><a class="reference internal" href="../variable/CMAKE_PROJECT_TOP_LEVEL_INCLUDES.html#variable:CMAKE_PROJECT_TOP_LEVEL_INCLUDES" title="CMAKE_PROJECT_TOP_LEVEL_INCLUDES"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_PROJECT_TOP_LEVEL_INCLUDES</span></code></a> is
+propagated into the test project's build configuration when using the
+<a class="reference internal" href="#try-compiling-whole-projects"><span class="std std-ref">whole-project signature</span></a>.</p>
+</div>
 </section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">See Also</a><a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="target" id="index-0-command:try_run"></span><a class="reference internal" href="try_run.html#command:try_run" title="try_run"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">try_run()</span></code></a></p></li>
 </ul>
@@ -457,7 +480,7 @@ information format.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -465,7 +488,7 @@ information format.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -491,7 +514,7 @@ information format.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -500,8 +523,8 @@ information format.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

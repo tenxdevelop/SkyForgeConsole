@@ -1,24 +1,23 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_INSTALL_MODE &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_INSTALL_MODE &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CMAKE_&lt;LANG&gt;_COMPILER_LAUNCHER" href="CMAKE_LANG_COMPILER_LAUNCHER.html" />
+    <link rel="next" title="CMAKE_INSTALL_PARALLEL_LEVEL" href="CMAKE_INSTALL_PARALLEL_LEVEL.html" />
     <link rel="prev" title="CMAKE_GENERATOR_TOOLSET" href="CMAKE_GENERATOR_TOOLSET.html" />
  
 
@@ -31,7 +30,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="CMAKE_LANG_COMPILER_LAUNCHER.html" title="CMAKE_&lt;LANG&gt;_COMPILER_LAUNCHER"
+          <a href="CMAKE_INSTALL_PARALLEL_LEVEL.html" title="CMAKE_INSTALL_PARALLEL_LEVEL"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="CMAKE_GENERATOR_TOOLSET.html" title="CMAKE_GENERATOR_TOOLSET"
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-env-variables.7.html" accesskey="U">cmake-env-variables(7)</a> &#187;</li>
@@ -58,9 +57,9 @@
           <div class="body" role="main">
             
   <section id="cmake-install-mode">
-<span id="envvar:CMAKE_INSTALL_MODE"></span><h1>CMAKE_INSTALL_MODE<a class="headerlink" href="#cmake-install-mode" title="Permalink to this heading">¶</a></h1>
+<span id="envvar:CMAKE_INSTALL_MODE"></span><h1>CMAKE_INSTALL_MODE<a class="headerlink" href="#cmake-install-mode" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>This is a CMake <a class="reference internal" href="../manual/cmake-language.7.html#cmake-language-environment-variables"><span class="std std-ref">Environment Variable</span></a>. Its initial value is taken from
 the calling process environment.</p>
@@ -71,7 +70,7 @@ source directory into a destination directory. This environment variable
 however allows the user to override this behavior, causing CMake to create
 symbolic links instead.</p>
 <section id="usage-scenarios">
-<h2>Usage Scenarios<a class="headerlink" href="#usage-scenarios" title="Permalink to this heading">¶</a></h2>
+<h2>Usage Scenarios<a class="headerlink" href="#usage-scenarios" title="Link to this heading">¶</a></h2>
 <p>Installing symbolic links rather than copying files can help in the following
 ways:</p>
 <ul class="simple">
@@ -85,7 +84,7 @@ refactoring is desired across projects.</p></li>
 </ul>
 </section>
 <section id="allowed-values">
-<h2>Allowed Values<a class="headerlink" href="#allowed-values" title="Permalink to this heading">¶</a></h2>
+<h2>Allowed Values<a class="headerlink" href="#allowed-values" title="Link to this heading">¶</a></h2>
 <p>The following values are allowed for <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_MODE</span></code>:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">COPY</span></code>, empty or unset</dt><dd><p>Duplicate the file at its destination.  This is the default behavior.</p>
@@ -118,7 +117,7 @@ or an <em>absolute</em> path.</p>
 </div>
 </section>
 <section id="when-to-set-the-environment-variable">
-<h2>When To Set The Environment Variable<a class="headerlink" href="#when-to-set-the-environment-variable" title="Permalink to this heading">¶</a></h2>
+<h2>When To Set The Environment Variable<a class="headerlink" href="#when-to-set-the-environment-variable" title="Link to this heading">¶</a></h2>
 <p>For the environment variable to take effect, it must be set during the correct
 build phase(s).</p>
 <ul class="simple">
@@ -137,7 +136,7 @@ will execute during the main project's build phase.</p></li>
 across all phases (configure, build and install).</p>
 </section>
 <section id="caveats">
-<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this heading">¶</a></h2>
+<h2>Caveats<a class="headerlink" href="#caveats" title="Link to this heading">¶</a></h2>
 <p>Use this environment variable with caution. The following highlights some
 points to be considered:</p>
 <ul class="simple">
@@ -190,8 +189,8 @@ will not be replaced by an actual file.</p></li>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="CMAKE_LANG_COMPILER_LAUNCHER.html"
-                          title="next chapter">CMAKE_&lt;LANG&gt;_COMPILER_LAUNCHER</a></p>
+    <p class="topless"><a href="CMAKE_INSTALL_PARALLEL_LEVEL.html"
+                          title="next chapter">CMAKE_INSTALL_PARALLEL_LEVEL</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -200,7 +199,7 @@ will not be replaced by an actual file.</p></li>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -208,7 +207,7 @@ will not be replaced by an actual file.</p></li>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -221,7 +220,7 @@ will not be replaced by an actual file.</p></li>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="CMAKE_LANG_COMPILER_LAUNCHER.html" title="CMAKE_&lt;LANG&gt;_COMPILER_LAUNCHER"
+          <a href="CMAKE_INSTALL_PARALLEL_LEVEL.html" title="CMAKE_INSTALL_PARALLEL_LEVEL"
              >next</a> |</li>
         <li class="right" >
           <a href="CMAKE_GENERATOR_TOOLSET.html" title="CMAKE_GENERATOR_TOOLSET"
@@ -234,7 +233,7 @@ will not be replaced by an actual file.</p></li>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-env-variables.7.html" >cmake-env-variables(7)</a> &#187;</li>
@@ -243,8 +242,8 @@ will not be replaced by an actual file.</p></li>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

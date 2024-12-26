@@ -27,12 +27,12 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-PRESETS" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-PRESETS" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-presets \- CMakePresets.json
 .SH INTRODUCTION
 .sp
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 One problem that CMake users often face is sharing settings with other people
@@ -44,7 +44,7 @@ supports files included with the \fBinclude\fP field.
 .sp
 \fBCMakePresets.json\fP and \fBCMakeUserPresets.json\fP live in the project\(aqs root
 directory. They both have exactly the same format, and both are optional
-(though at least one must be present if \fI\%\-\-preset\fP
+(though at least one must be present if \X'tty: link #cmdoption-cmake-preset'\fI\%\-\-preset\fP\X'tty: link'
 is specified).  \fBCMakePresets.json\fP is meant to specify project\-wide build
 details, while \fBCMakeUserPresets.json\fP is meant for developers to specify
 their own local build details.
@@ -62,18 +62,24 @@ The files are a JSON document with an object as the root:
 .nf
 .ft C
 {
-  \(dqversion\(dq: 6,
+  \(dqversion\(dq: 10,
   \(dqcmakeMinimumRequired\(dq: {
     \(dqmajor\(dq: 3,
     \(dqminor\(dq: 23,
     \(dqpatch\(dq: 0
   },
+  \(dq$comment\(dq: \(dqAn example CMakePresets.json file\(dq,
   \(dqinclude\(dq: [
     \(dqotherThings.json\(dq,
     \(dqmoreThings.json\(dq
   ],
   \(dqconfigurePresets\(dq: [
     {
+      \(dq$comment\(dq: [
+        \(dqThis is a comment row.\(dq,
+        \(dqThis is another comment,\(dq,
+        \(dqjust because we can do it\(dq
+      ],
       \(dqname\(dq: \(dqdefault\(dq,
       \(dqdisplayName\(dq: \(dqDefault Config\(dq,
       \(dqdescription\(dq: \(dqDefault build using Ninja generator\(dq,
@@ -173,6 +179,9 @@ The files are a JSON document with an object as the root:
 .UNINDENT
 .UNINDENT
 .sp
+Preset files specifying version \fB10\fP or above may include comments using the
+key \fB$comment\fP at any level within the JSON object to provide documentation.
+.sp
 The root object recognizes the following fields:
 .INDENT 0.0
 .TP
@@ -191,35 +200,43 @@ The supported versions are:
 .INDENT 7.0
 .TP
 .B \fB1\fP
-New in version 3.19.
+Added in version 3.19.
 
 .TP
 .B \fB2\fP
-New in version 3.20.
+Added in version 3.20.
 
 .TP
 .B \fB3\fP
-New in version 3.21.
+Added in version 3.21.
 
 .TP
 .B \fB4\fP
-New in version 3.23.
+Added in version 3.23.
 
 .TP
 .B \fB5\fP
-New in version 3.24.
+Added in version 3.24.
 
 .TP
 .B \fB6\fP
-New in version 3.25.
+Added in version 3.25.
 
 .TP
 .B \fB7\fP
-New in version 3.27.
+Added in version 3.27.
 
 .TP
 .B \fB8\fP
-New in version 3.28.
+Added in version 3.28.
+
+.TP
+.B \fB9\fP
+Added in version 3.30.
+
+.TP
+.B \fB10\fP
+Added in version 3.31.
 
 .UNINDENT
 .TP
@@ -292,7 +309,10 @@ guaranteed to be provided by the project. \fBCMakeUserPresets.json\fP may
 include files from anywhere.
 .sp
 Starting from version \fB7\fP, the \fBinclude\fP field supports
-\fI\%macro expansion\fP, but only \fB$penv{}\fP macro expansion.
+\fI\%macro expansion\fP, but only \fB$penv{}\fP macro expansion. Starting from version
+\fB9\fP, other macro expansions are also available, except for \fB$env{}\fP and
+preset\-specific macros, i.e., those derived from the fields inside a preset\(aqs
+definition like \fBpresetName\fP\&.
 .SS Configure Preset
 .sp
 Each entry of the \fBconfigurePresets\fP array is a JSON object
@@ -301,7 +321,7 @@ that may contain the following fields:
 .TP
 .B \fBname\fP
 A required string representing the machine\-friendly name of the preset.
-This identifier is used in the \fI\%cmake \-\-preset\fP option.
+This identifier is used in the \X'tty: link #cmake-options'\fI\%cmake \-\-preset\fP\X'tty: link' option.
 There must not be two configure presets in the union of \fBCMakePresets.json\fP
 and \fBCMakeUserPresets.json\fP in the same directory with the same name.
 However, a configure preset may have the same name as a build, test,
@@ -310,7 +330,7 @@ package, or workflow preset.
 .B \fBhidden\fP
 An optional boolean specifying whether or not a preset should be hidden.
 If a preset is hidden, it cannot be used in the \fB\-\-preset=\fP argument,
-will not show up in the \fI\%CMake GUI\fP, and does not
+will not show up in the \X'tty: link #manual:cmake-gui(1)'\fI\%CMake GUI\fP\X'tty: link', and does not
 have to have a valid \fBgenerator\fP or \fBbinaryDir\fP, even from
 inheritance. \fBhidden\fP presets are intended to be used as a base for
 other presets to inherit via the \fBinherits\fP field.
@@ -358,15 +378,15 @@ or above, this field may be omitted to fall back to regular generator
 discovery procedure.
 .sp
 Note that for Visual Studio generators, unlike in the command line
-\fI\%\-G\fP argument, you cannot include the platform name
+\X'tty: link #cmdoption-cmake-G'\fI\%\-G\fP\X'tty: link' argument, you cannot include the platform name
 in the generator name. Use the \fBarchitecture\fP field instead.
 .TP
 .B \fBarchitecture\fP, \fBtoolset\fP
 Optional fields representing the platform and toolset, respectively, for
-\fI\%generators\fP that support them.
+\X'tty: link #manual:cmake-generators(7)'\fI\%generators\fP\X'tty: link' that support them.
 .sp
-See \fI\%cmake \-A\fP option for possible values for \fBarchitecture\fP
-and \fI\%cmake \-T\fP for \fBtoolset\fP\&.
+See \X'tty: link #cmdoption-cmake-A'\fI\%cmake \-A\fP\X'tty: link' option for possible values for \fBarchitecture\fP
+and \X'tty: link #cmdoption-cmake-T'\fI\%cmake \-T\fP\X'tty: link' for \fBtoolset\fP\&.
 .sp
 Each may be either a string or an object with the following fields:
 .INDENT 7.0
@@ -401,8 +421,18 @@ An optional string representing the path to the toolchain file.
 This field supports \fI\%macro expansion\fP\&. If a relative path is specified,
 it is calculated relative to the build directory, and if not found,
 relative to the source directory. This field takes precedence over any
-\fI\%CMAKE_TOOLCHAIN_FILE\fP value. It is allowed in preset files
+\X'tty: link #variable:CMAKE_TOOLCHAIN_FILE'\fI\%CMAKE_TOOLCHAIN_FILE\fP\X'tty: link' value. It is allowed in preset files
 specifying version \fB3\fP or above.
+.TP
+.B \fBgraphviz\fP
+An optional string representing the path to the graphviz input file,
+that will contain all the library and executable dependencies
+in the project. See the documentation for \X'tty: link #module:CMakeGraphVizOptions'\fI\%CMakeGraphVizOptions\fP\X'tty: link'
+for more details.
+.sp
+This field supports \fI\%macro expansion\fP\&. If a relative path is specified,
+it is calculated relative to the current working directory. It is allowed
+in preset files specifying version \fB10\fP or above.
 .TP
 .B \fBbinaryDir\fP
 An optional string representing the path to the output binary directory.
@@ -452,10 +482,14 @@ An optional map of environment variables. The key is the variable name
 (which may not be an empty string), and the value is either \fBnull\fP or
 a string representing the value of the variable. Each variable is set
 regardless of whether or not a value was given to it by the process\(aqs
-environment. This field supports \fI\%macro expansion\fP, and environment
-variables in this map may reference each other, and may be listed in any
-order, as long as such references do not cause a cycle (for example,
-if \fBENV_1\fP is \fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP\&.)
+environment.
+.sp
+This field supports \fI\%macro expansion\fP, and environment variables in this map
+may reference each other, and may be listed in any order, as long as such
+references do not cause a cycle (for example, if \fBENV_1\fP is
+\fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP).  \fB$penv{NAME}\fP
+allows one to prepend or append values to existing environment variables by
+accessing only values from the parent environment.
 .sp
 Environment variables are inherited through the \fBinherits\fP field, and
 the preset\(aqs environment will be the union of its own \fBenvironment\fP and
@@ -470,30 +504,30 @@ contain the following fields:
 .INDENT 7.0
 .TP
 .B \fBdev\fP
-An optional boolean. Equivalent to passing \fI\%\-Wdev\fP
-or \fI\%\-Wno\-dev\fP on the command line. This may not
+An optional boolean. Equivalent to passing \X'tty: link #cmdoption-cmake-Wdev'\fI\%\-Wdev\fP\X'tty: link'
+or \X'tty: link #cmdoption-cmake-Wno-dev'\fI\%\-Wno\-dev\fP\X'tty: link' on the command line. This may not
 be set to \fBfalse\fP if \fBerrors.dev\fP is set to \fBtrue\fP\&.
 .TP
 .B \fBdeprecated\fP
 An optional boolean. Equivalent to passing
-\fI\%\-Wdeprecated\fP or
-\fI\%\-Wno\-deprecated\fP on the command line.
+\X'tty: link #cmdoption-cmake-Wdeprecated'\fI\%\-Wdeprecated\fP\X'tty: link' or
+\X'tty: link #cmdoption-cmake-Wno-deprecated'\fI\%\-Wno\-deprecated\fP\X'tty: link' on the command line.
 This may not be set to \fBfalse\fP if \fBerrors.deprecated\fP is set to
 \fBtrue\fP\&.
 .TP
 .B \fBuninitialized\fP
 An optional boolean. Setting this to \fBtrue\fP is equivalent to passing
-\fI\%\-\-warn\-uninitialized\fP on the command
+\X'tty: link #cmdoption-cmake-warn-uninitialized'\fI\%\-\-warn\-uninitialized\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBunusedCli\fP
 An optional boolean. Setting this to \fBfalse\fP is equivalent to passing
-\fI\%\-\-no\-warn\-unused\-cli\fP on the command
+\X'tty: link #cmdoption-cmake-no-warn-unused-cli'\fI\%\-\-no\-warn\-unused\-cli\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBsystemVars\fP
 An optional boolean. Setting this to \fBtrue\fP is equivalent to passing
-\fI\%\-\-check\-system\-vars\fP on the command
+\X'tty: link #cmdoption-cmake-check-system-vars'\fI\%\-\-check\-system\-vars\fP\X'tty: link' on the command
 line.
 .UNINDENT
 .TP
@@ -503,14 +537,14 @@ contain the following fields:
 .INDENT 7.0
 .TP
 .B \fBdev\fP
-An optional boolean. Equivalent to passing \fI\%\-Werror=dev\fP
-or \fI\%\-Wno\-error=dev\fP on the command line.
+An optional boolean. Equivalent to passing \X'tty: link #cmdoption-cmake-Werror'\fI\%\-Werror=dev\fP\X'tty: link'
+or \X'tty: link #cmdoption-cmake-Werror'\fI\%\-Wno\-error=dev\fP\X'tty: link' on the command line.
 This may not be set to \fBtrue\fP if \fBwarnings.dev\fP is set to \fBfalse\fP\&.
 .TP
 .B \fBdeprecated\fP
 An optional boolean. Equivalent to passing
-\fI\%\-Werror=deprecated\fP or
-\fI\%\-Wno\-error=deprecated\fP on the command line.
+\X'tty: link #cmdoption-cmake-Werror'\fI\%\-Werror=deprecated\fP\X'tty: link' or
+\X'tty: link #cmdoption-cmake-Werror'\fI\%\-Wno\-error=deprecated\fP\X'tty: link' on the command line.
 This may not be set to \fBtrue\fP if \fBwarnings.deprecated\fP is set to
 \fBfalse\fP\&.
 .UNINDENT
@@ -522,16 +556,16 @@ following fields:
 .TP
 .B \fBoutput\fP
 An optional boolean. Setting this to \fBtrue\fP is equivalent to passing
-\fI\%\-\-debug\-output\fP on the command line.
+\X'tty: link #cmdoption-cmake-debug-output'\fI\%\-\-debug\-output\fP\X'tty: link' on the command line.
 .TP
 .B \fBtryCompile\fP
 An optional boolean. Setting this to \fBtrue\fP is equivalent to passing
-\fI\%\-\-debug\-trycompile\fP on the command
+\X'tty: link #cmdoption-cmake-debug-trycompile'\fI\%\-\-debug\-trycompile\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBfind\fP
 An optional boolean. Setting this to \fBtrue\fP is equivalent to passing
-\fI\%\-\-debug\-find\fP on the command line.
+\X'tty: link #cmdoption-cmake-debug-find'\fI\%\-\-debug\-find\fP\X'tty: link' on the command line.
 .UNINDENT
 .TP
 .B \fBtrace\fP
@@ -545,7 +579,7 @@ An optional string that specifies the trace mode. Valid values are:
 .TP
 .B \fBon\fP
 Causes a trace of all calls made and from where to be printed.
-Equivalent to passing \fI\%\-\-trace\fP on the command
+Equivalent to passing \X'tty: link #cmdoption-cmake-trace'\fI\%\-\-trace\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBoff\fP
@@ -553,7 +587,7 @@ A trace of all calls will not be printed.
 .TP
 .B \fBexpand\fP
 Causes a trace with variables expanded of all calls made and from where
-to be printed. Equivalent to passing \fI\%\-\-trace\-expand\fP
+to be printed. Equivalent to passing \X'tty: link #cmdoption-cmake-trace-expand'\fI\%\-\-trace\-expand\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .TP
@@ -565,12 +599,12 @@ Valid values are:
 .B \fBhuman\fP
 Prints each trace line in a human\-readable format.
 This is the default format.  Equivalent to passing
-\fI\%\-\-trace\-format=human\fP
+\X'tty: link #cmdoption-cmake-trace-format'\fI\%\-\-trace\-format=human\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBjson\-v1\fP
 Prints each line as a separate JSON document.  Equivalent to passing
-\fI\%\-\-trace\-format=json\-v1\fP
+\X'tty: link #cmdoption-cmake-trace-format'\fI\%\-\-trace\-format=json\-v1\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .TP
@@ -578,11 +612,11 @@ on the command line.
 An optional array of strings representing the paths of source files to
 be traced.  This field can also be a string, which is equivalent to an
 array containing one string.  Equivalent to passing
-\fI\%\-\-trace\-source\fP on the command line.
+\X'tty: link #cmdoption-cmake-trace-source'\fI\%\-\-trace\-source\fP\X'tty: link' on the command line.
 .TP
 .B \fBredirect\fP
 An optional string specifying a path to a trace output file.  Equivalent
-to passing \fI\%\-\-trace\-redirect\fP
+to passing \X'tty: link #cmdoption-cmake-trace-redirect'\fI\%\-\-trace\-redirect\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .UNINDENT
@@ -595,7 +629,7 @@ that may contain the following fields:
 .B \fBname\fP
 A required string representing the machine\-friendly name of the preset.
 This identifier is used in the
-\fI\%cmake \-\-build \-\-preset\fP option.
+\X'tty: link #build-tool-mode'\fI\%cmake \-\-build \-\-preset\fP\X'tty: link' option.
 There must not be two build presets in the union of \fBCMakePresets.json\fP
 and \fBCMakeUserPresets.json\fP in the same directory with the same name.
 However, a build preset may have the same name as a configure, test,
@@ -604,7 +638,7 @@ package, or workflow preset.
 .B \fBhidden\fP
 An optional boolean specifying whether or not a preset should be hidden.
 If a preset is hidden, it cannot be used in the
-\fI\%\-\-preset\fP argument
+\X'tty: link #cmdoption-cmake-preset'\fI\%\-\-preset\fP\X'tty: link' argument
 and does not have to have a valid \fBconfigurePreset\fP, even from
 inheritance. \fBhidden\fP presets are intended to be used as a base for
 other presets to inherit via the \fBinherits\fP field.
@@ -649,10 +683,14 @@ An optional map of environment variables. The key is the variable name
 (which may not be an empty string), and the value is either \fBnull\fP or
 a string representing the value of the variable. Each variable is set
 regardless of whether or not a value was given to it by the process\(aqs
-environment. This field supports macro expansion, and environment
-variables in this map may reference each other, and may be listed in any
-order, as long as such references do not cause a cycle (for example, if
-\fBENV_1\fP is \fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP\&.)
+environment.
+.sp
+This field supports \fI\%macro expansion\fP, and environment variables in this map
+may reference each other, and may be listed in any order, as long as such
+references do not cause a cycle (for example, if \fBENV_1\fP is
+\fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP).  \fB$penv{NAME}\fP
+allows one to prepend or append values to existing environment variables by
+accessing only values from the parent environment.
 .sp
 Environment variables are inherited through the \fBinherits\fP field, and
 the preset\(aqs environment will be the union of its own \fBenvironment\fP
@@ -693,21 +731,21 @@ explicitly specified in this build preset.
 .TP
 .B \fBjobs\fP
 An optional integer. Equivalent to passing
-\fI\%\-\-parallel\fP or \fB\-j\fP on the command line.
+\X'tty: link #cmdoption-cmake-build-j'\fI\%\-\-parallel\fP\X'tty: link' or \fB\-j\fP on the command line.
 .TP
 .B \fBtargets\fP
 An optional string or array of strings. Equivalent to passing
-\fI\%\-\-target\fP or \fB\-t\fP on the command line.
+\X'tty: link #cmdoption-cmake-build-t'\fI\%\-\-target\fP\X'tty: link' or \fB\-t\fP on the command line.
 Vendors may ignore the targets property or hide build presets that
 explicitly specify targets. This field supports macro expansion.
 .TP
 .B \fBconfiguration\fP
 An optional string. Equivalent to passing
-\fI\%\-\-config\fP on the command line.
+\X'tty: link #cmdoption-cmake-build-config'\fI\%\-\-config\fP\X'tty: link' on the command line.
 .TP
 .B \fBcleanFirst\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-clean\-first\fP on the command line.
+\X'tty: link #cmdoption-cmake-build-clean-first'\fI\%\-\-clean\-first\fP\X'tty: link' on the command line.
 .TP
 .B \fBresolvePackageReferences\fP
 An optional string that specifies the package resolve mode. This is
@@ -734,14 +772,14 @@ Only resolve package references, but do not perform a build.
 .INDENT 7.0
 .INDENT 3.5
 The command line parameter
-\fI\%\-\-resolve\-package\-references\fP
+\X'tty: link #cmdoption-cmake-build-resolve-package-references'\fI\%\-\-resolve\-package\-references\fP\X'tty: link'
 will take priority over this setting. If the command line parameter is not
 provided and this setting is not specified, an environment\-specific cache
 variable will be evaluated to decide, if package restoration should be
 performed.
 .sp
 When using the Visual Studio generator, package references are defined
-using the \fI\%VS_PACKAGE_REFERENCES\fP property. Package references
+using the \X'tty: link #prop_tgt:VS_PACKAGE_REFERENCES'\fI\%VS_PACKAGE_REFERENCES\fP\X'tty: link' property. Package references
 are restored using NuGet. It can be disabled by setting the
 \fBCMAKE_VS_NUGET_PACKAGE_RESTORE\fP variable to \fBOFF\fP\&. This can also be
 done from within a configure preset.
@@ -750,7 +788,7 @@ done from within a configure preset.
 .TP
 .B \fBverbose\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-verbose\fP on the command line.
+\X'tty: link #cmdoption-cmake-build-v'\fI\%\-\-verbose\fP\X'tty: link' on the command line.
 .TP
 .B \fBnativeToolOptions\fP
 An optional array of strings. Equivalent to passing options after \fB\-\-\fP
@@ -764,7 +802,7 @@ that may contain the following fields:
 .TP
 .B \fBname\fP
 A required string representing the machine\-friendly name of the preset.
-This identifier is used in the \fI\%ctest \-\-preset\fP option.
+This identifier is used in the \X'tty: link #cmdoption-ctest-preset'\fI\%ctest \-\-preset\fP\X'tty: link' option.
 There must not be two test presets in the union of \fBCMakePresets.json\fP
 and \fBCMakeUserPresets.json\fP in the same directory with the same name.
 However, a test preset may have the same name as a configure, build,
@@ -773,7 +811,7 @@ package, or workflow preset.
 .B \fBhidden\fP
 An optional boolean specifying whether or not a preset should be hidden.
 If a preset is hidden, it cannot be used in the
-\fI\%\-\-preset\fP argument
+\X'tty: link #cmdoption-ctest-preset'\fI\%\-\-preset\fP\X'tty: link' argument
 and does not have to have a valid \fBconfigurePreset\fP, even from
 inheritance. \fBhidden\fP presets are intended to be used as a base for
 other presets to inherit via the \fBinherits\fP field.
@@ -818,10 +856,14 @@ An optional map of environment variables. The key is the variable name
 (which may not be an empty string), and the value is either \fBnull\fP or
 a string representing the value of the variable. Each variable is set
 regardless of whether or not a value was given to it by the process\(aqs
-environment. This field supports macro expansion, and environment
-variables in this map may reference each other, and may be listed in any
-order, as long as such references do not cause a cycle (for example, if
-\fBENV_1\fP is \fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP\&.)
+environment.
+.sp
+This field supports \fI\%macro expansion\fP, and environment variables in this map
+may reference each other, and may be listed in any order, as long as such
+references do not cause a cycle (for example, if \fBENV_1\fP is
+\fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP).  \fB$penv{NAME}\fP
+allows one to prepend or append values to existing environment variables by
+accessing only values from the parent environment.
 .sp
 Environment variables are inherited through the \fBinherits\fP field, and
 the preset\(aqs environment will be the union of its own \fBenvironment\fP
@@ -846,12 +888,12 @@ explicitly specified in this test preset.
 .TP
 .B \fBconfiguration\fP
 An optional string. Equivalent to passing
-\fI\%\-\-build\-config\fP on the command line.
+\X'tty: link #cmdoption-ctest-C'\fI\%\-\-build\-config\fP\X'tty: link' on the command line.
 .TP
 .B \fBoverwriteConfigurationFile\fP
 An optional array of configuration options to overwrite options
 specified in the CTest configuration file. Equivalent to passing
-\fI\%\-\-overwrite\fP for each value in the array.
+\X'tty: link #cmdoption-ctest-overwrite'\fI\%\-\-overwrite\fP\X'tty: link' for each value in the array.
 The array values support macro expansion.
 .TP
 .B \fBoutput\fP
@@ -861,7 +903,7 @@ following fields.
 .TP
 .B \fBshortProgress\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-progress\fP on the command line.
+\X'tty: link #cmdoption-ctest-progress'\fI\%\-\-progress\fP\X'tty: link' on the command line.
 .TP
 .B \fBverbosity\fP
 An optional string specifying verbosity level. Must be one of the
@@ -872,70 +914,70 @@ following:
 Equivalent to passing no verbosity flags on the command line.
 .TP
 .B \fBverbose\fP
-Equivalent to passing \fI\%\-\-verbose\fP on
+Equivalent to passing \X'tty: link #cmdoption-ctest-V'\fI\%\-\-verbose\fP\X'tty: link' on
 the command line.
 .TP
 .B \fBextra\fP
-Equivalent to passing \fI\%\-\-extra\-verbose\fP
+Equivalent to passing \X'tty: link #cmdoption-ctest-VV'\fI\%\-\-extra\-verbose\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .TP
 .B \fBdebug\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-debug\fP on the command line.
+\X'tty: link #cmdoption-ctest-debug'\fI\%\-\-debug\fP\X'tty: link' on the command line.
 .TP
 .B \fBoutputOnFailure\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-output\-on\-failure\fP on the command
+\X'tty: link #cmdoption-ctest-output-on-failure'\fI\%\-\-output\-on\-failure\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBquiet\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-quiet\fP on the command line.
+\X'tty: link #cmdoption-ctest-Q'\fI\%\-\-quiet\fP\X'tty: link' on the command line.
 .TP
 .B \fBoutputLogFile\fP
 An optional string specifying a path to a log file. Equivalent to
-passing \fI\%\-\-output\-log\fP on the command line.
+passing \X'tty: link #cmdoption-ctest-O'\fI\%\-\-output\-log\fP\X'tty: link' on the command line.
 This field supports macro expansion.
 .TP
 .B \fBoutputJUnitFile\fP
 An optional string specifying a path to a JUnit file. Equivalent to
-passing \fI\%\-\-output\-junit\fP on the command line.
+passing \X'tty: link #cmdoption-ctest-output-junit'\fI\%\-\-output\-junit\fP\X'tty: link' on the command line.
 This field supports macro expansion. This is allowed in preset files
 specifying version \fB6\fP or above.
 .TP
 .B \fBlabelSummary\fP
 An optional bool. If false, equivalent to passing
-\fI\%\-\-no\-label\-summary\fP on the command
+\X'tty: link #cmdoption-ctest-no-label-summary'\fI\%\-\-no\-label\-summary\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBsubprojectSummary\fP
 An optional bool. If false, equivalent to passing
-\fI\%\-\-no\-subproject\-summary\fP
+\X'tty: link #cmdoption-ctest-no-subproject-summary'\fI\%\-\-no\-subproject\-summary\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBmaxPassedTestOutputSize\fP
 An optional integer specifying the maximum output for passed tests in
 bytes. Equivalent to passing
-\fI\%\-\-test\-output\-size\-passed\fP
+\X'tty: link #cmdoption-ctest-test-output-size-passed'\fI\%\-\-test\-output\-size\-passed\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBmaxFailedTestOutputSize\fP
 An optional integer specifying the maximum output for failed tests in
 bytes. Equivalent to passing
-\fI\%\-\-test\-output\-size\-failed\fP
+\X'tty: link #cmdoption-ctest-test-output-size-failed'\fI\%\-\-test\-output\-size\-failed\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBtestOutputTruncation\fP
 An optional string specifying the test output truncation mode. Equivalent
 to passing
-\fI\%\-\-test\-output\-truncation\fP on
+\X'tty: link #cmdoption-ctest-test-output-truncation'\fI\%\-\-test\-output\-truncation\fP\X'tty: link' on
 the command line. This is allowed in preset files specifying version
 \fB5\fP or above.
 .TP
 .B \fBmaxTestNameWidth\fP
 An optional integer specifying the maximum width of a test name to
-output. Equivalent to passing \fI\%\-\-max\-width\fP
+output. Equivalent to passing \X'tty: link #cmdoption-ctest-max-width'\fI\%\-\-max\-width\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .TP
@@ -951,24 +993,24 @@ contain the following fields.
 .TP
 .B \fBname\fP
 An optional string specifying a regex for test names. Equivalent to
-passing \fI\%\-\-tests\-regex\fP on the command
+passing \X'tty: link #cmdoption-ctest-R'\fI\%\-\-tests\-regex\fP\X'tty: link' on the command
 line. This field supports macro expansion. CMake regex syntax is
-described under \fI\%string(REGEX)\fP\&.
+described under \X'tty: link #regex-specification'\fI\%string(REGEX)\fP\X'tty: link'\&.
 .TP
 .B \fBlabel\fP
 An optional string specifying a regex for test labels. Equivalent to
-passing \fI\%\-\-label\-regex\fP on the command
+passing \X'tty: link #cmdoption-ctest-L'\fI\%\-\-label\-regex\fP\X'tty: link' on the command
 line. This field supports macro expansion.
 .TP
 .B \fBuseUnion\fP
-An optional bool. Equivalent to passing \fI\%\-\-union\fP
+An optional bool. Equivalent to passing \X'tty: link #cmdoption-ctest-U'\fI\%\-\-union\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBindex\fP
 An optional object specifying tests to include by test index. The
 object may contain the following fields. Can also be an optional
 string specifying a file with the command line syntax for
-\fI\%\-\-tests\-information\fP\&.
+\X'tty: link #cmdoption-ctest-I'\fI\%\-\-tests\-information\fP\X'tty: link'\&.
 If specified as a string, this field supports macro expansion.
 .INDENT 7.0
 .TP
@@ -994,12 +1036,12 @@ contain the following fields.
 .TP
 .B \fBname\fP
 An optional string specifying a regex for test names. Equivalent to
-passing \fI\%\-\-exclude\-regex\fP on the
+passing \X'tty: link #cmdoption-ctest-E'\fI\%\-\-exclude\-regex\fP\X'tty: link' on the
 command line. This field supports macro expansion.
 .TP
 .B \fBlabel\fP
 An optional string specifying a regex for test labels. Equivalent to
-passing \fI\%\-\-label\-exclude\fP on the
+passing \X'tty: link #cmdoption-ctest-LE'\fI\%\-\-label\-exclude\fP\X'tty: link' on the
 command line. This field supports macro expansion.
 .TP
 .B \fBfixtures\fP
@@ -1010,19 +1052,19 @@ tests. The object may contain the following fields.
 .B \fBany\fP
 An optional string specifying a regex for text fixtures to exclude
 from adding any tests. Equivalent to
-\fI\%\-\-fixture\-exclude\-any\fP on
+\X'tty: link #cmdoption-ctest-FA'\fI\%\-\-fixture\-exclude\-any\fP\X'tty: link' on
 the command line. This field supports macro expansion.
 .TP
 .B \fBsetup\fP
 An optional string specifying a regex for text fixtures to exclude
 from adding setup tests. Equivalent to
-\fI\%\-\-fixture\-exclude\-setup\fP
+\X'tty: link #cmdoption-ctest-FS'\fI\%\-\-fixture\-exclude\-setup\fP\X'tty: link'
 on the command line. This field supports macro expansion.
 .TP
 .B \fBcleanup\fP
 An optional string specifying a regex for text fixtures to exclude
 from adding cleanup tests. Equivalent to
-\fI\%\-\-fixture\-exclude\-cleanup\fP
+\X'tty: link #cmdoption-ctest-FC'\fI\%\-\-fixture\-exclude\-cleanup\fP\X'tty: link'
 on the command line. This field supports macro expansion.
 .UNINDENT
 .UNINDENT
@@ -1035,29 +1077,29 @@ contain the following fields.
 .TP
 .B \fBstopOnFailure\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-stop\-on\-failure\fP on the command
+\X'tty: link #cmdoption-ctest-stop-on-failure'\fI\%\-\-stop\-on\-failure\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBenableFailover\fP
-An optional bool. If true, equivalent to passing \fI\%\-F\fP
+An optional bool. If true, equivalent to passing \X'tty: link #cmdoption-ctest-F'\fI\%\-F\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBjobs\fP
 An optional integer. Equivalent to passing
-\fI\%\-\-parallel\fP on the command line.
+\X'tty: link #cmdoption-ctest-j'\fI\%\-\-parallel\fP\X'tty: link' on the command line.
 .TP
 .B \fBresourceSpecFile\fP
 An optional string. Equivalent to passing
-\fI\%\-\-resource\-spec\-file\fP on
+\X'tty: link #cmdoption-ctest-resource-spec-file'\fI\%\-\-resource\-spec\-file\fP\X'tty: link' on
 the command line. This field supports macro expansion.
 .TP
 .B \fBtestLoad\fP
 An optional integer. Equivalent to passing
-\fI\%\-\-test\-load\fP on the command line.
+\X'tty: link #cmdoption-ctest-test-load'\fI\%\-\-test\-load\fP\X'tty: link' on the command line.
 .TP
 .B \fBshowOnly\fP
 An optional string. Equivalent to passing
-\fI\%\-\-show\-only\fP on the
+\X'tty: link #cmdoption-ctest-N'\fI\%\-\-show\-only\fP\X'tty: link' on the
 command line. The string must be one of the following values:
 .sp
 \fBhuman\fP
@@ -1066,7 +1108,7 @@ command line. The string must be one of the following values:
 .TP
 .B \fBrepeat\fP
 An optional object specifying how to repeat tests. Equivalent to
-passing \fI\%\-\-repeat\fP on the command line.
+passing \X'tty: link #cmdoption-ctest-repeat'\fI\%\-\-repeat\fP\X'tty: link' on the command line.
 The object must have the following fields.
 .INDENT 7.0
 .TP
@@ -1085,19 +1127,19 @@ A required integer.
 .TP
 .B \fBinteractiveDebugging\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-interactive\-debug\-mode 1\fP
+\X'tty: link #cmdoption-ctest-interactive-debug-mode'\fI\%\-\-interactive\-debug\-mode 1\fP\X'tty: link'
 on the command line. If false, equivalent to passing
-\fI\%\-\-interactive\-debug\-mode 0\fP
+\X'tty: link #cmdoption-ctest-interactive-debug-mode'\fI\%\-\-interactive\-debug\-mode 0\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBscheduleRandom\fP
 An optional bool. If true, equivalent to passing
-\fI\%\-\-schedule\-random\fP on the command
+\X'tty: link #cmdoption-ctest-schedule-random'\fI\%\-\-schedule\-random\fP\X'tty: link' on the command
 line.
 .TP
 .B \fBtimeout\fP
 An optional integer. Equivalent to passing
-\fI\%\-\-timeout\fP on the command line.
+\X'tty: link #cmdoption-ctest-timeout'\fI\%\-\-timeout\fP\X'tty: link' on the command line.
 .TP
 .B \fBnoTestsAction\fP
 An optional string specifying the behavior if no tests are found. Must
@@ -1108,11 +1150,11 @@ be one of the following values:
 Equivalent to not passing any value on the command line.
 .TP
 .B \fBerror\fP
-Equivalent to passing \fI\%\-\-no\-tests=error\fP
+Equivalent to passing \X'tty: link #cmdoption-ctest-no-tests'\fI\%\-\-no\-tests=error\fP\X'tty: link'
 on the command line.
 .TP
 .B \fBignore\fP
-Equivalent to passing \fI\%\-\-no\-tests=ignore\fP
+Equivalent to passing \X'tty: link #cmdoption-ctest-no-tests'\fI\%\-\-no\-tests=ignore\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .UNINDENT
@@ -1126,7 +1168,7 @@ fields:
 .TP
 .B \fBname\fP
 A required string representing the machine\-friendly name of the preset.
-This identifier is used in the \fI\%cpack \-\-preset\fP option.
+This identifier is used in the \X'tty: link #cmdoption-cpack-preset'\fI\%cpack \-\-preset\fP\X'tty: link' option.
 There must not be two package presets in the union of \fBCMakePresets.json\fP
 and \fBCMakeUserPresets.json\fP in the same directory with the same name.
 However, a package preset may have the same name as a configure, build,
@@ -1135,7 +1177,7 @@ test, or workflow preset.
 .B \fBhidden\fP
 An optional boolean specifying whether or not a preset should be hidden.
 If a preset is hidden, it cannot be used in the
-\fI\%\-\-preset\fP argument
+\X'tty: link #cmdoption-cpack-preset'\fI\%\-\-preset\fP\X'tty: link' argument
 and does not have to have a valid \fBconfigurePreset\fP, even from
 inheritance. \fBhidden\fP presets are intended to be used as a base for
 other presets to inherit via the \fBinherits\fP field.
@@ -1179,10 +1221,14 @@ An optional map of environment variables. The key is the variable name
 (which may not be an empty string), and the value is either \fBnull\fP or
 a string representing the value of the variable. Each variable is set
 regardless of whether or not a value was given to it by the process\(aqs
-environment. This field supports macro expansion, and environment
-variables in this map may reference each other, and may be listed in any
-order, as long as such references do not cause a cycle (for example, if
-\fBENV_1\fP is \fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP\&.)
+environment.
+.sp
+This field supports \fI\%macro expansion\fP, and environment variables in this map
+may reference each other, and may be listed in any order, as long as such
+references do not cause a cycle (for example, if \fBENV_1\fP is
+\fB$env{ENV_2}\fP, \fBENV_2\fP may not be \fB$env{ENV_1}\fP).  \fB$penv{NAME}\fP
+allows one to prepend or append values to existing environment variables by
+accessing only values from the parent environment.
 .sp
 Environment variables are inherited through the \fBinherits\fP field, and
 the preset\(aqs environment will be the union of its own \fBenvironment\fP
@@ -1214,7 +1260,7 @@ package.
 .TP
 .B \fBvariables\fP
 An optional map of variables to pass to CPack, equivalent to
-\fI\%\-D\fP arguments. Each key is the name of a variable, and
+\X'tty: link #cmdoption-cpack-D'\fI\%\-D\fP\X'tty: link' arguments. Each key is the name of a variable, and
 the value is the string to assign to that variable.
 .TP
 .B \fBconfigFile\fP
@@ -1227,11 +1273,11 @@ An optional object specifying output options. Valid keys are:
 .B \fBdebug\fP
 An optional boolean specifying whether or not to print debug information.
 A value of \fBtrue\fP is equivalent to passing
-\fI\%\-\-debug\fP on the command line.
+\X'tty: link #cmdoption-cpack-debug'\fI\%\-\-debug\fP\X'tty: link' on the command line.
 .TP
 .B \fBverbose\fP
 An optional boolean specifying whether or not to print verbosely. A value
-of \fBtrue\fP is equivalent to passing \fI\%\-\-verbose\fP
+of \fBtrue\fP is equivalent to passing \X'tty: link #cmdoption-cpack-V'\fI\%\-\-verbose\fP\X'tty: link'
 on the command line.
 .UNINDENT
 .TP
@@ -1257,7 +1303,7 @@ fields:
 .B \fBname\fP
 A required string representing the machine\-friendly name of the preset.
 This identifier is used in the
-\fI\%cmake \-\-workflow \-\-preset\fP option. There must not be
+\X'tty: link #workflow-mode'\fI\%cmake \-\-workflow \-\-preset\fP\X'tty: link' option. There must not be
 two workflow presets in the union of \fBCMakePresets.json\fP and
 \fBCMakeUserPresets.json\fP in the same directory with the same name. However,
 a workflow preset may have the same name as a configure, build, test, or
@@ -1418,7 +1464,7 @@ Recognized macros include:
 .TP
 .B \fB${sourceDir}\fP
 Path to the project source directory (i.e. the same as
-\fI\%CMAKE_SOURCE_DIR\fP).
+\X'tty: link #variable:CMAKE_SOURCE_DIR'\fI\%CMAKE_SOURCE_DIR\fP\X'tty: link').
 .TP
 .B \fB${sourceParentDir}\fP
 Path to the project source directory\(aqs parent directory.
@@ -1429,15 +1475,19 @@ The last filename component of \fB${sourceDir}\fP\&. For example, if
 .TP
 .B \fB${presetName}\fP
 Name specified in the preset\(aqs \fBname\fP field.
+.sp
+This is a preset\-specific macro.
 .TP
 .B \fB${generator}\fP
 Generator specified in the preset\(aqs \fBgenerator\fP field. For build and
 test presets, this will evaluate to the generator specified by
 \fBconfigurePreset\fP\&.
+.sp
+This is a preset\-specific macro.
 .TP
 .B \fB${hostSystemName}\fP
 The name of the host operating system. Contains the same value as
-\fI\%CMAKE_HOST_SYSTEM_NAME\fP\&. This is allowed in preset files
+\X'tty: link #variable:CMAKE_HOST_SYSTEM_NAME'\fI\%CMAKE_HOST_SYSTEM_NAME\fP\X'tty: link'\&. This is allowed in preset files
 specifying version \fB3\fP or above.
 .TP
 .B \fB${fileDir}\fP
@@ -1472,7 +1522,7 @@ the casing of environment variable names consistent.
 .B \fB$penv{<variable\-name>}\fP
 Similar to \fB$env{<variable\-name>}\fP, except that the value only comes from
 the parent environment, and never from the \fBenvironment\fP field. This
-allows you to prepend or append values to existing environment variables.
+allows one to prepend or append values to existing environment variables.
 For example, setting \fBPATH\fP to \fB/path/to/ninja/bin:$penv{PATH}\fP will
 prepend \fB/path/to/ninja/bin\fP to the \fBPATH\fP environment variable. This
 is needed because \fB$env{<variable\-name>}\fP does not allow circular
@@ -1495,6 +1545,6 @@ example, the Example IDE could have \fB$vendor{xide.ideInstallDir}\fP\&.
 \fBThis file\fP provides a machine\-readable
 JSON schema for the \fBCMakePresets.json\fP format.
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

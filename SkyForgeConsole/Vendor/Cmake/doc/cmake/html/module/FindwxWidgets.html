@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindwxWidgets &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindwxWidgets &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="findwxwidgets">
-<span id="module:FindwxWidgets"></span><h1>FindwxWidgets<a class="headerlink" href="#findwxwidgets" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindwxWidgets"></span><h1>FindwxWidgets<a class="headerlink" href="#findwxwidgets" title="Link to this heading">¶</a></h1>
 <p>Find a wxWidgets (a.k.a., wxWindows) installation.</p>
 <p>This module finds if wxWidgets is installed and selects a default
 configuration to use.  wxWidgets is a modular library.  To specify the
@@ -66,10 +65,10 @@ modules that you will use, you need to name them as components to the
 package:</p>
 <p>find_package(wxWidgets COMPONENTS core base ... OPTIONAL_COMPONENTS net ...)</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4: </span>Support for <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> version argument; <code class="docutils literal notranslate"><span class="pre">webview</span></code> component.</p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Support for <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> version argument; <code class="docutils literal notranslate"><span class="pre">webview</span></code> component.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.14: </span><code class="docutils literal notranslate"><span class="pre">OPTIONAL_COMPONENTS</span></code> support.</p>
+<p><span class="versionmodified added">Added in version 3.14: </span><code class="docutils literal notranslate"><span class="pre">OPTIONAL_COMPONENTS</span></code> support.</p>
 </div>
 <p>There are two search branches: a windows style and a unix style.  For
 windows, the following variables are searched for and set to defaults
@@ -85,7 +84,7 @@ wxWidgets_CONFIGURATION - Configuration to use
 wxWidgets_EXCLUDE_COMMON_LIBRARIES
                         - Set to TRUE to exclude linking of
                           commonly required libs (e.g., png tiff
-                          jpeg zlib regex expat).
+                          jpeg zlib regex expat scintilla lexilla).
 </pre></div>
 </div>
 <p>For unix style it uses the wx-config utility.  You can select between
@@ -126,7 +125,7 @@ wxWidgets_USE_FILE         - Convenience include file.
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.11: </span>The following environment variables can be used as hints: <code class="docutils literal notranslate"><span class="pre">WX_CONFIG</span></code>,
+<p><span class="versionmodified added">Added in version 3.11: </span>The following environment variables can be used as hints: <code class="docutils literal notranslate"><span class="pre">WX_CONFIG</span></code>,
 <code class="docutils literal notranslate"><span class="pre">WXRC_CMD</span></code>.</p>
 </div>
 <p>Sample usage:</p>
@@ -147,9 +146,9 @@ target_link_libraries(&lt;YourTarget&gt; ${wxWidgets_LIBRARIES})
 </pre></div>
 </div>
 <section id="imported-targets">
-<h2>Imported targets<a class="headerlink" href="#imported-targets" title="Permalink to this heading">¶</a></h2>
+<h2>Imported targets<a class="headerlink" href="#imported-targets" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.27.</span></p>
+<p><span class="versionmodified added">Added in version 3.27.</span></p>
 </div>
 <p>This module defines the following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets:</p>
 <dl class="simple">
@@ -193,7 +192,7 @@ target_link_libraries(&lt;YourTarget&gt; ${wxWidgets_LIBRARIES})
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -201,7 +200,7 @@ target_link_libraries(&lt;YourTarget&gt; ${wxWidgets_LIBRARIES})
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -227,7 +226,7 @@ target_link_libraries(&lt;YourTarget&gt; ${wxWidgets_LIBRARIES})
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -236,8 +235,8 @@ target_link_libraries(&lt;YourTarget&gt; ${wxWidgets_LIBRARIES})
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

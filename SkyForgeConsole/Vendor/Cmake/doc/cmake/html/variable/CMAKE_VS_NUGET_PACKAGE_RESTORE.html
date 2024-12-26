@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMAKE_VS_NUGET_PACKAGE_RESTORE &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMAKE_VS_NUGET_PACKAGE_RESTORE &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" accesskey="U">cmake-variables(7)</a> &#187;</li>
@@ -58,18 +57,19 @@
           <div class="body" role="main">
             
   <section id="cmake-vs-nuget-package-restore">
-<span id="variable:CMAKE_VS_NUGET_PACKAGE_RESTORE"></span><h1>CMAKE_VS_NUGET_PACKAGE_RESTORE<a class="headerlink" href="#cmake-vs-nuget-package-restore" title="Permalink to this heading">¶</a></h1>
+<span id="variable:CMAKE_VS_NUGET_PACKAGE_RESTORE"></span><h1>CMAKE_VS_NUGET_PACKAGE_RESTORE<a class="headerlink" href="#cmake-vs-nuget-package-restore" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23.</span></p>
+<p><span class="versionmodified added">Added in version 3.23.</span></p>
 </div>
 <p>When using a Visual Studio generator, this cache variable controls
 if msbuild should automatically attempt to restore NuGet packages
 prior to a build. NuGet packages can be defined using the
 <span class="target" id="index-0-prop_tgt:VS_PACKAGE_REFERENCES"></span><a class="reference internal" href="../prop_tgt/VS_PACKAGE_REFERENCES.html#prop_tgt:VS_PACKAGE_REFERENCES" title="VS_PACKAGE_REFERENCES"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">VS_PACKAGE_REFERENCES</span></code></a> property on a target. If no
 package references are defined, this setting will do nothing.</p>
-<p>The command line option <code class="docutils literal notranslate"><span class="pre">--resolve-package-references</span></code> can be used
-alternatively to control the resolve behavior globally. This option
-will take precedence over the cache variable.</p>
+<p>The command line option
+<a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-build-resolve-package-references"><code class="xref std std-option docutils literal notranslate"><span class="pre">--resolve-package-references</span></code></a>
+can be used alternatively to control the resolve behavior globally.
+This option will take precedence over the cache variable.</p>
 <p>Targets that use the <span class="target" id="index-0-prop_tgt:DOTNET_SDK"></span><a class="reference internal" href="../prop_tgt/DOTNET_SDK.html#prop_tgt:DOTNET_SDK" title="DOTNET_SDK"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">DOTNET_SDK</span></code></a> are required to run a
 restore before building. Disabling this option may cause the build
 to fail in such projects.</p>
@@ -101,7 +101,7 @@ to fail in such projects.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -109,7 +109,7 @@ to fail in such projects.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -135,7 +135,7 @@ to fail in such projects.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-variables.7.html" >cmake-variables(7)</a> &#187;</li>
@@ -144,8 +144,8 @@ to fail in such projects.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

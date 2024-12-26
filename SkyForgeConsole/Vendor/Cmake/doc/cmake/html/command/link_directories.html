@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>link_directories &mdash; CMake 3.28.1 Documentation</title>
+  <title>link_directories &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="link-directories">
-<span id="command:link_directories"></span><h1>link_directories<a class="headerlink" href="#link-directories" title="Permalink to this heading">¶</a></h1>
+<span id="command:link_directories"></span><h1>link_directories<a class="headerlink" href="#link-directories" title="Link to this heading">¶</a></h1>
 <p>Add directories in which the linker will look for libraries.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">link_directories(</span><span class="p">[</span><span class="no">AFTER</span><span class="p">|</span><span class="no">BEFORE</span><span class="p">]</span><span class="w"> </span><span class="nb">directory1</span><span class="w"> </span><span class="p">[</span><span class="nb">directory2</span><span class="w"> </span><span class="p">...]</span><span class="nf">)</span>
 </pre></div>
@@ -68,20 +67,20 @@ Relative paths given to this command are interpreted as relative to
 the current source directory, see <span class="target" id="index-0-policy:CMP0015"></span><a class="reference internal" href="../policy/CMP0015.html#policy:CMP0015" title="CMP0015"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0015</span></code></a>.</p>
 <p>The command will apply only to targets created after it is called.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span>The directories are added to the <span class="target" id="index-0-prop_dir:LINK_DIRECTORIES"></span><a class="reference internal" href="../prop_dir/LINK_DIRECTORIES.html#prop_dir:LINK_DIRECTORIES" title="LINK_DIRECTORIES"><code class="xref cmake cmake-prop_dir docutils literal notranslate"><span class="pre">LINK_DIRECTORIES</span></code></a> directory
+<p><span class="versionmodified added">Added in version 3.13: </span>The directories are added to the <span class="target" id="index-0-prop_dir:LINK_DIRECTORIES"></span><a class="reference internal" href="../prop_dir/LINK_DIRECTORIES.html#prop_dir:LINK_DIRECTORIES" title="LINK_DIRECTORIES"><code class="xref cmake cmake-prop_dir docutils literal notranslate"><span class="pre">LINK_DIRECTORIES</span></code></a> directory
 property for the current <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file, converting relative
 paths to absolute as needed.  See the <span class="target" id="index-0-manual:cmake-buildsystem(7)"></span><a class="reference internal" href="../manual/cmake-buildsystem.7.html#manual:cmake-buildsystem(7)" title="cmake-buildsystem(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-buildsystem(7)</span></code></a>
 manual for more on defining buildsystem properties.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span>By default the directories specified are appended onto the current list of
+<p><span class="versionmodified added">Added in version 3.13: </span>By default the directories specified are appended onto the current list of
 directories.  This default behavior can be changed by setting
 <span class="target" id="index-0-variable:CMAKE_LINK_DIRECTORIES_BEFORE"></span><a class="reference internal" href="../variable/CMAKE_LINK_DIRECTORIES_BEFORE.html#variable:CMAKE_LINK_DIRECTORIES_BEFORE" title="CMAKE_LINK_DIRECTORIES_BEFORE"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_LINK_DIRECTORIES_BEFORE</span></code></a> to <code class="docutils literal notranslate"><span class="pre">ON</span></code>.  By using
 <code class="docutils literal notranslate"><span class="pre">AFTER</span></code> or <code class="docutils literal notranslate"><span class="pre">BEFORE</span></code> explicitly, you can select between appending and
 prepending, independent of the default.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span>Arguments to <code class="docutils literal notranslate"><span class="pre">link_directories</span></code> may use &quot;generator expressions&quot; with
+<p><span class="versionmodified added">Added in version 3.13: </span>Arguments to <code class="docutils literal notranslate"><span class="pre">link_directories</span></code> may use &quot;generator expressions&quot; with
 the syntax &quot;$&lt;...&gt;&quot;.  See the <span class="target" id="index-0-manual:cmake-generator-expressions(7)"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)" title="cmake-generator-expressions(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-generator-expressions(7)</span></code></a>
 manual for available expressions.</p>
 </div>
@@ -109,7 +108,7 @@ rather than <code class="docutils literal notranslate"><span class="pre">link_di
 control how the search directories propagate to other dependent targets.</p>
 </div>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="target" id="index-1-command:target_link_directories"></span><a class="reference internal" href="target_link_directories.html#command:target_link_directories" title="target_link_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_directories()</span></code></a></p></li>
 <li><p><span class="target" id="index-1-command:target_link_libraries"></span><a class="reference internal" href="target_link_libraries.html#command:target_link_libraries" title="target_link_libraries"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_libraries()</span></code></a></p></li>
@@ -151,7 +150,7 @@ control how the search directories propagate to other dependent targets.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -159,7 +158,7 @@ control how the search directories propagate to other dependent targets.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -185,7 +184,7 @@ control how the search directories propagate to other dependent targets.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -194,8 +193,8 @@ control how the search directories propagate to other dependent targets.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

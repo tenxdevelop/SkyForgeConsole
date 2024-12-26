@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE" "1" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE" "1" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake \- CMake Command-Line Reference
 .SH SYNOPSIS
@@ -59,7 +59,7 @@ cmake \- CMake Command-Line Reference
  cmake \-\-find\-package [<options>]
 
 \fI\%Run a Workflow Preset\fP
- cmake \-\-workflow [<options>]
+ cmake \-\-workflow <options>
 
 \fI\%View Help\fP
  cmake \-\-help[\-<topic>]
@@ -79,13 +79,13 @@ run the corresponding build tool (e.g. \fBmake\fP) directly.  \fBcmake\fP can al
 be used to \fI\%View Help\fP\&.
 .sp
 The other actions are meant for use by software developers writing
-scripts in the \fI\%CMake language\fP to support
+scripts in the \X'tty: link #manual:cmake-language(7)'\fI\%CMake language\fP\X'tty: link' to support
 their builds.
 .sp
 For graphical user interfaces that may be used in place of \fBcmake\fP,
-see \fI\%ccmake\fP and \fI\%cmake\-gui\fP\&.
+see \X'tty: link #manual:ccmake(1)'\fI\%ccmake\fP\X'tty: link' and \X'tty: link #manual:cmake-gui(1)'\fI\%cmake\-gui\fP\X'tty: link'\&.
 For command\-line interfaces to the CMake testing and packaging facilities,
-see \fI\%ctest\fP and \fI\%cpack\fP\&.
+see \X'tty: link #manual:ctest(1)'\fI\%ctest\fP\X'tty: link' and \X'tty: link #manual:cpack(1)'\fI\%cpack\fP\X'tty: link'\&.
 .sp
 For more information on CMake at large, \fI\%see also\fP the links at the end
 of this manual.
@@ -97,7 +97,7 @@ example, a buildsystem may be a \fBMakefile\fP for use with a command\-line
 \fBmake\fP tool or a project file for an Integrated Development Environment
 (IDE).  In order to avoid maintaining multiple such buildsystems, a project
 may specify its buildsystem abstractly using files written in the
-\fI\%CMake language\fP\&.  From these files CMake
+\X'tty: link #manual:cmake-language(7)'\fI\%CMake language\fP\X'tty: link'\&.  From these files CMake
 generates a preferred buildsystem locally for each user through a backend
 called a \fIgenerator\fP\&.
 .sp
@@ -107,9 +107,9 @@ To generate a buildsystem with CMake, the following must be selected:
 .B Source Tree
 The top\-level directory containing source files provided by the project.
 The project specifies its buildsystem using files as described in the
-\fI\%cmake\-language(7)\fP manual, starting with a top\-level file named
+\X'tty: link #manual:cmake-language(7)'\fI\%cmake\-language(7)\fP\X'tty: link' manual, starting with a top\-level file named
 \fBCMakeLists.txt\fP\&.  These files specify build targets and their
-dependencies as described in the \fI\%cmake\-buildsystem(7)\fP manual.
+dependencies as described in the \X'tty: link #manual:cmake-buildsystem(7)'\fI\%cmake\-buildsystem(7)\fP\X'tty: link' manual.
 .TP
 .B Build Tree
 The top\-level directory in which buildsystem files and build output
@@ -125,16 +125,16 @@ tree is also supported, but discouraged.
 .TP
 .B Generator
 This chooses the kind of buildsystem to generate.  See the
-\fI\%cmake\-generators(7)\fP manual for documentation of all generators.
+\X'tty: link #manual:cmake-generators(7)'\fI\%cmake\-generators(7)\fP\X'tty: link' manual for documentation of all generators.
 Run \fI\%cmake \-\-help\fP to see a list of generators available locally.
 Optionally use the \fI\%\-G\fP option below to specify a
 generator, or simply accept the default CMake chooses for the current
 platform.
 .sp
-When using one of the \fI\%Command\-Line Build Tool Generators\fP
+When using one of the \X'tty: link #command-line-build-tool-generators'\fI\%Command\-Line Build Tool Generators\fP\X'tty: link'
 CMake expects that the environment needed by the compiler toolchain
 is already configured in the shell.  When using one of the
-\fI\%IDE Build Tool Generators\fP, no particular environment is needed.
+\X'tty: link #ide-build-tool-generators'\fI\%IDE Build Tool Generators\fP\X'tty: link', no particular environment is needed.
 .UNINDENT
 .SH GENERATE A PROJECT BUILDSYSTEM
 .sp
@@ -144,7 +144,7 @@ source and build trees and generate a buildsystem:
 \fBcmake [<options>] \-B <path\-to\-build> [\-S <path\-to\-source>]\fP
 .INDENT 0.0
 .INDENT 3.5
-New in version 3.13.
+Added in version 3.13.
 
 .sp
 Uses \fB<path\-to\-build>\fP as the build tree and \fB<path\-to\-source>\fP
@@ -298,7 +298,7 @@ Avoid passing multiple source path arguments.
 .sp
 After generating a buildsystem one may use the corresponding native
 build tool to build the project.  For example, after using the
-\fI\%Unix Makefiles\fP generator one may run \fBmake\fP directly:
+\X'tty: link #generator:Unix Makefiles'\fI\%Unix Makefiles\fP\X'tty: link' generator one may run \fBmake\fP directly:
 .INDENT 0.0
 .INDENT 3.5
 .INDENT 0.0
@@ -341,10 +341,10 @@ the project.  This option may be used to specify a file from which
 to load cache entries before the first pass through the project\(aqs
 CMake listfiles.  The loaded entries take priority over the
 project\(aqs default values.  The given file should be a CMake script
-containing \fI\%set()\fP commands that use the \fBCACHE\fP option, not a
+containing \X'tty: link #command:set'\fI\%set()\fP\X'tty: link' commands that use the \fBCACHE\fP option, not a
 cache\-format file.
 .sp
-References to \fI\%CMAKE_SOURCE_DIR\fP and \fI\%CMAKE_BINARY_DIR\fP
+References to \X'tty: link #variable:CMAKE_SOURCE_DIR'\fI\%CMAKE_SOURCE_DIR\fP\X'tty: link' and \X'tty: link #variable:CMAKE_BINARY_DIR'\fI\%CMAKE_BINARY_DIR\fP\X'tty: link'
 within the script evaluate to the top\-level source and build tree.
 .UNINDENT
 .INDENT 0.0
@@ -359,7 +359,7 @@ takes priority over the project\(aqs default value.  The option may be
 repeated for as many \fBCACHE\fP entries as desired.
 .sp
 If the \fB:<type>\fP portion is given it must be one of the types
-specified by the \fI\%set()\fP command documentation for its
+specified by the \X'tty: link #command:set'\fI\%set()\fP\X'tty: link' command documentation for its
 \fBCACHE\fP signature.
 If the \fB:<type>\fP portion is omitted the entry will be created
 with no type if it does not exist with a type already.  If a
@@ -414,9 +414,9 @@ Specify a build system generator.
 CMake may support multiple native build systems on certain
 platforms.  A generator is responsible for generating a particular
 build system.  Possible generator names are specified in the
-\fI\%cmake\-generators(7)\fP manual.
+\X'tty: link #manual:cmake-generators(7)'\fI\%cmake\-generators(7)\fP\X'tty: link' manual.
 .sp
-If not specified, CMake checks the \fI\%CMAKE_GENERATOR\fP environment
+If not specified, CMake checks the \X'tty: link #envvar:CMAKE_GENERATOR'\fI\%CMAKE_GENERATOR\fP\X'tty: link' environment
 variable and otherwise falls back to a builtin default selection.
 .UNINDENT
 .INDENT 0.0
@@ -426,7 +426,7 @@ Toolset specification for the generator, if supported.
 .sp
 Some CMake generators support a toolset specification to tell
 the native build system how to choose a compiler.  See the
-\fI\%CMAKE_GENERATOR_TOOLSET\fP variable for details.
+\X'tty: link #variable:CMAKE_GENERATOR_TOOLSET'\fI\%CMAKE_GENERATOR_TOOLSET\fP\X'tty: link' variable for details.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -435,25 +435,27 @@ Specify platform name if supported by generator.
 .sp
 Some CMake generators support a platform name to be given to the
 native build system to choose a compiler or SDK.  See the
-\fI\%CMAKE_GENERATOR_PLATFORM\fP variable for details.
+\X'tty: link #variable:CMAKE_GENERATOR_PLATFORM'\fI\%CMAKE_GENERATOR_PLATFORM\fP\X'tty: link' variable for details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-toolchain <path\-to\-file>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 Specify the cross compiling toolchain file, equivalent to setting
-\fI\%CMAKE_TOOLCHAIN_FILE\fP variable.
+\X'tty: link #variable:CMAKE_TOOLCHAIN_FILE'\fI\%CMAKE_TOOLCHAIN_FILE\fP\X'tty: link' variable. Relative paths are interpreted as
+relative to the build directory, and if not found, relative to the source
+directory.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-install\-prefix <directory>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 Specify the installation directory, used by the
-\fI\%CMAKE_INSTALL_PREFIX\fP variable. Must be an absolute path.
+\X'tty: link #variable:CMAKE_INSTALL_PREFIX'\fI\%CMAKE_INSTALL_PREFIX\fP\X'tty: link' variable. Must be an absolute path.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -525,12 +527,18 @@ for the author of the \fBCMakeLists.txt\fP files, not errors.
 .INDENT 0.0
 .TP
 .B \-\-fresh
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Perform a fresh configuration of the build tree.
 This removes any existing \fBCMakeCache.txt\fP file and associated
 \fBCMakeFiles/\fP directory, and recreates them from scratch.
+.sp
+Changed in version 3.30: For dependencies previously populated by \X'tty: link #module:FetchContent'\fI\%FetchContent\fP\X'tty: link' with the
+\fBNEW\fP setting for policy \X'tty: link #policy:CMP0168'\fI\%CMP0168\fP\X'tty: link', their stamp and script files
+from any previous run will be removed. The download, update, and patch
+steps will therefore be forced to re\-execute.
+
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -538,11 +546,24 @@ This removes any existing \fBCMakeCache.txt\fP file and associated
 List non\-advanced cached variables.
 .sp
 List \fBCACHE\fP variables will run CMake and list all the variables from
-the CMake \fBCACHE\fP that are not marked as \fBINTERNAL\fP or \fI\%ADVANCED\fP\&.
+the CMake \fBCACHE\fP that are not marked as \fBINTERNAL\fP or \X'tty: link #prop_cache:ADVANCED'\fI\%ADVANCED\fP\X'tty: link'\&.
 This will effectively display current CMake settings, which can then be
 changed with \fI\%\-D\fP option.  Changing some of the variables
 may result in more variables being created.  If \fBA\fP is specified, then it
 will display also advanced variables.  If \fBH\fP is specified, it will also
+display help for each variable.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-LR[A][H] <regex>
+Added in version 3.31.
+
+.sp
+Show specific non\-advanced cached variables
+.sp
+Show non\-\fBINTERNAL\fP nor \X'tty: link #prop_cache:ADVANCED'\fI\%ADVANCED\fP\X'tty: link' variables from the CMake
+\fBCACHE\fP that match the given regex. If \fBA\fP is specified, then it
+will also show advanced variables.  If \fBH\fP is specified, it will also
 display help for each variable.
 .UNINDENT
 .INDENT 0.0
@@ -556,11 +577,11 @@ steps.
 .INDENT 0.0
 .TP
 .B \-\-graphviz=<file>
-Generate graphviz of dependencies, see \fI\%CMakeGraphVizOptions\fP for more.
+Generate graphviz of dependencies, see \X'tty: link #module:CMakeGraphVizOptions'\fI\%CMakeGraphVizOptions\fP\X'tty: link' for more.
 .sp
 Generate a graphviz input file that will contain all the library and
 executable dependencies in the project.  See the documentation for
-\fI\%CMakeGraphVizOptions\fP for more details.
+\X'tty: link #module:CMakeGraphVizOptions'\fI\%CMakeGraphVizOptions\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -573,55 +594,68 @@ additional information such as the cache, log files etc.
 .UNINDENT
 .INDENT 0.0
 .TP
+.B \-\-print\-config\-dir
+Added in version 3.31.
+
+.sp
+Print CMake config directory for user\-wide FileAPI queries.
+.sp
+See \X'tty: link #envvar:CMAKE_CONFIG_DIR'\fI\%CMAKE_CONFIG_DIR\fP\X'tty: link' for more details.
+.UNINDENT
+.INDENT 0.0
+.TP
 .B \-\-log\-level=<level>
+Added in version 3.16.
+
+.sp
 Set the log \fB<level>\fP\&.
 .sp
-The \fI\%message()\fP command will only output messages of the specified
+The \X'tty: link #command:message'\fI\%message()\fP\X'tty: link' command will only output messages of the specified
 log level or higher.  The valid log levels are \fBERROR\fP, \fBWARNING\fP,
 \fBNOTICE\fP, \fBSTATUS\fP (default), \fBVERBOSE\fP, \fBDEBUG\fP, or \fBTRACE\fP\&.
 .sp
 To make a log level persist between CMake runs, set
-\fI\%CMAKE_MESSAGE_LOG_LEVEL\fP as a cache variable instead.
+\X'tty: link #variable:CMAKE_MESSAGE_LOG_LEVEL'\fI\%CMAKE_MESSAGE_LOG_LEVEL\fP\X'tty: link' as a cache variable instead.
 If both the command line option and the variable are given, the command line
 option takes precedence.
 .sp
 For backward compatibility reasons, \fB\-\-loglevel\fP is also accepted as a
 synonym for this option.
 .sp
-New in version 3.25: See the \fI\%cmake_language()\fP command for a way to
-\fI\%query the current message logging level\fP\&.
+Added in version 3.25: See the \X'tty: link #command:cmake_language'\fI\%cmake_language()\fP\X'tty: link' command for a way to
+\X'tty: link #query-message-log-level'\fI\%query the current message logging level\fP\X'tty: link'\&.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-log\-context
-Enable the \fI\%message()\fP command outputting context attached to each
+Enable the \X'tty: link #command:message'\fI\%message()\fP\X'tty: link' command outputting context attached to each
 message.
 .sp
 This option turns on showing context for the current CMake run only.
 To make showing the context persistent for all subsequent CMake runs, set
-\fI\%CMAKE_MESSAGE_CONTEXT_SHOW\fP as a cache variable instead.
-When this command line option is given, \fI\%CMAKE_MESSAGE_CONTEXT_SHOW\fP
+\X'tty: link #variable:CMAKE_MESSAGE_CONTEXT_SHOW'\fI\%CMAKE_MESSAGE_CONTEXT_SHOW\fP\X'tty: link' as a cache variable instead.
+When this command line option is given, \X'tty: link #variable:CMAKE_MESSAGE_CONTEXT_SHOW'\fI\%CMAKE_MESSAGE_CONTEXT_SHOW\fP\X'tty: link'
 is ignored.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-debug\-trycompile
 Do not delete the files and directories created for
-\fI\%try_compile()\fP / \fI\%try_run()\fP calls.
+\X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link' / \X'tty: link #command:try_run'\fI\%try_run()\fP\X'tty: link' calls.
 This is useful in debugging failed checks.
 .sp
-Note that some uses of \fI\%try_compile()\fP may use the same build tree,
+Note that some uses of \X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link' may use the same build tree,
 which will limit the usefulness of this option if a project executes more
-than one \fI\%try_compile()\fP\&.  For example, such uses may change results
+than one \X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link'\&.  For example, such uses may change results
 as artifacts from a previous try\-compile may cause a different test to either
 pass or fail incorrectly.  This option is best used only when debugging.
 .sp
-(With respect to the preceding, the \fI\%try_run()\fP command
-is effectively a \fI\%try_compile()\fP\&.  Any combination of the two
+(With respect to the preceding, the \X'tty: link #command:try_run'\fI\%try_run()\fP\X'tty: link' command
+is effectively a \X'tty: link #command:try_compile'\fI\%try_compile()\fP\X'tty: link'\&.  Any combination of the two
 is subject to the potential issues described.)
 .sp
-New in version 3.25: When this option is enabled, every try\-compile check prints a log
+Added in version 3.25: When this option is enabled, every try\-compile check prints a log
 message reporting the directory in which the check is performed.
 
 .UNINDENT
@@ -631,29 +665,29 @@ message reporting the directory in which the check is performed.
 Put cmake in a debug mode.
 .sp
 Print extra information during the cmake run like stack traces with
-\fI\%message(SEND_ERROR)\fP calls.
+\X'tty: link #command:message'\fI\%message(SEND_ERROR)\fP\X'tty: link' calls.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-debug\-find
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Put cmake find commands in a debug mode.
 .sp
 Print extra find call information during the cmake run to standard
 error. Output is designed for human consumption and not for parsing.
-See also the \fI\%CMAKE_FIND_DEBUG_MODE\fP variable for debugging
+See also the \X'tty: link #variable:CMAKE_FIND_DEBUG_MODE'\fI\%CMAKE_FIND_DEBUG_MODE\fP\X'tty: link' variable for debugging
 a more local part of the project.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-debug\-find\-pkg=<pkg>[,...]
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Put cmake find commands in a debug mode when running under calls
-to \fI\%find_package(<pkg>)\fP, where \fB<pkg>\fP
+to \X'tty: link #command:find_package'\fI\%find_package(<pkg>)\fP\X'tty: link', where \fB<pkg>\fP
 is an entry in the given comma\-separated list of case\-sensitive package
 names.
 .sp
@@ -663,7 +697,7 @@ to the specified packages.
 .INDENT 0.0
 .TP
 .B \-\-debug\-find\-var=<var>[,...]
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Put cmake find commands in a debug mode when called with \fB<var>\fP
@@ -690,7 +724,7 @@ Like \fI\%\-\-trace\fP, but with variables expanded.
 .INDENT 0.0
 .TP
 .B \-\-trace\-format=<format>
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Put cmake in trace mode and sets the trace output format.
@@ -747,7 +781,7 @@ was added in minor version 2 of the \fBjson\-v1\fP format.
 .TP
 .B \fBdefer\fP
 Optional member that is present when the function call was deferred
-by \fI\%cmake_language(DEFER)\fP\&.  If present, its value is a
+by \X'tty: link #defer'\fI\%cmake_language(DEFER)\fP\X'tty: link'\&.  If present, its value is a
 string containing the deferred call \fB<id>\fP\&.
 .TP
 .B \fBcmd\fP
@@ -840,23 +874,23 @@ used.
 Find problems with variable usage in system files.
 .sp
 Normally, unused and uninitialized variables are searched for only
-in \fI\%CMAKE_SOURCE_DIR\fP and \fI\%CMAKE_BINARY_DIR\fP\&.
+in \X'tty: link #variable:CMAKE_SOURCE_DIR'\fI\%CMAKE_SOURCE_DIR\fP\X'tty: link' and \X'tty: link #variable:CMAKE_BINARY_DIR'\fI\%CMAKE_BINARY_DIR\fP\X'tty: link'\&.
 This flag tells CMake to warn about other files as well.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-compile\-no\-warning\-as\-error
-New in version 3.24.
+Added in version 3.24.
 
 .sp
-Ignore target property \fI\%COMPILE_WARNING_AS_ERROR\fP and variable
-\fI\%CMAKE_COMPILE_WARNING_AS_ERROR\fP, preventing warnings from being
+Ignore target property \X'tty: link #prop_tgt:COMPILE_WARNING_AS_ERROR'\fI\%COMPILE_WARNING_AS_ERROR\fP\X'tty: link' and variable
+\X'tty: link #variable:CMAKE_COMPILE_WARNING_AS_ERROR'\fI\%CMAKE_COMPILE_WARNING_AS_ERROR\fP\X'tty: link', preventing warnings from being
 treated as errors on compile.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-profiling\-output=<path>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 Used in conjunction with
@@ -873,26 +907,31 @@ applications should be used to process the output into human readable format.
 .sp
 Currently supported values are:
 \fBgoogle\-trace\fP Outputs in Google Trace Format, which can be parsed by the
-\fI\%about:tracing\fP tab of Google Chrome or using a plugin for a tool like Trace
+\X'tty: link about:tracing'\fI\%about:tracing\fP\X'tty: link' tab of Google Chrome or using a plugin for a tool like Trace
 Compass.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-preset <preset>, \-\-preset=<preset>
-Reads a \fI\%preset\fP from
-\fB<path\-to\-source>/CMakePresets.json\fP and
-\fB<path\-to\-source>/CMakeUserPresets.json\fP\&. The preset may specify the
-generator and the build directory, and a list of variables and other
-arguments to pass to CMake. The current working directory must contain
-CMake preset files. The \fI\%CMake GUI\fP can
-also recognize \fBCMakePresets.json\fP and \fBCMakeUserPresets.json\fP files. For
-full details on these files, see \fI\%cmake\-presets(7)\fP\&.
+Reads a \X'tty: link #manual:cmake-presets(7)'\fI\%preset\fP\X'tty: link' from \fBCMakePresets.json\fP and
+\fBCMakeUserPresets.json\fP files, which must be located in the same directory
+as the top level \fBCMakeLists.txt\fP file. The preset may specify the
+generator, the build directory, a list of variables, and other arguments to
+pass to CMake. At least one of \fBCMakePresets.json\fP or
+\fBCMakeUserPresets.json\fP must be present.
+The \X'tty: link #manual:cmake-gui(1)'\fI\%CMake GUI\fP\X'tty: link' also recognizes and supports
+\fBCMakePresets.json\fP and \fBCMakeUserPresets.json\fP files. For full details
+on these files, see \X'tty: link #manual:cmake-presets(7)'\fI\%cmake\-presets(7)\fP\X'tty: link'\&.
 .sp
-The presets are read before all other command line options. The options
-specified by the preset (variables, generator, etc.) can all be overridden by
-manually specifying them on the command line. For example, if the preset sets
-a variable called \fBMYVAR\fP to \fB1\fP, but the user sets it to \fB2\fP with a
-\fB\-D\fP argument, the value \fB2\fP is preferred.
+The presets are read before all other command line options, although the
+\fI\%\-S\fP option can be used to specify the source directory
+containing the \fBCMakePresets.json\fP and \fBCMakeUserPresets.json\fP files.
+If \fI\%\-S\fP is not given, the current directory is assumed to
+be the top level source directory and must contain the presets files. The
+options specified by the chosen preset (variables, generator, etc.) can all
+be overridden by manually specifying them on the command line. For example,
+if the preset sets a variable called \fBMYVAR\fP to \fB1\fP, but the user sets
+it to \fB2\fP with a \fB\-D\fP argument, the value \fB2\fP is preferred.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -900,14 +939,15 @@ a variable called \fBMYVAR\fP to \fB1\fP, but the user sets it to \fB2\fP with a
 Lists the available presets of the specified \fB<type>\fP\&.  Valid values for
 \fB<type>\fP are \fBconfigure\fP, \fBbuild\fP, \fBtest\fP, \fBpackage\fP, or \fBall\fP\&.
 If \fB<type>\fP is omitted, \fBconfigure\fP is assumed.  The current working
-directory must contain CMake preset files.
+directory must contain CMake preset files unless the \fI\%\-S\fP
+option is used to specify a different top level source directory.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-debugger
 Enables interactive debugging of the CMake language. CMake exposes a debugging
 interface on the pipe named by \fI\%\-\-debugger\-pipe\fP
-that conforms to the \fI\%Debug Adapter Protocol\fP specification with the following
+that conforms to the \X'tty: link https://microsoft.github.io/debug-adapter-protocol/'\fI\%Debug Adapter Protocol\fP\X'tty: link' specification with the following
 modifications.
 .sp
 The \fBinitialize\fP response includes an additional field named \fBcmakeVersion\fP
@@ -989,7 +1029,7 @@ is specified) and must be first.
 Use a build preset to specify build options. The project binary directory
 is inferred from the \fBconfigurePreset\fP key. The current working directory
 must contain CMake preset files.
-See \fI\%preset\fP for more details.
+See \X'tty: link #manual:cmake-presets(7)'\fI\%preset\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1000,13 +1040,13 @@ contain CMake preset files.
 .INDENT 0.0
 .TP
 .B \-j [<jobs>], \-\-parallel [<jobs>]
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 The maximum number of concurrent processes to use when building.
 If \fB<jobs>\fP is omitted the native build tool\(aqs default number is used.
 .sp
-The \fI\%CMAKE_BUILD_PARALLEL_LEVEL\fP environment variable, if set,
+The \X'tty: link #envvar:CMAKE_BUILD_PARALLEL_LEVEL'\fI\%CMAKE_BUILD_PARALLEL_LEVEL\fP\X'tty: link' environment variable, if set,
 specifies a default parallel level when this option is not given.
 .sp
 Some native build tools always build in parallel.  The use of \fB<jobs>\fP
@@ -1032,7 +1072,7 @@ Build target \fBclean\fP first, then build.
 .INDENT 0.0
 .TP
 .B \-\-resolve\-package\-references=<value>
-New in version 3.23.
+Added in version 3.23.
 
 .sp
 Resolve remote package references from external package managers (e.g. NuGet)
@@ -1052,7 +1092,7 @@ specific cache variable will be evaluated to decide, if package restoration
 should be performed.
 .sp
 When using the Visual Studio generator, package references are defined
-using the \fI\%VS_PACKAGE_REFERENCES\fP property. Package references
+using the \X'tty: link #prop_tgt:VS_PACKAGE_REFERENCES'\fI\%VS_PACKAGE_REFERENCES\fP\X'tty: link' property. Package references
 are restored using NuGet. It can be disabled by setting the
 \fBCMAKE_VS_NUGET_PACKAGE_RESTORE\fP variable to \fBOFF\fP\&.
 .UNINDENT
@@ -1067,8 +1107,8 @@ Ignored.  Behavior is default in CMake >= 3.0.
 Enable verbose output \- if supported \- including the build commands to be
 executed.
 .sp
-This option can be omitted if \fI\%VERBOSE\fP environment variable or
-\fI\%CMAKE_VERBOSE_MAKEFILE\fP cached variable is set.
+This option can be omitted if \X'tty: link #envvar:VERBOSE'\fI\%VERBOSE\fP\X'tty: link' environment variable or
+\X'tty: link #variable:CMAKE_VERBOSE_MAKEFILE'\fI\%CMAKE_VERBOSE_MAKEFILE\fP\X'tty: link' cached variable is set.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1118,7 +1158,7 @@ Default directory install permissions. Permissions in format \fB<u=rwx,g=rx,o=rx
 .INDENT 0.0
 .TP
 .B \-\-prefix <prefix>
-Override the installation prefix, \fI\%CMAKE_INSTALL_PREFIX\fP\&.
+Override the installation prefix, \X'tty: link #variable:CMAKE_INSTALL_PREFIX'\fI\%CMAKE_INSTALL_PREFIX\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1130,7 +1170,18 @@ Strip before installing.
 .B \-v, \-\-verbose
 Enable verbose output.
 .sp
-This option can be omitted if \fI\%VERBOSE\fP environment variable is set.
+This option can be omitted if \X'tty: link #envvar:VERBOSE'\fI\%VERBOSE\fP\X'tty: link' environment variable is set.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-j <jobs>, \-\-parallel <jobs>
+Added in version 3.31.
+
+.sp
+Install in parallel using the given number of jobs. Only available if
+\X'tty: link #prop_gbl:INSTALL_PARALLEL'\fI\%INSTALL_PARALLEL\fP\X'tty: link' is enabled. The
+\X'tty: link #envvar:CMAKE_INSTALL_PARALLEL_LEVEL'\fI\%CMAKE_INSTALL_PARALLEL_LEVEL\fP\X'tty: link' environment variable specifies a
+default parallel level when this option is not provided.
 .UNINDENT
 .sp
 Run \fI\%cmake \-\-install\fP with no options for quick help.
@@ -1174,7 +1225,7 @@ done before the \fB\-P\fP argument.
 .UNINDENT
 .sp
 Any options after \fB\-\-\fP are not parsed by CMake, but they are still included
-in the set of \fI\%CMAKE_ARGV<n>\fP variables passed to the
+in the set of \X'tty: link #variable:CMAKE_ARGV0'\fI\%CMAKE_ARGV<n>\fP\X'tty: link' variables passed to the
 script (including the \fB\-\-\fP itself).
 .SH RUN A COMMAND-LINE TOOL
 .sp
@@ -1199,7 +1250,7 @@ Available commands are:
 .INDENT 0.0
 .TP
 .B capabilities
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 Report cmake capabilities in JSON format. The output is a JSON object
@@ -1244,21 +1295,21 @@ A string containing the name of the generator.
 \fBtrue\fP if the generator supports platforms and \fBfalse\fP otherwise.
 .TP
 .B \fBsupportedPlatforms\fP
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 Optional member that may be present when the generator supports
-platform specification via \fI\%CMAKE_GENERATOR_PLATFORM\fP
+platform specification via \X'tty: link #variable:CMAKE_GENERATOR_PLATFORM'\fI\%CMAKE_GENERATOR_PLATFORM\fP\X'tty: link'
 (\fI\%\-A ...\fP).  The value is a list of platforms known to
 be supported.
 .TP
 .B \fBextraGenerators\fP
-A list of strings with all the \fI\%Extra Generators\fP compatible with
+A list of strings with all the \X'tty: link #extra-generators'\fI\%Extra Generators\fP\X'tty: link' compatible with
 the generator.
 .UNINDENT
 .TP
 .B \fBfileApi\fP
-Optional member that is present when the \fI\%cmake\-file\-api(7)\fP
+Optional member that is present when the \X'tty: link #manual:cmake-file-api(7)'\fI\%cmake\-file\-api(7)\fP\X'tty: link'
 is available.  The value is a JSON object with one member:
 .INDENT 7.0
 .TP
@@ -1268,7 +1319,7 @@ Each request is a JSON object with members:
 .INDENT 7.0
 .TP
 .B \fBkind\fP
-Specifies one of the supported \fI\%Object Kinds\fP\&.
+Specifies one of the supported \X'tty: link #file-api-object-kinds'\fI\%Object Kinds\fP\X'tty: link'\&.
 .TP
 .B \fBversion\fP
 A JSON array whose elements are each a JSON object containing
@@ -1282,13 +1333,13 @@ version components.
 Always false since CMake 3.20.
 .TP
 .B \fBtls\fP
-New in version 3.25.
+Added in version 3.25.
 
 .sp
 \fBtrue\fP if TLS support is enabled and \fBfalse\fP otherwise.
 .TP
 .B \fBdebugger\fP
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 \fBtrue\fP if the \fI\%\-\-debugger\fP mode
@@ -1298,14 +1349,14 @@ is supported and \fBfalse\fP otherwise.
 .INDENT 0.0
 .TP
 .B cat [\-\-] <files>...
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 Concatenate files and print on the standard output.
 .INDENT 7.0
 .TP
 .B \-\-
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Added support for the double dash argument \fB\-\-\fP\&. This basic implementation
@@ -1313,6 +1364,9 @@ of \fBcat\fP does not support any options, so using a option starting with
 \fB\-\fP will result in an error. Use \fB\-\-\fP to indicate the end of options, in
 case a file starts with \fB\-\fP\&.
 .UNINDENT
+.sp
+Added in version 3.29: \fBcat\fP can now print the standard input by passing the \fB\-\fP argument.
+
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1328,7 +1382,7 @@ arguments, it returns 2.
 .INDENT 7.0
 .TP
 .B \-\-ignore\-eol
-New in version 3.14.
+Added in version 3.14.
 
 .sp
 The option implies line\-wise comparison and ignores LF/CRLF differences.
@@ -1344,10 +1398,10 @@ specified, the last argument is assumed to be the \fB<destination>\fP\&.
 Wildcards are not supported. \fBcopy\fP does follow symlinks. That means it
 does not copy symlinks, but the files or directories it point to.
 .sp
-New in version 3.5: Support for multiple input files.
+Added in version 3.5: Support for multiple input files.
 
 .sp
-New in version 3.26: Support for \fB\-t\fP argument.
+Added in version 3.26: Support for \fB\-t\fP argument.
 
 .UNINDENT
 .INDENT 0.0
@@ -1357,17 +1411,17 @@ Copy content of \fB<dir>...\fP directories to \fB<destination>\fP directory.
 If \fB<destination>\fP directory does not exist it will be created.
 \fBcopy_directory\fP does follow symlinks.
 .sp
-New in version 3.5: Support for multiple input directories.
+Added in version 3.5: Support for multiple input directories.
 
 .sp
-New in version 3.15: The command now fails when the source directory does not exist.
+Added in version 3.15: The command now fails when the source directory does not exist.
 Previously it succeeded by creating an empty destination directory.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B copy_directory_if_different <dir>... <destination>
-New in version 3.26.
+Added in version 3.26.
 
 .sp
 Copy changed content of \fB<dir>...\fP directories to \fB<destination>\fP directory.
@@ -1385,7 +1439,7 @@ If multiple files are specified, the \fB<destination>\fP must be
 directory and it must exist.
 \fBcopy_if_different\fP does follow symlinks.
 .sp
-New in version 3.5: Support for multiple input files.
+Added in version 3.5: Support for multiple input files.
 
 .UNINDENT
 .INDENT 0.0
@@ -1393,7 +1447,7 @@ New in version 3.5: Support for multiple input files.
 .B create_symlink <old> <new>
 Create a symbolic link \fB<new>\fP naming \fB<old>\fP\&.
 .sp
-New in version 3.13: Support for creating symlinks on Windows.
+Added in version 3.13: Support for creating symlinks on Windows.
 
 .sp
 \fBNOTE:\fP
@@ -1406,7 +1460,7 @@ Path to where \fB<new>\fP symbolic link will be created has to exist beforehand.
 .INDENT 0.0
 .TP
 .B create_hardlink <old> <new>
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 Create a hard link \fB<new>\fP naming \fB<old>\fP\&.
@@ -1432,7 +1486,7 @@ Displays arguments as text but no new line.
 .INDENT 0.0
 .TP
 .B env [<options>] [\-\-] <command> [<arg>...]
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Run command in a modified environment. Options are:
@@ -1449,10 +1503,10 @@ Unsets the current value of \fBNAME\fP\&.
 .INDENT 7.0
 .TP
 .B \-\-modify ENVIRONMENT_MODIFICATION
-New in version 3.25.
+Added in version 3.25.
 
 .sp
-Apply a single \fI\%ENVIRONMENT_MODIFICATION\fP operation to the
+Apply a single \X'tty: link #prop_test:ENVIRONMENT_MODIFICATION'\fI\%ENVIRONMENT_MODIFICATION\fP\X'tty: link' operation to the
 modified environment.
 .sp
 The \fBNAME=VALUE\fP and \fB\-\-unset=NAME\fP options are equivalent to
@@ -1464,7 +1518,7 @@ when \fBcmake\fP launched (or unsets it), not to the most recent
 .INDENT 7.0
 .TP
 .B \-\-
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Added support for the double dash argument \fB\-\-\fP\&. Use \fB\-\-\fP to stop
@@ -1480,7 +1534,7 @@ Display the current environment variables.
 .INDENT 0.0
 .TP
 .B false
-New in version 3.16.
+Added in version 3.16.
 
 .sp
 Do nothing, with an exit code of 1.
@@ -1492,7 +1546,7 @@ Create \fB<dir>\fP directories.  If necessary, create parent
 directories too.  If a directory already exists it will be
 silently ignored.
 .sp
-New in version 3.5: Support for multiple input directories.
+Added in version 3.5: Support for multiple input directories.
 
 .UNINDENT
 .INDENT 0.0
@@ -1514,7 +1568,7 @@ Create MD5 checksum of files in \fBmd5sum\fP compatible format:
 .INDENT 0.0
 .TP
 .B sha1sum <file>...
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Create SHA1 checksum of files in \fBsha1sum\fP compatible format:
@@ -1533,7 +1587,7 @@ Create SHA1 checksum of files in \fBsha1sum\fP compatible format:
 .INDENT 0.0
 .TP
 .B sha224sum <file>...
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Create SHA224 checksum of files in \fBsha224sum\fP compatible format:
@@ -1552,7 +1606,7 @@ b9b9346bc8437bbda630b0b7ddfc5ea9ca157546dbbf4c613192f930  file1.txt
 .INDENT 0.0
 .TP
 .B sha256sum <file>...
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Create SHA256 checksum of files in \fBsha256sum\fP compatible format:
@@ -1571,7 +1625,7 @@ Create SHA256 checksum of files in \fBsha256sum\fP compatible format:
 .INDENT 0.0
 .TP
 .B sha384sum <file>...
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Create SHA384 checksum of files in \fBsha384sum\fP compatible format:
@@ -1590,7 +1644,7 @@ acc049fedc091a22f5f2ce39a43b9057fd93c910e9afd76a6411a28a8f2b8a12c73d7129e292f94f
 .INDENT 0.0
 .TP
 .B sha512sum <file>...
-New in version 3.10.
+Added in version 3.10.
 
 .sp
 Create SHA512 checksum of files in \fBsha512sum\fP compatible format:
@@ -1632,10 +1686,10 @@ Remove \fB<dir>\fP directories and their contents. If a directory does
 not exist it will be silently ignored.
 Use \fBrm\fP instead.
 .sp
-New in version 3.15: Support for multiple directories.
+Added in version 3.15: Support for multiple directories.
 
 .sp
-New in version 3.16: If \fB<dir>\fP is a symlink to a directory, just the symlink will be removed.
+Added in version 3.16: If \fB<dir>\fP is a symlink to a directory, just the symlink will be removed.
 
 .UNINDENT
 .INDENT 0.0
@@ -1647,7 +1701,7 @@ already exists, then it will be silently replaced.
 .INDENT 0.0
 .TP
 .B rm [\-rRf] [\-\-] <file|dir>...
-New in version 3.17.
+Added in version 3.17.
 
 .sp
 Remove the files \fB<file>\fP or directories \fB<dir>\fP\&.
@@ -1661,7 +1715,7 @@ remaining arguments as paths, even if they start with \fB\-\fP\&.
 .INDENT 0.0
 .TP
 .B sleep <number>
-New in version 3.0.
+Added in version 3.0.
 
 .sp
 Sleep for \fB<number>\fP seconds. \fB<number>\fP may be a floating point number.
@@ -1694,7 +1748,7 @@ If used, the \fB<pathname>...\fP argument is mandatory.
 .B x
 Extract to disk from the archive.
 .sp
-New in version 3.15: The \fB<pathname>...\fP argument could be used to extract only selected files
+Added in version 3.15: The \fB<pathname>...\fP argument could be used to extract only selected files
 or directories.
 When extracting selected files or directories, you must provide their exact
 names including the path, as printed by list (\fB\-t\fP).
@@ -1705,7 +1759,7 @@ names including the path, as printed by list (\fB\-t\fP).
 .B t
 List archive contents.
 .sp
-New in version 3.15: The \fB<pathname>...\fP argument could be used to list only selected files
+Added in version 3.15: The \fB<pathname>...\fP argument could be used to list only selected files
 or directories.
 
 .UNINDENT
@@ -1727,7 +1781,7 @@ Compress the resulting archive with bzip2.
 .INDENT 7.0
 .TP
 .B J
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Compress the resulting archive with XZ.
@@ -1735,7 +1789,7 @@ Compress the resulting archive with XZ.
 .INDENT 7.0
 .TP
 .B \-\-zstd
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Compress the resulting archive with Zstandard.
@@ -1743,7 +1797,7 @@ Compress the resulting archive with Zstandard.
 .INDENT 7.0
 .TP
 .B \-\-files\-from=<file>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Read file names from the given file, one per line.
@@ -1754,7 +1808,7 @@ names start in \fB\-\fP\&.
 .INDENT 7.0
 .TP
 .B \-\-format=<format>
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Specify the format of the archive to be created.
@@ -1764,7 +1818,7 @@ Supported formats are: \fB7zip\fP, \fBgnutar\fP, \fBpax\fP,
 .INDENT 7.0
 .TP
 .B \-\-mtime=<date>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Specify modification time recorded in tarball entries.
@@ -1772,7 +1826,7 @@ Specify modification time recorded in tarball entries.
 .INDENT 7.0
 .TP
 .B \-\-touch
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Use current local timestamp instead of extracting file timestamps
@@ -1781,17 +1835,17 @@ from the archive.
 .INDENT 7.0
 .TP
 .B \-\-
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Stop interpreting options and treat all remaining arguments
 as file names, even if they start with \fB\-\fP\&.
 .UNINDENT
 .sp
-New in version 3.1: LZMA (7zip) support.
+Added in version 3.1: LZMA (7zip) support.
 
 .sp
-New in version 3.15: The command now continues adding files to an archive even if some of the
+Added in version 3.15: The command now continues adding files to an archive even if some of the
 files are not readable.  This behavior is more consistent with the classic
 \fBtar\fP tool. The command now also parses all flags, and if an invalid flag
 was provided, a warning is issued.
@@ -1802,7 +1856,7 @@ was provided, a warning is issued.
 .B time <command> [<args>...]
 Run \fB<command>\fP and display elapsed time (including overhead of CMake frontend).
 .sp
-New in version 3.5: The command now properly passes arguments with spaces or special characters
+Added in version 3.5: The command now properly passes arguments with spaces or special characters
 through to the child process. This may break scripts that worked around the
 bug with their own extra quoting or escaping.
 
@@ -1822,7 +1876,7 @@ not exist it will be silently ignored.
 .INDENT 0.0
 .TP
 .B true
-New in version 3.16.
+Added in version 3.16.
 
 .sp
 Do nothing, with an exit code of 0.
@@ -1838,7 +1892,7 @@ Delete Windows registry value.
 .INDENT 0.0
 .TP
 .B env_vs8_wince <sdkname>
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 Displays a batch file which sets the environment for the provided
@@ -1847,7 +1901,7 @@ Windows CE SDK installed in VS2005.
 .INDENT 0.0
 .TP
 .B env_vs9_wince <sdkname>
-New in version 3.2.
+Added in version 3.2.
 
 .sp
 Displays a batch file which sets the environment for the provided
@@ -1872,7 +1926,7 @@ cmake \-\-find\-package [<options>]
 .UNINDENT
 .UNINDENT
 .sp
-It searches a package using \fI\%find_package()\fP and prints the
+It searches a package using \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' and prints the
 resulting flags to stdout.  This can be used instead of pkg\-config
 to find installed libraries in plain Makefile\-based projects or in
 autoconf\-based projects (via \fBshare/aclocal/cmake.m4\fP).
@@ -1886,17 +1940,17 @@ It is kept for compatibility but should not be used in new projects.
 .UNINDENT
 .SH RUN A WORKFLOW PRESET
 .sp
-New in version 3.25.
+Added in version 3.25.
 
 .sp
-\fI\%CMake Presets\fP provides a way to execute multiple
+\X'tty: link #manual:cmake-presets(7)'\fI\%CMake Presets\fP\X'tty: link' provides a way to execute multiple
 build steps in order:
 .INDENT 0.0
 .INDENT 3.5
 .sp
 .nf
 .ft C
-cmake \-\-workflow [<options>]
+cmake \-\-workflow <options>
 .ft P
 .fi
 .UNINDENT
@@ -1906,7 +1960,7 @@ The options are:
 .INDENT 0.0
 .TP
 .B \-\-workflow
-Select a \fI\%Workflow Preset\fP using one of the following options.
+Select a \X'tty: link #workflow-preset'\fI\%Workflow Preset\fP\X'tty: link' using one of the following options.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1914,7 +1968,22 @@ Select a \fI\%Workflow Preset\fP using one of the following options.
 Use a workflow preset to specify a workflow. The project binary directory
 is inferred from the initial configure preset. The current working directory
 must contain CMake preset files.
-See \fI\%preset\fP for more details.
+See \X'tty: link #manual:cmake-presets(7)'\fI\%preset\fP\X'tty: link' for more details.
+.sp
+Changed in version 3.31: When following immediately after the \fB\-\-workflow\fP option,
+the \fB\-\-preset\fP argument can be omitted and just the \fB<preset>\fP
+name can be given.  This means the following syntax is valid:
+.INDENT 7.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ cmake \-\-workflow my\-preset
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1925,9 +1994,8 @@ contain CMake preset files.
 .INDENT 0.0
 .TP
 .B \-\-fresh
-Perform a fresh configuration of the build tree.
-This removes any existing \fBCMakeCache.txt\fP file and associated
-\fBCMakeFiles/\fP directory, and recreates them from scratch.
+Perform a fresh configuration of the build tree, which has the same effect
+as \fI\%cmake \-\-fresh\fP\&.
 .UNINDENT
 .SH VIEW HELP
 .sp
@@ -2002,7 +2070,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-command <cmd> [<file>]
 Print help for one command and exit.
 .sp
-The \fI\%cmake\-commands(7)\fP manual entry for \fB<cmd>\fP is
+The \X'tty: link #manual:cmake-commands(7)'\fI\%cmake\-commands(7)\fP\X'tty: link' manual entry for \fB<cmd>\fP is
 printed in a human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2020,7 +2088,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-commands [<file>]
 Print cmake\-commands manual and exit.
 .sp
-The \fI\%cmake\-commands(7)\fP manual is printed in a
+The \X'tty: link #manual:cmake-commands(7)'\fI\%cmake\-commands(7)\fP\X'tty: link' manual is printed in a
 human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2029,7 +2097,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-module <mod> [<file>]
 Print help for one module and exit.
 .sp
-The \fI\%cmake\-modules(7)\fP manual entry for \fB<mod>\fP is printed
+The \X'tty: link #manual:cmake-modules(7)'\fI\%cmake\-modules(7)\fP\X'tty: link' manual entry for \fB<mod>\fP is printed
 in a human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2047,7 +2115,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-modules [<file>]
 Print cmake\-modules manual and exit.
 .sp
-The \fI\%cmake\-modules(7)\fP manual is printed in a human\-readable
+The \X'tty: link #manual:cmake-modules(7)'\fI\%cmake\-modules(7)\fP\X'tty: link' manual is printed in a human\-readable
 text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2056,7 +2124,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-policy <cmp> [<file>]
 Print help for one policy and exit.
 .sp
-The \fI\%cmake\-policies(7)\fP manual entry for \fB<cmp>\fP is
+The \X'tty: link #manual:cmake-policies(7)'\fI\%cmake\-policies(7)\fP\X'tty: link' manual entry for \fB<cmp>\fP is
 printed in a human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2074,7 +2142,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-policies [<file>]
 Print cmake\-policies manual and exit.
 .sp
-The \fI\%cmake\-policies(7)\fP manual is printed in a
+The \X'tty: link #manual:cmake-policies(7)'\fI\%cmake\-policies(7)\fP\X'tty: link' manual is printed in a
 human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2083,7 +2151,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-property <prop> [<file>]
 Print help for one property and exit.
 .sp
-The \fI\%cmake\-properties(7)\fP manual entries for \fB<prop>\fP are
+The \X'tty: link #manual:cmake-properties(7)'\fI\%cmake\-properties(7)\fP\X'tty: link' manual entries for \fB<prop>\fP are
 printed in a human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2101,7 +2169,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-properties [<file>]
 Print cmake\-properties manual and exit.
 .sp
-The \fI\%cmake\-properties(7)\fP manual is printed in a
+The \X'tty: link #manual:cmake-properties(7)'\fI\%cmake\-properties(7)\fP\X'tty: link' manual is printed in a
 human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2110,7 +2178,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-variable <var> [<file>]
 Print help for one variable and exit.
 .sp
-The \fI\%cmake\-variables(7)\fP manual entry for \fB<var>\fP is
+The \X'tty: link #manual:cmake-variables(7)'\fI\%cmake\-variables(7)\fP\X'tty: link' manual entry for \fB<var>\fP is
 printed in a human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2128,7 +2196,7 @@ The output is printed to a named \fB<file>\fP if given.
 .B \-\-help\-variables [<file>]
 Print cmake\-variables manual and exit.
 .sp
-The \fI\%cmake\-variables(7)\fP manual is printed in a
+The \X'tty: link #manual:cmake-variables(7)'\fI\%cmake\-variables(7)\fP\X'tty: link' manual is printed in a
 human\-readable text format.
 The output is printed to a named \fB<file>\fP if given.
 .UNINDENT
@@ -2148,7 +2216,7 @@ cmake <source\-dir> \-\-list\-presets
 .sp
 Upon regular termination, the \fBcmake\fP executable returns the exit code \fB0\fP\&.
 .sp
-If termination is caused by the command \fI\%message(FATAL_ERROR)\fP,
+If termination is caused by the command \X'tty: link #command:message'\fI\%message(FATAL_ERROR)\fP\X'tty: link',
 or another error condition, then a non\-zero exit code is returned.
 .SH SEE ALSO
 .sp
@@ -2156,22 +2224,22 @@ The following resources are available to get help using CMake:
 .INDENT 0.0
 .TP
 .B Home Page
-\fI\%https://cmake.org\fP
+\X'tty: link https://cmake.org'\fI\%https://cmake.org\fP\X'tty: link'
 .sp
 The primary starting point for learning about CMake.
 .TP
 .B Online Documentation and Community Resources
-\fI\%https://cmake.org/documentation\fP
+\X'tty: link https://cmake.org/documentation'\fI\%https://cmake.org/documentation\fP\X'tty: link'
 .sp
 Links to available documentation and community resources may be
 found on this web page.
 .TP
 .B Discourse Forum
-\fI\%https://discourse.cmake.org\fP
+\X'tty: link https://discourse.cmake.org'\fI\%https://discourse.cmake.org\fP\X'tty: link'
 .sp
 The Discourse Forum hosts discussion and questions about CMake.
 .UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

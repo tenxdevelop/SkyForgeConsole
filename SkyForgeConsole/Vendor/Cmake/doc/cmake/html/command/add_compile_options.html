@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>add_compile_options &mdash; CMake 3.28.1 Documentation</title>
+  <title>add_compile_options &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="add-compile-options">
-<span id="command:add_compile_options"></span><h1>add_compile_options<a class="headerlink" href="#add-compile-options" title="Permalink to this heading">¶</a></h1>
+<span id="command:add_compile_options"></span><h1>add_compile_options<a class="headerlink" href="#add-compile-options" title="Link to this heading">¶</a></h1>
 <p>Add options to the compilation of source files.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">add_compile_options(</span><span class="nv">&lt;option&gt;</span><span class="w"> </span><span class="p">...</span><span class="nf">)</span>
 </pre></div>
@@ -72,19 +71,19 @@ directory and below.</p>
 See the <span class="target" id="index-0-command:add_link_options"></span><a class="reference internal" href="add_link_options.html#command:add_link_options" title="add_link_options"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_link_options()</span></code></a> command for that.</p>
 </div>
 <section id="arguments">
-<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">¶</a></h2>
+<h2>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">¶</a></h2>
 <p>Arguments to <code class="docutils literal notranslate"><span class="pre">add_compile_options</span></code> may use generator expressions
 with the syntax <code class="docutils literal notranslate"><span class="pre">$&lt;...&gt;</span></code>. See the <span class="target" id="index-0-manual:cmake-generator-expressions(7)"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)" title="cmake-generator-expressions(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-generator-expressions(7)</span></code></a>
 manual for available expressions.  See the <span class="target" id="index-1-manual:cmake-buildsystem(7)"></span><a class="reference internal" href="../manual/cmake-buildsystem.7.html#manual:cmake-buildsystem(7)" title="cmake-buildsystem(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-buildsystem(7)</span></code></a> manual
 for more on defining buildsystem properties.</p>
 </section>
 <section id="option-de-duplication">
-<h2>Option De-duplication<a class="headerlink" href="#option-de-duplication" title="Permalink to this heading">¶</a></h2>
+<h2>Option De-duplication<a class="headerlink" href="#option-de-duplication" title="Link to this heading">¶</a></h2>
 <p>The final set of options used for a target is constructed by
 accumulating options from the current target and the usage requirements of
 its dependencies.  The set of options is de-duplicated to avoid repetition.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.12: </span>While beneficial for individual options, the de-duplication step can break
+<p><span class="versionmodified added">Added in version 3.12: </span>While beneficial for individual options, the de-duplication step can break
 up option groups.  For example, <code class="docutils literal notranslate"><span class="pre">-option</span> <span class="pre">A</span> <span class="pre">-option</span> <span class="pre">B</span></code> becomes
 <code class="docutils literal notranslate"><span class="pre">-option</span> <span class="pre">A</span> <span class="pre">B</span></code>.  One may specify a group of options using shell-like
 quoting along with a <code class="docutils literal notranslate"><span class="pre">SHELL:</span></code> prefix.  The <code class="docutils literal notranslate"><span class="pre">SHELL:</span></code> prefix is dropped,
@@ -94,7 +93,7 @@ and the rest of the option string is parsed using the
 </div>
 </section>
 <section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
 <p>Since different compilers support different options, a typical use of
 this command is in a compiler-specific conditional clause:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">if</span> <span class="nf">(</span><span class="no">MSVC</span><span class="nf">)</span>
@@ -110,7 +109,7 @@ this command is in a compiler-specific conditional clause:</p>
 or <span class="target" id="index-1-genex:COMPILE_LANGUAGE"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#genex:COMPILE_LANGUAGE" title="COMPILE_LANGUAGE"><code class="xref cmake cmake-genex docutils literal notranslate"><span class="pre">$&lt;COMPILE_LANGUAGE:languages&gt;</span></code></a> generator expressions.</p>
 </section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>This command can be used to add any options. However, for
 adding preprocessor definitions and include directories it is recommended
@@ -167,7 +166,7 @@ This includes invocations that drive compiling and those that drive linking.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -175,7 +174,7 @@ This includes invocations that drive compiling and those that drive linking.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -201,7 +200,7 @@ This includes invocations that drive compiling and those that drive linking.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -210,8 +209,8 @@ This includes invocations that drive compiling and those that drive linking.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

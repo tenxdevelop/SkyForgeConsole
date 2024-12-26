@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>include_external_msproject &mdash; CMake 3.28.1 Documentation</title>
+  <title>include_external_msproject &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,8 +57,9 @@
           <div class="body" role="main">
             
   <section id="include-external-msproject">
-<span id="command:include_external_msproject"></span><h1>include_external_msproject<a class="headerlink" href="#include-external-msproject" title="Permalink to this heading">¶</a></h1>
-<p>Include an external Microsoft project file in a workspace.</p>
+<span id="command:include_external_msproject"></span><h1>include_external_msproject<a class="headerlink" href="#include-external-msproject" title="Link to this heading">¶</a></h1>
+<p>Include an external Microsoft project file in the solution file produced
+by <a class="reference internal" href="../manual/cmake-generators.7.html#visual-studio-generators"><span class="std std-ref">Visual Studio Generators</span></a>. Ignored on other generators.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">include_external_msproject(</span><span class="nb">projectname</span><span class="w"> </span><span class="nb">location</span>
 <span class="w">                           </span><span class="p">[</span><span class="no">TYPE</span><span class="w"> </span><span class="nb">projectTypeGUID</span><span class="p">]</span>
 <span class="w">                           </span><span class="p">[</span><span class="no">GUID</span><span class="w"> </span><span class="nb">projectGUID</span><span class="p">]</span>
@@ -67,16 +67,16 @@
 <span class="w">                           </span><span class="nb">dep1</span><span class="w"> </span><span class="nb">dep2</span><span class="w"> </span><span class="p">...</span><span class="nf">)</span>
 </pre></div>
 </div>
-<p>Includes an external Microsoft project in the generated workspace
-file.  Currently does nothing on UNIX.  This will create a target
-named <code class="docutils literal notranslate"><span class="pre">[projectname]</span></code>.  This can be used in the <span class="target" id="index-0-command:add_dependencies"></span><a class="reference internal" href="add_dependencies.html#command:add_dependencies" title="add_dependencies"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_dependencies()</span></code></a>
+<p>Includes an external Microsoft project in the generated solution file.
+This will create a target named <code class="docutils literal notranslate"><span class="pre">[projectname]</span></code>.
+This can be used in the <span class="target" id="index-0-command:add_dependencies"></span><a class="reference internal" href="add_dependencies.html#command:add_dependencies" title="add_dependencies"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_dependencies()</span></code></a>
 command to make things depend on the external project.</p>
 <p><code class="docutils literal notranslate"><span class="pre">TYPE</span></code>, <code class="docutils literal notranslate"><span class="pre">GUID</span></code> and <code class="docutils literal notranslate"><span class="pre">PLATFORM</span></code> are optional parameters that allow one to
 specify the type of project, id (<code class="docutils literal notranslate"><span class="pre">GUID</span></code>) of the project and the name of
 the target platform.  This is useful for projects requiring values
 other than the default (e.g.  WIX projects).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.9: </span>If the imported project has different configuration names than the
+<p><span class="versionmodified added">Added in version 3.9: </span>If the imported project has different configuration names than the
 current project, set the <span class="target" id="index-0-prop_tgt:MAP_IMPORTED_CONFIG_&lt;CONFIG&gt;"></span><a class="reference internal" href="../prop_tgt/MAP_IMPORTED_CONFIG_CONFIG.html#prop_tgt:MAP_IMPORTED_CONFIG_&lt;CONFIG&gt;" title="MAP_IMPORTED_CONFIG_&lt;CONFIG&gt;"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">MAP_IMPORTED_CONFIG_&lt;CONFIG&gt;</span></code></a>
 target property to specify the mapping.</p>
 </div>
@@ -106,7 +106,7 @@ target property to specify the mapping.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -114,7 +114,7 @@ target property to specify the mapping.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -140,7 +140,7 @@ target property to specify the mapping.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -149,8 +149,8 @@ target property to specify the mapping.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

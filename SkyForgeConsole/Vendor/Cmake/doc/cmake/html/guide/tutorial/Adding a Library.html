@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Step 2: Adding a Library &mdash; CMake 3.28.1 Documentation</title>
+  <title>Step 2: Adding a Library &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Tutorial</a> &#187;</li>
@@ -58,12 +57,12 @@
           <div class="body" role="main">
             
   <section id="step-2-adding-a-library">
-<span id="guide:tutorial/Adding a Library"></span><h1>Step 2: Adding a Library<a class="headerlink" href="#step-2-adding-a-library" title="Permalink to this heading">¶</a></h1>
+<span id="guide:tutorial/Adding a Library"></span><h1>Step 2: Adding a Library<a class="headerlink" href="#step-2-adding-a-library" title="Link to this heading">¶</a></h1>
 <p>At this point, we have seen how to create a basic project using CMake. In this
 step, we will learn how to create and use a library in our project. We will
 also see how to make the use of our library optional.</p>
 <section id="exercise-1-creating-a-library">
-<h2>Exercise 1 - Creating a Library<a class="headerlink" href="#exercise-1-creating-a-library" title="Permalink to this heading">¶</a></h2>
+<h2>Exercise 1 - Creating a Library<a class="headerlink" href="#exercise-1-creating-a-library" title="Link to this heading">¶</a></h2>
 <p>To add a library in CMake, use the <span class="target" id="index-0-command:add_library"></span><a class="reference internal" href="../../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a> command and specify
 which source files should make up the library.</p>
 <p>Rather than placing all of the source files in one directory, we can organize
@@ -75,11 +74,11 @@ to add the subdirectory to the build.</p>
 <p>Once the library is created, it is connected to our executable target with
 <span class="target" id="index-0-command:target_include_directories"></span><a class="reference internal" href="../../command/target_include_directories.html#command:target_include_directories" title="target_include_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_include_directories()</span></code></a> and <span class="target" id="index-0-command:target_link_libraries"></span><a class="reference internal" href="../../command/target_link_libraries.html#command:target_link_libraries" title="target_link_libraries"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_libraries()</span></code></a>.</p>
 <section id="goal">
-<h3>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">¶</a></h3>
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">¶</a></h3>
 <p>Add and use a library.</p>
 </section>
 <section id="helpful-resources">
-<h3>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Permalink to this heading">¶</a></h3>
+<h3>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-1-command:add_library"></span><a class="reference internal" href="../../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a></p></li>
 <li><p><span class="target" id="index-1-command:add_subdirectory"></span><a class="reference internal" href="../../command/add_subdirectory.html#command:add_subdirectory" title="add_subdirectory"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_subdirectory()</span></code></a></p></li>
@@ -89,7 +88,7 @@ to add the subdirectory to the build.</p>
 </ul>
 </section>
 <section id="files-to-edit">
-<h3>Files to Edit<a class="headerlink" href="#files-to-edit" title="Permalink to this heading">¶</a></h3>
+<h3>Files to Edit<a class="headerlink" href="#files-to-edit" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code></p></li>
@@ -97,7 +96,7 @@ to add the subdirectory to the build.</p>
 </ul>
 </section>
 <section id="getting-started">
-<h3>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h3>
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h3>
 <p>In this exercise, we will add a library to our project that contains our own
 implementation for computing the square root of a number. The executable can
 then use this library instead of the standard square root function provided by
@@ -118,7 +117,7 @@ subdirectory.</p>
 <p>Finally, use the newly created <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> library in <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code></p>
 </section>
 <section id="build-and-run">
-<h3>Build and Run<a class="headerlink" href="#build-and-run" title="Permalink to this heading">¶</a></h3>
+<h3>Build and Run<a class="headerlink" href="#build-and-run" title="Link to this heading">¶</a></h3>
 <p>Run the <span class="target" id="index-0-manual:cmake(1)"></span><a class="reference internal" href="../../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake</span></code></a> executable or the
 <span class="target" id="index-0-manual:cmake-gui(1)"></span><a class="reference internal" href="../../manual/cmake-gui.1.html#manual:cmake-gui(1)" title="cmake-gui(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-gui</span></code></a> to configure the project and then build it
 with your chosen build tool.</p>
@@ -133,13 +132,13 @@ with your chosen build tool.</p>
 producing accurate square root values.</p>
 </section>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file in the <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> directory, we create
 a library target called <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> with <span class="target" id="index-2-command:add_library"></span><a class="reference internal" href="../../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a>. The
 source files for the library are passed as an argument to
 <span class="target" id="index-3-command:add_library"></span><a class="reference internal" href="../../command/add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a>. This looks like the following line:</p>
 <details><summary>TODO 1: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-cmakelists-txt-add-library">
-<div class="code-block-caption"><span class="caption-text">TODO 1: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-add-library" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 1: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-add-library" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">add_library(</span><span class="nb">MathFunctions</span><span class="w"> </span><span class="nb">MathFunctions.cxx</span><span class="w"> </span><span class="nb">mysqrt.cxx</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -148,7 +147,7 @@ source files for the library are passed as an argument to
 call in the top-level <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file so that the library will get
 built.</p>
 <details><summary>TODO 2: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-add-subdirectory">
-<div class="code-block-caption"><span class="caption-text">TODO 2: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-add-subdirectory" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 2: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-add-subdirectory" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">add_subdirectory(</span><span class="nb">MathFunctions</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -156,17 +155,17 @@ built.</p>
 </details><p>Next, the new library target is linked to the executable target using
 <span class="target" id="index-2-command:target_link_libraries"></span><a class="reference internal" href="../../command/target_link_libraries.html#command:target_link_libraries" title="target_link_libraries"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_link_libraries()</span></code></a>.</p>
 <details><summary>TODO 3: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-target-link-libraries">
-<div class="code-block-caption"><span class="caption-text">TODO 3: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-link-libraries" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 3: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-link-libraries" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">target_link_libraries(</span><span class="nb">Tutorial</span><span class="w"> </span><span class="no">PUBLIC</span><span class="w"> </span><span class="nb">MathFunctions</span><span class="nf">)</span>
 </pre></div>
 </div>
 </div>
-</details><p>Finally we need to specify the library's header file location. Modify
-<span class="target" id="index-2-command:target_include_directories"></span><a class="reference internal" href="../../command/target_include_directories.html#command:target_include_directories" title="target_include_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_include_directories()</span></code></a> to add the <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> subdirectory
-as an include directory so that the <code class="docutils literal notranslate"><span class="pre">MathFunctions.h</span></code> header file can be
-found.</p>
+</details><p>Finally we need to specify the library's header file location.
+Modify the existing <span class="target" id="index-2-command:target_include_directories"></span><a class="reference internal" href="../../command/target_include_directories.html#command:target_include_directories" title="target_include_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_include_directories()</span></code></a> call
+to add the <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> subdirectory as an include directory
+so that the <code class="docutils literal notranslate"><span class="pre">MathFunctions.h</span></code> header file can be found.</p>
 <details><summary>TODO 4: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-target-include-directories-step2">
-<div class="code-block-caption"><span class="caption-text">TODO 4: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-include-directories-step2" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 4: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-include-directories-step2" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">target_include_directories(</span><span class="nb">Tutorial</span><span class="w"> </span><span class="no">PUBLIC</span>
 <span class="w">                          </span><span class="s">&quot;${PROJECT_BINARY_DIR}&quot;</span>
 <span class="w">                          </span><span class="s">&quot;${PROJECT_SOURCE_DIR}/MathFunctions&quot;</span>
@@ -176,14 +175,14 @@ found.</p>
 </div>
 </details><p>Now let's use our library. In <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code>, include <code class="docutils literal notranslate"><span class="pre">MathFunctions.h</span></code>:</p>
 <details><summary>TODO 5: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-include-mathfunctions-h">
-<div class="code-block-caption"><span class="caption-text">TODO 5: tutorial.cxx</span><a class="headerlink" href="#cmakelists-txt-include-mathfunctions-h" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 5: tutorial.cxx</span><a class="headerlink" href="#cmakelists-txt-include-mathfunctions-h" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c">#include &quot;MathFunctions.h&quot;</span>
 </pre></div>
 </div>
 </div>
 </details><p>Lastly, replace <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> with the wrapper function <code class="docutils literal notranslate"><span class="pre">mathfunctions::sqrt</span></code>.</p>
 <details><summary>TODO 6: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-option">
-<div class="code-block-caption"><span class="caption-text">TODO 6: tutorial.cxx</span><a class="headerlink" href="#cmakelists-txt-option" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 6: tutorial.cxx</span><a class="headerlink" href="#cmakelists-txt-option" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nb">const</span><span class="w"> </span><span class="nb">double</span><span class="w"> </span><span class="nb">outputValue</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mathfunctions</span><span class="o">::</span><span class="nf">sqrt(</span><span class="nb">inputValue</span><span class="nf">)</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -191,7 +190,7 @@ found.</p>
 </details></section>
 </section>
 <section id="exercise-2-adding-an-option">
-<h2>Exercise 2 - Adding an Option<a class="headerlink" href="#exercise-2-adding-an-option" title="Permalink to this heading">¶</a></h2>
+<h2>Exercise 2 - Adding an Option<a class="headerlink" href="#exercise-2-adding-an-option" title="Link to this heading">¶</a></h2>
 <p>Now let us add an option in the MathFunctions library to allow developers to
 select either the custom square root implementation or the built in standard
 implementation. While for the tutorial
@@ -202,11 +201,11 @@ variable which they can change when configuring their cmake build. This
 setting will be stored in the cache so that the user does not need to set
 the value each time they run CMake on a build directory.</p>
 <section id="id1">
-<h3>Goal<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3>Goal<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Add the option to build without <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code>.</p>
 </section>
 <section id="id2">
-<h3>Helpful Resources<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>Helpful Resources<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-0-command:if"></span><a class="reference internal" href="../../command/if.html#command:if" title="if"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">if()</span></code></a></p></li>
 <li><p><span class="target" id="index-1-command:option"></span><a class="reference internal" href="../../command/option.html#command:option" title="option"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">option()</span></code></a></p></li>
@@ -214,14 +213,14 @@ the value each time they run CMake on a build directory.</p>
 </ul>
 </section>
 <section id="id3">
-<h3>Files to Edit<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>Files to Edit<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MathFunctions/CMakeLists.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MathFunctions/MathFunctions.cxx</span></code></p></li>
 </ul>
 </section>
 <section id="id4">
-<h3>Getting Started<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3>Getting Started<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>Start with the resulting files from Exercise 1. Complete <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">7</span></code> through
 <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">14</span></code>.</p>
 <p>First create a variable <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code> using the <span class="target" id="index-2-command:option"></span><a class="reference internal" href="../../command/option.html#command:option" title="option"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">option()</span></code></a> command
@@ -234,7 +233,7 @@ by making it its own library inside of the <code class="docutils literal notrans
 <code class="docutils literal notranslate"><span class="pre">MathFunctions/CMakeLists.txt</span></code>.</p>
 </section>
 <section id="id5">
-<h3>Build and Run<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3>Build and Run<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>Since we have our build directory already configured from Exercise 1, we can
 rebuild by simply calling the following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ../Step2_build</span>
@@ -259,13 +258,13 @@ option from the command-line, try:</p>
 or <code class="docutils literal notranslate"><span class="pre">mysqrt</span></code>?</p>
 </section>
 <section id="id6">
-<h3>Solution<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <p>The first step is to add an option to <code class="docutils literal notranslate"><span class="pre">MathFunctions/CMakeLists.txt</span></code>.
 This option will be displayed in the <span class="target" id="index-2-manual:cmake-gui(1)"></span><a class="reference internal" href="../../manual/cmake-gui.1.html#manual:cmake-gui(1)" title="cmake-gui(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-gui</span></code></a> and
 <span class="target" id="index-1-manual:ccmake(1)"></span><a class="reference internal" href="../../manual/ccmake.1.html#manual:ccmake(1)" title="ccmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">ccmake</span></code></a> with a default value of <code class="docutils literal notranslate"><span class="pre">ON</span></code> that can be
 changed by the user.</p>
 <details><summary>TODO 7: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-option-library-level">
-<div class="code-block-caption"><span class="caption-text">TODO 7: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-option-library-level" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 7: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-option-library-level" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">option(</span><span class="no">USE_MYMATH</span><span class="w"> </span><span class="s">&quot;Use tutorial provided math implementation&quot;</span><span class="w"> </span><span class="no">ON</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -277,7 +276,7 @@ conditional using this new option.</p>
 <span class="target" id="index-1-command:target_compile_definitions"></span><a class="reference internal" href="../../command/target_compile_definitions.html#command:target_compile_definitions" title="target_compile_definitions"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_compile_definitions()</span></code></a> command with the compile
 definition <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code>.</p>
 <details><summary>TODO 8: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-use-mymath">
-<div class="code-block-caption"><span class="caption-text">TODO 8: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-use-mymath" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 8: MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-use-mymath" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">if</span> <span class="nf">(</span><span class="no">USE_MYMATH</span><span class="nf">)</span>
 <span class="w">  </span><span class="nf">target_compile_definitions(</span><span class="nb">MathFunctions</span><span class="w"> </span><span class="no">PRIVATE</span><span class="w"> </span><span class="s">&quot;USE_MYMATH&quot;</span><span class="nf">)</span>
 <span class="nf">endif()</span>
@@ -291,7 +290,7 @@ sections of our source code.</p>
 In <code class="docutils literal notranslate"><span class="pre">MathFunctions.cxx</span></code>, we make <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code> control which square root
 function is used:</p>
 <details><summary>TODO 9: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-use-mymath-if">
-<div class="code-block-caption"><span class="caption-text">TODO 9: MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#mathfunctions-use-mymath-if" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 9: MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#mathfunctions-use-mymath-if" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef USE_MYMATH</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">mysqrt</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="cp">#else</span>
@@ -302,7 +301,7 @@ function is used:</p>
 </div>
 </details><p>Next, we need to include <code class="docutils literal notranslate"><span class="pre">mysqrt.h</span></code> if <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code> is defined.</p>
 <details><summary>TODO 10: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-use-mymath-if-include">
-<div class="code-block-caption"><span class="caption-text">TODO 10: MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#mathfunctions-use-mymath-if-include" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 10: MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#mathfunctions-use-mymath-if-include" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef USE_MYMATH</span>
 <span class="cp">#</span><span class="w">  </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&quot;mysqrt.h&quot;</span>
 <span class="cp">#endif</span>
@@ -311,7 +310,7 @@ function is used:</p>
 </div>
 </details><p>Finally, we need to include <code class="docutils literal notranslate"><span class="pre">cmath</span></code> now that we are using <code class="docutils literal notranslate"><span class="pre">std::sqrt</span></code>.</p>
 <details><summary>TODO 11: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="tutorial-cxx-include-cmath">
-<div class="code-block-caption"><span class="caption-text">TODO 11 : MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#tutorial-cxx-include-cmath" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 11 : MathFunctions/MathFunctions.cxx</span><a class="headerlink" href="#tutorial-cxx-include-cmath" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
 </pre></div>
 </div>
@@ -327,17 +326,22 @@ the sake of this tutorial, we are going to create an additional library.</p>
 <p>First, from within <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code> create a library called <code class="docutils literal notranslate"><span class="pre">SqrtLibrary</span></code>
 that has sources <code class="docutils literal notranslate"><span class="pre">mysqrt.cxx</span></code>.</p>
 <details><summary>TODO 12: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-cmakelists-txt-add-library-sqrtlibrary">
-<div class="code-block-caption"><span class="caption-text">TODO 12 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-add-library-sqrtlibrary" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 12 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-add-library-sqrtlibrary" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nf">add_library(</span><span class="nb">SqrtLibrary</span><span class="w"> </span><span class="no">STATIC</span>
 <span class="w">              </span><span class="nb">mysqrt.cxx</span>
 <span class="w">              </span><span class="nf">)</span>
+
+<span class="w">  </span><span class="c"># TODO 6: Link SqrtLibrary to tutorial_compiler_flags</span>
+
+<span class="w">  </span><span class="nf">target_link_libraries(</span><span class="nb">MathFunctions</span><span class="w"> </span><span class="no">PRIVATE</span><span class="w"> </span><span class="nb">SqrtLibrary</span><span class="nf">)</span>
+<span class="nf">endif()</span>
 </pre></div>
 </div>
 </div>
 </details><p>Next, we link <code class="docutils literal notranslate"><span class="pre">SqrtLibrary</span></code> onto <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> when <code class="docutils literal notranslate"><span class="pre">USE_MYMATH</span></code> is
 enabled.</p>
 <details><summary>TODO 13: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-cmakelists-txt-target-link-libraries-sqrtlibrary">
-<div class="code-block-caption"><span class="caption-text">TODO 13 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-target-link-libraries-sqrtlibrary" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 13 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-target-link-libraries-sqrtlibrary" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nf">target_link_libraries(</span><span class="nb">MathFunctions</span><span class="w"> </span><span class="no">PRIVATE</span><span class="w"> </span><span class="nb">SqrtLibrary</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -345,7 +349,7 @@ enabled.</p>
 </details><p>Finally, we can remove <code class="docutils literal notranslate"><span class="pre">mysqrt.cxx</span></code> from our <code class="docutils literal notranslate"><span class="pre">MathFunctions</span></code> library
 source list because it will be pulled in when <code class="docutils literal notranslate"><span class="pre">SqrtLibrary</span></code> is included.</p>
 <details><summary>TODO 14: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="mathfunctions-cmakelists-txt-remove-mysqrt-cxx-mathfunctions">
-<div class="code-block-caption"><span class="caption-text">TODO 14 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-remove-mysqrt-cxx-mathfunctions" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 14 : MathFunctions/CMakeLists.txt</span><a class="headerlink" href="#mathfunctions-cmakelists-txt-remove-mysqrt-cxx-mathfunctions" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">add_library(</span><span class="nb">MathFunctions</span><span class="w"> </span><span class="nb">MathFunctions.cxx</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -408,7 +412,7 @@ whoever is building and using the <code class="docutils literal notranslate"><sp
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -416,7 +420,7 @@ whoever is building and using the <code class="docutils literal notranslate"><sp
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -442,7 +446,7 @@ whoever is building and using the <code class="docutils literal notranslate"><sp
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Tutorial</a> &#187;</li>
@@ -451,8 +455,8 @@ whoever is building and using the <code class="docutils literal notranslate"><sp
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

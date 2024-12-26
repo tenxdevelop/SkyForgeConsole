@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CPack Archive Generator &mdash; CMake 3.28.1 Documentation</title>
+  <title>CPack Archive Generator &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cpack-generators.7.html" accesskey="U">cpack-generators(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="cpack-archive-generator">
-<span id="cpack_gen:CPack Archive Generator"></span><h1>CPack Archive Generator<a class="headerlink" href="#cpack-archive-generator" title="Permalink to this heading">¶</a></h1>
+<span id="cpack_gen:CPack Archive Generator"></span><h1>CPack Archive Generator<a class="headerlink" href="#cpack-archive-generator" title="Link to this heading">¶</a></h1>
 <p>CPack generator for packaging files into an archive, which can have
 any of the following formats:</p>
 <blockquote>
@@ -73,10 +72,10 @@ any of the following formats:</p>
 </ul>
 </div></blockquote>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1: </span>7Z and TXZ formats support.</p>
+<p><span class="versionmodified added">Added in version 3.1: </span>7Z and TXZ formats support.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16: </span>TZST format support.</p>
+<p><span class="versionmodified added">Added in version 3.16: </span>TZST format support.</p>
 </div>
 <p>When this generator is called from <code class="docutils literal notranslate"><span class="pre">CPackSourceConfig.cmake</span></code> (or through
 the <code class="docutils literal notranslate"><span class="pre">package_source</span></code> target), then the generated archive will contain all
@@ -99,12 +98,12 @@ that have been installed via CMake's <span class="target" id="index-0-command:in
 deprecated commands <span class="target" id="index-0-command:install_files"></span><a class="reference internal" href="../command/install_files.html#command:install_files" title="install_files"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">install_files()</span></code></a>, <span class="target" id="index-0-command:install_programs"></span><a class="reference internal" href="../command/install_programs.html#command:install_programs" title="install_programs"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">install_programs()</span></code></a>,
 and <span class="target" id="index-0-command:install_targets"></span><a class="reference internal" href="../command/install_targets.html#command:install_targets" title="install_targets"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">install_targets()</span></code></a>).</p>
 <section id="variables-specific-to-cpack-archive-generator">
-<h2>Variables specific to CPack Archive generator<a class="headerlink" href="#variables-specific-to-cpack-archive-generator" title="Permalink to this heading">¶</a></h2>
+<h2>Variables specific to CPack Archive generator<a class="headerlink" href="#variables-specific-to-cpack-archive-generator" title="Link to this heading">¶</a></h2>
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CPACK_ARCHIVE_FILE_NAME">
-<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_FILE_NAME</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_FILE_NAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_FILE_NAME</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_FILE_NAME" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="variable:CPACK_ARCHIVE_&lt;component&gt;_FILE_NAME">
-<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_&lt;component&gt;_FILE_NAME</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_<component>_FILE_NAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_&lt;component&gt;_FILE_NAME</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_<component>_FILE_NAME" title="Link to this definition">¶</a></dt>
 <dd><p>Package file name without extension.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -116,15 +115,15 @@ replaced by '-'.</p>
 automatically appended to the file name. Note that <code class="docutils literal notranslate"><span class="pre">&lt;component&gt;</span></code> is all
 uppercase in the variable name.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.9: </span>Per-component <code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_ARCHIVE_&lt;component&gt;_FILE_NAME</span></code> variables.</p>
+<p><span class="versionmodified added">Added in version 3.9: </span>Per-component <code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_ARCHIVE_&lt;component&gt;_FILE_NAME</span></code> variables.</p>
 </div>
 </dd></dl>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CPACK_ARCHIVE_FILE_EXTENSION">
-<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_FILE_EXTENSION</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_FILE_EXTENSION" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_FILE_EXTENSION</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_FILE_EXTENSION" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.25.</span></p>
+<p><span class="versionmodified added">Added in version 3.25.</span></p>
 </div>
 <p>Package file extension.</p>
 <dl class="field-list simple">
@@ -136,7 +135,7 @@ uppercase in the variable name.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CPACK_ARCHIVE_COMPONENT_INSTALL">
-<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_COMPONENT_INSTALL</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_COMPONENT_INSTALL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_COMPONENT_INSTALL</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_COMPONENT_INSTALL" title="Link to this definition">¶</a></dt>
 <dd><p>Enable component packaging.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
@@ -149,7 +148,7 @@ containing files of all components is generated.</p>
 
 </section>
 <section id="variables-used-by-cpack-archive-generator">
-<h2>Variables used by CPack Archive generator<a class="headerlink" href="#variables-used-by-cpack-archive-generator" title="Permalink to this heading">¶</a></h2>
+<h2>Variables used by CPack Archive generator<a class="headerlink" href="#variables-used-by-cpack-archive-generator" title="Link to this heading">¶</a></h2>
 <p>These variables are used by the Archive generator, but are also available to
 CPack generators which are essentially archives at their core. These include:</p>
 <ul class="simple">
@@ -158,23 +157,20 @@ CPack generators which are essentially archives at their core. These include:</p
 </ul>
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:CPACK_ARCHIVE_THREADS">
-<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_THREADS</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_THREADS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CPACK_ARCHIVE_THREADS</span></span><a class="headerlink" href="#variable:CPACK_ARCHIVE_THREADS" title="Link to this definition">¶</a></dt>
 <dd><p>The number of threads to use when performing the compression.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<dd class="field-odd"><p>value of <span class="target" id="index-0-variable:CPACK_THREADS"></span><a class="reference internal" href="../module/CPack.html#variable:CPACK_THREADS" title="CPACK_THREADS"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_THREADS</span></code></a></p>
 </dd>
 </dl>
 <p>If set to <code class="docutils literal notranslate"><span class="pre">0</span></code>, the number of available cores on the machine will be used instead.
-The default is <code class="docutils literal notranslate"><span class="pre">1</span></code> which limits compression to a single thread. Note that
-not all compression modes support threading in all environments. Currently,
-only the XZ compression may support it.</p>
-<p>See also the <span class="target" id="index-0-variable:CPACK_THREADS"></span><a class="reference internal" href="../module/CPack.html#variable:CPACK_THREADS" title="CPACK_THREADS"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_THREADS</span></code></a> variable.</p>
+Note that not all compression modes support threading in all environments.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21: </span>Official CMake binaries available on <code class="docutils literal notranslate"><span class="pre">cmake.org</span></code> now ship
+<p><span class="versionmodified added">Added in version 3.21: </span>Official CMake binaries available on <code class="docutils literal notranslate"><span class="pre">cmake.org</span></code> now ship
 with a <code class="docutils literal notranslate"><span class="pre">liblzma</span></code> that supports parallel compression.
 Older versions did not.</p>
 </div>
@@ -218,7 +214,7 @@ Older versions did not.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -226,7 +222,7 @@ Older versions did not.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -252,7 +248,7 @@ Older versions did not.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cpack-generators.7.html" >cpack-generators(7)</a> &#187;</li>
@@ -261,8 +257,8 @@ Older versions did not.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMake 3.25 Release Notes &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMake 3.25 Release Notes &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Release Notes</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="cmake-3-25-release-notes">
-<h1><a class="toc-backref" href="#id4" role="doc-backlink">CMake 3.25 Release Notes</a><a class="headerlink" href="#cmake-3-25-release-notes" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">CMake 3.25 Release Notes</a><a class="headerlink" href="#cmake-3-25-release-notes" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -92,9 +91,9 @@
 </nav>
 <p>Changes made since CMake 3.24 include the following.</p>
 <section id="new-features">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">New Features</a><a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h2>
 <section id="presets">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Presets</a><a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Presets</a><a class="headerlink" href="#presets" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-manual:cmake-presets(7)"></span><a class="reference internal" href="../manual/cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-presets(7)</span></code></a> schema version has been bumped to <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p></li>
 <li><p>The <span class="target" id="index-1-manual:cmake-presets(7)"></span><a class="reference internal" href="../manual/cmake-presets.7.html#manual:cmake-presets(7)" title="cmake-presets(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-presets(7)</span></code></a> format now supports a
@@ -106,11 +105,9 @@
 </ul>
 </section>
 <section id="languages">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Languages</a><a class="headerlink" href="#languages" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Languages</a><a class="headerlink" href="#languages" title="Link to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The <span class="target" id="index-0-manual:cmake-compile-features(7)"></span><a class="reference internal" href="../manual/cmake-compile-features.7.html#manual:cmake-compile-features(7)" title="cmake-compile-features(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">Compile</span> <span class="pre">Features</span></code></a> functionality
-is now aware of C++26, and defines a <code class="docutils literal notranslate"><span class="pre">cxx_std_26</span></code> meta-feature.
-C++26 compiler modes may also be specified via the <span class="target" id="index-0-prop_tgt:CXX_STANDARD"></span><a class="reference internal" href="../prop_tgt/CXX_STANDARD.html#prop_tgt:CXX_STANDARD" title="CXX_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CXX_STANDARD</span></code></a>,
+<li><p>C++26 compiler modes may now be specified via the <span class="target" id="index-0-prop_tgt:CXX_STANDARD"></span><a class="reference internal" href="../prop_tgt/CXX_STANDARD.html#prop_tgt:CXX_STANDARD" title="CXX_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CXX_STANDARD</span></code></a>,
 <span class="target" id="index-0-prop_tgt:CUDA_STANDARD"></span><a class="reference internal" href="../prop_tgt/CUDA_STANDARD.html#prop_tgt:CUDA_STANDARD" title="CUDA_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">CUDA_STANDARD</span></code></a>, <span class="target" id="index-0-prop_tgt:HIP_STANDARD"></span><a class="reference internal" href="../prop_tgt/HIP_STANDARD.html#prop_tgt:HIP_STANDARD" title="HIP_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">HIP_STANDARD</span></code></a>,
 or <span class="target" id="index-0-prop_tgt:OBJCXX_STANDARD"></span><a class="reference internal" href="../prop_tgt/OBJCXX_STANDARD.html#prop_tgt:OBJCXX_STANDARD" title="OBJCXX_STANDARD"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">OBJCXX_STANDARD</span></code></a> target properties.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CUDA</span></code> language support now includes device link-time optimization when
@@ -120,7 +117,7 @@ will activate device LTO.</p></li>
 </ul>
 </section>
 <section id="command-line">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Command-Line</a><a class="headerlink" href="#command-line" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Command-Line</a><a class="headerlink" href="#command-line" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A <a class="reference internal" href="../manual/cmake.1.html#cmdoption-cmake-workflow-preset"><code class="xref std std-option docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--workflow</span> <span class="pre">--preset</span></code></a> mode was
 added to drive sequences of configure, build, test, and package operations
@@ -135,7 +132,7 @@ reporting the directory in which each try-compile check is done.</p></li>
 </ul>
 </section>
 <section id="compilers">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Compilers</a><a class="headerlink" href="#compilers" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Compilers</a><a class="headerlink" href="#compilers" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Support for the <a class="reference external" href="https://www.tasking.com">Tasking compiler toolsets</a> (SmartCode, TriCore,
 Standalone: ARM, MCS, 8051) was added with compiler id <code class="docutils literal notranslate"><span class="pre">Tasking</span></code>.
@@ -143,7 +140,7 @@ See the <span class="target" id="index-0-variable:CMAKE_TASKING_TOOLSET"></span>
 </ul>
 </section>
 <section id="commands">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Commands</a><a class="headerlink" href="#commands" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-command:add_subdirectory"></span><a class="reference internal" href="../command/add_subdirectory.html#command:add_subdirectory" title="add_subdirectory"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_subdirectory()</span></code></a> command gained a <code class="docutils literal notranslate"><span class="pre">SYSTEM</span></code> option
 to enable the <span class="target" id="index-0-prop_dir:SYSTEM"></span><a class="reference internal" href="../prop_dir/SYSTEM.html#prop_dir:SYSTEM" title="SYSTEM"><code class="xref cmake cmake-prop_dir docutils literal notranslate"><span class="pre">SYSTEM</span></code></a> directory property in the subdirectory.</p></li>
@@ -174,7 +171,7 @@ separately from the output of the compiled program.</p></li>
 </ul>
 </section>
 <section id="variables">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Variables</a><a class="headerlink" href="#variables" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-variable:BSD"></span><a class="reference internal" href="../variable/BSD.html#variable:BSD" title="BSD"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">BSD</span></code></a> and <span class="target" id="index-0-variable:CMAKE_HOST_BSD"></span><a class="reference internal" href="../variable/CMAKE_HOST_BSD.html#variable:CMAKE_HOST_BSD" title="CMAKE_HOST_BSD"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_HOST_BSD</span></code></a> variables are now set
 to a string value when the target or host system is BSD, respectively.</p></li>
@@ -203,7 +200,7 @@ configuration to put in the scheme's Launch action.</p></li>
 </ul>
 </section>
 <section id="properties">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Properties</a><a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-prop_tgt:&lt;LANG&gt;_COMPILER_LAUNCHER"></span><a class="reference internal" href="../prop_tgt/LANG_COMPILER_LAUNCHER.html#prop_tgt:&lt;LANG&gt;_COMPILER_LAUNCHER" title="&lt;LANG&gt;_COMPILER_LAUNCHER"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">&lt;LANG&gt;_COMPILER_LAUNCHER</span></code></a> target property now supports
 <span class="target" id="index-0-manual:cmake-generator-expressions(7)"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)" title="cmake-generator-expressions(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">generator</span> <span class="pre">expressions</span></code></a>.</p></li>
@@ -221,7 +218,7 @@ behavior: on for imported targets and off for other targets.</p></li>
 </ul>
 </section>
 <section id="modules">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Modules</a><a class="headerlink" href="#modules" title="Link to this heading">¶</a></h3>
 <ul>
 <li><p>The <span class="target" id="index-0-module:FetchContent"></span><a class="reference internal" href="../module/FetchContent.html#module:FetchContent" title="FetchContent"><code class="xref cmake cmake-module docutils literal notranslate"><span class="pre">FetchContent</span></code></a> module's <span class="target" id="index-0-command:fetchcontent_declare"></span><a class="reference internal" href="../module/FetchContent.html#command:fetchcontent_declare" title="fetchcontent_declare"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">FetchContent_Declare()</span></code></a>
 command gained a <code class="docutils literal notranslate"><span class="pre">SYSTEM</span></code> option which sets the <span class="target" id="index-2-prop_dir:SYSTEM"></span><a class="reference internal" href="../prop_dir/SYSTEM.html#prop_dir:SYSTEM" title="SYSTEM"><code class="xref cmake cmake-prop_dir docutils literal notranslate"><span class="pre">SYSTEM</span></code></a>
@@ -255,7 +252,7 @@ tolerated (e.g. a trailing git commit hash).</p></li>
 </ul>
 </section>
 <section id="cpack">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">CPack</a><a class="headerlink" href="#cpack" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-cpack_gen:CPack Archive Generator"></span><a class="reference internal" href="../cpack_gen/archive.html#cpack_gen:CPack Archive Generator" title="CPack Archive Generator"><code class="xref cmake cmake-cpack_gen docutils literal notranslate"><span class="pre">CPack</span> <span class="pre">Archive</span> <span class="pre">Generator</span></code></a> gained a new
 <span class="target" id="index-0-variable:CPACK_ARCHIVE_FILE_EXTENSION"></span><a class="reference internal" href="../cpack_gen/archive.html#variable:CPACK_ARCHIVE_FILE_EXTENSION" title="CPACK_ARCHIVE_FILE_EXTENSION"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CPACK_ARCHIVE_FILE_EXTENSION</span></code></a> variable to control
@@ -272,7 +269,7 @@ of binutils used by <span class="target" id="index-0-manual:cpack(1)"></span><a 
 </section>
 </section>
 <section id="deprecated-and-removed-features">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Deprecated and Removed Features</a><a class="headerlink" href="#deprecated-and-removed-features" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-prop_tgt:IMPORTED_NO_SYSTEM"></span><a class="reference internal" href="../prop_tgt/IMPORTED_NO_SYSTEM.html#prop_tgt:IMPORTED_NO_SYSTEM" title="IMPORTED_NO_SYSTEM"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED_NO_SYSTEM</span></code></a> target property has been deprecated
 in favor of <span class="target" id="index-3-prop_tgt:SYSTEM"></span><a class="reference internal" href="../prop_tgt/SYSTEM.html#prop_tgt:SYSTEM" title="SYSTEM"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">SYSTEM</span></code></a> and <span class="target" id="index-1-prop_tgt:EXPORT_NO_SYSTEM"></span><a class="reference internal" href="../prop_tgt/EXPORT_NO_SYSTEM.html#prop_tgt:EXPORT_NO_SYSTEM" title="EXPORT_NO_SYSTEM"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">EXPORT_NO_SYSTEM</span></code></a>.</p></li>
@@ -282,7 +279,7 @@ and will be removed in a future version of CMake.</p></li>
 </ul>
 </section>
 <section id="other-changes">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Other Changes</a><a class="headerlink" href="#other-changes" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The <span class="target" id="index-0-envvar:SSL_CERT_FILE"></span><a class="reference internal" href="../envvar/SSL_CERT_FILE.html#envvar:SSL_CERT_FILE" title="SSL_CERT_FILE"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">SSL_CERT_FILE</span></code></a> and <span class="target" id="index-0-envvar:SSL_CERT_DIR"></span><a class="reference internal" href="../envvar/SSL_CERT_DIR.html#envvar:SSL_CERT_DIR" title="SSL_CERT_DIR"><code class="xref cmake cmake-envvar docutils literal notranslate"><span class="pre">SSL_CERT_DIR</span></code></a> environment
 variables can now be used to override where to find certificate
@@ -295,10 +292,10 @@ See policy <span class="target" id="index-0-policy:CMP0142"></span><a class="ref
 </ul>
 </section>
 <section id="updates">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Updates</a><a class="headerlink" href="#updates" title="Link to this heading">¶</a></h2>
 <p>Changes made since CMake 3.25.0 include the following.</p>
 <section id="id1">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.25.1</a><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">3.25.1</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>On Windows, when targeting the MSVC ABI, the <span class="target" id="index-1-command:find_library"></span><a class="reference internal" href="../command/find_library.html#command:find_library" title="find_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_library()</span></code></a>
 command no longer accepts <code class="docutils literal notranslate"><span class="pre">.a</span></code> file names.  This behavior was added
@@ -307,7 +304,7 @@ in cases we did not previously.</p></li>
 </ul>
 </section>
 <section id="id2">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.25.2</a><a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">3.25.2</a><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>CUDA language level 20 (corresponding to C++20) is now supported with
 NVCC 12.0 and above.</p></li>
@@ -317,7 +314,7 @@ not yet supported by CMake.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">3.25.3</a><a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">3.25.3</a><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>This version made no changes to documented features or interfaces.
 Some implementation updates were made to support ecosystem changes
@@ -380,7 +377,7 @@ and/or fix regressions.</p></li>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -388,7 +385,7 @@ and/or fix regressions.</p></li>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -414,7 +411,7 @@ and/or fix regressions.</p></li>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Release Notes</a> &#187;</li>
@@ -423,8 +420,8 @@ and/or fix regressions.</p></li>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>IDE Integration Guide &mdash; CMake 3.28.1 Documentation</title>
+  <title>IDE Integration Guide &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">IDE Integration Guide</a></li> 
@@ -57,7 +56,7 @@
           <div class="body" role="main">
             
   <section id="guide:IDE Integration Guide">
-<span id="ide-integration-guide"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">IDE Integration Guide</a><a class="headerlink" href="#guide:IDE Integration Guide" title="Permalink to this heading">¶</a></h1>
+<span id="ide-integration-guide"></span><h1><a class="toc-backref" href="#id1" role="doc-backlink">IDE Integration Guide</a><a class="headerlink" href="#guide:IDE Integration Guide" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -75,13 +74,13 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Integrated development environments (IDEs) may want to integrate with CMake to
 improve the development experience for CMake users. This document lays out the
 recommended best practices for such integration.</p>
 </section>
 <section id="bundling">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Bundling</a><a class="headerlink" href="#bundling" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Bundling</a><a class="headerlink" href="#bundling" title="Link to this heading">¶</a></h2>
 <p>Many IDE vendors will want to bundle a copy of CMake with their IDE. IDEs that
 bundle CMake should present the user with the option of using an external CMake
 installation instead of the bundled one, in case the bundled copy becomes
@@ -99,7 +98,7 @@ support CMake. IDEs that bundle Ninja should use Ninja 1.10 or later, which
 contains features needed to support Fortran builds.</p>
 </section>
 <section id="presets">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Presets</a><a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Presets</a><a class="headerlink" href="#presets" title="Link to this heading">¶</a></h2>
 <p>CMake supports a file format called <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code>, and its
 user-specific counterpart, <code class="docutils literal notranslate"><span class="pre">CMakeUserPresets.json</span></code>. This file contains
 information on the various configure presets that a user may want. Each preset
@@ -137,7 +136,7 @@ machine-readable JSON schema for the <code class="docutils literal notranslate">
 vendors may find useful for validation and providing editing assistance.</p>
 </section>
 <section id="configuring">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Configuring</a><a class="headerlink" href="#configuring" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Configuring</a><a class="headerlink" href="#configuring" title="Link to this heading">¶</a></h2>
 <p>IDEs that invoke <span class="target" id="index-2-manual:cmake(1)"></span><a class="reference internal" href="../../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake(1)</span></code></a> to run the configure step may wish to
 receive information about the artifacts that the build will produce, as well
 as the include directories, compile definitions, etc. used to build the
@@ -160,7 +159,7 @@ Instead the <span class="target" id="index-2-manual:cmake-file-api(7)"></span><a
 list of build artifacts.</p>
 </section>
 <section id="building">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Building</a><a class="headerlink" href="#building" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Building</a><a class="headerlink" href="#building" title="Link to this heading">¶</a></h2>
 <p>If a Makefile or Ninja generator is used to generate the build tree, it is not
 recommended to invoke <code class="docutils literal notranslate"><span class="pre">make</span></code> or <code class="docutils literal notranslate"><span class="pre">ninja</span></code> directly. Instead, it is
 recommended that the IDE invoke <span class="target" id="index-3-manual:cmake(1)"></span><a class="reference internal" href="../../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake(1)</span></code></a> with the
@@ -174,7 +173,7 @@ build configurations from the build tree, and the IDE should present this list
 to the user to select a build configuration.</p>
 </section>
 <section id="testing">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Testing</a><a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Testing</a><a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
 <p><span class="target" id="index-0-manual:ctest(1)"></span><a class="reference internal" href="../../manual/ctest.1.html#manual:ctest(1)" title="ctest(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">ctest(1)</span></code></a> supports outputting a JSON format with information about the
 available tests and test configurations. IDEs which want to run CTest should
 obtain this information and use it to present the user with a list of tests.</p>
@@ -182,7 +181,7 @@ obtain this information and use it to present the user with a list of tests.</p>
 Instead, they should invoke <span class="target" id="index-1-manual:ctest(1)"></span><a class="reference internal" href="../../manual/ctest.1.html#manual:ctest(1)" title="ctest(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">ctest(1)</span></code></a> directly.</p>
 </section>
 <section id="ides-with-cmake-integration">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">IDEs with CMake integration</a><a class="headerlink" href="#ides-with-cmake-integration" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">IDEs with CMake integration</a><a class="headerlink" href="#ides-with-cmake-integration" title="Link to this heading">¶</a></h2>
 <p>The following IDEs support CMake natively:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.jetbrains.com/clion/">CLion</a></p></li>
@@ -244,7 +243,7 @@ Superseded by the <span class="target" id="index-4-manual:cmake-file-api(7)"></s
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -252,7 +251,7 @@ Superseded by the <span class="target" id="index-4-manual:cmake-file-api(7)"></s
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -278,7 +277,7 @@ Superseded by the <span class="target" id="index-4-manual:cmake-file-api(7)"></s
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">IDE Integration Guide</a></li> 
@@ -286,8 +285,8 @@ Superseded by the <span class="target" id="index-4-manual:cmake-file-api(7)"></s
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

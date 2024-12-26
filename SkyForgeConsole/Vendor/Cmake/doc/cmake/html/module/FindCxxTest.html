@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindCxxTest &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindCxxTest &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,12 +57,12 @@
           <div class="body" role="main">
             
   <section id="findcxxtest">
-<span id="module:FindCxxTest"></span><h1>FindCxxTest<a class="headerlink" href="#findcxxtest" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindCxxTest"></span><h1>FindCxxTest<a class="headerlink" href="#findcxxtest" title="Link to this heading">¶</a></h1>
 <p>Find CxxTest unit testing framework.</p>
-<p>Find the <a class="reference external" href="https://github.com/CxxTest/cxxtest#readme">CxxTest</a> suite and declare a helper macro for creating
+<p>Find the <a class="reference external" href="https://github.com/CxxTest/cxxtest">CxxTest</a> suite and declare a helper macro for creating
 unit tests and integrating them with CTest.</p>
 <section id="input-variables">
-<h2>Input Variables<a class="headerlink" href="#input-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Input Variables<a class="headerlink" href="#input-variables" title="Link to this heading">¶</a></h2>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_USE_PYTHON</span></code></dt><dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 1.3.</span></p>
@@ -79,7 +78,7 @@ regardless of which scripting language the
 user had installed.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_TESTGEN_ARGS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 2.8.3.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.3.</span></p>
 </div>
 <p>Specify a list of options to pass to the CxxTest code
 generator.  If not defined, <code class="docutils literal notranslate"><span class="pre">--error-printer</span></code> is passed.</p>
@@ -87,7 +86,7 @@ generator.  If not defined, <code class="docutils literal notranslate"><span cla
 </dl>
 </section>
 <section id="result-variables">
-<h2>Result Variables<a class="headerlink" href="#result-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_FOUND</span></code></dt><dd><p>True if the CxxTest framework was found</p>
 </dd>
@@ -98,13 +97,13 @@ generator.  If not defined, <code class="docutils literal notranslate"><span cla
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_PYTHON_TESTGEN_EXECUTABLE</span></code></dt><dd><p>The python-based test generator</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_TESTGEN_EXECUTABLE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 2.8.3.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.3.</span></p>
 </div>
 <p>The test generator that is actually used (chosen using user preferences
 and interpreters found in the system)</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">CXXTEST_TESTGEN_INTERPRETER</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 2.8.3.</span></p>
+<p><span class="versionmodified added">Added in version 2.8.3.</span></p>
 </div>
 <p>The full path to the Perl or Python executable on the system, on
 platforms where the script cannot be executed using its shebang line.</p>
@@ -112,10 +111,10 @@ platforms where the script cannot be executed using its shebang line.</p>
 </dl>
 </section>
 <section id="module-commands">
-<h2>Module Commands<a class="headerlink" href="#module-commands" title="Permalink to this heading">¶</a></h2>
+<h2>Module Commands<a class="headerlink" href="#module-commands" title="Link to this heading">¶</a></h2>
 <dl class="cmake command">
 <dt class="sig sig-object cmake" id="command:cxxtest_add_test">
-<span class="sig-name descname"><span class="pre">cxxtest_add_test</span></span><a class="headerlink" href="#command:cxxtest_add_test" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">cxxtest_add_test</span></span><a class="headerlink" href="#command:cxxtest_add_test" title="Link to this definition">¶</a></dt>
 <dd><p>Create a CxxTest runner and adds it to the CTest testing suite:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CXXTEST_ADD_TEST(&lt;test_name&gt; &lt;gen_source_file&gt;
                  &lt;input_files_to_testgen&gt;...)
@@ -135,7 +134,7 @@ to be included in this runner</p>
 
 </section>
 <section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">¶</a></h2>
 <p>The following example, if CxxTest is found, will:</p>
 <ul class="simple">
 <li><p>Invoke the testgen executable to autogenerate foo_test.cc in the
@@ -205,7 +204,7 @@ binary tree from &quot;foo_test.h&quot; in the current source directory.</p></li
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -213,7 +212,7 @@ binary tree from &quot;foo_test.h&quot; in the current source directory.</p></li
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -239,7 +238,7 @@ binary tree from &quot;foo_test.h&quot; in the current source directory.</p></li
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -248,8 +247,8 @@ binary tree from &quot;foo_test.h&quot; in the current source directory.</p></li
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>string &mdash; CMake 3.28.1 Documentation</title>
+  <title>string &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,10 +57,10 @@
           <div class="body" role="main">
             
   <section id="string">
-<span id="command:string"></span><h1>string<a class="headerlink" href="#string" title="Permalink to this heading">¶</a></h1>
+<span id="command:string"></span><h1>string<a class="headerlink" href="#string" title="Link to this heading">¶</a></h1>
 <p>String operations.</p>
 <section id="synopsis">
-<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
 <pre class="literal-block"><a class="reference internal" href="#search-and-replace">Search and Replace</a>
   string(<a class="reference internal" href="#find">FIND</a> &lt;string&gt; &lt;substring&gt; &lt;out-var&gt; [...])
   string(<a class="reference internal" href="#replace">REPLACE</a> &lt;match-string&gt; &lt;replace-string&gt; &lt;out-var&gt; &lt;input&gt;...)
@@ -76,7 +75,7 @@
   string(<a class="reference internal" href="#join">JOIN</a> &lt;glue&gt; &lt;out-var&gt; [&lt;input&gt;...])
   string(<a class="reference internal" href="#tolower">TOLOWER</a> &lt;string&gt; &lt;out-var&gt;)
   string(<a class="reference internal" href="#toupper">TOUPPER</a> &lt;string&gt; &lt;out-var&gt;)
-  string(<a class="reference internal" href="#json-length">LENGTH</a> &lt;string&gt; &lt;out-var&gt;)
+  string(<a class="reference internal" href="#length">LENGTH</a> &lt;string&gt; &lt;out-var&gt;)
   string(<a class="reference internal" href="#substring">SUBSTRING</a> &lt;string&gt; &lt;begin&gt; &lt;length&gt; &lt;out-var&gt;)
   string(<a class="reference internal" href="#strip">STRIP</a> &lt;string&gt; &lt;out-var&gt;)
   string(<a class="reference internal" href="#genex-strip">GENEX_STRIP</a> &lt;string&gt; &lt;out-var&gt;)
@@ -111,12 +110,12 @@
          <a class="reference internal" href="#json-equal">EQUAL</a> &lt;json-string1&gt; &lt;json-string2&gt;)</pre>
 </section>
 <section id="search-and-replace">
-<h2>Search and Replace<a class="headerlink" href="#search-and-replace" title="Permalink to this heading">¶</a></h2>
+<h2>Search and Replace<a class="headerlink" href="#search-and-replace" title="Link to this heading">¶</a></h2>
 <section id="search-and-replace-with-plain-strings">
-<h3>Search and Replace With Plain Strings<a class="headerlink" href="#search-and-replace-with-plain-strings" title="Permalink to this heading">¶</a></h3>
+<h3>Search and Replace With Plain Strings<a class="headerlink" href="#search-and-replace-with-plain-strings" title="Link to this heading">¶</a></h3>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="find">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">FIND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;substring&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">REVERSE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#find" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">FIND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;substring&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">REVERSE</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#find" title="Link to this definition">¶</a></dt>
 <dd><p>Return the position where the given <code class="docutils literal notranslate"><span class="pre">&lt;substring&gt;</span></code> was found in
 the supplied <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>.  If the <code class="docutils literal notranslate"><span class="pre">REVERSE</span></code> flag was used, the command
 will search for the position of the last occurrence of the specified
@@ -129,17 +128,17 @@ so strings containing multi-byte characters may lead to unexpected results.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="replace">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REPLACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;match_string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;replace_string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#replace" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REPLACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;match_string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;replace_string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#replace" title="Link to this definition">¶</a></dt>
 <dd><p>Replace all occurrences of <code class="docutils literal notranslate"><span class="pre">&lt;match_string&gt;</span></code> in the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>
 with <code class="docutils literal notranslate"><span class="pre">&lt;replace_string&gt;</span></code> and store the result in the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.</p>
 </dd></dl>
 
 </section>
 <section id="search-and-replace-with-regular-expressions">
-<h3>Search and Replace With Regular Expressions<a class="headerlink" href="#search-and-replace-with-regular-expressions" title="Permalink to this heading">¶</a></h3>
+<h3>Search and Replace With Regular Expressions<a class="headerlink" href="#search-and-replace-with-regular-expressions" title="Link to this heading">¶</a></h3>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="regex-match">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">MATCH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-match" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">MATCH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-match" title="Link to this definition">¶</a></dt>
 <dd><p>Match the <code class="docutils literal notranslate"><span class="pre">&lt;regular_expression&gt;</span></code> once and store the match in the
 <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.
 All <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments are concatenated before matching.
@@ -148,7 +147,7 @@ Regular expressions are specified in the subsection just below.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="regex-matchall">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">MATCHALL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-matchall" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">MATCHALL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-matchall" title="Link to this definition">¶</a></dt>
 <dd><p>Match the <code class="docutils literal notranslate"><span class="pre">&lt;regular_expression&gt;</span></code> as many times as possible and store the
 matches in the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code> as a list.
 All <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments are concatenated before matching.</p>
@@ -156,7 +155,7 @@ All <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="regex-replace">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">REPLACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;replacement_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-replace" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REGEX</span></span><span class="w"> </span><span class="no"><span class="pre">REPLACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;regular_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;replacement_expression&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#regex-replace" title="Link to this definition">¶</a></dt>
 <dd><p>Match the <code class="docutils literal notranslate"><span class="pre">&lt;regular_expression&gt;</span></code> as many times as possible and substitute
 the <code class="docutils literal notranslate"><span class="pre">&lt;replacement_expression&gt;</span></code> for the match in the output.
 All <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments are concatenated before matching.</p>
@@ -168,7 +167,7 @@ through argument parsing.</p>
 
 </section>
 <section id="regex-specification">
-<span id="id1"></span><h3>Regex Specification<a class="headerlink" href="#regex-specification" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3>Regex Specification<a class="headerlink" href="#regex-specification" title="Link to this heading">¶</a></h3>
 <p>The following characters have special meaning in regular expressions:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">^</span></code></dt><dd><p>Matches at beginning of input</p>
@@ -182,15 +181,16 @@ match special regex characters, e.g. <code class="docutils literal notranslate">
 or <code class="docutils literal notranslate"><span class="pre">\\</span></code> for a literal backslash <code class="docutils literal notranslate"><span class="pre">\</span></code>.  Escaping a non-special
 character is unnecessary but allowed, e.g. <code class="docutils literal notranslate"><span class="pre">\a</span></code> matches <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></dt><dd><p>Matches any character(s) inside the brackets</p>
+<dt><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></dt><dd><p>Matches any character(s) inside the brackets.
+To match a literal <code class="docutils literal notranslate"><span class="pre">]</span></code>, make it the first character, e.g., <code class="docutils literal notranslate"><span class="pre">[]ab]</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">[^</span> <span class="pre">]</span></code></dt><dd><p>Matches any character(s) not inside the brackets</p>
+<dt><code class="docutils literal notranslate"><span class="pre">[^</span> <span class="pre">]</span></code></dt><dd><p>Matches any character(s) not inside the brackets.
+To not match a literal <code class="docutils literal notranslate"><span class="pre">]</span></code>, make it the first character, e.g., <code class="docutils literal notranslate"><span class="pre">[^]ab]</span></code>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">-</span></code></dt><dd><p>Inside brackets, specifies an inclusive range between
-characters on either side e.g. <code class="docutils literal notranslate"><span class="pre">[a-f]</span></code> is <code class="docutils literal notranslate"><span class="pre">[abcdef]</span></code>
-To match a literal <code class="docutils literal notranslate"><span class="pre">-</span></code> using brackets, make it the first
-or the last character e.g. <code class="docutils literal notranslate"><span class="pre">[+*/-]</span></code> matches basic
-mathematical operators.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">-</span></code></dt><dd><p>Inside brackets, specifies an inclusive range between characters on
+either side, e.g., <code class="docutils literal notranslate"><span class="pre">[a-f]</span></code> is <code class="docutils literal notranslate"><span class="pre">[abcdef]</span></code>.
+To match a literal <code class="docutils literal notranslate"><span class="pre">-</span></code> using brackets, make it the first or the last
+character, e.g., <code class="docutils literal notranslate"><span class="pre">[+*/-]</span></code> matches basic mathematical operators.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">*</span></code></dt><dd><p>Matches preceding pattern zero or more times</p>
 </dd>
@@ -203,7 +203,7 @@ mathematical operators.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">()</span></code></dt><dd><p>Saves a matched subexpression, which can be referenced
 in the <code class="docutils literal notranslate"><span class="pre">REGEX</span> <span class="pre">REPLACE</span></code> operation.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.9: </span>All regular expression-related commands, including e.g.
+<p><span class="versionmodified added">Added in version 3.9: </span>All regular expression-related commands, including e.g.
 <span class="target" id="index-0-command:if"></span><a class="reference internal" href="if.html#matches" title="if(matches)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">if(MATCHES)</span></code></a>, save subgroup matches in the variables
 <span class="target" id="index-0-variable:CMAKE_MATCH_&lt;n&gt;"></span><a class="reference internal" href="../variable/CMAKE_MATCH_n.html#variable:CMAKE_MATCH_&lt;n&gt;" title="CMAKE_MATCH_&lt;n&gt;"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_MATCH_&lt;n&gt;</span></code></a> for <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code> 0..9.</p>
 </div>
@@ -232,37 +232,37 @@ having to escape the backslashes, e.g. <code class="docutils literal notranslate
 </section>
 </section>
 <section id="manipulation">
-<h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this heading">¶</a></h2>
+<h2>Manipulation<a class="headerlink" href="#manipulation" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="append">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">APPEND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#append" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">APPEND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#append" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
 <p>Append all the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments to the string.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="prepend">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">PREPEND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#prepend" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">PREPEND</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#prepend" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Prepend all the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments to the string.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="concat">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">CONCAT</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#concat" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">CONCAT</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#concat" title="Link to this definition">¶</a></dt>
 <dd><p>Concatenate all the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments together and store
 the result in the named <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="join">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JOIN</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;glue&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#join" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JOIN</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;glue&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;input&gt;...</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#join" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.12.</span></p>
+<p><span class="versionmodified added">Added in version 3.12.</span></p>
 </div>
 <p>Join all the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> arguments together using the <code class="docutils literal notranslate"><span class="pre">&lt;glue&gt;</span></code>
 string and store the result in the named <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.</p>
@@ -273,19 +273,19 @@ special characters like <code class="docutils literal notranslate"><span class="
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="tolower">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TOLOWER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#tolower" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TOLOWER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#tolower" title="Link to this definition">¶</a></dt>
 <dd><p>Convert <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to lower characters.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="toupper">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TOUPPER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#toupper" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TOUPPER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#toupper" title="Link to this definition">¶</a></dt>
 <dd><p>Convert <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to upper characters.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="length">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">LENGTH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#length" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">LENGTH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#length" title="Link to this definition">¶</a></dt>
 <dd><p>Store in an <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code> a given string's length in bytes.
 Note that this means if <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> contains multi-byte characters,
 the result stored in <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code> will <em>not</em> be
@@ -294,7 +294,7 @@ the number of characters.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="substring">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">SUBSTRING</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;begin&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;length&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#substring" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">SUBSTRING</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;begin&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;length&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#substring" title="Link to this definition">¶</a></dt>
 <dd><p>Store in an <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code> a substring of a given <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>.  If
 <code class="docutils literal notranslate"><span class="pre">&lt;length&gt;</span></code> is <code class="docutils literal notranslate"><span class="pre">-1</span></code> the remainder of the string starting at <code class="docutils literal notranslate"><span class="pre">&lt;begin&gt;</span></code>
 will be returned.</p>
@@ -309,16 +309,16 @@ be exercised if <code class="docutils literal notranslate"><span class="pre">&lt
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="strip">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">STRIP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#strip" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">STRIP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#strip" title="Link to this definition">¶</a></dt>
 <dd><p>Store in an <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code> a substring of a given <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>
 with leading and trailing spaces removed.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="genex-strip">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">GENEX_STRIP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#genex-strip" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">GENEX_STRIP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#genex-strip" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Strip any <span class="target" id="index-0-manual:cmake-generator-expressions(7)"></span><a class="reference internal" href="../manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)" title="cmake-generator-expressions(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">generator</span> <span class="pre">expressions</span></code></a>
 from the input <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> and store the result
@@ -327,9 +327,9 @@ in the <code class="docutils literal notranslate"><span class="pre">&lt;output_v
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="repeat">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REPEAT</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;count&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#repeat" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">REPEAT</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;count&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#repeat" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15.</span></p>
+<p><span class="versionmodified added">Added in version 3.15.</span></p>
 </div>
 <p>Produce the output string as the input <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code>
 repeated <code class="docutils literal notranslate"><span class="pre">&lt;count&gt;</span></code> times.</p>
@@ -337,32 +337,32 @@ repeated <code class="docutils literal notranslate"><span class="pre">&lt;count&
 
 </section>
 <section id="comparison">
-<h2>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">¶</a></h2>
-<span class="target" id="compare"></span><dl class="cmake signature">
+<h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">¶</a></h2>
+<dl class="cmake signature" id="compare">
 <dt class="sig sig-object cmake" id="compare-less">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">LESS</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-less" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">LESS</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-less" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="compare-greater">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">GREATER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-greater" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">GREATER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-greater" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="compare-equal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-equal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-equal" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="compare-notequal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">NOTEQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-notequal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">NOTEQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-notequal" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="compare-less-equal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">LESS_EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-less-equal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">LESS_EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-less-equal" title="Link to this definition">¶</a></dt>
 <dt class="sig sig-object cmake" id="compare-greater-equal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">GREATER_EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-greater-equal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">COMPARE</span></span><span class="w"> </span><span class="no"><span class="pre">GREATER_EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string2&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#compare-greater-equal" title="Link to this definition">¶</a></dt>
 <dd><p>Compare the strings and store true or false in the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7: </span>Added the <code class="docutils literal notranslate"><span class="pre">LESS_EQUAL</span></code> and <code class="docutils literal notranslate"><span class="pre">GREATER_EQUAL</span></code> options.</p>
+<p><span class="versionmodified added">Added in version 3.7: </span>Added the <code class="docutils literal notranslate"><span class="pre">LESS_EQUAL</span></code> and <code class="docutils literal notranslate"><span class="pre">GREATER_EQUAL</span></code> options.</p>
 </div>
 </dd></dl>
 
 </section>
 <section id="hashing">
-<span id="supported-hash-algorithms"></span><h2>Hashing<a class="headerlink" href="#hashing" title="Permalink to this heading">¶</a></h2>
+<span id="supported-hash-algorithms"></span><h2>Hashing<a class="headerlink" href="#hashing" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="hash">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="nv"><span class="pre">&lt;HASH&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#hash" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="nv"><span class="pre">&lt;HASH&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;input&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#hash" title="Link to this definition">¶</a></dt>
 <dd><p>Compute a cryptographic hash of the <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> string.
 The supported <code class="docutils literal notranslate"><span class="pre">&lt;HASH&gt;</span></code> algorithm names are:</p>
 <dl class="simple">
@@ -388,24 +388,24 @@ The supported <code class="docutils literal notranslate"><span class="pre">&lt;H
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8: </span>Added the <code class="docutils literal notranslate"><span class="pre">SHA3_*</span></code> hash algorithms.</p>
+<p><span class="versionmodified added">Added in version 3.8: </span>Added the <code class="docutils literal notranslate"><span class="pre">SHA3_*</span></code> hash algorithms.</p>
 </div>
 </dd></dl>
 
 </section>
 <section id="generation">
-<h2>Generation<a class="headerlink" href="#generation" title="Permalink to this heading">¶</a></h2>
+<h2>Generation<a class="headerlink" href="#generation" title="Link to this heading">¶</a></h2>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="ascii">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">ASCII</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;number&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;number&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#ascii" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">ASCII</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;number&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;number&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#ascii" title="Link to this definition">¶</a></dt>
 <dd><p>Convert all numbers into corresponding ASCII characters.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="hex">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">HEX</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#hex" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">HEX</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#hex" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>Convert each byte in the input <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to its hexadecimal representation
 and store the concatenated hex digits in the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.
@@ -414,13 +414,13 @@ Letters in the output (<code class="docutils literal notranslate"><span class="p
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="configure">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">CONFIGURE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">&#64;ONLY</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ESCAPE_QUOTES</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#configure" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">CONFIGURE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">&#64;ONLY</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ESCAPE_QUOTES</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#configure" title="Link to this definition">¶</a></dt>
 <dd><p>Transform a <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> like <span class="target" id="index-0-command:configure_file"></span><a class="reference internal" href="configure_file.html#command:configure_file" title="configure_file"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">configure_file()</span></code></a> transforms a file.</p>
 </dd></dl>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="make-c-identifier">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">MAKE_C_IDENTIFIER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#make-c-identifier" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">MAKE_C_IDENTIFIER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;string&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#make-c-identifier" title="Link to this definition">¶</a></dt>
 <dd><p>Convert each non-alphanumeric character in the input <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> to an
 underscore and store the result in the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.  If the first
 character of the <code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> is a digit, an underscore will also be
@@ -429,7 +429,7 @@ prepended to the result.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="random">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">RANDOM</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">LENGTH</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;length&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ALPHABET</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;alphabet&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">RANDOM_SEED</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;seed&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#random" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">RANDOM</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">LENGTH</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;length&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ALPHABET</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;alphabet&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">RANDOM_SEED</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;seed&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#random" title="Link to this definition">¶</a></dt>
 <dd><p>Return a random string of given <code class="docutils literal notranslate"><span class="pre">&lt;length&gt;</span></code> consisting of
 characters from the given <code class="docutils literal notranslate"><span class="pre">&lt;alphabet&gt;</span></code>.  Default length is 5 characters
 and default alphabet is all numbers and upper and lower case letters.
@@ -439,7 +439,7 @@ random number generator.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="timestamp">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TIMESTAMP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;format_string&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">UTC</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#timestamp" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">TIMESTAMP</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="nv"><span class="pre">&lt;format_string&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">UTC</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#timestamp" title="Link to this definition">¶</a></dt>
 <dd><p>Write a string representation of the current date
 and/or time to the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>.</p>
 <p>If the command is unable to obtain a timestamp, the <code class="docutils literal notranslate"><span class="pre">&lt;output_variable&gt;</span></code>
@@ -450,7 +450,7 @@ be in Coordinated Universal Time (UTC) rather than local time.</p>
 specifiers:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">%%</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8.</span></p>
+<p><span class="versionmodified added">Added in version 3.8.</span></p>
 </div>
 <p>A literal percent sign (%).</p>
 </dd>
@@ -465,45 +465,45 @@ specifiers:</p>
 <dt><code class="docutils literal notranslate"><span class="pre">%m</span></code></dt><dd><p>The month of the current year (01-12).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%b</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Abbreviated month name (e.g. Oct).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%B</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Full month name (e.g. October).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%M</span></code></dt><dd><p>The minute of the current hour (00-59).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%s</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6.</span></p>
+<p><span class="versionmodified added">Added in version 3.6.</span></p>
 </div>
 <p>Seconds since midnight (UTC) 1-Jan-1970 (UNIX time).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%S</span></code></dt><dd><p>The second of the current minute.  60 represents a leap second. (00-60)</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%f</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.23.</span></p>
+<p><span class="versionmodified added">Added in version 3.23.</span></p>
 </div>
 <p>The microsecond of the current second (000000-999999).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%U</span></code></dt><dd><p>The week number of the current year (00-53).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%V</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>The ISO 8601 week number of the current year (01-53).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%w</span></code></dt><dd><p>The day of the current week. 0 is Sunday. (0-6)</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%a</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Abbreviated weekday name (e.g. Fri).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%A</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Full weekday name (e.g. Friday).</p>
 </dd>
@@ -512,13 +512,13 @@ specifiers:</p>
 <dt><code class="docutils literal notranslate"><span class="pre">%Y</span></code></dt><dd><p>The current year.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%z</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26.</span></p>
+<p><span class="versionmodified added">Added in version 3.26.</span></p>
 </div>
 <p>The offset of the time zone from UTC, in hours and minutes,
 with format <code class="docutils literal notranslate"><span class="pre">+hhmm</span></code> or <code class="docutils literal notranslate"><span class="pre">-hhmm</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">%Z</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.26.</span></p>
+<p><span class="versionmodified added">Added in version 3.26.</span></p>
 </div>
 <p>The time zone name.</p>
 </dd>
@@ -531,7 +531,7 @@ as-is.</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.8: </span>If the <code class="docutils literal notranslate"><span class="pre">SOURCE_DATE_EPOCH</span></code> environment variable is set,
+<p><span class="versionmodified added">Added in version 3.8: </span>If the <code class="docutils literal notranslate"><span class="pre">SOURCE_DATE_EPOCH</span></code> environment variable is set,
 its value will be used instead of the current time.
 See <a class="reference external" href="https://reproducible-builds.org/specs/source-date-epoch/">https://reproducible-builds.org/specs/source-date-epoch/</a> for details.</p>
 </div>
@@ -539,9 +539,9 @@ See <a class="reference external" href="https://reproducible-builds.org/specs/so
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="uuid">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">UUID</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">NAMESPACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;namespace&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">NAME</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;name&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="no"><span class="pre">MD5</span></span><span class="p"><span class="pre">|</span></span><span class="no"><span class="pre">SHA1</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">UPPER</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#uuid" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">UUID</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;output_variable&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">NAMESPACE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;namespace&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">NAME</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;name&gt;</span></span><span class="w"> </span><span class="no"><span class="pre">TYPE</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="no"><span class="pre">MD5</span></span><span class="p"><span class="pre">|</span></span><span class="no"><span class="pre">SHA1</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">UPPER</span></span><span class="p"><span class="pre">]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#uuid" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1.</span></p>
 </div>
 <p>Create a universally unique identifier (aka GUID) as per RFC4122
 based on the hash of the combined values of <code class="docutils literal notranslate"><span class="pre">&lt;namespace&gt;</span></code>
@@ -556,9 +556,9 @@ with the optional <code class="docutils literal notranslate"><span class="pre">U
 
 </section>
 <section id="json">
-<span id="id2"></span><h2>JSON<a class="headerlink" href="#json" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>JSON<a class="headerlink" href="#json" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19.</span></p>
+<p><span class="versionmodified added">Added in version 3.19.</span></p>
 </div>
 <p>Functionality for querying a JSON string.</p>
 <div class="admonition note">
@@ -574,7 +574,7 @@ occurs, the <code class="docutils literal notranslate"><span class="pre">&lt;err
 </div>
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-get">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">GET</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-get" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">GET</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-get" title="Link to this definition">¶</a></dt>
 <dd><p>Get an element from <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code> at the location given
 by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments.
 Array and object elements will be returned as a JSON string.
@@ -585,7 +585,7 @@ Number and string types will be returned as strings.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-type">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">TYPE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-type" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">TYPE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-type" title="Link to this definition">¶</a></dt>
 <dd><p>Get the type of an element in <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code> at the location
 given by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments. The <code class="docutils literal notranslate"><span class="pre">&lt;out-var&gt;</span></code>
 will be set to one of <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>, <code class="docutils literal notranslate"><span class="pre">STRING</span></code>, <code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>,
@@ -594,7 +594,7 @@ will be set to one of <code class="docutils literal notranslate"><span class="pr
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-member">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-var&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">MEMBER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;index&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-member" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-var&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">MEMBER</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;index&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-member" title="Link to this definition">¶</a></dt>
 <dd><p>Get the name of the <code class="docutils literal notranslate"><span class="pre">&lt;index&gt;</span></code>-th member in <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code>
 at the location given by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments.
 Requires an element of object type.</p>
@@ -602,7 +602,7 @@ Requires an element of object type.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-length">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">LENGTH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-length" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">LENGTH</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-length" title="Link to this definition">¶</a></dt>
 <dd><p>Get the length of an element in <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code> at the location
 given by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments.
 Requires an element of array or object type.</p>
@@ -610,7 +610,7 @@ Requires an element of array or object type.</p>
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-remove">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">REMOVE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-remove" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">REMOVE</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-remove" title="Link to this definition">¶</a></dt>
 <dd><p>Remove an element from <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code> at the location
 given by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments. The JSON string
 without the removed element will be stored in <code class="docutils literal notranslate"><span class="pre">&lt;out-var&gt;</span></code>.</p>
@@ -618,7 +618,7 @@ without the removed element will be stored in <code class="docutils literal notr
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-set">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">SET</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-set" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-variable&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">SET</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string&gt;</span></span><span class="w"> </span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="o"><span class="pre">&lt;</span></span><span class="nb"><span class="pre">member</span></span><span class="p"><span class="pre">|</span></span><span class="nb"><span class="pre">index</span></span><span class="o"><span class="pre">&gt;</span></span><span class="nbsp"> </span><span class="p"><span class="pre">...]</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;value&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-set" title="Link to this definition">¶</a></dt>
 <dd><p>Set an element in <code class="docutils literal notranslate"><span class="pre">&lt;json-string&gt;</span></code> at the location
 given by the list of <code class="docutils literal notranslate"><span class="pre">&lt;member|index&gt;</span></code> arguments to <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;</span></code>.
 The contents of <code class="docutils literal notranslate"><span class="pre">&lt;value&gt;</span></code> should be valid JSON.
@@ -629,7 +629,7 @@ the array by using a number greater or equal to the array length as the
 
 <dl class="cmake signature">
 <dt class="sig sig-object cmake" id="json-equal">
-<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-var&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string2&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-equal" title="Permalink to this definition">¶</a></dt>
+<span class="code cmake highlight sig-name descname"><span class="nf"><span class="pre">string(</span></span><span class="no"><span class="pre">JSON</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;out-var&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="no"><span class="pre">ERROR_VARIABLE</span></span><span class="nbsp"> </span><span class="nv"><span class="pre">&lt;error-var&gt;</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="no"><span class="pre">EQUAL</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string1&gt;</span></span><span class="w"> </span><span class="nv"><span class="pre">&lt;json-string2&gt;</span></span><span class="nf"><span class="pre">)</span></span></span><a class="headerlink" href="#json-equal" title="Link to this definition">¶</a></dt>
 <dd><p>Compare the two JSON objects given by <code class="docutils literal notranslate"><span class="pre">&lt;json-string1&gt;</span></code>
 and <code class="docutils literal notranslate"><span class="pre">&lt;json-string2&gt;</span></code> for equality.  The contents of <code class="docutils literal notranslate"><span class="pre">&lt;json-string1&gt;</span></code>
 and <code class="docutils literal notranslate"><span class="pre">&lt;json-string2&gt;</span></code> should be valid JSON.  The <code class="docutils literal notranslate"><span class="pre">&lt;out-var&gt;</span></code>
@@ -685,7 +685,7 @@ or a false value otherwise.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -693,7 +693,7 @@ or a false value otherwise.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -719,7 +719,7 @@ or a false value otherwise.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -728,8 +728,8 @@ or a false value otherwise.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

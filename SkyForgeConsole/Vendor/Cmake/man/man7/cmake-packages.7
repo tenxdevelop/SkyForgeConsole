@@ -27,22 +27,22 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-PACKAGES" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-PACKAGES" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-packages \- CMake Packages Reference
 .SH INTRODUCTION
 .sp
 Packages provide dependency information to CMake based buildsystems.  Packages
-are found with the \fI\%find_package()\fP command.  The result of
-using \fI\%find_package()\fP is either a set of \fI\%IMPORTED\fP targets, or
+are found with the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command.  The result of
+using \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' is either a set of \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' targets, or
 a set of variables corresponding to build\-relevant information.
 .SH USING PACKAGES
 .sp
 CMake provides direct support for two forms of packages,
 \fI\%Config\-file Packages\fP and \fI\%Find\-module Packages\fP\&.
 Indirect support for \fBpkg\-config\fP packages is also provided via
-the \fI\%FindPkgConfig\fP module.  In all cases, the basic form
-of \fI\%find_package()\fP calls is the same:
+the \X'tty: link #module:FindPkgConfig'\fI\%FindPkgConfig\fP\X'tty: link' module.  In all cases, the basic form
+of \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' calls is the same:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -58,7 +58,7 @@ find_package(LibXml2 REQUIRED) # Use pkg\-config via the LibXml2 find\-module
 .sp
 In cases where it is known that a package configuration file is provided by
 upstream, and only that should be used, the \fBCONFIG\fP keyword may be passed
-to \fI\%find_package()\fP:
+to \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link':
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -128,17 +128,17 @@ find_package(Qt5 5.1.0 COMPONENTS Widgets
 Handling of \fBCOMPONENTS\fP and \fBOPTIONAL_COMPONENTS\fP is defined by the
 package.
 .sp
-By setting the \fI\%CMAKE_DISABLE_FIND_PACKAGE_<PackageName>\fP variable to
+By setting the \X'tty: link #variable:CMAKE_DISABLE_FIND_PACKAGE_<PackageName>'\fI\%CMAKE_DISABLE_FIND_PACKAGE_<PackageName>\fP\X'tty: link' variable to
 \fBTRUE\fP, the \fB<PackageName>\fP package will not be searched, and will always
 be \fBNOTFOUND\fP\&. Likewise, setting the
-\fI\%CMAKE_REQUIRE_FIND_PACKAGE_<PackageName>\fP to \fBTRUE\fP will make the
+\X'tty: link #variable:CMAKE_REQUIRE_FIND_PACKAGE_<PackageName>'\fI\%CMAKE_REQUIRE_FIND_PACKAGE_<PackageName>\fP\X'tty: link' to \fBTRUE\fP will make the
 package REQUIRED.
 .SS Config\-file Packages
 .sp
 A config\-file package is a set of files provided by upstreams for downstreams
 to use. CMake searches in a number of locations for package configuration files, as
-described in the \fI\%find_package()\fP documentation.  The most simple way for
-a CMake user to tell \fI\%cmake(1)\fP to search in a non\-standard prefix for
+described in the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' documentation.  The most simple way for
+a CMake user to tell \X'tty: link #manual:cmake(1)'\fI\%cmake(1)\fP\X'tty: link' to search in a non\-standard prefix for
 a package is to set the \fBCMAKE_PREFIX_PATH\fP cache variable.
 .sp
 Config\-file packages are provided by upstream vendors as part of development
@@ -161,13 +161,13 @@ files by guessing locations of files with platform\-specific hints.
 .sp
 Unlike the case of an upstream\-provided package configuration file, no single point
 of reference identifies the package as being found, so the \fB<PackageName>_FOUND\fP
-variable is not automatically set by the \fI\%find_package()\fP command.  It
+variable is not automatically set by the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command.  It
 can still be expected to be set by convention however and should be set by
 the author of the Find\-module.  Similarly there is no \fB<PackageName>_DIR\fP variable,
 but each of the artifacts such as library locations and header file locations
 provide a separate cache variable.
 .sp
-See the \fI\%cmake\-developer(7)\fP manual for more information about creating
+See the \X'tty: link #manual:cmake-developer(7)'\fI\%cmake\-developer(7)\fP\X'tty: link' manual for more information about creating
 Find\-module files.
 .SH PACKAGE LAYOUT
 .sp
@@ -200,7 +200,7 @@ It may also provide a CMake package configuration file:
 .UNINDENT
 .UNINDENT
 .sp
-with content defining \fI\%IMPORTED\fP targets, or defining variables, such
+with content defining \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' targets, or defining variables, such
 as:
 .INDENT 0.0
 .INDENT 3.5
@@ -222,11 +222,11 @@ file and load it to get all the information it needs about package content
 locations.  Since the package configuration file is provided by the package
 installation it already knows all the file locations.
 .sp
-The \fI\%find_package()\fP command may be used to search for the package
+The \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command may be used to search for the package
 configuration file.  This command constructs a set of installation prefixes
 and searches under each prefix in several locations.  Given the name \fBFoo\fP,
 it looks for a file called \fBFooConfig.cmake\fP or \fBfoo\-config.cmake\fP\&.
-The full set of locations is specified in the \fI\%find_package()\fP command
+The full set of locations is specified in the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command
 documentation. One place it looks is:
 .INDENT 0.0
 .INDENT 3.5
@@ -248,7 +248,7 @@ with a package version file, contains all the information the project needs to
 use the package.
 .SS Package Version File
 .sp
-When the \fI\%find_package()\fP command finds a candidate package configuration
+When the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command finds a candidate package configuration
 file it looks next to it for a version file. The version file is loaded to test
 whether the package version is an acceptable match for the version requested.
 If the version file claims compatibility the configuration file is accepted.
@@ -285,7 +285,7 @@ and:
 are each pairs of package configuration files and corresponding package version
 files.
 .sp
-When the \fI\%find_package()\fP command loads a version file it first sets the
+When the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command loads a version file it first sets the
 following variables:
 .INDENT 0.0
 .TP
@@ -358,7 +358,7 @@ Number of version components, 0 to 4
 .sp
 The variables report the version of the package that was actually found.
 The \fB<PackageName>\fP part of their name matches the argument given to the
-\fI\%find_package()\fP command.
+\X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command.
 .SH CREATING PACKAGES
 .sp
 Usually, the upstream depends on CMake itself and can use some CMake facilities
@@ -443,46 +443,46 @@ install(
 .UNINDENT
 .UNINDENT
 .sp
-The \fI\%CMakePackageConfigHelpers\fP module provides a macro for creating
+The \X'tty: link #module:CMakePackageConfigHelpers'\fI\%CMakePackageConfigHelpers\fP\X'tty: link' module provides a macro for creating
 a simple \fBConfigVersion.cmake\fP file.  This file sets the version of the
-package.  It is read by CMake when \fI\%find_package()\fP is called to
+package.  It is read by CMake when \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' is called to
 determine the compatibility with the requested version, and to set some
 version\-specific variables \fB<PackageName>_VERSION\fP, \fB<PackageName>_VERSION_MAJOR\fP,
-\fB<PackageName>_VERSION_MINOR\fP etc.  The \fI\%install(EXPORT)\fP command is
+\fB<PackageName>_VERSION_MINOR\fP etc.  The \X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link' command is
 used to export the targets in the \fBClimbingStatsTargets\fP export\-set, defined
-previously by the \fI\%install(TARGETS)\fP command. This command generates
-the \fBClimbingStatsTargets.cmake\fP file to contain \fI\%IMPORTED\fP
+previously by the \X'tty: link #targets'\fI\%install(TARGETS)\fP\X'tty: link' command. This command generates
+the \fBClimbingStatsTargets.cmake\fP file to contain \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link'
 targets, suitable for use by downstreams and arranges to install it to
 \fBlib/cmake/ClimbingStats\fP\&.  The generated \fBClimbingStatsConfigVersion.cmake\fP
 and a \fBcmake/ClimbingStatsConfig.cmake\fP are installed to the same location,
 completing the package.
 .sp
-The generated \fI\%IMPORTED\fP targets have appropriate properties set
-to define their \fI\%usage requirements\fP, such as
-\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP,
-\fI\%INTERFACE_COMPILE_DEFINITIONS\fP and other relevant built\-in
+The generated \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' targets have appropriate properties set
+to define their \X'tty: link #target-usage-requirements'\fI\%usage requirements\fP\X'tty: link', such as
+\X'tty: link #prop_tgt:INTERFACE_INCLUDE_DIRECTORIES'\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP\X'tty: link',
+\X'tty: link #prop_tgt:INTERFACE_COMPILE_DEFINITIONS'\fI\%INTERFACE_COMPILE_DEFINITIONS\fP\X'tty: link' and other relevant built\-in
 \fBINTERFACE_\fP properties.  The \fBINTERFACE\fP variant of user\-defined
-properties listed in \fI\%COMPATIBLE_INTERFACE_STRING\fP and
-other \fI\%Compatible Interface Properties\fP are also propagated to the
-generated \fI\%IMPORTED\fP targets.  In the above case,
+properties listed in \X'tty: link #prop_tgt:COMPATIBLE_INTERFACE_STRING'\fI\%COMPATIBLE_INTERFACE_STRING\fP\X'tty: link' and
+other \X'tty: link #compatible-interface-properties'\fI\%Compatible Interface Properties\fP\X'tty: link' are also propagated to the
+generated \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' targets.  In the above case,
 \fBClimbingStats_MAJOR_VERSION\fP is defined as a string which must be
 compatible among the dependencies of any depender.  By setting this custom
 defined user property in this version and in the next version of
-\fBClimbingStats\fP, \fI\%cmake(1)\fP will issue a diagnostic if there is an
+\fBClimbingStats\fP, \X'tty: link #manual:cmake(1)'\fI\%cmake(1)\fP\X'tty: link' will issue a diagnostic if there is an
 attempt to use version 3 together with version 4.  Packages can choose to
 employ such a pattern if different major versions of the package are designed
 to be incompatible.
 .sp
 A \fBNAMESPACE\fP with double\-colons is specified when exporting the targets
 for installation.  This convention of double\-colons gives CMake a hint that
-the name is an \fI\%IMPORTED\fP target when it is used by downstreams
-with the \fI\%target_link_libraries()\fP command.  This way, CMake can
+the name is an \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' target when it is used by downstreams
+with the \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' command.  This way, CMake can
 issue a diagnostic if the package providing it has not yet been found.
 .sp
-In this case, when using \fI\%install(TARGETS)\fP the \fBINCLUDES DESTINATION\fP
+In this case, when using \X'tty: link #targets'\fI\%install(TARGETS)\fP\X'tty: link' the \fBINCLUDES DESTINATION\fP
 was specified.  This causes the \fBIMPORTED\fP targets to have their
-\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP populated with the \fBinclude\fP
-directory in the \fI\%CMAKE_INSTALL_PREFIX\fP\&.  When the \fBIMPORTED\fP
+\X'tty: link #prop_tgt:INTERFACE_INCLUDE_DIRECTORIES'\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP\X'tty: link' populated with the \fBinclude\fP
+directory in the \X'tty: link #variable:CMAKE_INSTALL_PREFIX'\fI\%CMAKE_INSTALL_PREFIX\fP\X'tty: link'\&.  When the \fBIMPORTED\fP
 target is used by downstream, it automatically consumes the entries from
 that property.
 .SS Creating a Package Configuration File
@@ -525,7 +525,7 @@ As the \fBStats::Types\fP target is a \fBPUBLIC\fP dependency of \fBClimbingStat
 downstreams must also find the \fBStats\fP package and link to the \fBStats::Types\fP
 library.  The \fBStats\fP package should be found in the \fBClimbingStatsConfig.cmake\fP
 file to ensure this.  The \fBfind_dependency\fP macro from the
-\fI\%CMakeFindDependencyMacro\fP helps with this by propagating
+\X'tty: link #module:CMakeFindDependencyMacro'\fI\%CMakeFindDependencyMacro\fP\X'tty: link' helps with this by propagating
 whether the package is \fBREQUIRED\fP, or \fBQUIET\fP etc.  All \fBREQUIRED\fP
 dependencies of a package should be found in the \fBConfig.cmake\fP file:
 .INDENT 0.0
@@ -547,7 +547,7 @@ The \fBfind_dependency\fP macro also sets \fBClimbingStats_FOUND\fP to \fBFalse\
 the dependency is not found, along with a diagnostic that the \fBClimbingStats\fP
 package can not be used without the \fBStats\fP package.
 .sp
-If \fBCOMPONENTS\fP are specified when the downstream uses \fI\%find_package()\fP,
+If \fBCOMPONENTS\fP are specified when the downstream uses \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link',
 they are listed in the \fB<PackageName>_FIND_COMPONENTS\fP variable. If a particular
 component is non\-optional, then the \fB<PackageName>_FIND_REQUIRED_<comp>\fP will
 be true. This can be tested with logic in the package configuration file:
@@ -582,12 +582,12 @@ variable can be set for any case where the \fB_FOUND\fP variable is set to \fBFa
 and will be displayed to the user.
 .SS Creating a Package Configuration File for the Build Tree
 .sp
-The \fI\%export(EXPORT)\fP command creates an \fI\%IMPORTED\fP targets
+The \X'tty: link #command:export'\fI\%export(EXPORT)\fP\X'tty: link' command creates an \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link' targets
 definition file which is specific to the build\-tree, and is not relocatable.
 This can similarly be used with a suitable package configuration file and
 package version file to define a package for the build tree which may be used
 without installation.  Consumers of the build tree can simply ensure that the
-\fI\%CMAKE_PREFIX_PATH\fP contains the build directory, or set the
+\X'tty: link #variable:CMAKE_PREFIX_PATH'\fI\%CMAKE_PREFIX_PATH\fP\X'tty: link' contains the build directory, or set the
 \fBClimbingStats_DIR\fP to \fB<build_dir>/ClimbingStats\fP in the cache.
 .SS Creating Relocatable Packages
 .sp
@@ -595,11 +595,11 @@ A relocatable package must not reference absolute paths of files on
 the machine where the package is built that will not exist on the
 machines where the package may be installed.
 .sp
-Packages created by \fI\%install(EXPORT)\fP are designed to be relocatable,
+Packages created by \X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link' are designed to be relocatable,
 using paths relative to the location of the package itself.  When defining
 the interface of a target for \fBEXPORT\fP, keep in mind that the include
 directories should be specified as relative paths which are relative to the
-\fI\%CMAKE_INSTALL_PREFIX\fP:
+\X'tty: link #variable:CMAKE_INSTALL_PREFIX'\fI\%CMAKE_INSTALL_PREFIX\fP\X'tty: link':
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -620,7 +620,7 @@ target_include_directories(tgt INTERFACE
 .UNINDENT
 .sp
 The \fB$<INSTALL_PREFIX>\fP
-\fI\%generator expression\fP may be used as
+\X'tty: link #manual:cmake-generator-expressions(7)'\fI\%generator expression\fP\X'tty: link' may be used as
 a placeholder for the install prefix without resulting in a non\-relocatable
 package.  This is necessary if complex generator expressions are used:
 .INDENT 0.0
@@ -639,8 +639,8 @@ target_include_directories(tgt INTERFACE
 .sp
 This also applies to paths referencing external dependencies.
 It is not advisable to populate any properties which may contain
-paths, such as \fI\%INTERFACE_INCLUDE_DIRECTORIES\fP and
-\fI\%INTERFACE_LINK_LIBRARIES\fP, with paths relevant to dependencies.
+paths, such as \X'tty: link #prop_tgt:INTERFACE_INCLUDE_DIRECTORIES'\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP\X'tty: link' and
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link', with paths relevant to dependencies.
 For example, this code may not work well for a relocatable package:
 .INDENT 0.0
 .INDENT 3.5
@@ -664,11 +664,11 @@ This would create a package with hard\-coded paths to dependencies and not
 suitable for relocation.
 .sp
 Ideally such dependencies should be used through their own
-\fI\%IMPORTED targets\fP that have their own
-\fI\%IMPORTED_LOCATION\fP and usage requirement properties
-such as \fI\%INTERFACE_INCLUDE_DIRECTORIES\fP populated
+\X'tty: link #imported-targets'\fI\%IMPORTED targets\fP\X'tty: link' that have their own
+\X'tty: link #prop_tgt:IMPORTED_LOCATION'\fI\%IMPORTED_LOCATION\fP\X'tty: link' and usage requirement properties
+such as \X'tty: link #prop_tgt:INTERFACE_INCLUDE_DIRECTORIES'\fI\%INTERFACE_INCLUDE_DIRECTORIES\fP\X'tty: link' populated
 appropriately.  Those imported targets may then be used with
-the \fI\%target_link_libraries()\fP command for \fBClimbingStats\fP:
+the \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' command for \fBClimbingStats\fP:
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -681,14 +681,14 @@ target_link_libraries(ClimbingStats INTERFACE Foo::Foo Bar::Bar)
 .UNINDENT
 .sp
 With this approach the package references its external dependencies
-only through the names of \fI\%IMPORTED targets\fP\&.
+only through the names of \X'tty: link #imported-targets'\fI\%IMPORTED targets\fP\X'tty: link'\&.
 When a consumer uses the installed package, the consumer will run the
-appropriate \fI\%find_package()\fP commands (via the \fBfind_dependency\fP
+appropriate \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' commands (via the \fBfind_dependency\fP
 macro described above) to find the dependencies and populate the
 imported targets with appropriate paths on their own machine.
 .sp
-Unfortunately many \fI\%modules\fP shipped with
-CMake do not yet provide \fI\%IMPORTED targets\fP
+Unfortunately many \X'tty: link #manual:cmake-modules(7)'\fI\%modules\fP\X'tty: link' shipped with
+CMake do not yet provide \X'tty: link #imported-targets'\fI\%IMPORTED targets\fP\X'tty: link'
 because their development pre\-dated this approach.  This may improve
 incrementally over time.  Workarounds to create relocatable packages
 using such modules include:
@@ -724,7 +724,7 @@ In either case the package should store at the registered location a
 \fI\%Package Configuration File\fP (\fB<PackageName>Config.cmake\fP) and optionally a
 \fI\%Package Version File\fP (\fB<PackageName>ConfigVersion.cmake\fP).
 .sp
-The \fI\%find_package()\fP command searches the two package registries
+The \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' command searches the two package registries
 as two of the search steps specified in its documentation.  If it has
 sufficient permissions it also removes stale package registry entries
 that refer to directories that do not exist or do not contain a matching
@@ -732,7 +732,7 @@ package configuration file.
 .SS User Package Registry
 .sp
 The User Package Registry is stored in a per\-user location.
-The \fI\%export(PACKAGE)\fP command may be used to register a project
+The \X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' command may be used to register a project
 build tree in the user package registry.  CMake currently provides no
 interface to add install trees to the user package registry.  Installers
 must be manually taught to register their packages if desired.
@@ -801,31 +801,31 @@ In some cases using the Package Registries is not desirable. CMake
 allows one to disable them using the following variables:
 .INDENT 0.0
 .IP \(bu 2
-The \fI\%export(PACKAGE)\fP command does not populate the user
-package registry when \fI\%CMP0090\fP is set to \fBNEW\fP unless the
-\fI\%CMAKE_EXPORT_PACKAGE_REGISTRY\fP variable explicitly enables it.
-When \fI\%CMP0090\fP is \fInot\fP set to \fBNEW\fP then
-\fI\%export(PACKAGE)\fP populates the user package registry unless
-the \fI\%CMAKE_EXPORT_NO_PACKAGE_REGISTRY\fP variable explicitly
+The \X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' command does not populate the user
+package registry when \X'tty: link #policy:CMP0090'\fI\%CMP0090\fP\X'tty: link' is set to \fBNEW\fP unless the
+\X'tty: link #variable:CMAKE_EXPORT_PACKAGE_REGISTRY'\fI\%CMAKE_EXPORT_PACKAGE_REGISTRY\fP\X'tty: link' variable explicitly enables it.
+When \X'tty: link #policy:CMP0090'\fI\%CMP0090\fP\X'tty: link' is \fInot\fP set to \fBNEW\fP then
+\X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' populates the user package registry unless
+the \X'tty: link #variable:CMAKE_EXPORT_NO_PACKAGE_REGISTRY'\fI\%CMAKE_EXPORT_NO_PACKAGE_REGISTRY\fP\X'tty: link' variable explicitly
 disables it.
 .IP \(bu 2
-\fI\%CMAKE_FIND_USE_PACKAGE_REGISTRY\fP disables the
-User Package Registry in all the \fI\%find_package()\fP calls when
+\X'tty: link #variable:CMAKE_FIND_USE_PACKAGE_REGISTRY'\fI\%CMAKE_FIND_USE_PACKAGE_REGISTRY\fP\X'tty: link' disables the
+User Package Registry in all the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' calls when
 set to \fBFALSE\fP\&.
 .IP \(bu 2
-Deprecated \fI\%CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY\fP disables the
-User Package Registry in all the \fI\%find_package()\fP calls when set
+Deprecated \X'tty: link #variable:CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY'\fI\%CMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY\fP\X'tty: link' disables the
+User Package Registry in all the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' calls when set
 to \fBTRUE\fP\&. This variable is ignored when
-\fI\%CMAKE_FIND_USE_PACKAGE_REGISTRY\fP has been set.
+\X'tty: link #variable:CMAKE_FIND_USE_PACKAGE_REGISTRY'\fI\%CMAKE_FIND_USE_PACKAGE_REGISTRY\fP\X'tty: link' has been set.
 .IP \(bu 2
-\fI\%CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY\fP disables
-the System Package Registry in all the \fI\%find_package()\fP calls.
+\X'tty: link #variable:CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY'\fI\%CMAKE_FIND_PACKAGE_NO_SYSTEM_PACKAGE_REGISTRY\fP\X'tty: link' disables
+the System Package Registry in all the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' calls.
 .UNINDENT
 .SS Package Registry Example
 .sp
 A simple convention for naming package registry entries is to use content
 hashes.  They are deterministic and unlikely to collide
-(\fI\%export(PACKAGE)\fP uses this approach).
+(\X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' uses this approach).
 The name of an entry referencing a specific directory is simply the content
 hash of the directory path itself.
 .sp
@@ -876,7 +876,7 @@ will search the registered locations for package configuration files
 entries for a single package is unspecified and the entry names
 (hashes in this example) have no meaning.  Registered locations may
 contain package version files (\fBMyPackageConfigVersion.cmake\fP) to
-tell \fI\%find_package()\fP whether a specific location is suitable
+tell \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link' whether a specific location is suitable
 for the version requested.
 .SS Package Registry Ownership
 .sp
@@ -884,16 +884,16 @@ Package registry entries are individually owned by the project installations
 that they reference.  A package installer is responsible for adding its own
 entry and the corresponding uninstaller is responsible for removing it.
 .sp
-The \fI\%export(PACKAGE)\fP command populates the user package registry
+The \X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' command populates the user package registry
 with the location of a project build tree.  Build trees tend to be deleted by
 developers and have no \(dquninstall\(dq event that could trigger removal of their
-entries.  In order to keep the registries clean the \fI\%find_package()\fP
+entries.  In order to keep the registries clean the \X'tty: link #command:find_package'\fI\%find_package()\fP\X'tty: link'
 command automatically removes stale entries it encounters if it has sufficient
 permissions.  CMake provides no interface to remove an entry referencing an
-existing build tree once \fI\%export(PACKAGE)\fP has been invoked.
+existing build tree once \X'tty: link #package'\fI\%export(PACKAGE)\fP\X'tty: link' has been invoked.
 However, if the project removes its package configuration file from the build
 tree then the entry referencing the location will be considered stale.
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

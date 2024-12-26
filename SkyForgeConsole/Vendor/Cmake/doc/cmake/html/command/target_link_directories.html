@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>target_link_directories &mdash; CMake 3.28.1 Documentation</title>
+  <title>target_link_directories &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,9 +57,9 @@
           <div class="body" role="main">
             
   <section id="target-link-directories">
-<span id="command:target_link_directories"></span><h1>target_link_directories<a class="headerlink" href="#target-link-directories" title="Permalink to this heading">¶</a></h1>
+<span id="command:target_link_directories"></span><h1>target_link_directories<a class="headerlink" href="#target-link-directories" title="Link to this heading">¶</a></h1>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13.</span></p>
+<p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
 <p>Add link directories to a target.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">target_link_directories(</span><span class="nv">&lt;target&gt;</span><span class="w"> </span><span class="p">[</span><span class="no">BEFORE</span><span class="p">]</span>
@@ -76,7 +75,7 @@ directory.  These items will be added to the link command.</p>
 <span class="target" id="index-0-command:add_executable"></span><a class="reference internal" href="add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a> or <span class="target" id="index-0-command:add_library"></span><a class="reference internal" href="add_library.html#command:add_library" title="add_library"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_library()</span></code></a> and must not be an
 <a class="reference internal" href="../manual/cmake-buildsystem.7.html#alias-targets"><span class="std std-ref">ALIAS target</span></a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code>, <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> and <code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code> keywords are required to
-specify the <a class="reference internal" href="../manual/cmake-buildsystem.7.html#target-usage-requirements"><span class="std std-ref">scope</span></a> of the items that follow
+specify the <a class="reference internal" href="../manual/cmake-buildsystem.7.html#target-command-scope"><span class="std std-ref">scope</span></a> of the items that follow
 them. <code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code> and <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> items will populate the
 <span class="target" id="index-0-prop_tgt:LINK_DIRECTORIES"></span><a class="reference internal" href="../prop_tgt/LINK_DIRECTORIES.html#prop_tgt:LINK_DIRECTORIES" title="LINK_DIRECTORIES"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">LINK_DIRECTORIES</span></code></a> property of <code class="docutils literal notranslate"><span class="pre">&lt;target&gt;</span></code>.  <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> and
 <code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code> items will populate the <span class="target" id="index-0-prop_tgt:INTERFACE_LINK_DIRECTORIES"></span><a class="reference internal" href="../prop_tgt/INTERFACE_LINK_DIRECTORIES.html#prop_tgt:INTERFACE_LINK_DIRECTORIES" title="INTERFACE_LINK_DIRECTORIES"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">INTERFACE_LINK_DIRECTORIES</span></code></a>
@@ -111,7 +110,7 @@ of things like <code class="docutils literal notranslate"><span class="pre">$ORI
 </ul>
 </div>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="target" id="index-0-command:link_directories"></span><a class="reference internal" href="link_directories.html#command:link_directories" title="link_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">link_directories()</span></code></a></p></li>
 <li><p><span class="target" id="index-0-command:target_compile_definitions"></span><a class="reference internal" href="target_compile_definitions.html#command:target_compile_definitions" title="target_compile_definitions"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_compile_definitions()</span></code></a></p></li>
@@ -160,7 +159,7 @@ of things like <code class="docutils literal notranslate"><span class="pre">$ORI
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -168,7 +167,7 @@ of things like <code class="docutils literal notranslate"><span class="pre">$ORI
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -194,7 +193,7 @@ of things like <code class="docutils literal notranslate"><span class="pre">$ORI
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -203,8 +202,8 @@ of things like <code class="docutils literal notranslate"><span class="pre">$ORI
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

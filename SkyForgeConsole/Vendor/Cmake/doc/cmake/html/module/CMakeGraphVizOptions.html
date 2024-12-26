@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>CMakeGraphVizOptions &mdash; CMake 3.28.1 Documentation</title>
+  <title>CMakeGraphVizOptions &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,10 +57,10 @@
           <div class="body" role="main">
             
   <section id="cmakegraphvizoptions">
-<span id="module:CMakeGraphVizOptions"></span><h1>CMakeGraphVizOptions<a class="headerlink" href="#cmakegraphvizoptions" title="Permalink to this heading">¶</a></h1>
+<span id="module:CMakeGraphVizOptions"></span><h1>CMakeGraphVizOptions<a class="headerlink" href="#cmakegraphvizoptions" title="Link to this heading">¶</a></h1>
 <p>The builtin Graphviz support of CMake.</p>
 <section id="generating-graphviz-files">
-<h2>Generating Graphviz files<a class="headerlink" href="#generating-graphviz-files" title="Permalink to this heading">¶</a></h2>
+<h2>Generating Graphviz files<a class="headerlink" href="#generating-graphviz-files" title="Link to this heading">¶</a></h2>
 <p>CMake can generate <a class="reference external" href="https://www.graphviz.org/">Graphviz</a> files showing the
 dependencies between the targets in a project, as well as external libraries
 which are linked against.</p>
@@ -79,12 +78,12 @@ Graphviz package:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10: </span>The different dependency types <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code>, <code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code> and <code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code>
+<p><span class="versionmodified added">Added in version 3.10: </span>The different dependency types <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code>, <code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code> and <code class="docutils literal notranslate"><span class="pre">PRIVATE</span></code>
 are represented as solid, dashed and dotted edges.</p>
 </div>
 </section>
 <section id="variables-specific-to-the-graphviz-support">
-<h2>Variables specific to the Graphviz support<a class="headerlink" href="#variables-specific-to-the-graphviz-support" title="Permalink to this heading">¶</a></h2>
+<h2>Variables specific to the Graphviz support<a class="headerlink" href="#variables-specific-to-the-graphviz-support" title="Link to this heading">¶</a></h2>
 <p>The resulting graphs can be huge.  The look and content of the generated graphs
 can be controlled using the file <code class="docutils literal notranslate"><span class="pre">CMakeGraphVizOptions.cmake</span></code>.  This file is
 first searched in <span class="target" id="index-0-variable:CMAKE_BINARY_DIR"></span><a class="reference internal" href="../variable/CMAKE_BINARY_DIR.html#variable:CMAKE_BINARY_DIR" title="CMAKE_BINARY_DIR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_BINARY_DIR</span></code></a>, and then in
@@ -92,7 +91,7 @@ first searched in <span class="target" id="index-0-variable:CMAKE_BINARY_DIR"></
 adjust options for the generated Graphviz files.</p>
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_GRAPH_NAME">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_GRAPH_NAME</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GRAPH_NAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_GRAPH_NAME</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GRAPH_NAME" title="Link to this definition">¶</a></dt>
 <dd><p>The graph name.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -102,7 +101,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_GRAPH_HEADER">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_GRAPH_HEADER</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GRAPH_HEADER" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_GRAPH_HEADER</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GRAPH_HEADER" title="Link to this definition">¶</a></dt>
 <dd><p>The header written at the top of the Graphviz files.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -112,7 +111,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_NODE_PREFIX">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_NODE_PREFIX</span></span><a class="headerlink" href="#variable:GRAPHVIZ_NODE_PREFIX" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_NODE_PREFIX</span></span><a class="headerlink" href="#variable:GRAPHVIZ_NODE_PREFIX" title="Link to this definition">¶</a></dt>
 <dd><p>The prefix for each node in the Graphviz files.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -122,7 +121,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_EXECUTABLES">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_EXECUTABLES</span></span><a class="headerlink" href="#variable:GRAPHVIZ_EXECUTABLES" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_EXECUTABLES</span></span><a class="headerlink" href="#variable:GRAPHVIZ_EXECUTABLES" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude executables from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -132,7 +131,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_STATIC_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_STATIC_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_STATIC_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_STATIC_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_STATIC_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude static libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -142,7 +141,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_SHARED_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_SHARED_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_SHARED_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_SHARED_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_SHARED_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude shared libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -152,7 +151,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_MODULE_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_MODULE_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_MODULE_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_MODULE_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_MODULE_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude module libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -162,7 +161,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_INTERFACE_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_INTERFACE_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_INTERFACE_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_INTERFACE_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_INTERFACE_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude interface libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -172,7 +171,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_OBJECT_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_OBJECT_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_OBJECT_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_OBJECT_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_OBJECT_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude object libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -182,7 +181,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_UNKNOWN_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_UNKNOWN_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_UNKNOWN_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_UNKNOWN_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_UNKNOWN_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude unknown libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -192,7 +191,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_EXTERNAL_LIBS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_EXTERNAL_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_EXTERNAL_LIBS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_EXTERNAL_LIBS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_EXTERNAL_LIBS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to exclude external libraries from the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -202,7 +201,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_CUSTOM_TARGETS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_CUSTOM_TARGETS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_CUSTOM_TARGETS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_CUSTOM_TARGETS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_CUSTOM_TARGETS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to TRUE to include custom targets in the generated graphs.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -212,7 +211,7 @@ adjust options for the generated Graphviz files.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_IGNORE_TARGETS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_IGNORE_TARGETS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_IGNORE_TARGETS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_IGNORE_TARGETS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_IGNORE_TARGETS" title="Link to this definition">¶</a></dt>
 <dd><p>A list of regular expressions for names of targets to exclude from the
 generated graphs.</p>
 <ul class="simple">
@@ -223,7 +222,7 @@ generated graphs.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_GENERATE_PER_TARGET">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_GENERATE_PER_TARGET</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GENERATE_PER_TARGET" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_GENERATE_PER_TARGET</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GENERATE_PER_TARGET" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to not generate per-target graphs <code class="docutils literal notranslate"><span class="pre">foo.dot.&lt;target&gt;</span></code>.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -233,7 +232,7 @@ generated graphs.</p>
 
 <dl class="cmake variable">
 <dt class="sig sig-object cmake" id="variable:GRAPHVIZ_GENERATE_DEPENDERS">
-<span class="sig-name descname"><span class="pre">GRAPHVIZ_GENERATE_DEPENDERS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GENERATE_DEPENDERS" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GRAPHVIZ_GENERATE_DEPENDERS</span></span><a class="headerlink" href="#variable:GRAPHVIZ_GENERATE_DEPENDERS" title="Link to this definition">¶</a></dt>
 <dd><p>Set to FALSE to not generate depender graphs <code class="docutils literal notranslate"><span class="pre">foo.dot.&lt;target&gt;.dependers</span></code>.</p>
 <ul class="simple">
 <li><p>Mandatory: NO</p></li>
@@ -279,7 +278,7 @@ generated graphs.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -287,7 +286,7 @@ generated graphs.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -313,7 +312,7 @@ generated graphs.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -322,8 +321,8 @@ generated graphs.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

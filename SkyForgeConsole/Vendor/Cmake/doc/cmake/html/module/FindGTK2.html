@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindGTK2 &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindGTK2 &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="findgtk2">
-<span id="module:FindGTK2"></span><h1>FindGTK2<a class="headerlink" href="#findgtk2" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindGTK2"></span><h1>FindGTK2<a class="headerlink" href="#findgtk2" title="Link to this heading">¶</a></h1>
 <p>Find the GTK2 widget libraries and several of its other optional components
 like <code class="docutils literal notranslate"><span class="pre">gtkmm</span></code>, <code class="docutils literal notranslate"><span class="pre">glade</span></code>, and <code class="docutils literal notranslate"><span class="pre">glademm</span></code>.</p>
 <p>Specify one or more of the following components as you call this find
@@ -70,7 +69,7 @@ module.  See example below.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">glademm</span></code></p></li>
 </ul>
 <section id="imported-targets">
-<h2>Imported Targets<a class="headerlink" href="#imported-targets" title="Permalink to this heading">¶</a></h2>
+<h2>Imported Targets<a class="headerlink" href="#imported-targets" title="Link to this heading">¶</a></h2>
 <p>This module defines the following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets (subject to
 component selection):</p>
 <p><code class="docutils literal notranslate"><span class="pre">GTK2::atk</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::atkmm</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::cairo</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::cairomm</span></code>,
@@ -81,11 +80,11 @@ component selection):</p>
 <code class="docutils literal notranslate"><span class="pre">GTK2::pangocairo</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::pangoft2</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::pangomm</span></code>,
 <code class="docutils literal notranslate"><span class="pre">GTK2::pangoxft</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2::sigc</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16.7: </span>Added the <code class="docutils literal notranslate"><span class="pre">GTK2::harfbuzz</span></code> target.</p>
+<p><span class="versionmodified added">Added in version 3.16.7: </span>Added the <code class="docutils literal notranslate"><span class="pre">GTK2::harfbuzz</span></code> target.</p>
 </div>
 </section>
 <section id="result-variables">
-<h2>Result Variables<a class="headerlink" href="#result-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <p>The following variables will be defined for your use</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">GTK2_FOUND</span></code></dt><dd><p>Were all of your specified components found?</p>
@@ -95,7 +94,7 @@ component selection):</p>
 <dt><code class="docutils literal notranslate"><span class="pre">GTK2_LIBRARIES</span></code></dt><dd><p>All libraries</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">GTK2_TARGETS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>All imported targets</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>All imported targets</p>
 </div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">GTK2_DEFINITIONS</span></code></dt><dd><p>Additional compiler flags</p>
@@ -110,12 +109,12 @@ component selection):</p>
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5: </span>When <code class="docutils literal notranslate"><span class="pre">GTK2_USE_IMPORTED_TARGETS</span></code> is set to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2_LIBRARIES</span></code>
+<p><span class="versionmodified added">Added in version 3.5: </span>When <code class="docutils literal notranslate"><span class="pre">GTK2_USE_IMPORTED_TARGETS</span></code> is set to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">GTK2_LIBRARIES</span></code>
 will list imported targets instead of library paths.</p>
 </div>
 </section>
 <section id="input-variables">
-<h2>Input Variables<a class="headerlink" href="#input-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Input Variables<a class="headerlink" href="#input-variables" title="Link to this heading">¶</a></h2>
 <p>Optional variables you can define prior to calling this module:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">GTK2_DEBUG</span></code></dt><dd><p>Enables verbose debugging of the module</p>
@@ -125,7 +124,7 @@ will list imported targets instead of library paths.</p>
 </dl>
 </section>
 <section id="example-usage">
-<h2>Example Usage<a class="headerlink" href="#example-usage" title="Permalink to this heading">¶</a></h2>
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">¶</a></h2>
 <p>Call <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> once.  Here are some examples to pick from:</p>
 <p>Require GTK 2.6 or later:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">find_package(</span><span class="no">GTK2</span><span class="w"> </span><span class="m">2.6</span><span class="w"> </span><span class="no">REQUIRED</span><span class="w"> </span><span class="nb">gtk</span><span class="nf">)</span>
@@ -187,7 +186,7 @@ will list imported targets instead of library paths.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -195,7 +194,7 @@ will list imported targets instead of library paths.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -221,7 +220,7 @@ will list imported targets instead of library paths.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -230,8 +229,8 @@ will list imported targets instead of library paths.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

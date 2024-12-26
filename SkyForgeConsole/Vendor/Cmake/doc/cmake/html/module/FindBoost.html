@@ -1,25 +1,24 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>FindBoost &mdash; CMake 3.28.1 Documentation</title>
+  <title>FindBoost &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="FindBullet" href="FindBullet.html" />
-    <link rel="prev" title="FindBLAS" href="FindBLAS.html" />
+    <link rel="next" title="FindCUDA" href="FindCUDA.html" />
+    <link rel="prev" title="WriteCompilerDetectionHeader" href="WriteCompilerDetectionHeader.html" />
  
 
   </head><body>
@@ -31,10 +30,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="FindBullet.html" title="FindBullet"
+          <a href="FindCUDA.html" title="FindCUDA"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="FindBLAS.html" title="FindBLAS"
+          <a href="WriteCompilerDetectionHeader.html" title="WriteCompilerDetectionHeader"
              accesskey="P">previous</a> |</li>
   <li>
     <img src="../_static/cmake-logo-16.png" alt=""
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,12 @@
           <div class="body" role="main">
             
   <section id="findboost">
-<span id="module:FindBoost"></span><h1>FindBoost<a class="headerlink" href="#findboost" title="Permalink to this heading">¶</a></h1>
+<span id="module:FindBoost"></span><h1>FindBoost<a class="headerlink" href="#findboost" title="Link to this heading">¶</a></h1>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 3.30: </span>This module is available only if policy <span class="target" id="index-0-policy:CMP0167"></span><a class="reference internal" href="../policy/CMP0167.html#policy:CMP0167" title="CMP0167"><code class="xref cmake cmake-policy docutils literal notranslate"><span class="pre">CMP0167</span></code></a> is not set to
+<code class="docutils literal notranslate"><span class="pre">NEW</span></code>.  Port projects to upstream Boost's <code class="docutils literal notranslate"><span class="pre">BoostConfig.cmake</span></code> package
+configuration file, for which <code class="docutils literal notranslate"><span class="pre">find_package(Boost)</span></code> now searches.</p>
+</div>
 <p>Find Boost include dirs and libraries</p>
 <p>Use this module by invoking <span class="target" id="index-0-command:find_package"></span><a class="reference internal" href="../command/find_package.html#command:find_package" title="find_package"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">find_package()</span></code></a> with the form:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">find_package(</span><span class="nb">Boost</span>
@@ -75,19 +79,19 @@
 package configuration file provided by a &quot;Boost CMake&quot; build.  For the
 latter case skip to the <a class="reference internal" href="#boost-cmake"><span class="std std-ref">Boost CMake</span></a> section below.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7: </span><code class="docutils literal notranslate"><span class="pre">bzip2</span></code> and <code class="docutils literal notranslate"><span class="pre">zlib</span></code> components (Windows only).</p>
+<p><span class="versionmodified added">Added in version 3.7: </span><code class="docutils literal notranslate"><span class="pre">bzip2</span></code> and <code class="docutils literal notranslate"><span class="pre">zlib</span></code> components (Windows only).</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.11: </span>The <code class="docutils literal notranslate"><span class="pre">OPTIONAL_COMPONENTS</span></code> option.</p>
+<p><span class="versionmodified added">Added in version 3.11: </span>The <code class="docutils literal notranslate"><span class="pre">OPTIONAL_COMPONENTS</span></code> option.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13: </span><code class="docutils literal notranslate"><span class="pre">stacktrace_*</span></code> components.</p>
+<p><span class="versionmodified added">Added in version 3.13: </span><code class="docutils literal notranslate"><span class="pre">stacktrace_*</span></code> components.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.19: </span><code class="docutils literal notranslate"><span class="pre">bzip2</span></code> and <code class="docutils literal notranslate"><span class="pre">zlib</span></code> components on all platforms.</p>
+<p><span class="versionmodified added">Added in version 3.19: </span><code class="docutils literal notranslate"><span class="pre">bzip2</span></code> and <code class="docutils literal notranslate"><span class="pre">zlib</span></code> components on all platforms.</p>
 </div>
 <section id="result-variables">
-<h2>Result Variables<a class="headerlink" href="#result-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Result Variables<a class="headerlink" href="#result-variables" title="Link to this heading">¶</a></h2>
 <p>This module defines the following variables:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_FOUND</span></code></dt><dd><p>True if headers and requested libraries were found.</p>
@@ -130,11 +134,11 @@ displayed during compilation</p>
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">Boost_VERSION_&lt;PART&gt;</span></code> variables.</p>
+<p><span class="versionmodified added">Added in version 3.15: </span>The <code class="docutils literal notranslate"><span class="pre">Boost_VERSION_&lt;PART&gt;</span></code> variables.</p>
 </div>
 </section>
 <section id="cache-variables">
-<h2>Cache variables<a class="headerlink" href="#cache-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Cache variables<a class="headerlink" href="#cache-variables" title="Link to this heading">¶</a></h2>
 <p>Search results are saved persistently in CMake cache entries:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_INCLUDE_DIR</span></code></dt><dd><p>Directory containing Boost headers.</p>
@@ -149,12 +153,12 @@ displayed during compilation</p>
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.3: </span>Per-configuration variables <code class="docutils literal notranslate"><span class="pre">Boost_LIBRARY_DIR_RELEASE</span></code> and
+<p><span class="versionmodified added">Added in version 3.3: </span>Per-configuration variables <code class="docutils literal notranslate"><span class="pre">Boost_LIBRARY_DIR_RELEASE</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Boost_LIBRARY_DIR_DEBUG</span></code>.</p>
 </div>
 </section>
 <section id="hints">
-<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this heading">¶</a></h2>
+<h2>Hints<a class="headerlink" href="#hints" title="Link to this heading">¶</a></h2>
 <p>This module reads hints about search locations from variables:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">BOOST_ROOT</span></code>, <code class="docutils literal notranslate"><span class="pre">BOOSTROOT</span></code></dt><dd><p>Preferred installation prefix.</p>
@@ -189,16 +193,16 @@ tree (excluding environment variables) this module discards previous
 search results affected by the changes and searches again.</p>
 </section>
 <section id="imported-targets">
-<h2>Imported Targets<a class="headerlink" href="#imported-targets" title="Permalink to this heading">¶</a></h2>
+<h2>Imported Targets<a class="headerlink" href="#imported-targets" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.5.</span></p>
+<p><span class="versionmodified added">Added in version 3.5.</span></p>
 </div>
 <p>This module defines the following <span class="target" id="index-0-prop_tgt:IMPORTED"></span><a class="reference internal" href="../prop_tgt/IMPORTED.html#prop_tgt:IMPORTED" title="IMPORTED"><code class="xref cmake cmake-prop_tgt docutils literal notranslate"><span class="pre">IMPORTED</span></code></a> targets:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost::boost</span></code></dt><dd><p>Target for header-only dependencies. (Boost include directory).</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost::headers</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.15: </span>Alias for <code class="docutils literal notranslate"><span class="pre">Boost::boost</span></code>.</p>
+<p><span class="versionmodified added">Added in version 3.15: </span>Alias for <code class="docutils literal notranslate"><span class="pre">Boost::boost</span></code>.</p>
 </div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost::&lt;component&gt;</span></code></dt><dd><p>Target for specific component dependency (shared or static library);
@@ -226,19 +230,19 @@ different options (e.g. static or shared) will not override the
 values of the targets created by the first call.</p>
 </section>
 <section id="other-variables">
-<h2>Other Variables<a class="headerlink" href="#other-variables" title="Permalink to this heading">¶</a></h2>
+<h2>Other Variables<a class="headerlink" href="#other-variables" title="Link to this heading">¶</a></h2>
 <p>Boost libraries come in many variants encoded in their file name.
 Users or projects may tell this module which variant to find by
 setting variables:</p>
 <dl>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_USE_DEBUG_LIBS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">ON</span></code> or <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to specify whether to search and use the debug
 libraries.  Default is <code class="docutils literal notranslate"><span class="pre">ON</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_USE_RELEASE_LIBS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.10.</span></p>
+<p><span class="versionmodified added">Added in version 3.10.</span></p>
 </div>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">ON</span></code> or <code class="docutils literal notranslate"><span class="pre">OFF</span></code> to specify whether to search and use the release
 libraries.  Default is <code class="docutils literal notranslate"><span class="pre">ON</span></code>.</p>
@@ -271,14 +275,14 @@ in decreasing order of preference.</p>
 </div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_LIB_PREFIX</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>Set to the platform-specific library name prefix (e.g. <code class="docutils literal notranslate"><span class="pre">lib</span></code>) used by
 Boost static libs.  This is needed only on platforms where CMake does not
 know the prefix by default.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_ARCHITECTURE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.13.</span></p>
+<p><span class="versionmodified added">Added in version 3.13.</span></p>
 </div>
 <p>Set to the architecture-specific library suffix (e.g. <code class="docutils literal notranslate"><span class="pre">-x64</span></code>).
 Default is auto-computed for the C++ compiler in use.</p>
@@ -305,7 +309,7 @@ not be enabled unless the user needs this information.</p>
 <code class="docutils literal notranslate"><span class="pre">Boost_LIBRARY_DIR_DEBUG</span></code>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">Boost_NO_WARN_NEW_VERSIONS</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.20.</span></p>
+<p><span class="versionmodified added">Added in version 3.20.</span></p>
 </div>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">ON</span></code> to suppress the warning about unknown dependencies for new
 Boost versions.</p>
@@ -323,7 +327,7 @@ libraries with a few exceptions (such as <code class="docutils literal notransla
 <p>to ask Boost to report information about automatic linking requests.</p>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <p>Find Boost headers only:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">find_package(</span><span class="nb">Boost</span><span class="w"> </span><span class="m">1.36.0</span><span class="nf">)</span>
 <span class="nf">if(</span><span class="nb">Boost_FOUND</span><span class="nf">)</span>
@@ -363,7 +367,7 @@ libraries with a few exceptions (such as <code class="docutils literal notransla
 </div>
 </section>
 <section id="boost-cmake">
-<span id="id1"></span><h2>Boost CMake<a class="headerlink" href="#boost-cmake" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Boost CMake<a class="headerlink" href="#boost-cmake" title="Link to this heading">¶</a></h2>
 <p>If Boost was built using the boost-cmake project or from Boost 1.70.0 on
 it provides a package configuration file for use with find_package's config mode.
 This module looks for the package configuration file called
@@ -400,13 +404,13 @@ the Boost CMake package configuration for details on what it provides.</p>
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="FindBLAS.html"
-                          title="previous chapter">FindBLAS</a></p>
+    <p class="topless"><a href="WriteCompilerDetectionHeader.html"
+                          title="previous chapter">WriteCompilerDetectionHeader</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="FindBullet.html"
-                          title="next chapter">FindBullet</a></p>
+    <p class="topless"><a href="FindCUDA.html"
+                          title="next chapter">FindCUDA</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -415,7 +419,7 @@ the Boost CMake package configuration for details on what it provides.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -423,7 +427,7 @@ the Boost CMake package configuration for details on what it provides.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -436,10 +440,10 @@ the Boost CMake package configuration for details on what it provides.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="FindBullet.html" title="FindBullet"
+          <a href="FindCUDA.html" title="FindCUDA"
              >next</a> |</li>
         <li class="right" >
-          <a href="FindBLAS.html" title="FindBLAS"
+          <a href="WriteCompilerDetectionHeader.html" title="WriteCompilerDetectionHeader"
              >previous</a> |</li>
   <li>
     <img src="../_static/cmake-logo-16.png" alt=""
@@ -449,7 +453,7 @@ the Boost CMake package configuration for details on what it provides.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -458,8 +462,8 @@ the Boost CMake package configuration for details on what it provides.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

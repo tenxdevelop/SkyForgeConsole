@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>ctest_test &mdash; CMake 3.28.1 Documentation</title>
+  <title>ctest_test &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" accesskey="U">cmake-commands(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="ctest-test">
-<span id="command:ctest_test"></span><h1>ctest_test<a class="headerlink" href="#ctest-test" title="Permalink to this heading">¶</a></h1>
+<span id="command:ctest_test"></span><h1>ctest_test<a class="headerlink" href="#ctest-test" title="Link to this heading">¶</a></h1>
 <p>Perform the <a class="reference internal" href="../manual/ctest.1.html#ctest-test-step"><span class="std std-ref">CTest Test Step</span></a> as a <a class="reference internal" href="../manual/ctest.1.html#dashboard-client"><span class="std std-ref">Dashboard Client</span></a>.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">ctest_test(</span><span class="p">[</span><span class="no">BUILD</span><span class="w"> </span><span class="nv">&lt;build-dir&gt;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="no">APPEND</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">START</span><span class="w"> </span><span class="nv">&lt;start-number&gt;</span><span class="p">]</span>
@@ -68,10 +67,12 @@
 <span class="w">           </span><span class="p">[</span><span class="no">INCLUDE</span><span class="w"> </span><span class="nv">&lt;include-regex&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">EXCLUDE_LABEL</span><span class="w"> </span><span class="nv">&lt;label-exclude-regex&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">INCLUDE_LABEL</span><span class="w"> </span><span class="nv">&lt;label-include-regex&gt;</span><span class="p">]</span>
+<span class="w">           </span><span class="p">[</span><span class="no">EXCLUDE_FROM_FILE</span><span class="w"> </span><span class="nv">&lt;filename&gt;</span><span class="p">]</span>
+<span class="w">           </span><span class="p">[</span><span class="no">INCLUDE_FROM_FILE</span><span class="w"> </span><span class="nv">&lt;filename&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">EXCLUDE_FIXTURE</span><span class="w"> </span><span class="nv">&lt;regex&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">EXCLUDE_FIXTURE_SETUP</span><span class="w"> </span><span class="nv">&lt;regex&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">EXCLUDE_FIXTURE_CLEANUP</span><span class="w"> </span><span class="nv">&lt;regex&gt;</span><span class="p">]</span>
-<span class="w">           </span><span class="p">[</span><span class="no">PARALLEL_LEVEL</span><span class="w"> </span><span class="nv">&lt;level&gt;</span><span class="p">]</span>
+<span class="w">           </span><span class="p">[</span><span class="no">PARALLEL_LEVEL</span><span class="w"> </span><span class="p">[</span><span class="nv">&lt;level&gt;</span><span class="p">]]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">RESOURCE_SPEC_FILE</span><span class="w"> </span><span class="nv">&lt;file&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">TEST_LOAD</span><span class="w"> </span><span class="nv">&lt;threshold&gt;</span><span class="p">]</span>
 <span class="w">           </span><span class="p">[</span><span class="no">SCHEDULE_RANDOM</span><span class="w"> </span><span class="o">&lt;</span><span class="no">ON</span><span class="p">|</span><span class="no">OFF</span><span class="o">&gt;</span><span class="p">]</span>
@@ -114,8 +115,18 @@ Tests not matching this expression are excluded.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">INCLUDE_LABEL</span> <span class="pre">&lt;label-include-regex&gt;</span></code></dt><dd><p>Specify a regular expression matching test labels to include.
 Tests not matching this expression are excluded.</p>
 </dd>
+<dt><code class="docutils literal notranslate"><span class="pre">EXCLUDE_FROM_FILE</span> <span class="pre">&lt;filename&gt;</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Do NOT run tests listed with their exact name in the given file.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">INCLUDE_FROM_FILE</span> <span class="pre">&lt;filename&gt;</span></code></dt><dd><div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29.</span></p>
+</div>
+<p>Only run the tests listed with their exact name in the given file.</p>
+</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">EXCLUDE_FIXTURE</span> <span class="pre">&lt;regex&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>If a test in the set of tests to be executed requires a particular fixture,
 that fixture's setup and cleanup tests would normally be added to the test
@@ -125,27 +136,31 @@ retained, including test dependencies and skipping tests that have fixture
 setup tests that fail.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">EXCLUDE_FIXTURE_SETUP</span> <span class="pre">&lt;regex&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Same as <code class="docutils literal notranslate"><span class="pre">EXCLUDE_FIXTURE</span></code> except only matching setup tests are excluded.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">EXCLUDE_FIXTURE_CLEANUP</span> <span class="pre">&lt;regex&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Same as <code class="docutils literal notranslate"><span class="pre">EXCLUDE_FIXTURE</span></code> except only matching cleanup tests are excluded.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">PARALLEL_LEVEL</span> <span class="pre">&lt;level&gt;</span></code></dt><dd><p>Specify a positive number representing the number of tests to
-be run in parallel.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">PARALLEL_LEVEL</span> <span class="pre">[&lt;level&gt;]</span></code></dt><dd><p>Run tests in parallel, limited to a given level of parallelism.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.29: </span>The <code class="docutils literal notranslate"><span class="pre">&lt;level&gt;</span></code> may be omitted, or <code class="docutils literal notranslate"><span class="pre">0</span></code>, to let ctest use a default
+level of parallelism, or unbounded parallelism, respectively, as
+documented by the <a class="reference internal" href="../manual/ctest.1.html#cmdoption-ctest-j"><code class="xref std std-option docutils literal notranslate"><span class="pre">ctest</span> <span class="pre">--parallel</span></code></a> option.</p>
+</div>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">RESOURCE_SPEC_FILE</span> <span class="pre">&lt;file&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.16.</span></p>
+<p><span class="versionmodified added">Added in version 3.16.</span></p>
 </div>
 <p>Specify a
 <a class="reference internal" href="../manual/ctest.1.html#ctest-resource-specification-file"><span class="std std-ref">resource specification file</span></a>. See
 <a class="reference internal" href="../manual/ctest.1.html#ctest-resource-allocation"><span class="std std-ref">Resource Allocation</span></a> for more information.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">TEST_LOAD</span> <span class="pre">&lt;threshold&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4.</span></p>
 </div>
 <p>While running tests in parallel, try not to start tests when they
 may cause the CPU load to pass above a given threshold.  If not
@@ -155,7 +170,7 @@ argument to <span class="target" id="index-0-manual:ctest(1)"></span><a class="r
 in the <a class="reference internal" href="../manual/ctest.1.html#ctest-test-step"><span class="std std-ref">CTest Test Step</span></a>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">REPEAT</span> <span class="pre">&lt;mode&gt;:&lt;n&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.17.</span></p>
+<p><span class="versionmodified added">Added in version 3.17.</span></p>
 </div>
 <p>Run tests repeatedly based on the given <code class="docutils literal notranslate"><span class="pre">&lt;mode&gt;</span></code> up to <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code> times.
 The modes are:</p>
@@ -178,7 +193,7 @@ on busy machines.</p>
 implicit test dependencies.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">STOP_ON_FAILURE</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.18.</span></p>
+<p><span class="versionmodified added">Added in version 3.18.</span></p>
 </div>
 <p>Stop the execution of the tests once one has failed.</p>
 </dd>
@@ -188,13 +203,13 @@ implicit test dependencies.</p>
 Store non-zero if anything went wrong.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">CAPTURE_CMAKE_ERROR</span> <span class="pre">&lt;result-var&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.7.</span></p>
+<p><span class="versionmodified added">Added in version 3.7.</span></p>
 </div>
 <p>Store in the <code class="docutils literal notranslate"><span class="pre">&lt;result-var&gt;</span></code> variable -1 if there are any errors running
 the command and prevent ctest from returning non-zero if an error occurs.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">OUTPUT_JUNIT</span> <span class="pre">&lt;file&gt;</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>Write test results to <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> in JUnit XML format. If <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code> is a
 relative path, it will be placed in the build directory. If <code class="docutils literal notranslate"><span class="pre">&lt;file&gt;</span></code>
@@ -203,7 +218,7 @@ file is <strong>not</strong> uploaded to CDash because it would be redundant wit
 CTest's <code class="docutils literal notranslate"><span class="pre">Test.xml</span></code> file.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">QUIET</span></code></dt><dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 3.3.</span></p>
+<p><span class="versionmodified added">Added in version 3.3.</span></p>
 </div>
 <p>Suppress any CTest-specific non-error messages that would have otherwise
 been printed to the console.  Output from the underlying test command is not
@@ -219,7 +234,7 @@ corresponding <span class="target" id="index-1-manual:ctest(1)"></span><a class=
 <a class="reference internal" href="../manual/ctest.1.html#cmdoption-ctest-test-output-size-failed"><code class="xref std std-option docutils literal notranslate"><span class="pre">--test-output-size-failed</span></code></a>, and
 <a class="reference internal" href="../manual/ctest.1.html#cmdoption-ctest-test-output-truncation"><code class="xref std std-option docutils literal notranslate"><span class="pre">--test-output-truncation</span></code></a>.</p>
 <section id="additional-test-measurements">
-<span id="id1"></span><h2>Additional Test Measurements<a class="headerlink" href="#additional-test-measurements" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2>Additional Test Measurements<a class="headerlink" href="#additional-test-measurements" title="Link to this heading">¶</a></h2>
 <p>CTest can parse the output of your tests for extra measurements to report
 to CDash.</p>
 <p>When run as a <a class="reference internal" href="../manual/ctest.1.html#dashboard-client"><span class="std std-ref">Dashboard Client</span></a>, CTest will include these custom
@@ -249,7 +264,7 @@ measurements.</p>
 </pre></div>
 </div>
 <section id="image-measurements">
-<h3>Image Measurements<a class="headerlink" href="#image-measurements" title="Permalink to this heading">¶</a></h3>
+<h3>Image Measurements<a class="headerlink" href="#image-measurements" title="Link to this heading">¶</a></h3>
 <p>The following example demonstrates how to upload test images to CDash.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span>
 <span class="w">  </span><span class="s">&quot;&lt;CTestMeasurementFile type=</span><span class="se">\&quot;</span><span class="s">image/jpg</span><span class="se">\&quot;</span><span class="s"> name=</span><span class="se">\&quot;</span><span class="s">TestImage</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span>
@@ -280,9 +295,9 @@ if the test passed or failed.</p>
 separate from the interactive comparison UI.</p>
 </section>
 <section id="attached-files">
-<h3>Attached Files<a class="headerlink" href="#attached-files" title="Permalink to this heading">¶</a></h3>
+<h3>Attached Files<a class="headerlink" href="#attached-files" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>The following example demonstrates how to upload non-image files to CDash.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span>
@@ -297,9 +312,9 @@ separate from the interactive comparison UI.</p>
 properties instead.</p>
 </section>
 <section id="custom-details">
-<h3>Custom Details<a class="headerlink" href="#custom-details" title="Permalink to this heading">¶</a></h3>
+<h3>Custom Details<a class="headerlink" href="#custom-details" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.21.</span></p>
+<p><span class="versionmodified added">Added in version 3.21.</span></p>
 </div>
 <p>The following example demonstrates how to specify a custom value for the
 <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Details</span></code> field displayed on CDash.</p>
@@ -309,9 +324,9 @@ properties instead.</p>
 </div>
 </section>
 <section id="additional-labels">
-<span id="id2"></span><h3>Additional Labels<a class="headerlink" href="#additional-labels" title="Permalink to this heading">¶</a></h3>
+<span id="id2"></span><h3>Additional Labels<a class="headerlink" href="#additional-labels" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.22.</span></p>
+<p><span class="versionmodified added">Added in version 3.22.</span></p>
 </div>
 <p>The following example demonstrates how to add additional labels to a test
 at runtime.</p>
@@ -366,7 +381,7 @@ determined at configure time.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -374,7 +389,7 @@ determined at configure time.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -400,7 +415,7 @@ determined at configure time.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-commands.7.html" >cmake-commands(7)</a> &#187;</li>
@@ -409,8 +424,8 @@ determined at configure time.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

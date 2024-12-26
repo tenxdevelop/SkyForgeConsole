@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>cmake-generators(7) &mdash; CMake 3.28.1 Documentation</title>
+  <title>cmake-generators(7) &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">cmake-generators(7)</a></li> 
@@ -57,7 +56,7 @@
           <div class="body" role="main">
             
   <span class="target" id="manual:cmake-generators(7)"></span><section id="cmake-generators-7">
-<h1><a class="toc-backref" href="#id7" role="doc-backlink">cmake-generators(7)</a><a class="headerlink" href="#cmake-generators-7" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id7" role="doc-backlink">cmake-generators(7)</a><a class="headerlink" href="#cmake-generators-7" title="Link to this heading">¶</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -86,7 +85,7 @@
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>A <em>CMake Generator</em> is responsible for writing the input files for
 a native build system.  Exactly one of the <a class="reference internal" href="#cmake-generators">CMake Generators</a> must be
 selected for a build tree to determine what native build system is to
@@ -101,14 +100,14 @@ generator for a new build tree. The <span class="target" id="index-0-manual:cmak
 interactive selection of a generator when creating a new build tree.</p>
 </section>
 <section id="cmake-generators">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">CMake Generators</a><a class="headerlink" href="#cmake-generators" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">CMake Generators</a><a class="headerlink" href="#cmake-generators" title="Link to this heading">¶</a></h2>
 <section id="command-line-build-tool-generators">
-<span id="id1"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Command-Line Build Tool Generators</a><a class="headerlink" href="#command-line-build-tool-generators" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Command-Line Build Tool Generators</a><a class="headerlink" href="#command-line-build-tool-generators" title="Link to this heading">¶</a></h3>
 <p>These generators support command-line build tools.  In order to use them,
 one must launch CMake from a command-line prompt whose environment is
 already configured for the chosen compiler and build tool.</p>
 <section id="makefile-generators">
-<span id="id2"></span><h4><a class="toc-backref" href="#id11" role="doc-backlink">Makefile Generators</a><a class="headerlink" href="#makefile-generators" title="Permalink to this heading">¶</a></h4>
+<span id="id2"></span><h4><a class="toc-backref" href="#id11" role="doc-backlink">Makefile Generators</a><a class="headerlink" href="#makefile-generators" title="Link to this heading">¶</a></h4>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generator/Borland%20Makefiles.html">Borland Makefiles</a></li>
@@ -122,7 +121,7 @@ already configured for the chosen compiler and build tool.</p>
 </div>
 </section>
 <section id="ninja-generators">
-<span id="id3"></span><h4><a class="toc-backref" href="#id12" role="doc-backlink">Ninja Generators</a><a class="headerlink" href="#ninja-generators" title="Permalink to this heading">¶</a></h4>
+<span id="id3"></span><h4><a class="toc-backref" href="#id12" role="doc-backlink">Ninja Generators</a><a class="headerlink" href="#ninja-generators" title="Link to this heading">¶</a></h4>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generator/Ninja.html">Ninja</a></li>
@@ -132,12 +131,12 @@ already configured for the chosen compiler and build tool.</p>
 </section>
 </section>
 <section id="ide-build-tool-generators">
-<span id="id4"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink">IDE Build Tool Generators</a><a class="headerlink" href="#ide-build-tool-generators" title="Permalink to this heading">¶</a></h3>
+<span id="id4"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink">IDE Build Tool Generators</a><a class="headerlink" href="#ide-build-tool-generators" title="Link to this heading">¶</a></h3>
 <p>These generators support Integrated Development Environment (IDE)
 project files.  Since the IDEs configure their own environment
 one may launch CMake from any environment.</p>
 <section id="visual-studio-generators">
-<span id="id5"></span><h4><a class="toc-backref" href="#id14" role="doc-backlink">Visual Studio Generators</a><a class="headerlink" href="#visual-studio-generators" title="Permalink to this heading">¶</a></h4>
+<span id="id5"></span><h4><a class="toc-backref" href="#id14" role="doc-backlink">Visual Studio Generators</a><a class="headerlink" href="#visual-studio-generators" title="Link to this heading">¶</a></h4>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generator/Visual%20Studio%206.html">Visual Studio 6</a></li>
@@ -156,7 +155,7 @@ one may launch CMake from any environment.</p>
 </div>
 </section>
 <section id="other-generators">
-<h4><a class="toc-backref" href="#id15" role="doc-backlink">Other Generators</a><a class="headerlink" href="#other-generators" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Other Generators</a><a class="headerlink" href="#other-generators" title="Link to this heading">¶</a></h4>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generator/Green%20Hills%20MULTI.html">Green Hills MULTI</a></li>
@@ -167,7 +166,7 @@ one may launch CMake from any environment.</p>
 </section>
 </section>
 <section id="extra-generators">
-<span id="id6"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Extra Generators</a><a class="headerlink" href="#extra-generators" title="Permalink to this heading">¶</a></h2>
+<span id="id6"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink">Extra Generators</a><a class="headerlink" href="#extra-generators" title="Link to this heading">¶</a></h2>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 3.27: </span>Support for &quot;Extra Generators&quot; is deprecated and will be removed from
 a future version of CMake.  IDEs may use the <span class="target" id="index-0-manual:cmake-file-api(7)"></span><a class="reference internal" href="cmake-file-api.7.html#manual:cmake-file-api(7)" title="cmake-file-api(7)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-file-api(7)</span></code></a>
@@ -238,7 +237,7 @@ The following extra generators are known to CMake.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -246,7 +245,7 @@ The following extra generators are known to CMake.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -272,7 +271,7 @@ The following extra generators are known to CMake.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
         <li class="nav-item nav-item-this"><a href="">cmake-generators(7)</a></li> 
@@ -280,8 +279,8 @@ The following extra generators are known to CMake.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

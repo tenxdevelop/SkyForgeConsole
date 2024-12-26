@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-GENERATOR-EXPRESSIONS" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-GENERATOR-EXPRESSIONS" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-generator-expressions \- CMake Generator Expressions
 .SH INTRODUCTION
@@ -50,10 +50,10 @@ This would expand to \fB/opt/include/GNU\fP, \fB/opt/include/Clang\fP, etc.
 depending on the C++ compiler used.
 .sp
 Generator expressions are allowed in the context of many target properties,
-such as \fI\%LINK_LIBRARIES\fP, \fI\%INCLUDE_DIRECTORIES\fP,
-\fI\%COMPILE_DEFINITIONS\fP and others.  They may also be used when using
-commands to populate those properties, such as \fI\%target_link_libraries()\fP,
-\fI\%target_include_directories()\fP, \fI\%target_compile_definitions()\fP
+such as \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link', \X'tty: link #prop_tgt:INCLUDE_DIRECTORIES'\fI\%INCLUDE_DIRECTORIES\fP\X'tty: link',
+\X'tty: link #prop_tgt:COMPILE_DEFINITIONS'\fI\%COMPILE_DEFINITIONS\fP\X'tty: link' and others.  They may also be used when using
+commands to populate those properties, such as \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link',
+\X'tty: link #command:target_include_directories'\fI\%target_include_directories()\fP\X'tty: link', \X'tty: link #command:target_compile_definitions'\fI\%target_compile_definitions()\fP\X'tty: link'
 and others.  They enable conditional linking, conditional definitions used when
 compiling, conditional include directories, and more.  The conditions may be
 based on the build configuration, target properties, platform information,
@@ -74,7 +74,7 @@ target_compile_definitions(tgt PRIVATE
 .UNINDENT
 .sp
 The above would expand to \fBOLD_COMPILER\fP if the
-\fI\%CMAKE_CXX_COMPILER_VERSION\fP is less
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER_VERSION'\fI\%CMAKE_CXX_COMPILER_VERSION\fP\X'tty: link' is less
 than 4.2.0.
 .SH WHITESPACE AND QUOTING
 .sp
@@ -85,7 +85,7 @@ the whole expression should be surrounded by quotes when passed to a
 command.  Failure to do so may result in the expression being split and
 it may no longer be recognized as a generator expression.
 .sp
-When using \fI\%add_custom_command()\fP or \fI\%add_custom_target()\fP,
+When using \X'tty: link #command:add_custom_command'\fI\%add_custom_command()\fP\X'tty: link' or \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link',
 use the \fBVERBATIM\fP and \fBCOMMAND_EXPAND_LISTS\fP options to obtain robust
 argument splitting and quoting.
 .INDENT 0.0
@@ -218,7 +218,7 @@ target_compile_definitions(tgt PRIVATE
 .sp
 Since generator expressions are evaluated during generation of the buildsystem,
 and not during processing of \fBCMakeLists.txt\fP files, it is not possible to
-inspect their result with the \fI\%message()\fP command.  One possible way
+inspect their result with the \X'tty: link #command:message'\fI\%message()\fP\X'tty: link' command.  One possible way
 to generate debug messages is to add a custom target:
 .INDENT 0.0
 .INDENT 3.5
@@ -233,9 +233,9 @@ add_custom_target(genexdebug COMMAND ${CMAKE_COMMAND} \-E echo \(dq$<...>\(dq)
 .sp
 After running \fBcmake\fP, you can then build the \fBgenexdebug\fP target to print
 the result of the \fB$<...>\fP expression (i.e. run the command
-\fI\%cmake \-\-build ... \-\-target genexdebug\fP).
+\X'tty: link #cmdoption-cmake-build-t'\fI\%cmake \-\-build ... \-\-target genexdebug\fP\X'tty: link').
 .sp
-Another way is to write debug messages to a file with \fI\%file(GENERATE)\fP:
+Another way is to write debug messages to a file with \X'tty: link #generate'\fI\%file(GENERATE)\fP\X'tty: link':
 .INDENT 0.0
 .INDENT 3.5
 .sp
@@ -271,14 +271,14 @@ results in an error.
 .INDENT 0.0
 .TP
 .B $<IF:condition,true_string,false_string>
-New in version 3.8.
+Added in version 3.8.
 
 .sp
 Evaluates to \fBtrue_string\fP if \fBcondition\fP is \fB1\fP, or \fBfalse_string\fP
 if \fBcondition\fP is \fB0\fP\&.  Any other value for \fBcondition\fP results in an
 error.
 .sp
-New in version 3.28: This generator expression short\-circuits such that generator expressions in
+Added in version 3.28: This generator expression short\-circuits such that generator expressions in
 \fBfalse_string\fP will not evaluate when \fBcondition\fP is \fB1\fP, and generator
 expressions in \fBtrue_string\fP will not evaluate when condition is \fB0\fP\&.
 
@@ -356,7 +356,7 @@ evaluates to \fB1\fP if at least one of the \fBconditions\fP is \fB1\fP\&.  If a
 \fB0\fP if \fBcondition\fP is \fB1\fP, else \fB1\fP\&.
 .UNINDENT
 .sp
-New in version 3.28: Logical operators short\-circuit such that generator expressions in the
+Added in version 3.28: Logical operators short\-circuit such that generator expressions in the
 arguments list will not be evaluated once a return value can be determined.
 
 .SS Primary Comparison Expressions
@@ -408,7 +408,7 @@ $<STREQUAL:$<UPPER_CASE:${foo}>,BAR>
 .INDENT 0.0
 .TP
 .B $<VERSION_LESS_EQUAL:v1,v2>
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 \fB1\fP if \fBv1\fP is a version less than or equal to \fBv2\fP, else \fB0\fP\&.
@@ -416,7 +416,7 @@ New in version 3.7.
 .INDENT 0.0
 .TP
 .B $<VERSION_GREATER_EQUAL:v1,v2>
-New in version 3.7.
+Added in version 3.7.
 
 .sp
 \fB1\fP if \fBv1\fP is a version greater than or equal to \fBv2\fP, else \fB0\fP\&.
@@ -436,12 +436,12 @@ Content of \fBstring\fP converted to upper case.
 .TP
 .B $<MAKE_C_IDENTIFIER:...>
 Content of \fB\&...\fP converted to a C identifier.  The conversion follows the
-same behavior as \fI\%string(MAKE_C_IDENTIFIER)\fP\&.
+same behavior as \X'tty: link #make-c-identifier'\fI\%string(MAKE_C_IDENTIFIER)\fP\X'tty: link'\&.
 .UNINDENT
 .SS List Expressions
 .sp
 Most of the expressions in this section are closely associated with the
-\fI\%list()\fP command, providing the same capabilities, but in
+\X'tty: link #command:list'\fI\%list()\fP\X'tty: link' command, providing the same capabilities, but in
 the form of a generator expression.
 .sp
 In each of the following list\-related generator expressions, the \fBlist\fP
@@ -450,13 +450,13 @@ be provided after the \fBlist\fP\&.  For example, the expression
 \fB$<LIST:FIND,list,value>\fP requires a \fBvalue\fP after the \fBlist\fP\&.
 Since a comma is used to separate the \fBlist\fP and the \fBvalue\fP, the \fBlist\fP
 cannot itself contain a comma.  This restriction does not apply to the
-\fI\%list()\fP command, it is specific to the list\-handling generator
+\X'tty: link #command:list'\fI\%list()\fP\X'tty: link' command, it is specific to the list\-handling generator
 expressions only.
 .SS List Comparisons
 .INDENT 0.0
 .TP
 .B $<IN_LIST:string,list>
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 \fB1\fP if \fBstring\fP is an item in the semicolon\-separated \fBlist\fP, else \fB0\fP\&.
@@ -466,7 +466,7 @@ It uses case\-sensitive comparisons.
 .INDENT 0.0
 .TP
 .B $<LIST:LENGTH,list>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The number of items in the \fBlist\fP\&.
@@ -474,7 +474,7 @@ The number of items in the \fBlist\fP\&.
 .INDENT 0.0
 .TP
 .B $<LIST:GET,list,index,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Expands to the list of items specified by indices from the \fBlist\fP\&.
@@ -482,7 +482,7 @@ Expands to the list of items specified by indices from the \fBlist\fP\&.
 .INDENT 0.0
 .TP
 .B $<LIST:SUBLIST,list,begin,length>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 A sublist of the given \fBlist\fP\&.  If \fBlength\fP is 0, an empty list
@@ -493,7 +493,7 @@ will be returned.  If \fBlength\fP is \-1 or the list is smaller than
 .INDENT 0.0
 .TP
 .B $<LIST:FIND,list,value>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The index of the first item in \fBlist\fP with the specified \fBvalue\fP,
@@ -503,7 +503,7 @@ or \-1 if \fBvalue\fP is not in the \fBlist\fP\&.
 .INDENT 0.0
 .TP
 .B $<LIST:JOIN,list,glue>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Converts \fBlist\fP to a single string with the content of the \fBglue\fP string
@@ -515,7 +515,7 @@ whereas \fI\%$<JOIN:list,glue>\fP drops all empty items from the list.
 .INDENT 0.0
 .TP
 .B $<LIST:APPEND,list,item,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with each \fBitem\fP appended.  Multiple items should be
@@ -524,7 +524,7 @@ separated by commas.
 .INDENT 0.0
 .TP
 .B $<LIST:PREPEND,list,item,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with each \fBitem\fP inserted at the beginning.  If there are
@@ -534,7 +534,7 @@ prepended items will be preserved.
 .INDENT 0.0
 .TP
 .B $<LIST:INSERT,list,index,item,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with the \fBitem\fP (or multiple items) inserted at the specified
@@ -546,7 +546,7 @@ where N is the length of the list, inclusive. An empty list has length 0.
 .INDENT 0.0
 .TP
 .B $<LIST:POP_BACK,list>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with the last item removed.
@@ -554,7 +554,7 @@ The \fBlist\fP with the last item removed.
 .INDENT 0.0
 .TP
 .B $<LIST:POP_FRONT,list>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with the first item removed.
@@ -562,7 +562,7 @@ The \fBlist\fP with the first item removed.
 .INDENT 0.0
 .TP
 .B $<LIST:REMOVE_ITEM,list,value,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with all instances of the given \fBvalue\fP (or values) removed.
@@ -571,7 +571,7 @@ If multiple values are given, they should be separated by commas.
 .INDENT 0.0
 .TP
 .B $<LIST:REMOVE_AT,list,index,...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with the item at each given \fBindex\fP removed.
@@ -579,7 +579,7 @@ The \fBlist\fP with the item at each given \fBindex\fP removed.
 .INDENT 0.0
 .TP
 .B $<LIST:REMOVE_DUPLICATES,list>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with all duplicated items removed.  The relative order of
@@ -590,7 +590,7 @@ instance is preserved.  The result is the same as
 .INDENT 0.0
 .TP
 .B $<LIST:FILTER,list,INCLUDE|EXCLUDE,regex>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 A list of items from the \fBlist\fP which match (\fBINCLUDE\fP) or do not match
@@ -600,7 +600,7 @@ A list of items from the \fBlist\fP which match (\fBINCLUDE\fP) or do not match
 .INDENT 0.0
 .TP
 .B $<LIST:TRANSFORM,list,ACTION[,SELECTOR]>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP transformed by applying an \fBACTION\fP to all or, by
@@ -617,12 +617,12 @@ the other ones will remain the same as before the transformation.
 .sp
 \fBACTION\fP specifies the action to apply to the items of the list.
 The actions have exactly the same semantics as for the
-\fI\%list(TRANSFORM)\fP command.  \fBACTION\fP must be one of the following:
+\X'tty: link #transform'\fI\%list(TRANSFORM)\fP\X'tty: link' command.  \fBACTION\fP must be one of the following:
 .INDENT 7.0
 .INDENT 3.5
 .INDENT 0.0
 .TP
-.B \fI\%APPEND\fP, \fI\%PREPEND\fP
+.B \X'tty: link #transform-append'\fI\%APPEND\fP\X'tty: link', \X'tty: link #transform-append'\fI\%PREPEND\fP\X'tty: link'
 Append, prepend specified value to each item of the list.
 .INDENT 7.0
 .INDENT 3.5
@@ -635,7 +635,7 @@ $<LIST:TRANSFORM,list,(APPEND|PREPEND),value[,SELECTOR]>
 .UNINDENT
 .UNINDENT
 .TP
-.B \fI\%TOLOWER\fP, \fI\%TOUPPER\fP
+.B \X'tty: link #transform-tolower'\fI\%TOLOWER\fP\X'tty: link', \X'tty: link #transform-tolower'\fI\%TOUPPER\fP\X'tty: link'
 Convert each item of the list to lower, upper characters.
 .INDENT 7.0
 .INDENT 3.5
@@ -648,7 +648,7 @@ $<LIST:TRANSFORM,list,(TOLOWER|TOUPPER)[,SELECTOR]>
 .UNINDENT
 .UNINDENT
 .TP
-.B \fI\%STRIP\fP
+.B \X'tty: link #transform-strip'\fI\%STRIP\fP\X'tty: link'
 Remove leading and trailing spaces from each item of the list.
 .INDENT 7.0
 .INDENT 3.5
@@ -661,7 +661,7 @@ $<LIST:TRANSFORM,list,STRIP[,SELECTOR]>
 .UNINDENT
 .UNINDENT
 .TP
-.B \fI\%REPLACE\fP:
+.B \X'tty: link #transform-replace'\fI\%REPLACE\fP\X'tty: link':
 Match the regular expression as many times as possible and substitute
 the replacement expression for the match for each item of the list.
 .INDENT 7.0
@@ -742,7 +742,7 @@ whereas \fB$<JOIN,list,glue>\fP drops all empty items from the list.
 .INDENT 0.0
 .TP
 .B $<REMOVE_DUPLICATES:list>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Removes duplicated items in the given \fBlist\fP\&. The relative order of items
@@ -753,7 +753,7 @@ retained.  The result is the same as
 .INDENT 0.0
 .TP
 .B $<FILTER:list,INCLUDE|EXCLUDE,regex>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Includes or removes items from \fBlist\fP that match the regular expression
@@ -764,7 +764,7 @@ Includes or removes items from \fBlist\fP that match the regular expression
 .INDENT 0.0
 .TP
 .B $<LIST:REVERSE,list>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP with the items in reverse order.
@@ -772,7 +772,7 @@ The \fBlist\fP with the items in reverse order.
 .INDENT 0.0
 .TP
 .B $<LIST:SORT,list[,(COMPARE:option|CASE:option|ORDER:option)]...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 The \fBlist\fP sorted according to the specified options.
@@ -849,7 +849,7 @@ $<LIST:SORT,list,CASE:SENSITIVE,COMPARE:STRING,ORDER:DESCENDING>
 .SS Path Expressions
 .sp
 Most of the expressions in this section are closely associated with the
-\fI\%cmake_path()\fP command, providing the same capabilities, but in
+\X'tty: link #command:cmake_path'\fI\%cmake_path()\fP\X'tty: link' command, providing the same capabilities, but in
 the form of a generator expression.
 .sp
 For all generator expressions in this section, paths are expected to be in
@@ -860,28 +860,28 @@ one.
 .INDENT 0.0
 .TP
 .B $<PATH_EQUAL:path1,path2>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Compares the lexical representations of two paths. No normalization is
 performed on either path. Returns \fB1\fP if the paths are equal, \fB0\fP
 otherwise.
 .sp
-See \fI\%cmake_path(COMPARE)\fP for more details.
+See \X'tty: link #path-compare'\fI\%cmake_path(COMPARE)\fP\X'tty: link' for more details.
 .UNINDENT
 .SS Path Queries
 .sp
 These expressions provide the generation\-time capabilities equivalent to the
-\fI\%Query\fP options of the \fI\%cmake_path()\fP command.
+\X'tty: link #path-query'\fI\%Query\fP\X'tty: link' options of the \X'tty: link #command:cmake_path'\fI\%cmake_path()\fP\X'tty: link' command.
 All paths are expected to be in cmake\-style format.
 .INDENT 0.0
 .TP
 .B $<PATH:HAS_*,path>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 The following operations return \fB1\fP if the particular path component is
-present, \fB0\fP otherwise. See \fI\%Path Structure And Terminology\fP for the
+present, \fB0\fP otherwise. See \X'tty: link #path-structure-and-terminology'\fI\%Path Structure And Terminology\fP\X'tty: link' for the
 meaning of each path component.
 .INDENT 7.0
 .INDENT 3.5
@@ -909,21 +909,21 @@ of \fBroot\-name\fP or \fBroot\-directory\fP is non\-empty.
 .IP \(bu 2
 For \fBHAS_PARENT_PATH\fP, the root directory is also considered to have a
 parent, which will be itself.  The result is true except if the path
-consists of just a \fI\%filename\fP\&.
+consists of just a \X'tty: link #filename-def'\fI\%filename\fP\X'tty: link'\&.
 .UNINDENT
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:IS_ABSOLUTE,path>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
-Returns \fB1\fP if the path is \fI\%absolute\fP, \fB0\fP otherwise.
+Returns \fB1\fP if the path is \X'tty: link #is-absolute'\fI\%absolute\fP\X'tty: link', \fB0\fP otherwise.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:IS_RELATIVE,path>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 This will return the opposite of \fBIS_ABSOLUTE\fP\&.
@@ -931,27 +931,27 @@ This will return the opposite of \fBIS_ABSOLUTE\fP\&.
 .INDENT 0.0
 .TP
 .B $<PATH:IS_PREFIX[,NORMALIZE],path,input>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fB1\fP if \fBpath\fP is the prefix of \fBinput\fP, \fB0\fP otherwise.
 .sp
 When the \fBNORMALIZE\fP option is specified, \fBpath\fP and \fBinput\fP are
-\fI\%normalized\fP before the check.
+\X'tty: link #normalization'\fI\%normalized\fP\X'tty: link' before the check.
 .UNINDENT
 .SS Path Decomposition
 .sp
 These expressions provide the generation\-time capabilities equivalent to the
-\fI\%Decomposition\fP options of the \fI\%cmake_path()\fP
+\X'tty: link #path-decomposition'\fI\%Decomposition\fP\X'tty: link' options of the \X'tty: link #command:cmake_path'\fI\%cmake_path()\fP\X'tty: link'
 command.  All paths are expected to be in cmake\-style format.
 .INDENT 0.0
 .TP
 .B $<PATH:GET_*,...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 The following operations retrieve a different component or group of
-components from a path. See \fI\%Path Structure And Terminology\fP for the
+components from a path. See \X'tty: link #path-structure-and-terminology'\fI\%Path Structure And Terminology\fP\X'tty: link' for the
 meaning of each path component.
 .sp
 Changed in version 3.27: All operations now accept a list of paths as argument. When a list of paths
@@ -981,8 +981,8 @@ returned.
 .SS Path Transformations
 .sp
 These expressions provide the generation\-time capabilities equivalent to the
-\fI\%Modification\fP and \fI\%Generation\fP
-options of the \fI\%cmake_path()\fP command.  All paths are expected to be
+\X'tty: link #path-modification'\fI\%Modification\fP\X'tty: link' and \X'tty: link #path-generation'\fI\%Generation\fP\X'tty: link'
+options of the \X'tty: link #command:cmake_path'\fI\%cmake_path()\fP\X'tty: link' command.  All paths are expected to be
 in cmake\-style format.
 .sp
 Changed in version 3.27: All operations now accept a list of paths as argument. When a list of paths
@@ -991,97 +991,97 @@ is specified, the operation will be applied to each path.
 .INDENT 0.0
 .TP
 .B $<PATH:CMAKE_PATH[,NORMALIZE],path...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP\&. If \fBpath\fP is a native path, it is converted into a
 cmake\-style path with forward\-slashes (\fB/\fP). On Windows, the long filename
 marker is taken into account.
 .sp
-When the \fBNORMALIZE\fP option is specified, the path is \fI\%normalized\fP after the conversion.
+When the \fBNORMALIZE\fP option is specified, the path is \X'tty: link #normalization'\fI\%normalized\fP\X'tty: link' after the conversion.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:APPEND,path...,input,...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns all the \fBinput\fP arguments appended to \fBpath\fP using \fB/\fP as the
 \fBdirectory\-separator\fP\&. Depending on the \fBinput\fP, the value of \fBpath\fP
 may be discarded.
 .sp
-See \fI\%cmake_path(APPEND)\fP for more details.
+See \X'tty: link #append'\fI\%cmake_path(APPEND)\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:REMOVE_FILENAME,path...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP with filename component (as returned by
 \fB$<PATH:GET_FILENAME>\fP) removed. After removal, any trailing
 \fBdirectory\-separator\fP is left alone, if present.
 .sp
-See \fI\%cmake_path(REMOVE_FILENAME)\fP for more details.
+See \X'tty: link #remove-filename'\fI\%cmake_path(REMOVE_FILENAME)\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:REPLACE_FILENAME,path...,input>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP with the filename component replaced by \fBinput\fP\&. If
 \fBpath\fP has no filename component (i.e. \fB$<PATH:HAS_FILENAME>\fP returns
 \fB0\fP), \fBpath\fP is unchanged.
 .sp
-See \fI\%cmake_path(REPLACE_FILENAME)\fP for more details.
+See \X'tty: link #replace-filename'\fI\%cmake_path(REPLACE_FILENAME)\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:REMOVE_EXTENSION[,LAST_ONLY],path...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
-Returns \fBpath\fP with the \fI\%extension\fP removed, if any.
+Returns \fBpath\fP with the \X'tty: link #extension-def'\fI\%extension\fP\X'tty: link' removed, if any.
 .sp
-See \fI\%cmake_path(REMOVE_EXTENSION)\fP for more details.
+See \X'tty: link #remove-extension'\fI\%cmake_path(REMOVE_EXTENSION)\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:REPLACE_EXTENSION[,LAST_ONLY],path...,input>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
-Returns \fBpath\fP with the \fI\%extension\fP replaced by
+Returns \fBpath\fP with the \X'tty: link #extension-def'\fI\%extension\fP\X'tty: link' replaced by
 \fBinput\fP, if any.
 .sp
-See \fI\%cmake_path(REPLACE_EXTENSION)\fP for more details.
+See \X'tty: link #replace-extension'\fI\%cmake_path(REPLACE_EXTENSION)\fP\X'tty: link' for more details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:NORMAL_PATH,path...>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP normalized according to the steps described in
-\fI\%Normalization\fP\&.
+\X'tty: link #normalization'\fI\%Normalization\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:RELATIVE_PATH,path...,base_directory>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP, modified to make it relative to the \fBbase_directory\fP
 argument.
 .sp
-See \fI\%cmake_path(RELATIVE_PATH)\fP for more
+See \X'tty: link #cmake-path-relative-path'\fI\%cmake_path(RELATIVE_PATH)\fP\X'tty: link' for more
 details.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PATH:ABSOLUTE_PATH[,NORMALIZE],path...,base_directory>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Returns \fBpath\fP as absolute. If \fBpath\fP is a relative path
@@ -1089,22 +1089,22 @@ Returns \fBpath\fP as absolute. If \fBpath\fP is a relative path
 given base directory specified by \fBbase_directory\fP argument.
 .sp
 When the \fBNORMALIZE\fP option is specified, the path is
-\fI\%normalized\fP after the path computation.
+\X'tty: link #normalization'\fI\%normalized\fP\X'tty: link' after the path computation.
 .sp
-See \fI\%cmake_path(ABSOLUTE_PATH)\fP for more details.
+See \X'tty: link #absolute-path'\fI\%cmake_path(ABSOLUTE_PATH)\fP\X'tty: link' for more details.
 .UNINDENT
 .SS Shell Paths
 .INDENT 0.0
 .TP
 .B $<SHELL_PATH:...>
-New in version 3.4.
+Added in version 3.4.
 
 .sp
 Content of \fB\&...\fP converted to shell path style. For example, slashes are
 converted to backslashes in Windows shells and drive letters are converted
 to posix paths in MSYS shells. The \fB\&...\fP must be an absolute path.
 .sp
-New in version 3.14: The \fB\&...\fP may be a \fI\%semicolon\-separated list\fP
+Added in version 3.14: The \fB\&...\fP may be a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link'
 of paths, in which case each path is converted individually and a result
 list is generated using the shell path separator (\fB:\fP on POSIX and
 \fB;\fP on Windows).  Be sure to enclose the argument containing this genex
@@ -1123,8 +1123,8 @@ generator expression.
 .B $<CONFIG:cfgs>
 \fB1\fP if config is any one of the entries in comma\-separated list
 \fBcfgs\fP, else \fB0\fP\&. This is a case\-insensitive comparison. The mapping in
-\fI\%MAP_IMPORTED_CONFIG_<CONFIG>\fP is also considered by this
-expression when it is evaluated on a property of an \fI\%IMPORTED\fP
+\X'tty: link #prop_tgt:MAP_IMPORTED_CONFIG_<CONFIG>'\fI\%MAP_IMPORTED_CONFIG_<CONFIG>\fP\X'tty: link' is also considered by this
+expression when it is evaluated on a property of an \X'tty: link #prop_tgt:IMPORTED'\fI\%IMPORTED\fP\X'tty: link'
 target.
 .sp
 Changed in version 3.19: Multiple configurations can be specified for \fBcfgs\fP\&.
@@ -1134,24 +1134,24 @@ CMake 3.18 and earlier only accepted a single configuration.
 .INDENT 0.0
 .TP
 .B $<OUTPUT_CONFIG:...>
-New in version 3.20.
+Added in version 3.20.
 
 .sp
-Only valid in \fI\%add_custom_command()\fP and \fI\%add_custom_target()\fP
+Only valid in \X'tty: link #command:add_custom_command'\fI\%add_custom_command()\fP\X'tty: link' and \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link'
 as the outer\-most generator expression in an argument.
-With the \fI\%Ninja Multi\-Config\fP generator, generator expressions
+With the \X'tty: link #generator:Ninja Multi-Config'\fI\%Ninja Multi\-Config\fP\X'tty: link' generator, generator expressions
 in \fB\&...\fP are evaluated using the custom command\(aqs \(dqoutput config\(dq.
 With other generators, the content of \fB\&...\fP is evaluated normally.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<COMMAND_CONFIG:...>
-New in version 3.20.
+Added in version 3.20.
 
 .sp
-Only valid in \fI\%add_custom_command()\fP and \fI\%add_custom_target()\fP
+Only valid in \X'tty: link #command:add_custom_command'\fI\%add_custom_command()\fP\X'tty: link' and \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link'
 as the outer\-most generator expression in an argument.
-With the \fI\%Ninja Multi\-Config\fP generator, generator expressions
+With the \X'tty: link #generator:Ninja Multi-Config'\fI\%Ninja Multi\-Config\fP\X'tty: link' generator, generator expressions
 in \fB\&...\fP are evaluated using the custom command\(aqs \(dqcommand config\(dq.
 With other generators, the content of \fB\&...\fP is evaluated normally.
 .UNINDENT
@@ -1161,18 +1161,18 @@ With other generators, the content of \fB\&...\fP is evaluated normally.
 .TP
 .B $<PLATFORM_ID>
 The current system\(aqs CMake platform id.
-See also the \fI\%CMAKE_SYSTEM_NAME\fP variable.
+See also the \X'tty: link #variable:CMAKE_SYSTEM_NAME'\fI\%CMAKE_SYSTEM_NAME\fP\X'tty: link' variable.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<PLATFORM_ID:platform_ids>
 \fB1\fP if CMake\(aqs platform id matches any one of the entries in
 comma\-separated list \fBplatform_ids\fP, otherwise \fB0\fP\&.
-See also the \fI\%CMAKE_SYSTEM_NAME\fP variable.
+See also the \X'tty: link #variable:CMAKE_SYSTEM_NAME'\fI\%CMAKE_SYSTEM_NAME\fP\X'tty: link' variable.
 .UNINDENT
 .SS Compiler Version
 .sp
-See also the \fI\%CMAKE_<LANG>_COMPILER_VERSION\fP variable, which is
+See also the \X'tty: link #variable:CMAKE_<LANG>_COMPILER_VERSION'\fI\%CMAKE_<LANG>_COMPILER_VERSION\fP\X'tty: link' variable, which is
 closely related to the expressions in this sub\-section.
 .INDENT 0.0
 .TP
@@ -1192,12 +1192,12 @@ The version of the CXX compiler used.
 .INDENT 0.0
 .TP
 .B $<CXX_COMPILER_VERSION:version>
-\fB1\fP if the version of the CXX compiler matches \fBversion\fP, otherwise \fB0\fP\&.
+\fB1\fP if the version of the C++ compiler matches \fBversion\fP, otherwise \fB0\fP\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<CUDA_COMPILER_VERSION>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 The version of the CUDA compiler used.
@@ -1205,42 +1205,42 @@ The version of the CUDA compiler used.
 .INDENT 0.0
 .TP
 .B $<CUDA_COMPILER_VERSION:version>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
-\fB1\fP if the version of the CXX compiler matches \fBversion\fP, otherwise \fB0\fP\&.
+\fB1\fP if the version of the C++ compiler matches \fBversion\fP, otherwise \fB0\fP\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJC_COMPILER_VERSION>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-The version of the OBJC compiler used.
+The version of the Objective\-C compiler used.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJC_COMPILER_VERSION:version>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-\fB1\fP if the version of the OBJC compiler matches \fBversion\fP, otherwise \fB0\fP\&.
+\fB1\fP if the version of the Objective\-C compiler matches \fBversion\fP, otherwise \fB0\fP\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJCXX_COMPILER_VERSION>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-The version of the OBJCXX compiler used.
+The version of the Objective\-C++ compiler used.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJCXX_COMPILER_VERSION:version>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-\fB1\fP if the version of the OBJCXX compiler matches \fBversion\fP, otherwise \fB0\fP\&.
+\fB1\fP if the version of the Objective\-C++ compiler matches \fBversion\fP, otherwise \fB0\fP\&.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -1255,7 +1255,7 @@ The version of the Fortran compiler used.
 .INDENT 0.0
 .TP
 .B $<HIP_COMPILER_VERSION>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 The version of the HIP compiler used.
@@ -1263,7 +1263,7 @@ The version of the HIP compiler used.
 .INDENT 0.0
 .TP
 .B $<HIP_COMPILER_VERSION:version>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 \fB1\fP if the version of the HIP compiler matches \fBversion\fP, otherwise \fB0\fP\&.
@@ -1271,7 +1271,7 @@ New in version 3.21.
 .INDENT 0.0
 .TP
 .B $<ISPC_COMPILER_VERSION>
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 The version of the ISPC compiler used.
@@ -1279,14 +1279,15 @@ The version of the ISPC compiler used.
 .INDENT 0.0
 .TP
 .B $<ISPC_COMPILER_VERSION:version>
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 \fB1\fP if the version of the ISPC compiler matches \fBversion\fP, otherwise \fB0\fP\&.
 .UNINDENT
-.SS Compiler Language And ID
+.SS Compiler Language, ID, and Frontend\-Variant
 .sp
-See also the \fI\%CMAKE_<LANG>_COMPILER_ID\fP variable, which is closely
+See also the \X'tty: link #variable:CMAKE_<LANG>_COMPILER_ID'\fI\%CMAKE_<LANG>_COMPILER_ID\fP\X'tty: link' and
+\X'tty: link #variable:CMAKE_<LANG>_COMPILER_FRONTEND_VARIANT'\fI\%CMAKE_<LANG>_COMPILER_FRONTEND_VARIANT\fP\X'tty: link' variables, which are closely
 related to most of the expressions in this sub\-section.
 .INDENT 0.0
 .TP
@@ -1299,23 +1300,31 @@ CMake\(aqs compiler id of the C compiler used.
 where \fBcompiler_ids\fP is a comma\-separated list.
 \fB1\fP if CMake\(aqs compiler id of the C compiler matches any one
 of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.sp
+Changed in version 3.15: Multiple \fBcompiler_ids\fP can be specified.
+CMake 3.14 and earlier only accepted a single compiler ID.
+
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<CXX_COMPILER_ID>
-CMake\(aqs compiler id of the CXX compiler used.
+CMake\(aqs compiler id of the C++ compiler used.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<CXX_COMPILER_ID:compiler_ids>
 where \fBcompiler_ids\fP is a comma\-separated list.
-\fB1\fP if CMake\(aqs compiler id of the CXX compiler matches any one
+\fB1\fP if CMake\(aqs compiler id of the C++ compiler matches any one
 of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.sp
+Changed in version 3.15: Multiple \fBcompiler_ids\fP can be specified.
+CMake 3.14 and earlier only accepted a single compiler ID.
+
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<CUDA_COMPILER_ID>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 CMake\(aqs compiler id of the CUDA compiler used.
@@ -1323,7 +1332,7 @@ CMake\(aqs compiler id of the CUDA compiler used.
 .INDENT 0.0
 .TP
 .B $<CUDA_COMPILER_ID:compiler_ids>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 where \fBcompiler_ids\fP is a comma\-separated list.
@@ -1333,15 +1342,15 @@ of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
 .INDENT 0.0
 .TP
 .B $<OBJC_COMPILER_ID>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-CMake\(aqs compiler id of the OBJC compiler used.
+CMake\(aqs compiler id of the Objective\-C compiler used.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJC_COMPILER_ID:compiler_ids>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
 where \fBcompiler_ids\fP is a comma\-separated list.
@@ -1351,15 +1360,15 @@ of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
 .INDENT 0.0
 .TP
 .B $<OBJCXX_COMPILER_ID>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
-CMake\(aqs compiler id of the OBJCXX compiler used.
+CMake\(aqs compiler id of the Objective\-C++ compiler used.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<OBJCXX_COMPILER_ID:compiler_ids>
-New in version 3.16.
+Added in version 3.16.
 
 .sp
 where \fBcompiler_ids\fP is a comma\-separated list.
@@ -1377,11 +1386,15 @@ CMake\(aqs compiler id of the Fortran compiler used.
 where \fBcompiler_ids\fP is a comma\-separated list.
 \fB1\fP if CMake\(aqs compiler id of the Fortran compiler matches any one
 of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.sp
+Changed in version 3.15: Multiple \fBcompiler_ids\fP can be specified.
+CMake 3.14 and earlier only accepted a single compiler ID.
+
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<HIP_COMPILER_ID>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 CMake\(aqs compiler id of the HIP compiler used.
@@ -1389,7 +1402,7 @@ CMake\(aqs compiler id of the HIP compiler used.
 .INDENT 0.0
 .TP
 .B $<HIP_COMPILER_ID:compiler_ids>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 where \fBcompiler_ids\fP is a comma\-separated list.
@@ -1399,7 +1412,7 @@ of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
 .INDENT 0.0
 .TP
 .B $<ISPC_COMPILER_ID>
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 CMake\(aqs compiler id of the ISPC compiler used.
@@ -1407,7 +1420,7 @@ CMake\(aqs compiler id of the ISPC compiler used.
 .INDENT 0.0
 .TP
 .B $<ISPC_COMPILER_ID:compiler_ids>
-New in version 3.19.
+Added in version 3.19.
 
 .sp
 where \fBcompiler_ids\fP is a comma\-separated list.
@@ -1416,8 +1429,152 @@ of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
 .UNINDENT
 .INDENT 0.0
 .TP
+.B $<C_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler frontend variant of the C compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<C_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the C compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<CXX_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler frontend variant of the C++ compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<CXX_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the C++ compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<CUDA_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler id of the CUDA compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<CUDA_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the CUDA compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<OBJC_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler frontend variant of the Objective\-C compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<OBJC_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the Objective\-C compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<OBJCXX_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler frontend variant of the Objective\-C++ compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<OBJCXX_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the Objective\-C++ compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<Fortran_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler id of the Fortran compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<Fortran_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the Fortran compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<HIP_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler id of the HIP compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<HIP_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the HIP compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<ISPC_COMPILER_FRONTEND_VARIANT>
+Added in version 3.30.
+
+.sp
+CMake\(aqs compiler id of the ISPC compiler used.
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<ISPC_COMPILER_FRONTEND_VARIANT:compiler_ids>
+Added in version 3.30.
+
+.sp
+where \fBcompiler_ids\fP is a comma\-separated list.
+\fB1\fP if CMake\(aqs compiler frontend variant of the ISPC compiler matches any one
+of the entries in \fBcompiler_ids\fP, otherwise \fB0\fP\&.
+.UNINDENT
+.INDENT 0.0
+.TP
 .B $<COMPILE_LANGUAGE>
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 The compile language of source files when evaluating compile options.
@@ -1428,7 +1585,7 @@ for notes about the portability of this generator expression.
 .INDENT 0.0
 .TP
 .B $<COMPILE_LANGUAGE:languages>
-New in version 3.3.
+Added in version 3.3.
 
 .sp
 Changed in version 3.15: Multiple languages can be specified for \fBlanguages\fP\&.
@@ -1466,10 +1623,10 @@ This specifies the use of the \fB\-fno\-exceptions\fP compile option,
 directory for C++ only (compiler id checks elided).  It also specifies
 a \fBCOMPILING_CUDA\fP compile definition for CUDA.
 .sp
-Note that with \fI\%Visual Studio Generators\fP and \fI\%Xcode\fP there
+Note that with \X'tty: link #visual-studio-generators'\fI\%Visual Studio Generators\fP\X'tty: link' and \X'tty: link #generator:Xcode'\fI\%Xcode\fP\X'tty: link' there
 is no way to represent target\-wide compile definitions or include directories
 separately for \fBC\fP and \fBCXX\fP languages.
-Also, with \fI\%Visual Studio Generators\fP there is no way to represent
+Also, with \X'tty: link #visual-studio-generators'\fI\%Visual Studio Generators\fP\X'tty: link' there is no way to represent
 target\-wide flags separately for \fBC\fP and \fBCXX\fP languages.  Under these
 generators, expressions for both C and C++ sources will be evaluated
 using \fBCXX\fP if there are any C++ sources and otherwise using \fBC\fP\&.
@@ -1493,7 +1650,7 @@ target_link_libraries(myapp myapp_c myapp_cxx)
 .INDENT 0.0
 .TP
 .B $<COMPILE_LANG_AND_ID:language,compiler_ids>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 \fB1\fP when the language used for compilation unit matches \fBlanguage\fP and
@@ -1548,42 +1705,43 @@ target_compile_definitions(myapp
 .INDENT 0.0
 .TP
 .B $<COMPILE_FEATURES:features>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 where \fBfeatures\fP is a comma\-separated list.
 Evaluates to \fB1\fP if all of the \fBfeatures\fP are available for the \(aqhead\(aq
 target, and \fB0\fP otherwise. If this expression is used while evaluating
 the link implementation of a target and if any dependency transitively
-increases the required \fI\%C_STANDARD\fP or \fI\%CXX_STANDARD\fP
+increases the required \X'tty: link #prop_tgt:C_STANDARD'\fI\%C_STANDARD\fP\X'tty: link' or \X'tty: link #prop_tgt:CXX_STANDARD'\fI\%CXX_STANDARD\fP\X'tty: link'
 for the \(aqhead\(aq target, an error is reported.  See the
-\fI\%cmake\-compile\-features(7)\fP manual for information on
+\X'tty: link #manual:cmake-compile-features(7)'\fI\%cmake\-compile\-features(7)\fP\X'tty: link' manual for information on
 compile features and a list of supported compilers.
 .UNINDENT
 .SS Compile Context
 .INDENT 0.0
 .TP
 .B $<COMPILE_ONLY:...>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
-Content of \fB\&...\fP, when collecting \fI\%Transitive Usage Requirements\fP,
+Content of \fB\&...\fP, when collecting
+\X'tty: link #transitive-compile-properties'\fI\%transitive compile properties\fP\X'tty: link',
 otherwise it is the empty string.  This is intended for use in an
-\fI\%INTERFACE_LINK_LIBRARIES\fP and \fI\%LINK_LIBRARIES\fP target
-properties, typically populated via the \fI\%target_link_libraries()\fP command.
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' and \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link' target
+properties, typically populated via the \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' command.
 Provides compilation usage requirements without any linking requirements.
 .sp
 Use cases include header\-only usage where all usages are known to not have
 linking requirements (e.g., all\-\fBinline\fP or C++ template libraries).
 .sp
-Note that for proper evaluation of this expression requires policy \fI\%CMP0099\fP
+Note that for proper evaluation of this expression requires policy \X'tty: link #policy:CMP0099'\fI\%CMP0099\fP\X'tty: link'
 to be set to \fINEW\fP\&.
 .UNINDENT
 .SS Linker Language And ID
 .INDENT 0.0
 .TP
 .B $<LINK_LANGUAGE>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 The link language of the target when evaluating link options.
@@ -1602,7 +1760,7 @@ these properties.
 .INDENT 0.0
 .TP
 .B $<LINK_LANGUAGE:languages>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 \fB1\fP when the language used for link step matches any of the comma\-separated
@@ -1682,7 +1840,7 @@ correctly add target \fBlibother\fP as link dependency.
 .INDENT 0.0
 .TP
 .B $<LINK_LANG_AND_ID:language,compiler_ids>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 \fB1\fP when the language used for link step matches \fBlanguage\fP and the
@@ -1732,7 +1890,7 @@ generator expression.
 .INDENT 0.0
 .TP
 .B $<LINK_LIBRARY:feature,library\-list>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Specify a set of libraries to link to a target, along with a \fBfeature\fP
@@ -1761,8 +1919,8 @@ own built\-in features.  The pre\-defined built\-in library features are:
 .B \fBDEFAULT\fP
 This feature corresponds to standard linking, essentially equivalent to
 using no feature at all.  It is typically only used with the
-\fI\%LINK_LIBRARY_OVERRIDE\fP and
-\fI\%LINK_LIBRARY_OVERRIDE_<LIBRARY>\fP target properties.
+\X'tty: link #prop_tgt:LINK_LIBRARY_OVERRIDE'\fI\%LINK_LIBRARY_OVERRIDE\fP\X'tty: link' and
+\X'tty: link #prop_tgt:LINK_LIBRARY_OVERRIDE_<LIBRARY>'\fI\%LINK_LIBRARY_OVERRIDE_<LIBRARY>\fP\X'tty: link' target properties.
 .TP
 .B \fBWHOLE_ARCHIVE\fP
 Force inclusion of all members of a static library.  This feature is only
@@ -1797,7 +1955,7 @@ provided with Xcode, or one compatible with it).
 .sp
 The framework can be specified as a CMake framework target, a bare framework
 name, or a file path.  If a target is given, that target must have the
-\fI\%FRAMEWORK\fP target property set to true.  For a file path, if it
+\X'tty: link #prop_tgt:FRAMEWORK'\fI\%FRAMEWORK\fP\X'tty: link' target property set to true.  For a file path, if it
 contains a directory part, that directory will be added as a framework
 search path.
 .INDENT 7.0
@@ -1841,7 +1999,7 @@ automatically, but not all cases.  The project may want to use
 \fI\%$<LINK_LIBRARY:FRAMEWORK,...>\fP for file paths so that the expected
 behavior is clear.
 .sp
-New in version 3.25: The \fI\%FRAMEWORK_MULTI_CONFIG_POSTFIX_<CONFIG>\fP target property as
+Added in version 3.25: The \X'tty: link #prop_tgt:FRAMEWORK_MULTI_CONFIG_POSTFIX_<CONFIG>'\fI\%FRAMEWORK_MULTI_CONFIG_POSTFIX_<CONFIG>\fP\X'tty: link' target property as
 well as the \fBsuffix\fP of the framework library name are now supported by
 the \fBFRAMEWORK\fP features.
 
@@ -1887,13 +2045,13 @@ Built\-in and custom library features are defined in terms of the following
 variables:
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP
+\X'tty: link #variable:CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>\fP
+\X'tty: link #variable:CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>'\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP
+\X'tty: link #variable:CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>\fP
+\X'tty: link #variable:CMAKE_LINK_LIBRARY_USING_<FEATURE>'\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>\fP\X'tty: link'
 .UNINDENT
 .sp
 The value used for each of these variables is the value as set at the end of
@@ -1901,34 +2059,34 @@ the directory scope in which the target was created.  The usage is as follows:
 .INDENT 7.0
 .IP 1. 3
 If the language\-specific
-\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP variable
+\X'tty: link #variable:CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP\X'tty: link' variable
 is true, the \fBfeature\fP must be defined by the corresponding
-\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>\fP variable.
+\X'tty: link #variable:CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>'\fI\%CMAKE_<LANG>_LINK_LIBRARY_USING_<FEATURE>\fP\X'tty: link' variable.
 .IP 2. 3
 If no language\-specific \fBfeature\fP is supported, then the
-\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP variable must be
+\X'tty: link #variable:CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>_SUPPORTED\fP\X'tty: link' variable must be
 true and the \fBfeature\fP must be defined by the corresponding
-\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>\fP variable.
+\X'tty: link #variable:CMAKE_LINK_LIBRARY_USING_<FEATURE>'\fI\%CMAKE_LINK_LIBRARY_USING_<FEATURE>\fP\X'tty: link' variable.
 .UNINDENT
 .sp
 The following limitations should be noted:
 .INDENT 7.0
 .IP \(bu 2
 The \fBlibrary\-list\fP can specify CMake targets or libraries.
-Any CMake target of type \fI\%OBJECT\fP
-or \fI\%INTERFACE\fP will ignore the feature aspect
+Any CMake target of type \X'tty: link #object-libraries'\fI\%OBJECT\fP\X'tty: link'
+or \X'tty: link #interface-libraries'\fI\%INTERFACE\fP\X'tty: link' will ignore the feature aspect
 of the expression and instead be linked in the standard way.
 .IP \(bu 2
 The \fB$<LINK_LIBRARY:...>\fP generator expression can only be used to
 specify link libraries.  In practice, this means it can appear in the
-\fI\%LINK_LIBRARIES\fP, \fI\%INTERFACE_LINK_LIBRARIES\fP, and
-\fI\%INTERFACE_LINK_LIBRARIES_DIRECT\fP  target properties, and be
-specified in \fI\%target_link_libraries()\fP and \fI\%link_libraries()\fP
+\X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link', \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link', and
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES_DIRECT'\fI\%INTERFACE_LINK_LIBRARIES_DIRECT\fP\X'tty: link'  target properties, and be
+specified in \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' and \X'tty: link #command:link_libraries'\fI\%link_libraries()\fP\X'tty: link'
 commands.
 .IP \(bu 2
 If a \fB$<LINK_LIBRARY:...>\fP generator expression appears in the
-\fI\%INTERFACE_LINK_LIBRARIES\fP property of a target, it will be
-included in the imported target generated by a \fI\%install(EXPORT)\fP
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' property of a target, it will be
+included in the imported target generated by a \X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link'
 command.  It is the responsibility of the environment consuming this
 import to define the link feature used by this expression.
 .IP \(bu 2
@@ -1956,8 +2114,8 @@ target_link_libraries(lib3 PRIVATE lib1 lib2)
 .UNINDENT
 .sp
 Where it isn\(aqt possible to use the same feature throughout a build for a
-given target or library, the \fI\%LINK_LIBRARY_OVERRIDE\fP and
-\fI\%LINK_LIBRARY_OVERRIDE_<LIBRARY>\fP target properties can be
+given target or library, the \X'tty: link #prop_tgt:LINK_LIBRARY_OVERRIDE'\fI\%LINK_LIBRARY_OVERRIDE\fP\X'tty: link' and
+\X'tty: link #prop_tgt:LINK_LIBRARY_OVERRIDE_<LIBRARY>'\fI\%LINK_LIBRARY_OVERRIDE_<LIBRARY>\fP\X'tty: link' target properties can be
 used to resolve such incompatibilities.
 .IP \(bu 2
 The \fB$<LINK_LIBRARY:...>\fP generator expression does not guarantee
@@ -1970,7 +2128,7 @@ generator expression instead.
 .INDENT 0.0
 .TP
 .B $<LINK_GROUP:feature,library\-list>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Specify a group of libraries to link to a target, along with a \fBfeature\fP
@@ -2026,13 +2184,13 @@ Built\-in and custom group features are defined in terms of the following
 variables:
 .INDENT 7.0
 .IP \(bu 2
-\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP
+\X'tty: link #variable:CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>\fP
+\X'tty: link #variable:CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>'\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP
+\X'tty: link #variable:CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP\X'tty: link'
 .IP \(bu 2
-\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>\fP
+\X'tty: link #variable:CMAKE_LINK_GROUP_USING_<FEATURE>'\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>\fP\X'tty: link'
 .UNINDENT
 .sp
 The value used for each of these variables is the value as set at the end of
@@ -2040,14 +2198,14 @@ the directory scope in which the target was created.  The usage is as follows:
 .INDENT 7.0
 .IP 1. 3
 If the language\-specific
-\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP variable
+\X'tty: link #variable:CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP\X'tty: link' variable
 is true, the \fBfeature\fP must be defined by the corresponding
-\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>\fP variable.
+\X'tty: link #variable:CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>'\fI\%CMAKE_<LANG>_LINK_GROUP_USING_<FEATURE>\fP\X'tty: link' variable.
 .IP 2. 3
 If no language\-specific \fBfeature\fP is supported, then the
-\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP variable must be
+\X'tty: link #variable:CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED'\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>_SUPPORTED\fP\X'tty: link' variable must be
 true and the \fBfeature\fP must be defined by the corresponding
-\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>\fP variable.
+\X'tty: link #variable:CMAKE_LINK_GROUP_USING_<FEATURE>'\fI\%CMAKE_LINK_GROUP_USING_<FEATURE>\fP\X'tty: link' variable.
 .UNINDENT
 .sp
 The \fBLINK_GROUP\fP generator expression is compatible with the
@@ -2168,20 +2326,20 @@ The following limitations should also be noted:
 .INDENT 7.0
 .IP \(bu 2
 The \fBlibrary\-list\fP can specify CMake targets or libraries.
-Any CMake target of type \fI\%OBJECT\fP
-or \fI\%INTERFACE\fP will ignore the feature aspect
+Any CMake target of type \X'tty: link #object-libraries'\fI\%OBJECT\fP\X'tty: link'
+or \X'tty: link #interface-libraries'\fI\%INTERFACE\fP\X'tty: link' will ignore the feature aspect
 of the expression and instead be linked in the standard way.
 .IP \(bu 2
 The \fB$<LINK_GROUP:...>\fP generator expression can only be used to
 specify link libraries.  In practice, this means it can appear in the
-\fI\%LINK_LIBRARIES\fP, \fI\%INTERFACE_LINK_LIBRARIES\fP,and
-\fI\%INTERFACE_LINK_LIBRARIES_DIRECT\fP target properties, and be
-specified in \fI\%target_link_libraries()\fP and \fI\%link_libraries()\fP
+\X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link', \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link',and
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES_DIRECT'\fI\%INTERFACE_LINK_LIBRARIES_DIRECT\fP\X'tty: link' target properties, and be
+specified in \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' and \X'tty: link #command:link_libraries'\fI\%link_libraries()\fP\X'tty: link'
 commands.
 .IP \(bu 2
 If a \fB$<LINK_GROUP:...>\fP generator expression appears in the
-\fI\%INTERFACE_LINK_LIBRARIES\fP property of a target, it will be
-included in the imported target generated by a \fI\%install(EXPORT)\fP
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' property of a target, it will be
+included in the imported target generated by a \X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link'
 command.  It is the responsibility of the environment consuming this
 import to define the link feature used by this expression.
 .UNINDENT
@@ -2190,36 +2348,37 @@ import to define the link feature used by this expression.
 .INDENT 0.0
 .TP
 .B $<LINK_ONLY:...>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
-Content of \fB\&...\fP, except while collecting \fI\%Transitive Usage Requirements\fP,
+Content of \fB\&...\fP, except while collecting usage requirements from
+\X'tty: link #transitive-compile-properties'\fI\%transitive compile properties\fP\X'tty: link',
 in which case it is the empty string.  This is intended for use in an
-\fI\%INTERFACE_LINK_LIBRARIES\fP target property, typically populated
-via the \fI\%target_link_libraries()\fP command, to specify private link
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' target property, typically populated
+via the \X'tty: link #command:target_link_libraries'\fI\%target_link_libraries()\fP\X'tty: link' command, to specify private link
 dependencies without other usage requirements such as include directories or
 compile options.
 .sp
-New in version 3.24: \fBLINK_ONLY\fP may also be used in a \fI\%LINK_LIBRARIES\fP target
-property.  See policy \fI\%CMP0131\fP\&.
+Added in version 3.24: \fBLINK_ONLY\fP may also be used in a \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link' target
+property.  See policy \X'tty: link #policy:CMP0131'\fI\%CMP0131\fP\X'tty: link'\&.
 
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<DEVICE_LINK:list>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 Returns the list if it is the device link step, an empty list otherwise.
-The device link step is controlled by \fI\%CUDA_SEPARABLE_COMPILATION\fP
-and \fI\%CUDA_RESOLVE_DEVICE_SYMBOLS\fP properties and
-policy \fI\%CMP0105\fP\&. This expression can only be used to specify link
+The device link step is controlled by \X'tty: link #prop_tgt:CUDA_SEPARABLE_COMPILATION'\fI\%CUDA_SEPARABLE_COMPILATION\fP\X'tty: link'
+and \X'tty: link #prop_tgt:CUDA_RESOLVE_DEVICE_SYMBOLS'\fI\%CUDA_RESOLVE_DEVICE_SYMBOLS\fP\X'tty: link' properties and
+policy \X'tty: link #policy:CMP0105'\fI\%CMP0105\fP\X'tty: link'\&. This expression can only be used to specify link
 options.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<HOST_LINK:list>
-New in version 3.18.
+Added in version 3.18.
 
 .sp
 Returns the list if it is the normal link step, an empty list otherwise.
@@ -2228,26 +2387,13 @@ This expression is mainly useful when a device link step is also involved
 only be used to specify link options.
 .UNINDENT
 .SS Target\-Dependent Expressions
+.SS Target Meta\-Data
 .sp
-These queries refer to a target \fBtgt\fP\&. Unless otherwise stated, this can
-be any runtime artifact, namely:
-.INDENT 0.0
-.IP \(bu 2
-An executable target created by \fI\%add_executable()\fP\&.
-.IP \(bu 2
-A shared library target (\fB\&.so\fP, \fB\&.dll\fP but not their \fB\&.lib\fP import
-library) created by \fI\%add_library()\fP\&.
-.IP \(bu 2
-A static library target created by \fI\%add_library()\fP\&.
-.UNINDENT
-.sp
-In the following, the phrase \(dqthe \fBtgt\fP filename\(dq means the name of the
-\fBtgt\fP binary file. This has to be distinguished from the phrase
-\(dqthe target name\(dq, which is just the string \fBtgt\fP\&.
+These expressions look up information about a target.
 .INDENT 0.0
 .TP
 .B $<TARGET_EXISTS:tgt>
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 \fB1\fP if \fBtgt\fP exists as a CMake target, else \fB0\fP\&.
@@ -2255,7 +2401,7 @@ New in version 3.12.
 .INDENT 0.0
 .TP
 .B $<TARGET_NAME_IF_EXISTS:tgt>
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 The target name \fBtgt\fP if the target exists, an empty string otherwise.
@@ -2265,42 +2411,12 @@ expression is evaluated on.
 .UNINDENT
 .INDENT 0.0
 .TP
-.B $<TARGET_NAME:...>
-Marks \fB\&...\fP as being the name of a target.  This is required if exporting
-targets to multiple dependent export sets.  The \fB\&...\fP must be a literal
-name of a target, it may not contain generator expressions.
-.UNINDENT
-.INDENT 0.0
-.TP
-.B $<TARGET_PROPERTY:tgt,prop>
-Value of the property \fBprop\fP on the target \fBtgt\fP\&.
-.sp
-Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on.
-.sp
-Changed in version 3.26: When encountered during evaluation of \fI\%Transitive Usage Requirements\fP,
-typically in an \fBINTERFACE_*\fP target property, lookup of the \fBtgt\fP
-name occurs in the directory of the target specifying the requirement,
-rather than the directory of the consuming target for which the
-expression is being evaluated.
-
-.UNINDENT
-.INDENT 0.0
-.TP
-.B $<TARGET_PROPERTY:prop>
-Value of the property \fBprop\fP on the target for which the expression
-is being evaluated. Note that for generator expressions in
-\fI\%Transitive Usage Requirements\fP this is the consuming target rather
-than the target specifying the requirement.
-.UNINDENT
-.INDENT 0.0
-.TP
-.B $<TARGET_OBJECTS:tgt>
-New in version 3.1.
-
-.sp
-List of objects resulting from building \fBtgt\fP\&.  This would typically be
-used on \fI\%object library\fP targets.
+.B $<TARGET_NAME:tgt>
+The target name \fBtgt\fP as written.  This marks \fBtgt\fP as being the name
+of a target inside a larger expression, which is required if exporting
+targets to multiple dependent export sets.  The \fBtgt\fP text must be a
+literal name of a target; it may not contain generator expressions.
+The target does not have to exist.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2310,6 +2426,176 @@ else \fB0\fP\&.  If the \fBpolicy\fP was not set, the warning message for the po
 will be emitted. This generator expression only works for a subset of
 policies.
 .UNINDENT
+.SS Target Properties
+.sp
+These expressions look up the values of
+\X'tty: link #target-properties'\fI\%target properties\fP\X'tty: link'\&.
+.INDENT 0.0
+.TP
+.B $<TARGET_PROPERTY:tgt,prop>
+Value of the property \fBprop\fP on the target \fBtgt\fP, or empty if
+the property is not set.
+.sp
+Note that \fBtgt\fP is not added as a dependency of the target this
+expression is evaluated on.
+.sp
+Changed in version 3.26: When encountered during evaluation of \X'tty: link #target-usage-requirements'\fI\%Target Usage Requirements\fP\X'tty: link',
+typically in an \fBINTERFACE_*\fP target property, lookup of the \fBtgt\fP
+name occurs in the directory of the target specifying the requirement,
+rather than the directory of the consuming target for which the
+expression is being evaluated.
+
+.sp
+Changed in version 3.31: Generator expressions for transitive interface properties, such as
+\fB$<TARGET_PROPERTY:target,INTERFACE_*>\fP, now correctly handle
+repeated evaluations within nested generator expressions.
+Previously, these repeated evaluations returned empty values due
+to an optimization for transitive closures.
+This change ensures consistent evaluation for non\-union operations.
+
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<TARGET_PROPERTY:prop>
+Value of the property \fBprop\fP on the target for which the expression
+is being evaluated, or empty if the property is not set.
+Note that for generator expressions in \X'tty: link #target-usage-requirements'\fI\%Target Usage Requirements\fP\X'tty: link'
+this is the consuming target rather than the target specifying the
+requirement.
+.UNINDENT
+.sp
+The expressions have special evaluation rules for some properties:
+.INDENT 0.0
+.TP
+.B \X'tty: link #target-build-specification'\fI\%Target Build Specification Properties\fP\X'tty: link'
+These evaluate as a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link'
+representing the union of the value on the target itself with the values
+of the corresponding \X'tty: link #target-usage-requirements'\fI\%Target Usage Requirements\fP\X'tty: link' on targets named by
+the target\(aqs \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link':
+.INDENT 7.0
+.IP \(bu 2
+For \X'tty: link #target-compile-properties'\fI\%Target Compile Properties\fP\X'tty: link', evaluation of corresponding usage
+requirements is transitive over the closure of the linked targets\(aq
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' \fIexcluding\fP entries guarded by the
+\fI\%LINK_ONLY\fP generator expression.
+.IP \(bu 2
+For \X'tty: link #target-link-properties'\fI\%Target Link Properties\fP\X'tty: link', evaluation of corresponding usage
+requirements is transitive over the closure of the linked targets\(aq
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' \fIincluding\fP entries guarded by the
+\fI\%LINK_ONLY\fP generator expression.  See policy \X'tty: link #policy:CMP0166'\fI\%CMP0166\fP\X'tty: link'\&.
+.UNINDENT
+.sp
+Evaluation of \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link' itself is not transitive.
+.TP
+.B \X'tty: link #target-usage-requirements'\fI\%Target Usage Requirement Properties\fP\X'tty: link'
+These evaluate as a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link'
+representing the union of the value on the target itself with the values
+of the same properties on targets named by the target\(aqs
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link':
+.INDENT 7.0
+.IP \(bu 2
+For \X'tty: link #transitive-compile-properties'\fI\%Transitive Compile Properties\fP\X'tty: link', evaluation is transitive over
+the closure of the target\(aqs \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link'
+\fIexcluding\fP entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+.IP \(bu 2
+For \X'tty: link #transitive-link-properties'\fI\%Transitive Link Properties\fP\X'tty: link', evaluation is transitive over
+the closure of the target\(aqs \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link'
+\fIincluding\fP entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+See policy \X'tty: link #policy:CMP0166'\fI\%CMP0166\fP\X'tty: link'\&.
+.UNINDENT
+.sp
+Evaluation of \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link' itself is not transitive.
+.TP
+.B \X'tty: link #custom-transitive-properties'\fI\%Custom Transitive Properties\fP\X'tty: link'
+Added in version 3.30.
+
+.sp
+These are processed during evaluation as follows:
+.INDENT 7.0
+.IP \(bu 2
+Evaluation of \fI\%$<TARGET_PROPERTY:tgt,PROP>\fP for some property
+\fBPROP\fP, named without an \fBINTERFACE_\fP prefix,
+checks the \X'tty: link #prop_tgt:TRANSITIVE_COMPILE_PROPERTIES'\fI\%TRANSITIVE_COMPILE_PROPERTIES\fP\X'tty: link'
+and \X'tty: link #prop_tgt:TRANSITIVE_LINK_PROPERTIES'\fI\%TRANSITIVE_LINK_PROPERTIES\fP\X'tty: link' properties on target \fBtgt\fP,
+on targets named by its \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link', and on the
+transitive closure of targets named by the linked targets\(aq
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link'\&.
+.sp
+If \fBPROP\fP is listed by one of those properties, then it evaluates as
+a \X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' representing
+the union of the value on the target itself with the values of the
+corresponding \fBINTERFACE_PROP\fP on targets named by the target\(aqs
+\X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link':
+.INDENT 2.0
+.IP \(bu 2
+If \fBPROP\fP is named by \X'tty: link #prop_tgt:TRANSITIVE_COMPILE_PROPERTIES'\fI\%TRANSITIVE_COMPILE_PROPERTIES\fP\X'tty: link',
+evaluation of the corresponding \fBINTERFACE_PROP\fP is transitive over
+the closure of the linked targets\(aq \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link',
+excluding entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+.IP \(bu 2
+If \fBPROP\fP is named by \X'tty: link #prop_tgt:TRANSITIVE_LINK_PROPERTIES'\fI\%TRANSITIVE_LINK_PROPERTIES\fP\X'tty: link',
+evaluation of the corresponding \fBINTERFACE_PROP\fP is transitive over
+the closure of the linked targets\(aq \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link',
+including entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+.UNINDENT
+.IP \(bu 2
+Evaluation of \fI\%$<TARGET_PROPERTY:tgt,INTERFACE_PROP>\fP for some
+property \fBINTERFACE_PROP\fP, named with an \fBINTERFACE_\fP prefix,
+checks the \X'tty: link #prop_tgt:TRANSITIVE_COMPILE_PROPERTIES'\fI\%TRANSITIVE_COMPILE_PROPERTIES\fP\X'tty: link'
+and \X'tty: link #prop_tgt:TRANSITIVE_LINK_PROPERTIES'\fI\%TRANSITIVE_LINK_PROPERTIES\fP\X'tty: link' properties on target \fBtgt\fP,
+and on the transitive closure of targets named by its
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link'\&.
+.sp
+If the corresponding \fBPROP\fP is listed by one of those properties,
+then \fBINTERFACE_PROP\fP evaluates as a
+\X'tty: link #cmake-language-lists'\fI\%semicolon\-separated list\fP\X'tty: link' representing the
+union of the value on the target itself with the value of the same
+property on targets named by the target\(aqs
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link':
+.INDENT 2.0
+.IP \(bu 2
+If \fBPROP\fP is named by \X'tty: link #prop_tgt:TRANSITIVE_COMPILE_PROPERTIES'\fI\%TRANSITIVE_COMPILE_PROPERTIES\fP\X'tty: link',
+evaluation of the corresponding \fBINTERFACE_PROP\fP is transitive over
+the closure of the target\(aqs \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link',
+excluding entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+.IP \(bu 2
+If \fBPROP\fP is named by \X'tty: link #prop_tgt:TRANSITIVE_LINK_PROPERTIES'\fI\%TRANSITIVE_LINK_PROPERTIES\fP\X'tty: link',
+evaluation of the corresponding \fBINTERFACE_PROP\fP is transitive over
+the closure of the target\(aqs \X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link',
+including entries guarded by the \fI\%LINK_ONLY\fP generator expression.
+.UNINDENT
+.UNINDENT
+.sp
+If a \fBPROP\fP is named by both \X'tty: link #prop_tgt:TRANSITIVE_COMPILE_PROPERTIES'\fI\%TRANSITIVE_COMPILE_PROPERTIES\fP\X'tty: link'
+and \X'tty: link #prop_tgt:TRANSITIVE_LINK_PROPERTIES'\fI\%TRANSITIVE_LINK_PROPERTIES\fP\X'tty: link', the latter takes precedence.
+.TP
+.B \X'tty: link #compatible-interface-properties'\fI\%Compatible Interface Properties\fP\X'tty: link'
+These evaluate as a single value combined from the target itself,
+from targets named by the target\(aqs \X'tty: link #prop_tgt:LINK_LIBRARIES'\fI\%LINK_LIBRARIES\fP\X'tty: link', and
+from the transitive closure of the linked targets\(aq
+\X'tty: link #prop_tgt:INTERFACE_LINK_LIBRARIES'\fI\%INTERFACE_LINK_LIBRARIES\fP\X'tty: link'\&.  Values of a compatible
+interface property from multiple targets combine based on the type
+of compatibility required by the \fBCOMPATIBLE_INTERFACE_*\fP property
+defining it.
+.UNINDENT
+.SS Target Artifacts
+.sp
+These expressions look up information about artifacts associated with
+a given target \fBtgt\fP\&.  Unless otherwise stated, this can be any
+runtime artifact, namely:
+.INDENT 0.0
+.IP \(bu 2
+An executable target created by \X'tty: link #command:add_executable'\fI\%add_executable()\fP\X'tty: link'\&.
+.IP \(bu 2
+A shared library target (\fB\&.so\fP, \fB\&.dll\fP but not their \fB\&.lib\fP import
+library) created by \X'tty: link #command:add_library'\fI\%add_library()\fP\X'tty: link'\&.
+.IP \(bu 2
+A static library target created by \X'tty: link #command:add_library'\fI\%add_library()\fP\X'tty: link'\&.
+.UNINDENT
+.sp
+In the following, the phrase \(dqthe \fBtgt\fP filename\(dq means the name of the
+\fBtgt\fP binary file. This has to be distinguished from the phrase
+\(dqthe target name\(dq, which is just the string \fBtgt\fP\&.
 .INDENT 0.0
 .TP
 .B $<TARGET_FILE:tgt>
@@ -2317,26 +2603,26 @@ Full path to the \fBtgt\fP binary file.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on, unless the expression is being used in
-\fI\%add_custom_command()\fP or \fI\%add_custom_target()\fP\&.
+\X'tty: link #command:add_custom_command'\fI\%add_custom_command()\fP\X'tty: link' or \X'tty: link #command:add_custom_target'\fI\%add_custom_target()\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_FILE_BASE_NAME:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Base name of \fBtgt\fP, i.e. \fB$<TARGET_FILE_NAME:tgt>\fP without prefix and
 suffix.
 For example, if the \fBtgt\fP filename is \fBlibbase.so\fP, the base name is \fBbase\fP\&.
 .sp
-See also the \fI\%OUTPUT_NAME\fP, \fI\%ARCHIVE_OUTPUT_NAME\fP,
-\fI\%LIBRARY_OUTPUT_NAME\fP and \fI\%RUNTIME_OUTPUT_NAME\fP
+See also the \X'tty: link #prop_tgt:OUTPUT_NAME'\fI\%OUTPUT_NAME\fP\X'tty: link', \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME'\fI\%ARCHIVE_OUTPUT_NAME\fP\X'tty: link',
+\X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME'\fI\%LIBRARY_OUTPUT_NAME\fP\X'tty: link' and \X'tty: link #prop_tgt:RUNTIME_OUTPUT_NAME'\fI\%RUNTIME_OUTPUT_NAME\fP\X'tty: link'
 target properties and their configuration specific variants
-\fI\%OUTPUT_NAME_<CONFIG>\fP, \fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP,
-\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP and
-\fI\%RUNTIME_OUTPUT_NAME_<CONFIG>\fP\&.
+\X'tty: link #prop_tgt:OUTPUT_NAME_<CONFIG>'\fI\%OUTPUT_NAME_<CONFIG>\fP\X'tty: link', \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME_<CONFIG>'\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\X'tty: link',
+\X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME_<CONFIG>'\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP\X'tty: link' and
+\X'tty: link #prop_tgt:RUNTIME_OUTPUT_NAME_<CONFIG>'\fI\%RUNTIME_OUTPUT_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2345,12 +2631,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_FILE_PREFIX:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Prefix of the \fBtgt\fP filename (such as \fBlib\fP).
 .sp
-See also the \fI\%PREFIX\fP target property.
+See also the \X'tty: link #prop_tgt:PREFIX'\fI\%PREFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2358,12 +2644,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_FILE_SUFFIX:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Suffix of the \fBtgt\fP filename (extension such as \fB\&.so\fP or \fB\&.exe\fP).
 .sp
-See also the \fI\%SUFFIX\fP target property.
+See also the \X'tty: link #prop_tgt:SUFFIX'\fI\%SUFFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2374,7 +2660,7 @@ expression is evaluated on.
 The \fBtgt\fP filename.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2382,18 +2668,18 @@ expression is evaluated on (see policy \fI\%CMP0112\fP).
 Directory of the \fBtgt\fP binary file.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Full path to the linker import file. On DLL platforms, it would be the
 \fB\&.lib\fP file. For executables on AIX, and for shared libraries on macOS,
 it could be, respectively, the \fB\&.imp\fP or \fB\&.tbd\fP import file,
-depending on the value of the \fI\%ENABLE_EXPORTS\fP property.
+depending on the value of the \X'tty: link #prop_tgt:ENABLE_EXPORTS'\fI\%ENABLE_EXPORTS\fP\X'tty: link' property.
 .sp
 This expands to an empty string when there is no import file associated
 with the target.
@@ -2401,18 +2687,18 @@ with the target.
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE_BASE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Base name of the linker import file of the target \fBtgt\fP without prefix or
 suffix. For example, if the target file name is \fBlibbase.tbd\fP, the base
 name is \fBbase\fP\&.
 .sp
-See also the \fI\%OUTPUT_NAME\fP and \fI\%ARCHIVE_OUTPUT_NAME\fP
+See also the \X'tty: link #prop_tgt:OUTPUT_NAME'\fI\%OUTPUT_NAME\fP\X'tty: link' and \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME'\fI\%ARCHIVE_OUTPUT_NAME\fP\X'tty: link'
 target properties and their configuration specific variants
-\fI\%OUTPUT_NAME_<CONFIG>\fP and \fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\&.
+\X'tty: link #prop_tgt:OUTPUT_NAME_<CONFIG>'\fI\%OUTPUT_NAME_<CONFIG>\fP\X'tty: link' and \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME_<CONFIG>'\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2421,12 +2707,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE_PREFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Prefix of the import file of the target \fBtgt\fP\&.
 .sp
-See also the \fI\%IMPORT_PREFIX\fP target property.
+See also the \X'tty: link #prop_tgt:IMPORT_PREFIX'\fI\%IMPORT_PREFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2434,14 +2720,14 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE_SUFFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Suffix of the import file of the target \fBtgt\fP\&.
 .sp
 The suffix corresponds to the file extension (such as \fB\&.lib\fP or \fB\&.tbd\fP).
 .sp
-See also the \fI\%IMPORT_SUFFIX\fP target property.
+See also the \X'tty: link #prop_tgt:IMPORT_SUFFIX'\fI\%IMPORT_SUFFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2449,7 +2735,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Name of the import file of the target \fBtgt\fP\&.
@@ -2460,7 +2746,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_IMPORT_FILE_DIR:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Directory of the import file of the target \fBtgt\fP\&.
@@ -2476,8 +2762,8 @@ be the library that \fBtgt\fP represents (\fB\&.a\fP, \fB\&.lib\fP, \fB\&.so\fP)
 but for a shared library on DLL platforms, it would be the \fB\&.lib\fP
 import library associated with the DLL.
 .sp
-New in version 3.27: On macOS, it could be the \fB\&.tbd\fP import file associated with the shared
-library, depending on the value of the \fI\%ENABLE_EXPORTS\fP property.
+Added in version 3.27: On macOS, it could be the \fB\&.tbd\fP import file associated with the shared
+library, depending on the value of the \X'tty: link #prop_tgt:ENABLE_EXPORTS'\fI\%ENABLE_EXPORTS\fP\X'tty: link' property.
 
 .sp
 This generator expression is equivalent to
@@ -2488,20 +2774,20 @@ characteristics of the target and the platform.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_FILE_BASE_NAME:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Base name of file used to link the target \fBtgt\fP, i.e.
 \fI\%$<TARGET_LINKER_FILE_NAME:tgt>\fP without prefix and suffix. For
 example, if target file name is \fBlibbase.a\fP, the base name is \fBbase\fP\&.
 .sp
-See also the \fI\%OUTPUT_NAME\fP, \fI\%ARCHIVE_OUTPUT_NAME\fP,
-and \fI\%LIBRARY_OUTPUT_NAME\fP target properties and their configuration
-specific variants \fI\%OUTPUT_NAME_<CONFIG>\fP,
-\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP and
-\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP\&.
+See also the \X'tty: link #prop_tgt:OUTPUT_NAME'\fI\%OUTPUT_NAME\fP\X'tty: link', \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME'\fI\%ARCHIVE_OUTPUT_NAME\fP\X'tty: link',
+and \X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME'\fI\%LIBRARY_OUTPUT_NAME\fP\X'tty: link' target properties and their configuration
+specific variants \X'tty: link #prop_tgt:OUTPUT_NAME_<CONFIG>'\fI\%OUTPUT_NAME_<CONFIG>\fP\X'tty: link',
+\X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME_<CONFIG>'\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\X'tty: link' and
+\X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME_<CONFIG>'\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2510,12 +2796,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_FILE_PREFIX:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Prefix of file used to link target \fBtgt\fP\&.
 .sp
-See also the \fI\%PREFIX\fP and \fI\%IMPORT_PREFIX\fP target
+See also the \X'tty: link #prop_tgt:PREFIX'\fI\%PREFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:IMPORT_PREFIX'\fI\%IMPORT_PREFIX\fP\X'tty: link' target
 properties.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2524,14 +2810,14 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_FILE_SUFFIX:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Suffix of file used to link where \fBtgt\fP is the name of a target.
 .sp
 The suffix corresponds to the file extension (such as \(dq.so\(dq or \(dq.lib\(dq).
 .sp
-See also the \fI\%SUFFIX\fP and \fI\%IMPORT_SUFFIX\fP target
+See also the \X'tty: link #prop_tgt:SUFFIX'\fI\%SUFFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:IMPORT_SUFFIX'\fI\%IMPORT_SUFFIX\fP\X'tty: link' target
 properties.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2543,7 +2829,7 @@ expression is evaluated on.
 Name of file used to link target \fBtgt\fP\&.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2551,12 +2837,12 @@ expression is evaluated on (see policy \fI\%CMP0112\fP).
 Directory of file used to link target \fBtgt\fP\&.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 File used when linking o the \fBtgt\fP target is done using directly the
@@ -2567,20 +2853,20 @@ will be an empty string.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE_BASE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Base name of library file used to link the target \fBtgt\fP, i.e.
 \fI\%$<TARGET_LINKER_LIBRARY_FILE_NAME:tgt>\fP without prefix and suffix.
 For example, if target file name is \fBlibbase.a\fP, the base name is \fBbase\fP\&.
 .sp
-See also the \fI\%OUTPUT_NAME\fP, \fI\%ARCHIVE_OUTPUT_NAME\fP,
-and \fI\%LIBRARY_OUTPUT_NAME\fP target properties and their configuration
-specific variants \fI\%OUTPUT_NAME_<CONFIG>\fP,
-\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP and
-\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP\&.
+See also the \X'tty: link #prop_tgt:OUTPUT_NAME'\fI\%OUTPUT_NAME\fP\X'tty: link', \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME'\fI\%ARCHIVE_OUTPUT_NAME\fP\X'tty: link',
+and \X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME'\fI\%LIBRARY_OUTPUT_NAME\fP\X'tty: link' target properties and their configuration
+specific variants \X'tty: link #prop_tgt:OUTPUT_NAME_<CONFIG>'\fI\%OUTPUT_NAME_<CONFIG>\fP\X'tty: link',
+\X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME_<CONFIG>'\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\X'tty: link' and
+\X'tty: link #prop_tgt:LIBRARY_OUTPUT_NAME_<CONFIG>'\fI\%LIBRARY_OUTPUT_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2589,12 +2875,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE_PREFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Prefix of the library file used to link target \fBtgt\fP\&.
 .sp
-See also the \fI\%PREFIX\fP target property.
+See also the \X'tty: link #prop_tgt:PREFIX'\fI\%PREFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2602,14 +2888,14 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE_SUFFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Suffix of the library file used to link target \fBtgt\fP\&.
 .sp
 The suffix corresponds to the file extension (such as \(dq.a\(dq or \(dq.dylib\(dq).
 .sp
-See also the \fI\%SUFFIX\fP target property.
+See also the \X'tty: link #prop_tgt:SUFFIX'\fI\%SUFFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2617,7 +2903,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Name of the library file used to link target \fBtgt\fP\&.
@@ -2628,7 +2914,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_LIBRARY_FILE_DIR:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Directory of the library file used to link target \fBtgt\fP\&.
@@ -2639,7 +2925,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 File used when linking to the \fBtgt\fP target is done using an import
@@ -2650,19 +2936,19 @@ an empty string is returned.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE_BASE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Base name of the import file used to link the target \fBtgt\fP, i.e.
 \fI\%$<TARGET_LINKER_IMPORT_FILE_NAME:tgt>\fP without prefix and suffix.
 For example, if target file name is \fBlibbase.tbd\fP, the base name is \fBbase\fP\&.
 .sp
-See also the \fI\%OUTPUT_NAME\fP and \fI\%ARCHIVE_OUTPUT_NAME\fP,
+See also the \X'tty: link #prop_tgt:OUTPUT_NAME'\fI\%OUTPUT_NAME\fP\X'tty: link' and \X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME'\fI\%ARCHIVE_OUTPUT_NAME\fP\X'tty: link',
 target properties and their configuration
-specific variants \fI\%OUTPUT_NAME_<CONFIG>\fP and
-\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\&.
+specific variants \X'tty: link #prop_tgt:OUTPUT_NAME_<CONFIG>'\fI\%OUTPUT_NAME_<CONFIG>\fP\X'tty: link' and
+\X'tty: link #prop_tgt:ARCHIVE_OUTPUT_NAME_<CONFIG>'\fI\%ARCHIVE_OUTPUT_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2671,12 +2957,12 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE_PREFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Prefix of the import file used to link target \fBtgt\fP\&.
 .sp
-See also the \fI\%IMPORT_PREFIX\fP target property.
+See also the \X'tty: link #prop_tgt:IMPORT_PREFIX'\fI\%IMPORT_PREFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2684,14 +2970,14 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE_SUFFIX:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Suffix of the import file used to link target \fBtgt\fP\&.
 .sp
 The suffix corresponds to the file extension (such as \(dq.lib\(dq or \(dq.tbd\(dq).
 .sp
-See also the \fI\%IMPORT_SUFFIX\fP target property.
+See also the \X'tty: link #prop_tgt:IMPORT_SUFFIX'\fI\%IMPORT_SUFFIX\fP\X'tty: link' target property.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
 expression is evaluated on.
@@ -2699,7 +2985,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Name of the import file used to link target \fBtgt\fP\&.
@@ -2710,7 +2996,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_LINKER_IMPORT_FILE_DIR:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Directory of the import file used to link target \fBtgt\fP\&.
@@ -2729,7 +3015,7 @@ File with soname (\fB\&.so.3\fP) where \fBtgt\fP is the name of a target.
 Name of file with soname (\fB\&.so.3\fP).
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -2737,12 +3023,12 @@ expression is evaluated on (see policy \fI\%CMP0112\fP).
 Directory of file with soname (\fB\&.so.3\fP).
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_SONAME_IMPORT_FILE:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Import file with soname (\fB\&.3.tbd\fP) where \fBtgt\fP is the name of a target.
@@ -2750,7 +3036,7 @@ Import file with soname (\fB\&.3.tbd\fP) where \fBtgt\fP is the name of a target
 .INDENT 0.0
 .TP
 .B $<TARGET_SONAME_IMPORT_FILE_NAME:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Name of the import file with soname (\fB\&.3.tbd\fP).
@@ -2761,7 +3047,7 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_SONAME_IMPORT_FILE_DIR:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 Directory of the import file with soname (\fB\&.3.tbd\fP).
@@ -2772,20 +3058,20 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_PDB_FILE:tgt>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Full path to the linker generated program database file (.pdb)
 where \fBtgt\fP is the name of a target.
 .sp
-See also the \fI\%PDB_NAME\fP and \fI\%PDB_OUTPUT_DIRECTORY\fP
+See also the \X'tty: link #prop_tgt:PDB_NAME'\fI\%PDB_NAME\fP\X'tty: link' and \X'tty: link #prop_tgt:PDB_OUTPUT_DIRECTORY'\fI\%PDB_OUTPUT_DIRECTORY\fP\X'tty: link'
 target properties and their configuration specific variants
-\fI\%PDB_NAME_<CONFIG>\fP and \fI\%PDB_OUTPUT_DIRECTORY_<CONFIG>\fP\&.
+\X'tty: link #prop_tgt:PDB_NAME_<CONFIG>'\fI\%PDB_NAME_<CONFIG>\fP\X'tty: link' and \X'tty: link #prop_tgt:PDB_OUTPUT_DIRECTORY_<CONFIG>'\fI\%PDB_OUTPUT_DIRECTORY_<CONFIG>\fP\X'tty: link'\&.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_PDB_FILE_BASE_NAME:tgt>
-New in version 3.15.
+Added in version 3.15.
 
 .sp
 Base name of the linker generated program database file (.pdb)
@@ -2795,10 +3081,10 @@ The base name corresponds to the target PDB file name (see
 \fB$<TARGET_PDB_FILE_NAME:tgt>\fP) without prefix and suffix. For example,
 if target file name is \fBbase.pdb\fP, the base name is \fBbase\fP\&.
 .sp
-See also the \fI\%PDB_NAME\fP target property and its configuration
-specific variant \fI\%PDB_NAME_<CONFIG>\fP\&.
+See also the \X'tty: link #prop_tgt:PDB_NAME'\fI\%PDB_NAME\fP\X'tty: link' target property and its configuration
+specific variant \X'tty: link #prop_tgt:PDB_NAME_<CONFIG>'\fI\%PDB_NAME_<CONFIG>\fP\X'tty: link'\&.
 .sp
-The \fI\%<CONFIG>_POSTFIX\fP and \fI\%DEBUG_POSTFIX\fP target
+The \X'tty: link #prop_tgt:<CONFIG>_POSTFIX'\fI\%<CONFIG>_POSTFIX\fP\X'tty: link' and \X'tty: link #prop_tgt:DEBUG_POSTFIX'\fI\%DEBUG_POSTFIX\fP\X'tty: link' target
 properties can also be considered.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
@@ -2807,29 +3093,29 @@ expression is evaluated on.
 .INDENT 0.0
 .TP
 .B $<TARGET_PDB_FILE_NAME:tgt>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Name of the linker generated program database file (.pdb).
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_PDB_FILE_DIR:tgt>
-New in version 3.1.
+Added in version 3.1.
 
 .sp
 Directory of the linker generated program database file (.pdb).
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_BUNDLE_DIR:tgt>
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 Full path to the bundle directory (\fB/path/to/my.app\fP,
@@ -2837,24 +3123,24 @@ Full path to the bundle directory (\fB/path/to/my.app\fP,
 where \fBtgt\fP is the name of a target.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_BUNDLE_DIR_NAME:tgt>
-New in version 3.24.
+Added in version 3.24.
 
 .sp
 Name of the bundle directory (\fBmy.app\fP, \fBmy.framework\fP, or
 \fBmy.bundle\fP), where \fBtgt\fP is the name of a target.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_BUNDLE_CONTENT_DIR:tgt>
-New in version 3.9.
+Added in version 3.9.
 
 .sp
 Full path to the bundle content directory where \fBtgt\fP is the name of a
@@ -2865,12 +3151,21 @@ For all other SDKs (e.g. iOS) it leads to \fB/path/to/my.app\fP,
 bundle structure.
 .sp
 Note that \fBtgt\fP is not added as a dependency of the target this
-expression is evaluated on (see policy \fI\%CMP0112\fP).
+expression is evaluated on (see policy \X'tty: link #policy:CMP0112'\fI\%CMP0112\fP\X'tty: link').
+.UNINDENT
+.INDENT 0.0
+.TP
+.B $<TARGET_OBJECTS:tgt>
+Added in version 3.1.
+
+.sp
+List of objects resulting from building \fBtgt\fP\&.  This would typically be
+used on \X'tty: link #object-libraries'\fI\%object library\fP\X'tty: link' targets.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_RUNTIME_DLLS:tgt>
-New in version 3.21.
+Added in version 3.21.
 
 .sp
 List of DLLs that the target depends on at runtime. This is determined by
@@ -2883,7 +3178,7 @@ executables, \fBSHARED\fP libraries, and \fBMODULE\fP libraries is an error.
 .sp
 This generator expression can be used to copy all of the DLLs that a target
 depends on into its output directory in a \fBPOST_BUILD\fP custom command using
-the \fI\%cmake \-E copy \-t\fP command. For example:
+the \X'tty: link #cmdoption-cmake-E-arg-copy'\fI\%cmake \-E copy \-t\fP\X'tty: link' command. For example:
 .INDENT 7.0
 .INDENT 3.5
 .sp
@@ -2905,23 +3200,23 @@ add_custom_command(TARGET exe POST_BUILD
 \fBNOTE:\fP
 .INDENT 7.0
 .INDENT 3.5
-\fI\%Imported Targets\fP are supported only if they know the location
+\X'tty: link #imported-targets'\fI\%Imported Targets\fP\X'tty: link' are supported only if they know the location
 of their \fB\&.dll\fP files.  An imported \fBSHARED\fP library must have
-\fI\%IMPORTED_LOCATION\fP set to its \fB\&.dll\fP file.  See the
-\fI\%add_library imported libraries\fP
-section for details.  Many \fI\%Find Modules\fP produce imported targets
+\X'tty: link #prop_tgt:IMPORTED_LOCATION'\fI\%IMPORTED_LOCATION\fP\X'tty: link' set to its \fB\&.dll\fP file.  See the
+\X'tty: link #add-library-imported-libraries'\fI\%add_library imported libraries\fP\X'tty: link'
+section for details.  Many \X'tty: link #find-modules'\fI\%Find Modules\fP\X'tty: link' produce imported targets
 with the \fBUNKNOWN\fP type and therefore will be ignored.
 .UNINDENT
 .UNINDENT
 .sp
 On platforms that support runtime paths (\fBRPATH\fP), refer to the
-\fI\%INSTALL_RPATH\fP target property.
-On Apple platforms, refer to the \fI\%INSTALL_NAME_DIR\fP target property.
+\X'tty: link #prop_tgt:INSTALL_RPATH'\fI\%INSTALL_RPATH\fP\X'tty: link' target property.
+On Apple platforms, refer to the \X'tty: link #prop_tgt:INSTALL_NAME_DIR'\fI\%INSTALL_NAME_DIR\fP\X'tty: link' target property.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<TARGET_RUNTIME_DLL_DIRS:tgt>
-New in version 3.27.
+Added in version 3.27.
 
 .sp
 List of the directories which contain the DLLs that the target depends on at
@@ -2932,26 +3227,26 @@ executables, \fBSHARED\fP libraries, and \fBMODULE\fP libraries is an error.
 \fBOn non\-DLL platforms, this expression always evaluates to an empty string\fP\&.
 .sp
 This generator expression can e.g. be used to create a batch file using
-\fI\%file(GENERATE)\fP which sets the PATH environment variable accordingly.
+\X'tty: link #generate'\fI\%file(GENERATE)\fP\X'tty: link' which sets the PATH environment variable accordingly.
 .UNINDENT
 .SS Export And Install Expressions
 .INDENT 0.0
 .TP
 .B $<INSTALL_INTERFACE:...>
 Content of \fB\&...\fP when the property is exported using
-\fI\%install(EXPORT)\fP, and empty otherwise.
+\X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link', and empty otherwise.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<BUILD_INTERFACE:...>
-Content of \fB\&...\fP when the property is exported using \fI\%export()\fP, or
+Content of \fB\&...\fP when the property is exported using \X'tty: link #command:export'\fI\%export()\fP\X'tty: link', or
 when the target is used by another target in the same buildsystem. Expands to
 the empty string otherwise.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B $<BUILD_LOCAL_INTERFACE:...>
-New in version 3.26.
+Added in version 3.26.
 
 .sp
 Content of \fB\&...\fP when the target is used by another target in the same
@@ -2961,17 +3256,20 @@ buildsystem. Expands to the empty string otherwise.
 .TP
 .B $<INSTALL_PREFIX>
 Content of the install prefix when the target is exported via
-\fI\%install(EXPORT)\fP, or when evaluated in the
-\fI\%INSTALL_NAME_DIR\fP property, the \fBINSTALL_NAME_DIR\fP argument of
-\fI\%install(RUNTIME_DEPENDENCY_SET)\fP, the code argument of
-\fI\%install(CODE)\fP, or the file argument of \fI\%install(SCRIPT)\fP,
-and empty otherwise.
+\X'tty: link #export'\fI\%install(EXPORT)\fP\X'tty: link', or when evaluated in the
+\X'tty: link #prop_tgt:INSTALL_NAME_DIR'\fI\%INSTALL_NAME_DIR\fP\X'tty: link' property or the \fBINSTALL_NAME_DIR\fP argument of
+\X'tty: link #runtime-dependency-set'\fI\%install(RUNTIME_DEPENDENCY_SET)\fP\X'tty: link', and empty otherwise.
+.sp
+Changed in version 3.27: Evaluates to the content of the install prefix
+in the code argument of \X'tty: link #code'\fI\%install(CODE)\fP\X'tty: link' or
+the file argument of \X'tty: link #script'\fI\%install(SCRIPT)\fP\X'tty: link'\&.
+
 .UNINDENT
 .SS Multi\-level Expression Evaluation
 .INDENT 0.0
 .TP
 .B $<GENEX_EVAL:expr>
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 Content of \fBexpr\fP evaluated as a generator expression in the current
@@ -2981,7 +3279,7 @@ evaluation results itself in generator expressions.
 .INDENT 0.0
 .TP
 .B $<TARGET_GENEX_EVAL:tgt,expr>
-New in version 3.12.
+Added in version 3.12.
 
 .sp
 Content of \fBexpr\fP evaluated as a generator expression in the context of
@@ -3051,6 +3349,14 @@ A literal \fB,\fP\&. Used for example to compare strings which contain a \fB,\fP
 .B $<SEMICOLON>
 A literal \fB;\fP\&. Used to prevent list expansion on an argument with \fB;\fP\&.
 .UNINDENT
+.INDENT 0.0
+.TP
+.B $<QUOTE>
+Added in version 3.30.
+
+.sp
+A literal \fB\(dq\fP\&. Used to allow string literal quotes inside a generator expression.
+.UNINDENT
 .SS Deprecated Expressions
 .INDENT 0.0
 .TP
@@ -3058,6 +3364,6 @@ A literal \fB;\fP\&. Used to prevent list expansion on an argument with \fB;\fP\
 Configuration name. Deprecated since CMake 3.0. Use \fI\%CONFIG\fP instead.
 .UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

@@ -27,7 +27,7 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
-.TH "CMAKE-LANGUAGE" "7" "Dec 14, 2023" "3.28.1" "CMake"
+.TH "CMAKE-LANGUAGE" "7" "Dec 19, 2024" "3.31.3" "CMake"
 .SH NAME
 cmake-language \- CMake Language Reference
 .SH ORGANIZATION
@@ -49,7 +49,7 @@ CMake Language source files in a project are organized into:
 When CMake processes a project source tree, the entry point is
 a source file called \fBCMakeLists.txt\fP in the top\-level source
 directory.  This file may contain the entire build specification
-or use the \fI\%add_subdirectory()\fP command to add subdirectories
+or use the \X'tty: link #command:add_subdirectory'\fI\%add_subdirectory()\fP\X'tty: link' command to add subdirectories
 to the build.  Each subdirectory added by the command must also
 contain a \fBCMakeLists.txt\fP file as the entry point to that
 directory.  For each source directory whose \fBCMakeLists.txt\fP file
@@ -58,20 +58,20 @@ tree to act as the default working and output directory.
 .SS Scripts
 .sp
 An individual \fB<script>.cmake\fP source file may be processed
-in \fIscript mode\fP by using the \fI\%cmake(1)\fP command\-line tool
-with the \fI\%\-P\fP option.  Script mode simply runs
+in \fIscript mode\fP by using the \X'tty: link #manual:cmake(1)'\fI\%cmake(1)\fP\X'tty: link' command\-line tool
+with the \X'tty: link #cmdoption-cmake-P'\fI\%\-P\fP\X'tty: link' option.  Script mode simply runs
 the commands in the given CMake Language source file and does not
 generate a build system.  It does not allow CMake commands that
 define build targets or actions.
 .SS Modules
 .sp
 CMake Language code in either \fI\%Directories\fP or \fI\%Scripts\fP may
-use the \fI\%include()\fP command to load a \fB<module>.cmake\fP
+use the \X'tty: link #command:include'\fI\%include()\fP\X'tty: link' command to load a \fB<module>.cmake\fP
 source file in the scope of the including context.
-See the \fI\%cmake\-modules(7)\fP manual page for documentation
+See the \X'tty: link #manual:cmake-modules(7)'\fI\%cmake\-modules(7)\fP\X'tty: link' manual page for documentation
 of modules included with the CMake distribution.
 Project source trees may also provide their own modules and
-specify their location(s) in the \fI\%CMAKE_MODULE_PATH\fP
+specify their location(s) in the \X'tty: link #variable:CMAKE_MODULE_PATH'\fI\%CMAKE_MODULE_PATH\fP\X'tty: link'
 variable.
 .SH SYNTAX
 .SS Encoding
@@ -86,7 +86,7 @@ be encoded as UTF\-8 on platforms with system APIs supporting this
 encoding.  In addition, CMake 3.2 and above support source files
 encoded in UTF\-8 on Windows (using UTF\-16 to call system APIs).
 Furthermore, CMake 3.0 and above allow a leading UTF\-8
-\fI\%Byte\-Order Mark\fP in source files.
+\X'tty: link https://en.wikipedia.org/wiki/Byte_order_mark'\fI\%Byte\-Order Mark\fP\X'tty: link' in source files.
 .SS Source Files
 .sp
 A CMake Language source file consists of zero or more
@@ -136,7 +136,7 @@ Command names are case\-insensitive.
 Nested unquoted parentheses in the arguments must balance.
 Each \fB(\fP or \fB)\fP is given to the command invocation as
 a literal \fI\%Unquoted Argument\fP\&.  This may be used in calls
-to the \fI\%if()\fP command to enclose conditions.
+to the \X'tty: link #command:if'\fI\%if()\fP\X'tty: link' command to enclose conditions.
 For example:
 .INDENT 0.0
 .INDENT 3.5
@@ -171,7 +171,7 @@ There are three types of arguments within \fI\%Command Invocations\fP:
 .fi
 .SS Bracket Argument
 .sp
-A \fIbracket argument\fP, inspired by \fI\%Lua\fP long bracket syntax,
+A \fIbracket argument\fP, inspired by \X'tty: link https://www.lua.org/'\fI\%Lua\fP\X'tty: link' long bracket syntax,
 encloses content between opening and closing \(dqbrackets\(dq of the
 same length:
 .sp
@@ -370,7 +370,7 @@ encodes a tab, carriage return, or newline character, respectively. A \fB\e;\fP
 outside of any \fI\%Variable References\fP  encodes itself but may be used in an
 \fI\%Unquoted Argument\fP to encode the \fB;\fP without dividing the argument
 value on it.  A \fB\e;\fP inside \fI\%Variable References\fP encodes the literal
-\fB;\fP character.  (See also policy \fI\%CMP0053\fP documentation for
+\fB;\fP character.  (See also policy \X'tty: link #policy:CMP0053'\fI\%CMP0053\fP\X'tty: link' documentation for
 historical considerations.)
 .SS Variable References
 .sp
@@ -384,7 +384,7 @@ inside out, e.g. \fB${outer_${inner_variable}_variable}\fP\&.
 Literal variable references may consist of alphanumeric characters,
 the characters \fB/_.+\-\fP, and \fI\%Escape Sequences\fP\&.  Nested references
 may be used to evaluate variables of any name.  See also policy
-\fI\%CMP0053\fP documentation for historical considerations and reasons why
+\X'tty: link #policy:CMP0053'\fI\%CMP0053\fP\X'tty: link' documentation for historical considerations and reasons why
 the \fB$\fP is also technically permitted but is discouraged.
 .sp
 The \fI\%Variables\fP section documents the scope of variable names
@@ -397,9 +397,9 @@ A \fIcache variable reference\fP has the form \fB$CACHE{<variable>}\fP,
 and is replaced by the value of the specified cache entry without
 checking for a normal variable of the same name.  If the cache
 entry does not exist, it is replaced by the empty string.
-See \fI\%CACHE\fP for more information.
+See \X'tty: link #variable:CACHE'\fI\%CACHE\fP\X'tty: link' for more information.
 .sp
-The \fI\%if()\fP command has a special condition syntax that
+The \X'tty: link #command:if'\fI\%if()\fP\X'tty: link' command has a special condition syntax that
 allows for variable references in the short form \fB<variable>\fP
 instead of \fB${<variable>}\fP\&.  However, environment variables
 always need to be referenced as \fB$ENV{<variable>}\fP\&.
@@ -467,27 +467,27 @@ message(\(dqFirst Argument\en\(dq # This is a line comment :)
 .SH CONTROL STRUCTURES
 .SS Conditional Blocks
 .sp
-The \fI\%if()\fP/\fI\%elseif()\fP/\fI\%else()\fP/\fI\%endif()\fP
+The \X'tty: link #command:if'\fI\%if()\fP\X'tty: link'/\X'tty: link #command:elseif'\fI\%elseif()\fP\X'tty: link'/\X'tty: link #command:else'\fI\%else()\fP\X'tty: link'/\X'tty: link #command:endif'\fI\%endif()\fP\X'tty: link'
 commands delimit code blocks to be executed conditionally.
 .SS Loops
 .sp
-The \fI\%foreach()\fP/\fI\%endforeach()\fP and
-\fI\%while()\fP/\fI\%endwhile()\fP commands delimit code
+The \X'tty: link #command:foreach'\fI\%foreach()\fP\X'tty: link'/\X'tty: link #command:endforeach'\fI\%endforeach()\fP\X'tty: link' and
+\X'tty: link #command:while'\fI\%while()\fP\X'tty: link'/\X'tty: link #command:endwhile'\fI\%endwhile()\fP\X'tty: link' commands delimit code
 blocks to be executed in a loop.  Inside such blocks the
-\fI\%break()\fP command may be used to terminate the loop
-early whereas the \fI\%continue()\fP command may be used
+\X'tty: link #command:break'\fI\%break()\fP\X'tty: link' command may be used to terminate the loop
+early whereas the \X'tty: link #command:continue'\fI\%continue()\fP\X'tty: link' command may be used
 to start with the next iteration immediately.
 .SS Command Definitions
 .sp
-The \fI\%macro()\fP/\fI\%endmacro()\fP, and
-\fI\%function()\fP/\fI\%endfunction()\fP commands delimit
+The \X'tty: link #command:macro'\fI\%macro()\fP\X'tty: link'/\X'tty: link #command:endmacro'\fI\%endmacro()\fP\X'tty: link', and
+\X'tty: link #command:function'\fI\%function()\fP\X'tty: link'/\X'tty: link #command:endfunction'\fI\%endfunction()\fP\X'tty: link' commands delimit
 code blocks to be recorded for later invocation as commands.
 .SH VARIABLES
 .sp
 Variables are the basic unit of storage in the CMake Language.
 Their values are always of string type, though some commands may
 interpret the strings as values of other types.
-The \fI\%set()\fP and \fI\%unset()\fP commands explicitly
+The \X'tty: link #command:set'\fI\%set()\fP\X'tty: link' and \X'tty: link #command:unset'\fI\%unset()\fP\X'tty: link' commands explicitly
 set or unset a variable, but other commands have semantics
 that modify variables as well.
 Variable names are case\-sensitive and may consist of almost
@@ -499,10 +499,10 @@ creates a binding in the current scope:
 .INDENT 0.0
 .TP
 .B Block Scope
-The \fI\%block()\fP command may create a new scope for variable bindings.
+The \X'tty: link #command:block'\fI\%block()\fP\X'tty: link' command may create a new scope for variable bindings.
 .TP
 .B Function Scope
-\fI\%Command Definitions\fP created by the \fI\%function()\fP command
+\fI\%Command Definitions\fP created by the \X'tty: link #command:function'\fI\%function()\fP\X'tty: link' command
 create commands that, when invoked, process the recorded commands
 in a new variable binding scope.  A variable \(dqset\(dq or \(dqunset\(dq
 binds in this scope and is visible for the current function and
@@ -513,7 +513,7 @@ Each of the \fI\%Directories\fP in a source tree has its own variable
 bindings.  Before processing the \fBCMakeLists.txt\fP file for a
 directory, CMake copies all variable bindings currently defined
 in the parent directory, if any, to initialize the new directory
-scope.  CMake \fI\%Scripts\fP, when processed with \fI\%cmake \-P\fP,
+scope.  CMake \fI\%Scripts\fP, when processed with \X'tty: link #cmdoption-cmake-P'\fI\%cmake \-P\fP\X'tty: link',
 bind variables in one \(dqdirectory\(dq scope.
 .sp
 A variable \(dqset\(dq or \(dqunset\(dq not inside a function call binds
@@ -524,7 +524,7 @@ CMake stores a separate set of \(dqcache\(dq variables, or \(dqcache entries\(dq
 whose values persist across multiple runs within a project build
 tree.  Cache entries have an isolated binding scope modified only
 by explicit request, such as by the \fBCACHE\fP option of the
-\fI\%set()\fP and \fI\%unset()\fP commands.
+\X'tty: link #command:set'\fI\%set()\fP\X'tty: link' and \X'tty: link #command:unset'\fI\%unset()\fP\X'tty: link' commands.
 .UNINDENT
 .sp
 When evaluating \fI\%Variable References\fP, CMake first searches the
@@ -537,7 +537,7 @@ Otherwise, the variable reference evaluates to an empty string.
 The \fB$CACHE{VAR}\fP syntax can be used to do direct cache entry
 lookups.
 .sp
-The \fI\%cmake\-variables(7)\fP manual documents the many variables
+The \X'tty: link #manual:cmake-variables(7)'\fI\%cmake\-variables(7)\fP\X'tty: link' manual documents the many variables
 that are provided by CMake or have meaning to CMake when set
 by project code.
 .sp
@@ -551,7 +551,7 @@ begin with \fBCMAKE_\fP (upper\-, lower\-, or mixed\-case), or
 .IP \(bu 2
 begin with \fB_CMAKE_\fP (upper\-, lower\-, or mixed\-case), or
 .IP \(bu 2
-begin with \fB_\fP followed by the name of any \fI\%CMake Command\fP\&.
+begin with \fB_\fP followed by the name of any \X'tty: link #manual:cmake-commands(7)'\fI\%CMake Command\fP\X'tty: link'\&.
 .UNINDENT
 .UNINDENT
 .UNINDENT
@@ -567,27 +567,27 @@ They are never cached.
 .TP
 .B References
 \fI\%Variable References\fP have the form \fB$ENV{<variable>}\fP, using the
-\fI\%ENV\fP operator.
+\X'tty: link #variable:ENV'\fI\%ENV\fP\X'tty: link' operator.
 .TP
 .B Initialization
 Initial values of the CMake environment variables are those of
 the calling process.
-Values can be changed using the \fI\%set()\fP and \fI\%unset()\fP
+Values can be changed using the \X'tty: link #command:set'\fI\%set()\fP\X'tty: link' and \X'tty: link #command:unset'\fI\%unset()\fP\X'tty: link'
 commands.
 These commands only affect the running CMake process,
 not the system environment at large.
 Changed values are not written back to the calling process,
 and they are not seen by subsequent build or test processes.
 .sp
-See the \fI\%cmake \-E env\fP command\-line
+See the \X'tty: link #cmdoption-cmake-E-arg-env'\fI\%cmake \-E env\fP\X'tty: link' command\-line
 tool to run a command in a modified environment.
 .TP
 .B Inspection
-See the \fI\%cmake \-E environment\fP command\-line
+See the \X'tty: link #cmdoption-cmake-E-arg-environment'\fI\%cmake \-E environment\fP\X'tty: link' command\-line
 tool to display all current environment variables.
 .UNINDENT
 .sp
-The \fI\%cmake\-env\-variables(7)\fP manual documents environment
+The \X'tty: link #manual:cmake-env-variables(7)'\fI\%cmake\-env\-variables(7)\fP\X'tty: link' manual documents environment
 variables that have special meaning to CMake.
 .SH LISTS
 .sp
@@ -600,7 +600,7 @@ immediately preceded by a \fB\e\fP\&.  The sequence \fB\e;\fP does not
 divide a value but is replaced by \fB;\fP in the resulting element.
 .sp
 A list of elements is represented as a string by concatenating
-the elements separated by \fB;\fP\&.  For example, the \fI\%set()\fP
+the elements separated by \fB;\fP\&.  For example, the \X'tty: link #command:set'\fI\%set()\fP\X'tty: link'
 command stores multiple values into the destination variable
 as a list:
 .INDENT 0.0
@@ -657,28 +657,28 @@ endforeach()
 .UNINDENT
 .UNINDENT
 .sp
-The \fI\%ExternalProject\fP module\(aqs \fBLIST_SEPARATOR\fP option is an
+The \X'tty: link #module:ExternalProject'\fI\%ExternalProject\fP\X'tty: link' module\(aqs \fBLIST_SEPARATOR\fP option is an
 example of an interface built using this approach.
 .IP \(bu 2
-In lists of \fI\%generator expressions\fP,
-use the \fI\%$<SEMICOLON>\fP generator expression.
+In lists of \X'tty: link #manual:cmake-generator-expressions(7)'\fI\%generator expressions\fP\X'tty: link',
+use the \X'tty: link #genex:SEMICOLON'\fI\%$<SEMICOLON>\fP\X'tty: link' generator expression.
 .IP \(bu 2
 In command calls, use \fI\%Quoted Argument\fP syntax whenever possible.
 The called command will receive the content of the argument with
 semicolons preserved.  An \fI\%Unquoted Argument\fP will be split on
 semicolons.
 .IP \(bu 2
-In \fI\%function()\fP implementations, avoid \fBARGV\fP and \fBARGN\fP,
+In \X'tty: link #command:function'\fI\%function()\fP\X'tty: link' implementations, avoid \fBARGV\fP and \fBARGN\fP,
 which do not distinguish semicolons in values from those separating values.
 Instead, prefer using named positional arguments and the \fBARGC\fP and
 \fBARGV#\fP variables.
-When using \fI\%cmake_parse_arguments()\fP to parse arguments, prefer
+When using \X'tty: link #command:cmake_parse_arguments'\fI\%cmake_parse_arguments()\fP\X'tty: link' to parse arguments, prefer
 its \fBPARSE_ARGV\fP signature, which uses the \fBARGV#\fP variables.
 .sp
-Note that this approach does not apply to \fI\%macro()\fP implementations
+Note that this approach does not apply to \X'tty: link #command:macro'\fI\%macro()\fP\X'tty: link' implementations
 because they reference arguments using placeholders, not real variables.
 .UNINDENT
 .SH COPYRIGHT
-2000-2023 Kitware, Inc. and Contributors
+2000-2024 Kitware, Inc. and Contributors
 .\" Generated by docutils manpage writer.
 .

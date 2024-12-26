@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>BundleUtilities &mdash; CMake 3.28.1 Documentation</title>
+  <title>BundleUtilities &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" accesskey="U">cmake-modules(7)</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="bundleutilities">
-<span id="module:BundleUtilities"></span><h1>BundleUtilities<a class="headerlink" href="#bundleutilities" title="Permalink to this heading">¶</a></h1>
+<span id="module:BundleUtilities"></span><h1>BundleUtilities<a class="headerlink" href="#bundleutilities" title="Link to this heading">¶</a></h1>
 <p>Functions to help assemble a standalone bundle application.</p>
 <p>A collection of CMake utility functions useful for dealing with <code class="docutils literal notranslate"><span class="pre">.app</span></code>
 bundles on the Mac and bundle-like directories on any OS.</p>
@@ -103,7 +102,7 @@ fix each one up according to its own list of prerequisites.</p>
 <p>Then clear all the keys and call <code class="docutils literal notranslate"><span class="pre">verify_app</span></code> on the final bundle to
 ensure that it is truly standalone.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
+<p><span class="versionmodified added">Added in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
 which are then ignored
 (e.g. <code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span> <span class="pre">&quot;vcredist_x86.exe;vcredist_x64.exe&quot;</span></code>).</p>
 </div>
@@ -119,7 +118,7 @@ the new copied bundle in-place at <code class="docutils literal notranslate"><sp
 analysis tools on it.  Calls <span class="target" id="index-0-command:message"></span><a class="reference internal" href="../command/message.html#command:message" title="message(fatal_error)"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">message(FATAL_ERROR)</span></code></a> if the application
 is not verified.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
+<p><span class="versionmodified added">Added in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
 which are then ignored
 (e.g. <code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span> <span class="pre">&quot;vcredist_x86.exe;vcredist_x64.exe&quot;</span></code>)</p>
 </div>
@@ -178,7 +177,7 @@ them.  Set values associated with each key such that we can loop over
 all of them and copy prerequisite libs into the bundle and then do
 appropriate <code class="docutils literal notranslate"><span class="pre">install_name_tool</span></code> fixups.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
+<p><span class="versionmodified added">Added in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
 which are then ignored
 (e.g. <code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span> <span class="pre">&quot;vcredist_x86.exe;vcredist_x64.exe&quot;</span></code>)</p>
 </div>
@@ -226,7 +225,7 @@ marked writable before <code class="docutils literal notranslate"><span class="p
 bundle are contained within the bundle or are <code class="docutils literal notranslate"><span class="pre">system</span></code> libraries,
 presumed to exist everywhere.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
+<p><span class="versionmodified added">Added in version 3.6: </span>As an optional parameter (<code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span></code>) a list of file names can be passed,
 which are then ignored
 (e.g. <code class="docutils literal notranslate"><span class="pre">IGNORE_ITEM</span> <span class="pre">&quot;vcredist_x86.exe;vcredist_x64.exe&quot;</span></code>)</p>
 </div>
@@ -262,7 +261,7 @@ external file causes this function to fail the verification.</p>
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -270,7 +269,7 @@ external file causes this function to fail the verification.</p>
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -296,7 +295,7 @@ external file causes this function to fail the verification.</p>
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="../manual/cmake-modules.7.html" >cmake-modules(7)</a> &#187;</li>
@@ -305,8 +304,8 @@ external file causes this function to fail the verification.</p>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>

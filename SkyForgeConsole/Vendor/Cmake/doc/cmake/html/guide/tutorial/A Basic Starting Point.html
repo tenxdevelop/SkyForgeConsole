@@ -1,19 +1,18 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Step 1: A Basic Starting Point &mdash; CMake 3.28.1 Documentation</title>
+  <title>Step 1: A Basic Starting Point &mdash; CMake 3.31.3 Documentation</title>
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a2c47e09" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cmake.css?v=3e562cf9" />
     
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/documentation_options.js?v=9b7126ab"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="icon" href="../../_static/cmake-favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -44,7 +43,7 @@
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">CMake Tutorial</a> &#187;</li>
@@ -58,7 +57,7 @@
           <div class="body" role="main">
             
   <section id="step-1-a-basic-starting-point">
-<span id="guide:tutorial/A Basic Starting Point"></span><h1>Step 1: A Basic Starting Point<a class="headerlink" href="#step-1-a-basic-starting-point" title="Permalink to this heading">¶</a></h1>
+<span id="guide:tutorial/A Basic Starting Point"></span><h1>Step 1: A Basic Starting Point<a class="headerlink" href="#step-1-a-basic-starting-point" title="Link to this heading">¶</a></h1>
 <p>Where do I start with CMake? This step will provide an introduction to some of
 CMake's basic syntax, commands, and variables. As these concepts are
 introduced, we will work through three exercises and create a simple CMake
@@ -76,7 +75,7 @@ is discussed.</p>
 <p>Also note that each step in the tutorial builds on the next. So, for example,
 the starting code for <code class="docutils literal notranslate"><span class="pre">Step2</span></code> is the complete solution to <code class="docutils literal notranslate"><span class="pre">Step1</span></code>.</p>
 <section id="exercise-1-building-a-basic-project">
-<h2>Exercise 1 - Building a Basic Project<a class="headerlink" href="#exercise-1-building-a-basic-project" title="Permalink to this heading">¶</a></h2>
+<h2>Exercise 1 - Building a Basic Project<a class="headerlink" href="#exercise-1-building-a-basic-project" title="Link to this heading">¶</a></h2>
 <p>The most basic CMake project is an executable built from a single source code
 file. For simple projects like this, a <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file with three
 commands is all that is required.</p>
@@ -94,11 +93,11 @@ or version number.</p>
 <p>Finally, the <span class="target" id="index-0-command:add_executable"></span><a class="reference internal" href="../../command/add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a> command tells CMake to create an
 executable using the specified source code files.</p>
 <section id="goal">
-<h3>Goal<a class="headerlink" href="#goal" title="Permalink to this heading">¶</a></h3>
+<h3>Goal<a class="headerlink" href="#goal" title="Link to this heading">¶</a></h3>
 <p>Understand how to create a simple CMake project.</p>
 </section>
 <section id="helpful-resources">
-<h3>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Permalink to this heading">¶</a></h3>
+<h3>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-1-command:add_executable"></span><a class="reference internal" href="../../command/add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a></p></li>
 <li><p><span class="target" id="index-2-command:cmake_minimum_required"></span><a class="reference internal" href="../../command/cmake_minimum_required.html#command:cmake_minimum_required" title="cmake_minimum_required"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">cmake_minimum_required()</span></code></a></p></li>
@@ -106,13 +105,13 @@ executable using the specified source code files.</p>
 </ul>
 </section>
 <section id="files-to-edit">
-<h3>Files to Edit<a class="headerlink" href="#files-to-edit" title="Permalink to this heading">¶</a></h3>
+<h3>Files to Edit<a class="headerlink" href="#files-to-edit" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p></li>
 </ul>
 </section>
 <section id="getting-started">
-<h3>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">¶</a></h3>
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h3>
 <p>The source code for <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code> is provided in the
 <code class="docutils literal notranslate"><span class="pre">Help/guide/tutorial/Step1</span></code> directory and can be used to compute the square
 root of a number. This file does not need to be edited in this step.</p>
@@ -120,7 +119,7 @@ root of a number. This file does not need to be edited in this step.</p>
 Start with <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">1</span></code> and work through <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">3</span></code>.</p>
 </section>
 <section id="build-and-run">
-<h3>Build and Run<a class="headerlink" href="#build-and-run" title="Permalink to this heading">¶</a></h3>
+<h3>Build and Run<a class="headerlink" href="#build-and-run" title="Link to this heading">¶</a></h3>
 <p>Once <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">1</span></code> through <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">3</span></code> have been completed, we are ready to build
 and run our project! First, run the <span class="target" id="index-0-manual:cmake(1)"></span><a class="reference internal" href="../../manual/cmake.1.html#manual:cmake(1)" title="cmake(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake</span></code></a> executable or the
 <span class="target" id="index-0-manual:cmake-gui(1)"></span><a class="reference internal" href="../../manual/cmake-gui.1.html#manual:cmake-gui(1)" title="cmake-gui(1)"><code class="xref cmake cmake-manual docutils literal notranslate"><span class="pre">cmake-gui</span></code></a> to configure the project and then build it
@@ -158,12 +157,12 @@ appropriate subdirectory, for example:</p>
 <code class="docutils literal notranslate"><span class="pre">Tutorial</span></code> throughout.</p>
 </section>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">¶</a></h3>
 <p>As mentioned above, a three line <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is all that we need to get
 up and running. The first line is to use <span class="target" id="index-3-command:cmake_minimum_required"></span><a class="reference internal" href="../../command/cmake_minimum_required.html#command:cmake_minimum_required" title="cmake_minimum_required"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">cmake_minimum_required()</span></code></a> to
 set the CMake version as follows:</p>
 <details><summary>TODO 1: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-cmake-minimum-required">
-<div class="code-block-caption"><span class="caption-text">TODO 1: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-cmake-minimum-required" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 1: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-cmake-minimum-required" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">cmake_minimum_required(</span><span class="no">VERSION</span><span class="w"> </span><span class="m">3.10</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -171,7 +170,7 @@ set the CMake version as follows:</p>
 </details><p>The next step to make a basic project is to use the <span class="target" id="index-2-command:project"></span><a class="reference internal" href="../../command/project.html#command:project" title="project"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">project()</span></code></a>
 command as follows to set the project name:</p>
 <details><summary>TODO 2: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-project">
-<div class="code-block-caption"><span class="caption-text">TODO 2: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-project" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 2: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-project" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">project(</span><span class="nb">Tutorial</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -179,7 +178,7 @@ command as follows to set the project name:</p>
 </details><p>The last command to call for a basic project is
 <span class="target" id="index-2-command:add_executable"></span><a class="reference internal" href="../../command/add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a>. We call it as follows:</p>
 <details><summary>TODO 3: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-add-executable">
-<div class="code-block-caption"><span class="caption-text">TODO 3: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-add-executable" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 3: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-add-executable" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">add_executable(</span><span class="nb">Tutorial</span><span class="w"> </span><span class="nb">tutorial.cxx</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -187,7 +186,7 @@ command as follows to set the project name:</p>
 </details></section>
 </section>
 <section id="exercise-2-specifying-the-c-standard">
-<h2>Exercise 2 - Specifying the C++ Standard<a class="headerlink" href="#exercise-2-specifying-the-c-standard" title="Permalink to this heading">¶</a></h2>
+<h2>Exercise 2 - Specifying the C++ Standard<a class="headerlink" href="#exercise-2-specifying-the-c-standard" title="Link to this heading">¶</a></h2>
 <p>CMake has some special variables that are either created behind the scenes or
 have meaning to CMake when set by project code. Many of these variables start
 with <code class="docutils literal notranslate"><span class="pre">CMAKE_</span></code>. Avoid this naming convention when creating variables for your
@@ -196,11 +195,11 @@ projects. Two of these special user settable variables are
 These may be used together to specify the C++ standard needed to build the
 project.</p>
 <section id="id1">
-<h3>Goal<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<h3>Goal<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <p>Add a feature that requires C++11.</p>
 </section>
 <section id="id2">
-<h3>Helpful Resources<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>Helpful Resources<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-1-variable:CMAKE_CXX_STANDARD"></span><a class="reference internal" href="../../variable/CMAKE_CXX_STANDARD.html#variable:CMAKE_CXX_STANDARD" title="CMAKE_CXX_STANDARD"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_CXX_STANDARD</span></code></a></p></li>
 <li><p><span class="target" id="index-1-variable:CMAKE_CXX_STANDARD_REQUIRED"></span><a class="reference internal" href="../../variable/CMAKE_CXX_STANDARD_REQUIRED.html#variable:CMAKE_CXX_STANDARD_REQUIRED" title="CMAKE_CXX_STANDARD_REQUIRED"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_CXX_STANDARD_REQUIRED</span></code></a></p></li>
@@ -208,21 +207,21 @@ project.</p>
 </ul>
 </section>
 <section id="id3">
-<h3>Files to Edit<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3>Files to Edit<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code></p></li>
 </ul>
 </section>
 <section id="id4">
-<h3>Getting Started<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3>Getting Started<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>Continue editing files in the <code class="docutils literal notranslate"><span class="pre">Step1</span></code> directory. Start with <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">4</span></code> and
 complete through <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">6</span></code>.</p>
 <p>First, edit <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code> by adding a feature that requires C++11. Then
 update <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to require C++11.</p>
 </section>
 <section id="id5">
-<h3>Build and Run<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3>Build and Run<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>Let's build our project again. Since we already created a build directory and
 ran CMake for Exercise 1, we can skip to the build step:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd Step1_build</span>
@@ -238,12 +237,12 @@ before:</p>
 </div>
 </section>
 <section id="id6">
-<h3>Solution<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <p>We start by adding some C++11 features to our project by replacing
 <code class="docutils literal notranslate"><span class="pre">atof</span></code> with <code class="docutils literal notranslate"><span class="pre">std::stod</span></code> in <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code>. This looks like
 the following:</p>
 <details><summary>TODO 4: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="tutorial-cxx-cxx11">
-<div class="code-block-caption"><span class="caption-text">TODO 4: tutorial.cxx</span><a class="headerlink" href="#tutorial-cxx-cxx11" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 4: tutorial.cxx</span><a class="headerlink" href="#tutorial-cxx-cxx11" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">inputValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">stod</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 </pre></div>
 </div>
@@ -257,7 +256,7 @@ the <span class="target" id="index-3-variable:CMAKE_CXX_STANDARD"></span><a clas
 add the <span class="target" id="index-4-variable:CMAKE_CXX_STANDARD"></span><a class="reference internal" href="../../variable/CMAKE_CXX_STANDARD.html#variable:CMAKE_CXX_STANDARD" title="CMAKE_CXX_STANDARD"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">CMAKE_CXX_STANDARD</span></code></a> declarations above the call to
 <span class="target" id="index-3-command:add_executable"></span><a class="reference internal" href="../../command/add_executable.html#command:add_executable" title="add_executable"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">add_executable()</span></code></a>.</p>
 <details><summary>TODO 6: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-cxx-standard">
-<div class="code-block-caption"><span class="caption-text">TODO 6: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-cxx-standard" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 6: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-cxx-standard" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">set(</span><span class="no">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="m">11</span><span class="nf">)</span>
 <span class="nf">set(</span><span class="no">CMAKE_CXX_STANDARD_REQUIRED</span><span class="w"> </span><span class="nb">True</span><span class="nf">)</span>
 </pre></div>
@@ -266,7 +265,7 @@ add the <span class="target" id="index-4-variable:CMAKE_CXX_STANDARD"></span><a 
 </details></section>
 </section>
 <section id="exercise-3-adding-a-version-number-and-configured-header-file">
-<h2>Exercise 3 - Adding a Version Number and Configured Header File<a class="headerlink" href="#exercise-3-adding-a-version-number-and-configured-header-file" title="Permalink to this heading">¶</a></h2>
+<h2>Exercise 3 - Adding a Version Number and Configured Header File<a class="headerlink" href="#exercise-3-adding-a-version-number-and-configured-header-file" title="Link to this heading">¶</a></h2>
 <p>Sometimes it may be useful to have a variable that is defined in your
 <code class="docutils literal notranslate"><span class="pre">CMakelists.txt</span></code> file also be available in your source code. In this case, we
 would like to print the project version.</p>
@@ -280,11 +279,11 @@ in the <code class="docutils literal notranslate"><span class="pre">CMakelists.t
 feature is preferred since it creates a single source of truth and avoids
 duplication.</p>
 <section id="id7">
-<h3>Goal<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<h3>Goal<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p>Define and report the project's version number.</p>
 </section>
 <section id="id8">
-<h3>Helpful Resources<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<h3>Helpful Resources<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="target" id="index-0-variable:&lt;PROJECT-NAME&gt;_VERSION_MAJOR"></span><a class="reference internal" href="../../variable/PROJECT-NAME_VERSION_MAJOR.html#variable:&lt;PROJECT-NAME&gt;_VERSION_MAJOR" title="&lt;PROJECT-NAME&gt;_VERSION_MAJOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">&lt;PROJECT-NAME&gt;_VERSION_MAJOR</span></code></a></p></li>
 <li><p><span class="target" id="index-0-variable:&lt;PROJECT-NAME&gt;_VERSION_MINOR"></span><a class="reference internal" href="../../variable/PROJECT-NAME_VERSION_MINOR.html#variable:&lt;PROJECT-NAME&gt;_VERSION_MINOR" title="&lt;PROJECT-NAME&gt;_VERSION_MINOR"><code class="xref cmake cmake-variable docutils literal notranslate"><span class="pre">&lt;PROJECT-NAME&gt;_VERSION_MINOR</span></code></a></p></li>
@@ -293,14 +292,14 @@ duplication.</p>
 </ul>
 </section>
 <section id="id9">
-<h3>Files to Edit<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h3>
+<h3>Files to Edit<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code></p></li>
 </ul>
 </section>
 <section id="id10">
-<h3>Getting Started<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<h3>Getting Started<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
 <p>Continue to edit files from <code class="docutils literal notranslate"><span class="pre">Step1</span></code>. Start on <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">7</span></code> and complete through
 <code class="docutils literal notranslate"><span class="pre">TODO</span> <span class="pre">12</span></code>. In this exercise, we start by adding a project version number in
 <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>. In that same file, use <span class="target" id="index-2-command:configure_file"></span><a class="reference internal" href="../../command/configure_file.html#command:configure_file" title="configure_file"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">configure_file()</span></code></a> to copy a
@@ -311,7 +310,7 @@ numbers which will accept variables passed from <span class="target" id="index-3
 <p>Finally, update <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code> to print out its version number.</p>
 </section>
 <section id="id11">
-<h3>Build and Run<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<h3>Build and Run<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
 <p>Let's build our project again. As before, we already created a build directory
 and ran CMake so we can skip to the build step:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd Step1_build</span>
@@ -322,7 +321,7 @@ and ran CMake so we can skip to the build step:</p>
 without any arguments.</p>
 </section>
 <section id="id12">
-<h3>Solution<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<h3>Solution<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
 <p>In this exercise, we improve our executable by printing a version number.
 While we could do this exclusively in the source code, using <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>
 lets us maintain a single source of data for the version number.</p>
@@ -331,7 +330,7 @@ lets us maintain a single source of data for the version number.</p>
 When the <span class="target" id="index-4-command:project"></span><a class="reference internal" href="../../command/project.html#command:project" title="project"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">project()</span></code></a> command is called, CMake defines
 <code class="docutils literal notranslate"><span class="pre">Tutorial_VERSION_MAJOR</span></code> and <code class="docutils literal notranslate"><span class="pre">Tutorial_VERSION_MINOR</span></code> behind the scenes.</p>
 <details><summary>TODO 7: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-project-version">
-<div class="code-block-caption"><span class="caption-text">TODO 7: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-project-version" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 7: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-project-version" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">project(</span><span class="nb">Tutorial</span><span class="w"> </span><span class="no">VERSION</span><span class="w"> </span><span class="m">1.0</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -339,7 +338,7 @@ When the <span class="target" id="index-4-command:project"></span><a class="refe
 </details><p>Then we used <span class="target" id="index-4-command:configure_file"></span><a class="reference internal" href="../../command/configure_file.html#command:configure_file" title="configure_file"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">configure_file()</span></code></a> to copy the input file with the
 specified CMake variables replaced:</p>
 <details><summary>TODO 8: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-configure-file">
-<div class="code-block-caption"><span class="caption-text">TODO 8: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-configure-file" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 8: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-configure-file" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">configure_file(</span><span class="nb">TutorialConfig.h.in</span><span class="w"> </span><span class="nb">TutorialConfig.h</span><span class="nf">)</span>
 </pre></div>
 </div>
@@ -353,7 +352,7 @@ meant to refer to a <cite>bin/</cite> directory.</p>
 <p>We used <span class="target" id="index-1-command:target_include_directories"></span><a class="reference internal" href="../../command/target_include_directories.html#command:target_include_directories" title="target_include_directories"><code class="xref cmake cmake-command docutils literal notranslate"><span class="pre">target_include_directories()</span></code></a> to specify
 where the executable target should look for include files.</p>
 <details><summary>TODO 9: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="cmakelists-txt-target-include-directories">
-<div class="code-block-caption"><span class="caption-text">TODO 9: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-include-directories" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 9: CMakeLists.txt</span><a class="headerlink" href="#cmakelists-txt-target-include-directories" title="Link to this code">¶</a></div>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nf">target_include_directories(</span><span class="nb">Tutorial</span><span class="w"> </span><span class="no">PUBLIC</span>
 <span class="w">                           </span><span class="s">&quot;${PROJECT_BINARY_DIR}&quot;</span>
 <span class="w">                           </span><span class="nf">)</span>
@@ -366,7 +365,7 @@ values for <code class="docutils literal notranslate"><span class="pre">&#64;Tut
 be replaced with the corresponding version numbers from the project in
 <code class="docutils literal notranslate"><span class="pre">TutorialConfig.h</span></code>.</p>
 <details><summary>TODO 10: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="tutorialconfig-h-in">
-<div class="code-block-caption"><span class="caption-text">TODO 10: TutorialConfig.h.in</span><a class="headerlink" href="#tutorialconfig-h-in" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 10: TutorialConfig.h.in</span><a class="headerlink" href="#tutorialconfig-h-in" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// the configured options and settings for Tutorial</span>
 <span class="cp">#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@</span>
 <span class="cp">#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@</span>
@@ -376,7 +375,7 @@ be replaced with the corresponding version numbers from the project in
 </details><p>Next, we need to modify <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code> to include the configured header file,
 <code class="docutils literal notranslate"><span class="pre">TutorialConfig.h</span></code>.</p>
 <details><summary>TODO 11: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">TODO 11: tutorial.cxx</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 11: tutorial.cxx</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;TutorialConfig.h&quot;</span>
 </pre></div>
 </div>
@@ -384,7 +383,7 @@ be replaced with the corresponding version numbers from the project in
 </details><p>Finally, we print out the executable name and version number by updating
 <code class="docutils literal notranslate"><span class="pre">tutorial.cxx</span></code> as follows:</p>
 <details><summary>TODO 12: Click to show/hide answer</summary><div class="literal-block-wrapper docutils container" id="tutorial-cxx-print-version">
-<div class="code-block-caption"><span class="caption-text">TODO 12 : tutorial.cxx</span><a class="headerlink" href="#tutorial-cxx-print-version" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">TODO 12 : tutorial.cxx</span><a class="headerlink" href="#tutorial-cxx-print-version" title="Link to this code">¶</a></div>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// report version</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Version &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">Tutorial_VERSION_MAJOR</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;.&quot;</span>
@@ -459,7 +458,7 @@ be replaced with the corresponding version numbers from the project in
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -467,7 +466,7 @@ be replaced with the corresponding version numbers from the project in
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
@@ -493,7 +492,7 @@ be replaced with the corresponding version numbers from the project in
     <a href="https://cmake.org/">CMake</a> &#187;
   </li>
   <li>
-    <a href="../../index.html">3.28.1 Documentation</a> &#187;
+    <a href="../../index.html">3.31.3 Documentation</a> &#187;
   </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >CMake Tutorial</a> &#187;</li>
@@ -502,8 +501,8 @@ be replaced with the corresponding version numbers from the project in
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2000-2023 Kitware, Inc. and Contributors.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+    &#169; Copyright 2000-2024 Kitware, Inc. and Contributors.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     </div>
   </body>
 </html>
