@@ -8,7 +8,8 @@ namespace SkyForgeConsole.Event
     {
         MouseEvent = 1 << 0,
         KeyboardEvent = 1 << 1,
-        ApplicationEvent = 1 << 2
+        ApplicationEvent = 1 << 2,
+        InputEvent = 1 << 3
     }
 }
 

@@ -51,5 +51,10 @@ namespace SkyForgeConsoleTest
         {
             
         }
+
+        public override string GetName()
+        {
+            return string.Empty;
+        }
     }
 }

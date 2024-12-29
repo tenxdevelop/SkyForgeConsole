@@ -3,6 +3,8 @@
 \**************************************************************************/
 
 using System;
+using System.Data;
+using SkyForgeConsole.Event;
 
 namespace SkyForgeConsole
 {

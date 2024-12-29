@@ -4,14 +4,8 @@
 
 namespace SkyForgeConsole.Event
 {
-    public interface IEvent
+    public interface IKeyEvent
     {
-        bool IsHandled { get; }
-        
-        EventType GetEventType();
-
-        string GetName();
-        bool IsEventCategory(EventCategory eventCategory);
+        KeyCode GetKeyCode();
     }
 }
-

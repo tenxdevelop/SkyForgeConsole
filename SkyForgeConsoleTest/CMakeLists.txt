@@ -21,7 +21,8 @@ add_executable(${TARGET_NAME}
 			   Source/Systems/LogSystem/LogLevelTest.cs
 			   Source/Systems/LogSystem/LogSystemTest.cs
 			   Source/Systems/FileSystem/FileSystemTest.cs
-			   Source/Event/EventTest.cs)
+			   Source/Event/EventTest.cs
+			   Source/Event/KeyEventTest.cs)
 
 
 set_target_properties(${TARGET_NAME} PROPERTIES

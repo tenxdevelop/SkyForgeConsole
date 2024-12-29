@@ -18,6 +18,8 @@ namespace SkyForgeConsole.Event
             m_eventCategory = eventCategory;
             m_eventType = eventType;
         }
+
+        public abstract string GetName();
         
         public EventType GetEventType() => m_eventType;
 
