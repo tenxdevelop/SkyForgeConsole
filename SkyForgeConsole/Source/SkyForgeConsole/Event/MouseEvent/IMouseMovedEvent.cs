@@ -4,10 +4,10 @@
 
 namespace SkyForgeConsole.Event
 {
-    public enum EventType
+    public interface IMouseMovedEvent
     {
-        MouseMoved, MouseScrolled, MouseButtonPressed, MouseButtonReleased,
-        KeyPressed, KeyReleased, ApplicationClose, ApplicationResize, ApplicationMoved
+        float GetX();
+        float GetY();
     }
 }
 

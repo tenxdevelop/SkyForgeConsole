@@ -33,7 +33,16 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Event/KeyboardEvent/KeyReleasedEvent.cs
 			Source/SkyForgeConsole/Event/KeyboardEvent/KeyCode.cs
 			Source/SkyForgeConsole/Event/KeyboardEvent/KeyCodeExtension.cs
-			Source/SkyForgeConsole/Event/KeyboardEvent/IKeyEvent.cs)
+			Source/SkyForgeConsole/Event/KeyboardEvent/IKeyEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/IMouseButtonEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseButtonEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseButtonPressedEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseButtonReleasedEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/IMouseMovedEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseMovedEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/IMouseScrollEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseScrollEvent.cs
+			Source/SkyForgeConsole/Event/MouseEvent/MouseButton.cs)
 			
 set_target_properties(${PROJECT_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}

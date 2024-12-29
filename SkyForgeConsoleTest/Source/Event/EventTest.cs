@@ -12,11 +12,11 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckEventType()
         {
-            var fakeEvent = new FakeEvent(EventType.MouseDown, EventCategory.MouseEvent);
-            Assert.That(fakeEvent.GetEventType(), Is.EqualTo(EventType.MouseDown));
+            var fakeEvent = new FakeEvent(EventType.MouseButtonPressed, EventCategory.MouseEvent);
+            Assert.That(fakeEvent.GetEventType(), Is.EqualTo(EventType.MouseButtonPressed));
             
-            fakeEvent = new FakeEvent(EventType.MouseUp, EventCategory.MouseEvent);
-            Assert.That(fakeEvent.GetEventType(), Is.EqualTo(EventType.MouseUp));
+            fakeEvent = new FakeEvent(EventType.MouseButtonReleased, EventCategory.MouseEvent);
+            Assert.That(fakeEvent.GetEventType(), Is.EqualTo(EventType.MouseButtonReleased));
 
             fakeEvent = new FakeEvent(EventType.KeyPressed, EventCategory.KeyboardEvent);
             Assert.That(fakeEvent.GetEventType(), Is.EqualTo(EventType.KeyPressed));
@@ -28,7 +28,7 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckIsEventCategory()
         {
-            var fakeEvent = new FakeEvent(EventType.MouseDown, EventCategory.MouseEvent);
+            var fakeEvent = new FakeEvent(EventType.MouseButtonPressed, EventCategory.MouseEvent);
             Assert.True(fakeEvent.IsEventCategory(EventCategory.MouseEvent));
             Assert.False(fakeEvent.IsEventCategory(EventCategory.ApplicationEvent));
             Assert.False(fakeEvent.IsEventCategory(EventCategory.KeyboardEvent));

@@ -1,0 +1,19 @@
+/**************************************************************************\
+    Copyright SkyForge Corporation. All Rights Reserved.
+\**************************************************************************/
+
+namespace SkyForgeConsole.Event
+{
+    public abstract class MouseButtonEvent : Event, IMouseButtonEvent
+    {
+        protected MouseButton m_mouseButton;
+        
+        public MouseButtonEvent(EventType eventType, MouseButton mouseButton) : base(eventType, EventCategory.InputEvent | EventCategory.MouseEvent)
+        {
+            m_mouseButton = mouseButton;
+        }
+        
+        public MouseButton GetMouseButton() => m_mouseButton;
+        
+    }
+}
