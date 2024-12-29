@@ -25,12 +25,8 @@ namespace SkyForgeConsole
                 throw new MethodAccessException("Application was initialized, you have called initialization twice");
             }
             m_isInit = true;
-
-            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Defualt);
+            
             Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Info);
-            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Warn);
-            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Error);
-            Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Crytical);
         }
 
         public void Dispose()

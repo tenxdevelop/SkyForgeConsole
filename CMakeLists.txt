@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
-
+cmake_minimum_required(VERSION 3.3)
 
 project(SkyForgeConsole VERSION 0.0.1 LANGUAGES CSharp)
 
@@ -12,7 +11,7 @@ if(CMAKE_CONFIGURATION_TYPES)
 endif()
 
 #define version Framework
-set(CMAKE_DOTNET_CORE_VERION "net8.0")
+set(CMAKE_DOTNET_CORE_VERION "net9.0")
 set(CMAKE_DOTNET_SDK "Microsoft.NET.Sdk")
 
 # Set the C# language version for all projects.
