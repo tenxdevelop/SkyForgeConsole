@@ -74,6 +74,9 @@ namespace SkyForgeConsole
         {
             try
             {
+                if(string.IsNullOrEmpty(filePath))
+                    filePath = Directory.GetCurrentDirectory();
+                
                 return File.Exists(Path.Combine(filePath, fileName));
             }
             catch (Exception ex)
@@ -87,6 +90,9 @@ namespace SkyForgeConsole
         {
             try
             {
+                if(string.IsNullOrEmpty(filePath))
+                    filePath = Directory.GetCurrentDirectory();
+                
                 if (IsHaveFile(filePath, fileName))
                 {
                     if (isNewFile && !DeleteFile(filePath, fileName))
@@ -97,11 +103,12 @@ namespace SkyForgeConsole
                     if (!CreateDirectory(filePath))
                         throw new Exception($"Don't create directory: {filePath}");
                 }
-
+                
                 using (var textWriter = File.AppendText(Path.Combine(filePath, fileName)))
                 {
                     textWriter.WriteLine(message);
                 }
+                
                 return true;
             }
             catch (Exception ex)
