@@ -76,7 +76,7 @@ namespace SkyForgeConsoleTest
             var mouseMovedEvent = new MouseMovedEvent(12.3f, 12.3f);
             Assert.That(mouseMovedEvent.GetX(), Is.EqualTo(12.3f));
             Assert.That(mouseMovedEvent.GetY(), Is.EqualTo(12.3f));
-
+            
             mouseMovedEvent = new MouseMovedEvent(4.4f, 5.3f);
             Assert.That(mouseMovedEvent.GetX(), Is.EqualTo(4.4f));
             Assert.That(mouseMovedEvent.GetY(), Is.EqualTo(5.3f));

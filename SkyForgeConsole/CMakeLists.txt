@@ -42,7 +42,11 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Event/MouseEvent/MouseMovedEvent.cs
 			Source/SkyForgeConsole/Event/MouseEvent/IMouseScrollEvent.cs
 			Source/SkyForgeConsole/Event/MouseEvent/MouseScrollEvent.cs
-			Source/SkyForgeConsole/Event/MouseEvent/MouseButton.cs)
+			Source/SkyForgeConsole/Event/MouseEvent/MouseButton.cs
+			Source/SkyForgeConsole/Systems/InputSystem/IInputSystem.cs
+			Source/SkyForgeConsole/Systems/InputSystem/InputSystem.cs
+			Source/Vendor/Win32/WinAPINative.cs
+			Source/Vendor/Win32/WinAPIStruct.cs)
 			
 set_target_properties(${PROJECT_NAME} PROPERTIES
                       DOTNET_SDK ${CMAKE_DOTNET_SDK}

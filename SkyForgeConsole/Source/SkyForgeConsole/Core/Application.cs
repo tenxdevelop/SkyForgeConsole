@@ -3,7 +3,6 @@
 \**************************************************************************/
 
 using System;
-using System.Data;
 using SkyForgeConsole.Event;
 
 namespace SkyForgeConsole
@@ -12,7 +11,8 @@ namespace SkyForgeConsole
     {
         private bool m_isInit;
         private bool m_isRunning;
-
+        
+        private InputSystem m_inputSystem;
         public Application()
         {
             m_isInit = false;
@@ -23,17 +23,22 @@ namespace SkyForgeConsole
         {
             if (m_isInit)
             {
-                Log.CoreLogger?.Logging("Application was initialized, you have called initialization twice", LogLevel.Error);
-                throw new MethodAccessException("Application was initialized, you have called initialization twice");
+                Log.CoreLogger?.Logging("Application was initialized, you have called initialization twice or more", LogLevel.Error);
+                throw new MethodAccessException("Application was initialized, you have called initialization twice or more");
             }
             m_isInit = true;
+            m_inputSystem = new InputSystem();
+            m_inputSystem.Init();
+            m_inputSystem.OnEvent += OnEvent;
+            m_inputSystem.Run();
             
             Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Info);
         }
 
         public void Dispose()
         {
-            
+            m_inputSystem.OnEvent -= OnEvent;
+            m_inputSystem.Dispose();
         }
 
         public void Exit()
@@ -56,6 +61,29 @@ namespace SkyForgeConsole
                 
             }
 #endif
+        }
+
+        private void OnEvent(Event.Event eventArg)
+        {
+            if (eventArg.IsEventCategory(EventCategory.InputEvent))
+            {
+                if (eventArg.GetEventType() == EventType.KeyPressed)
+                {
+                    var pressedEvent = eventArg as KeyPressedEvent;
+                    Console.WriteLine(pressedEvent.ToString());
+                }
+
+                if (eventArg.GetEventType() == EventType.KeyReleased)
+                {
+                    var releasedEvent = eventArg as KeyReleasedEvent;
+                    Console.WriteLine(releasedEvent.ToString());
+                }
+            }
+
+            if (eventArg.IsEventCategory((EventCategory.InputEvent | EventCategory.MouseEvent)))
+            {
+                Console.WriteLine(eventArg.ToString());
+            }
         }
     }
 }

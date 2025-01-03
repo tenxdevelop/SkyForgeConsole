@@ -22,7 +22,7 @@ namespace SkyForgeConsoleTest
         {
             var application = new TestApplication();
             application.Init();
-            Assert.Throws<MethodAccessException>(() => application.Init(), "Application was initialized, you have called initialization twice");
+            Assert.Throws<MethodAccessException>(() => application.Init(), "Application was initialized, you have called initialization twice or more");
         }
 
 
