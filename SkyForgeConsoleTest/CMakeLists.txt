@@ -18,6 +18,9 @@ set(NUGET_LIBRARY "Microsoft.NET.Test.Sdk_17.6.0;\
 add_executable(${TARGET_NAME}
                Source/Core/EntryPointTest.cs
 			   Source/Core/ApplicationTest.cs
+			   Source/Core/LayerTest.cs
+			   Source/Core/LayerStackTest.cs
+			   Source/Core/FakeApplication.cs
 			   Source/Systems/LogSystem/LogLevelTest.cs
 			   Source/Systems/LogSystem/LogSystemTest.cs
 			   Source/Systems/FileSystem/FileSystemTest.cs

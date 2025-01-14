@@ -2,8 +2,9 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using System;
+
 using SkyForgeConsole.Event;
+using System;
 
 namespace SkyForgeConsole
 {
@@ -13,6 +14,7 @@ namespace SkyForgeConsole
         private bool m_isRunning;
         
         private InputSystem m_inputSystem;
+        
         public Application()
         {
             m_isInit = false;
@@ -26,12 +28,13 @@ namespace SkyForgeConsole
                 Log.CoreLogger?.Logging("Application was initialized, you have called initialization twice or more", LogLevel.Error);
                 throw new MethodAccessException("Application was initialized, you have called initialization twice or more");
             }
-            m_isInit = true;
+            
             m_inputSystem = new InputSystem();
             m_inputSystem.Init();
             m_inputSystem.OnEvent += OnEvent;
             m_inputSystem.Run();
             
+            m_isInit = true;
             Log.CoreLogger?.Logging("Init SkyForgeEngine !!", LogLevel.Info);
         }
 
