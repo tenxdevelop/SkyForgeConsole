@@ -9,13 +9,16 @@ namespace SkyForgeConsole
     {
         public static ILogSystem CoreLogger => m_coreLogger;
         public static ILogSystem ClientLogger => m_clientLogger;
-
-
+        
         private static ILogSystem m_clientLogger;
         private static ILogSystem m_coreLogger;
 
+        private static bool m_isInit;
         public static void Init()
         {
+            if (m_isInit)
+                return;
+            
             m_coreLogger = new LogSystem("CoreLogger");
             m_clientLogger = new LogSystem("ClientLogger");
 
@@ -28,7 +31,7 @@ namespace SkyForgeConsole
             m_clientLogger.AddLogger(consoleLogger);
             m_clientLogger.AddLogger(FileLogger);
 
-
+            m_isInit = true;
             m_coreLogger.Logging("Init Log System", LogLevel.Info);
         }
 

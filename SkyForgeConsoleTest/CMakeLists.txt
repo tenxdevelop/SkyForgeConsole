@@ -23,6 +23,7 @@ add_executable(${TARGET_NAME}
 			   Source/Core/FakeApplication.cs
 			   Source/Systems/LogSystem/LogLevelTest.cs
 			   Source/Systems/LogSystem/LogSystemTest.cs
+			   Source/Systems/LogSystem/FakeLogger.cs
 			   Source/Systems/FileSystem/FileSystemTest.cs
 			   Source/Event/EventTest.cs
 			   Source/Event/KeyEventTest.cs
