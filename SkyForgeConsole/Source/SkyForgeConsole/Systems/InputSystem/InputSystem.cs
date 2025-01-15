@@ -2,7 +2,7 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using SkyForgeConsole.Event;
+using SkyForgeConsole.Events;
 using System.Threading;
 using System;
 using SkyForgeConsole.Vendor.Win32;
@@ -11,7 +11,7 @@ namespace SkyForgeConsole
 {
     public class InputSystem : IInputSystem
     {
-        public event Action<Event.Event> OnEvent;
+        public event Action<Events.Event> OnEvent;
         
         private bool m_isInit;
         private bool m_isRunning;

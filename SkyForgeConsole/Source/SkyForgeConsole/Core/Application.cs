@@ -3,7 +3,7 @@
 \**************************************************************************/
 
 
-using SkyForgeConsole.Event;
+using SkyForgeConsole.Events;
 using System;
 
 namespace SkyForgeConsole
@@ -13,12 +13,38 @@ namespace SkyForgeConsole
         private bool m_isInit;
         private bool m_isRunning;
         
+        private LayerStack m_layerStack;
         private InputSystem m_inputSystem;
         
         public Application()
         {
             m_isInit = false;
             m_isRunning = true;
+            m_layerStack = new LayerStack();
+        }
+
+        public void PushLayer(Layer layer)
+        {
+            m_layerStack.PushLayer(layer);
+            layer.OnEnter();
+        }
+
+        public void PopLayer(Layer layer)
+        {
+            m_layerStack.PopLayer(layer);
+            layer.OnExit();
+        }   
+
+        public void PushOverlay(Layer layer)
+        {
+            m_layerStack.PushOverlay(layer);
+            layer.OnEnter();
+        }
+
+        public void PopOverlay(Layer layer)
+        {
+            m_layerStack.PopOverlay(layer);
+            layer.OnExit();
         }
 
         public void Init()
@@ -66,7 +92,7 @@ namespace SkyForgeConsole
 #endif
         }
 
-        private void OnEvent(Event.Event eventArg)
+        private void OnEvent(Events.Event eventArg)
         {
             if (eventArg.IsEventCategory(EventCategory.InputEvent))
             {

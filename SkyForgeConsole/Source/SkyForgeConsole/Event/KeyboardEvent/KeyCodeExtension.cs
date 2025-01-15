@@ -4,7 +4,7 @@
 
 using System;
 
-namespace SkyForgeConsole.Event
+namespace SkyForgeConsole.Events
 {
     public static class KeyCodeExtension
     {

@@ -8,6 +8,10 @@ namespace SkyForgeConsole
 {
     public interface IApplication : IDisposable
     {
+        void PushLayer(Layer layer);
+        void PopLayer(Layer layer);
+        void PushOverlay(Layer layer);
+        void PopOverlay(Layer layer);
         void Init();
         void Exit();
         void Run();

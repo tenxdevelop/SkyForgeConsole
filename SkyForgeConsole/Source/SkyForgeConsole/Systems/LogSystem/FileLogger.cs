@@ -17,9 +17,10 @@ namespace SkyForgeConsole
                 m_filePath = BASIC_PATH;
             else
                 m_filePath = filePath;
-
+            
             if (!FileSystem.IsInit)
                 throw new Exception("Create FileLogger before init FileSystem");
+
         }
 
         public override void Dispose()
@@ -33,6 +34,7 @@ namespace SkyForgeConsole
             var fileName = $"log-date({dateTime.Day}_{dateTime.Month}_{dateTime.Year}).txt";
             if (!FileSystem.WriteToFile(Patern(message, level), m_filePath, fileName))
                 throw new Exception("can't write to file Log");
+
         }       
     }
 }

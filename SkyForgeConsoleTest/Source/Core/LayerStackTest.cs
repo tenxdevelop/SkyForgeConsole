@@ -155,31 +155,76 @@ namespace SkyForgeConsoleTest
             layerStack.PushLayer(firstFakeLayer);
             layerStack.PushLayer(secondFakeLayer);
             var result = layerStack.GetLayers();
-            Assert.That(result[0], Is.EqualTo(secondFakeLayer));
-            Assert.That(result[1], Is.EqualTo(firstFakeLayer));
+            Assert.IsTrue(result[0] == secondFakeLayer);
+            Assert.IsTrue(result[1] == firstFakeLayer);
+        }
+        
+        [Test]
+        public void CheckGetLayersWithOverlay()
+        {
+            var firstFakeLayer = new FakeLayer("layer1");
+            var secondFakeLayer = new FakeLayer("layer2");
+            var thirdFakeLayer = new FakeLayer("layer3");
+
+            var layerStack = new LayerStack();
+            layerStack.PushLayer(firstFakeLayer);
+            layerStack.PushOverlay(secondFakeLayer);
+            layerStack.PushLayer(thirdFakeLayer);
+            var result = layerStack.GetLayers();
+            Assert.IsTrue(result[0] == secondFakeLayer);
+            Assert.IsTrue(result[1] == thirdFakeLayer);
+            Assert.IsTrue(result[2] == firstFakeLayer);
         }
 
         [Test]
         public void CheckAddedToLogInfoWhenCalledErrorPushLayerIsNull()
         {
+            FileSystem.Init<NetCoreIOController>();
             Log.Init();
             var fakeLogger = new FakeLogger();
             Log.CoreLogger.AddLogger(fakeLogger);
             var layerStack = new LayerStack();
             Assert.Throws<ArgumentException>(() => layerStack.PushLayer(null), "We push layer is null in layerStack");
-            fakeLogger.CheckLog("We push layer is null in layerStack", 1);
+            fakeLogger.CheckLog(" CoreLogger : We push layer is null in layerStack", 1);
             fakeLogger.CheckLogLevelLogging(LogLevel.Error);
         }
 
         [Test]
         public void CheckAddedToLogInfoWhenCalledErrorPopLayerIsNull()
         {
+            FileSystem.Init<NetCoreIOController>();
             Log.Init();
             var fakeLogger = new FakeLogger();
             Log.CoreLogger.AddLogger(fakeLogger);
             var layerStack = new LayerStack();
             Assert.Throws<ArgumentException>(() => layerStack.PopLayer(null), "We pop layer is null in layerStack");
-            fakeLogger.CheckLog("We pop layer is null in layerStack", 1);
+            fakeLogger.CheckLog(" CoreLogger : We pop layer is null in layerStack", 1);
+            fakeLogger.CheckLogLevelLogging(LogLevel.Error);
+        }
+        
+        [Test]
+        public void CheckAddedToLogInfoWhenCalledErrorPushOverlayIsNull()
+        {
+            FileSystem.Init<NetCoreIOController>();
+            Log.Init();
+            var fakeLogger = new FakeLogger();
+            Log.CoreLogger.AddLogger(fakeLogger);
+            var layerStack = new LayerStack();
+            Assert.Throws<ArgumentException>(() => layerStack.PushOverlay(null), "We push overlay is null in layerStack");
+            fakeLogger.CheckLog(" CoreLogger : We push overlay is null in layerStack");
+            fakeLogger.CheckLogLevelLogging(LogLevel.Error);
+        }
+
+        [Test]
+        public void CheckAddedToLogInfoWhenCalledErrorPopOverlayIsNull()
+        {
+            FileSystem.Init<NetCoreIOController>();
+            Log.Init();
+            var fakeLogger = new FakeLogger();
+            Log.CoreLogger.AddLogger(fakeLogger);
+            var layerStack = new LayerStack();
+            Assert.Throws<ArgumentException>(() => layerStack.PopOverlay(null), "We pop overlay is null in layerStack");
+            fakeLogger.CheckLog(" CoreLogger : We pop overlay is null in layerStack");
             fakeLogger.CheckLogLevelLogging(LogLevel.Error);
         }
     }

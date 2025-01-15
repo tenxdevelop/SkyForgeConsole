@@ -12,6 +12,8 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Core/IEntryPoint.cs 
 			Source/SkyForgeConsole/Core/IApplication.cs
 			Source/SkyForgeConsole/Core/Application.cs
+			Source/SkyForgeConsole/Core/Layers/Layer.cs
+			Source/SkyForgeConsole/Core/Layers/LayerStack.cs
 			Source/SkyForgeConsole/Systems/LogSystem/LogLevel.cs
 			Source/SkyForgeConsole/Systems/LogSystem/ILogLevel.cs
 			Source/SkyForgeConsole/Systems/LogSystem/ILogger.cs

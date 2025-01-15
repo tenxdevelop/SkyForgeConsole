@@ -3,7 +3,7 @@
 \**************************************************************************/
 
 using NUnit.Framework;
-using SkyForgeConsole.Event;
+using SkyForgeConsole.Events;
 
 namespace SkyForgeConsoleTest
 {

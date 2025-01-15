@@ -5,6 +5,8 @@
 using NUnit.Framework;
 using SkyForgeConsole;
 using System;
+using System.Linq;
+using System.Reflection;
 
 namespace SkyForgeConsoleTest
 {
@@ -29,13 +31,26 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckAddedToLogInfoWhenCalledInitAfterInit()
         {
-            //TODO: check log
+            FileSystem.Init<NetCoreIOController>();
+            var application = TestApplication.Create();
+            Log.Init();
+            var fakeLogger = new FakeLogger();
+            Log.CoreLogger.AddLogger(fakeLogger);
+            application.Init();
+            Assert.Throws<MethodAccessException>(() => application.Init(), "Application was initialized, you have called initialization twice or more");
+            fakeLogger.CheckLog(" CoreLogger : Application was initialized, you have called initialization twice or more");
         }
 
         [Test]
         public void CheckAddedToLogInfoWhenCalledRunBeforeInit()
         {
-            //TODO: check log
+            FileSystem.Init<NetCoreIOController>();
+            var application = TestApplication.Create();
+            Log.Init();
+            var fakeLogger = new FakeLogger();
+            Log.CoreLogger.AddLogger(fakeLogger);
+            Assert.Throws<MethodAccessException>(() => application.Run(), "Application start run before Init");
+            fakeLogger.CheckLog(" CoreLogger : Application start run before Init");
         }
         
         [Test]
@@ -45,7 +60,8 @@ namespace SkyForgeConsoleTest
             var testApplication = TestApplication.Create();
             
             testApplication.PushLayer(fakeLayer);
-            Assert.IsTrue(testApplication.CheckIsContainsLayer(fakeLayer));
+            var result = testApplication.CheckIsContainsLayer(fakeLayer);
+            Assert.IsTrue(result);
         }
         
         [Test]
@@ -112,7 +128,7 @@ namespace SkyForgeConsoleTest
             
             var testApplication = TestApplication.Create();
             testApplication.PushOverlay(fakeOverlayLayer);
-            Assert.IsTrue(testApplication.CheckIsContainsLayer(fakeLayer));
+            Assert.IsTrue(testApplication.CheckIsContainsLayer(fakeOverlayLayer));
             
             testApplication.PushLayer(fakeLayer);
             var layers = new Layer[]
@@ -190,7 +206,7 @@ namespace SkyForgeConsoleTest
             int index = 0;
             foreach (var layer in layerStack)
             {
-                var currentCheckLayer = checkLayers[index];
+                var currentCheckLayer = checkLayers[index++];
                 if (!currentCheckLayer.GetHashCode().Equals(layer.GetHashCode()))
                     Assert.Fail();
             }
@@ -200,7 +216,13 @@ namespace SkyForgeConsoleTest
 
         private LayerStack GetSelfLayerStack()
         {
-            //TODO: get layerStack from your self application use reflection
+            var applicationType = typeof(Application);
+            var field = applicationType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance).Where(fieldInfo => fieldInfo.FieldType.Equals(typeof(LayerStack))).FirstOrDefault();
+            
+            if(field is null)
+                Assert.Fail();
+            
+            return field.GetValue(this) as LayerStack;
         }
         
         public static ITestApplication Create()

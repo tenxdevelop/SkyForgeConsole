@@ -2,7 +2,7 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-namespace SkyForgeConsole.Event
+namespace SkyForgeConsole.Events
 {
     public class MouseScrollEvent : Event, IMouseScrollEvent
     {

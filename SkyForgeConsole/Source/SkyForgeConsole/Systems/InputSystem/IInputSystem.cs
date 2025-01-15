@@ -8,7 +8,7 @@ namespace SkyForgeConsole
 {
     public interface IInputSystem : IDisposable
     {
-        event Action<Event.Event> OnEvent;
+        event Action<Events.Event> OnEvent;
         
         void Init();
 

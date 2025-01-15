@@ -3,7 +3,8 @@
 \**************************************************************************/
 
 using NUnit.Framework;
-using SkyForgeConsole.Event;
+using SkyForgeConsole;
+using SkyForgeConsole.Events;
 
 namespace SkyForgeConsoleTest
 {
@@ -55,7 +56,7 @@ namespace SkyForgeConsoleTest
         private int m_countCalledOnEnter;
         private int m_countCalledOnExit;
 
-        internal FakeLayer()
+        internal FakeLayer() : base(nameof(FakeLayer))
         {
             
         }

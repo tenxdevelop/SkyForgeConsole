@@ -52,6 +52,26 @@ namespace SkyForgeConsoleTest
             throw new NotImplementedException();
         }
 
+        public void PushLayer(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PopLayer(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PushOverlay(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PopOverlay(Layer layer)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Init()
         {
             m_countCalledInit++;

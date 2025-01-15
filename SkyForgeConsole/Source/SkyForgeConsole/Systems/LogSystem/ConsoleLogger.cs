@@ -19,6 +19,10 @@ namespace SkyForgeConsole
         public ConsoleLogger()
         {
             ProcessStartInfo startinfo = new ProcessStartInfo();
+
+            if (!FileSystem.IsInit)
+                throw new Exception("Create ConsoleLogger before init FileSystem");
+            
             startinfo.FileName = Path.Combine(FileSystem.GetFullPath(FileSystem.GetCurrentDirectory()), ConsoleLog.FileName);
             startinfo.WindowStyle = ProcessWindowStyle.Normal;
             startinfo.UseShellExecute = true;
@@ -48,11 +52,11 @@ namespace SkyForgeConsole
             m_writer.WriteLine(PaternForConsole(message, level));
             m_writer.Flush();
 
-            //TODO: Решить проблему совместимости с Linux
+            //TODO: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Linux
 #if SKY_FORGE_WINDOWS
-#pragma warning disable CA1416 // Проверка совместимости платформы
+#pragma warning disable CA1416 // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             m_pipeServer.WaitForPipeDrain();
-#pragma warning restore CA1416 // Проверка совместимости платформы
+#pragma warning restore CA1416 // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 #endif
 
         }
