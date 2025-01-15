@@ -2,8 +2,8 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using System;
 using System.Runtime.InteropServices;
+using System;
 
 namespace SkyForgeConsole.Vendor.Win32
 {

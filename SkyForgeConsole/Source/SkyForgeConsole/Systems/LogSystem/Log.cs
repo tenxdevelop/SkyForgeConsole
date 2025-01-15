@@ -2,7 +2,6 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-
 namespace SkyForgeConsole
 {
     public static class Log

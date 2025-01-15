@@ -6,7 +6,6 @@ using SkyForgeConsole;
 
 namespace SandBox
 {
-
     public class SandBox : Application
     {
         

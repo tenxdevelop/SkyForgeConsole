@@ -4,8 +4,8 @@
 
 using System.Diagnostics;
 using System.IO.Pipes;
-using System.IO;
 using ConsoleLogger;
+using System.IO;
 using System;
 
 namespace SkyForgeConsole

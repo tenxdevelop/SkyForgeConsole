@@ -2,7 +2,6 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-
 using SkyForgeConsole.Events;
 using System;
 
@@ -95,7 +94,7 @@ namespace SkyForgeConsole
 #endif
         }
 
-        private void OnEvent(Events.Event eventArg)
+        private void OnEvent(Event eventArg)
         {
             foreach (var layer in m_layerStack)
             {

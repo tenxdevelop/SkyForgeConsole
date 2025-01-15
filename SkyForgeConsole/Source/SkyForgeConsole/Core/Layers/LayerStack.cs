@@ -2,10 +2,10 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
+using System;
 
 namespace SkyForgeConsole
 {

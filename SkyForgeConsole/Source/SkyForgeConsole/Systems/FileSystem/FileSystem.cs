@@ -6,16 +6,14 @@ using System;
 
 namespace SkyForgeConsole
 {
-
     public static class FileSystem
     {
-        public static bool IsInit => m_isInit;
-
         private const string NET_CORE_CONTROLLER = nameof(NetCoreIOController);
+        public static bool IsInit => m_isInit;
+        
+        private static bool m_isInit;
+        
         private static IControllerIO m_controllerIO;
-
-        private static bool m_isInit = false;
-
         public static void Init<T>() where T : IControllerIO
         {
             m_controllerIO = CreateContorller<T>();

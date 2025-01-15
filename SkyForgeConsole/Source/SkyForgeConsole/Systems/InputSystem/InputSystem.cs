@@ -2,10 +2,10 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
+using SkyForgeConsole.Vendor.Win32;
 using SkyForgeConsole.Events;
 using System.Threading;
 using System;
-using SkyForgeConsole.Vendor.Win32;
 
 namespace SkyForgeConsole
 {

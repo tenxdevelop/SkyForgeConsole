@@ -2,9 +2,9 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
-using System;
-using System.IO;
 using System.IO.Pipes;
+using System.IO;
+using System;
 
 #if SKY_FORGE_WINDOWS
 using ConsoleLogger.Win32;
@@ -15,9 +15,12 @@ namespace ConsoleLogger
     public class ConsoleLog : IConsoleLog
     {
         public const string PIPE_NAME = "LogServer";
-        public const string FileName = "ConsoleLog.exe";
         public const string COLOR_SEPARATOR = "^";
-
+        
+#if SKY_FORGE_WINDOWS
+        public const string FileName = "ConsoleLog.exe";
+#endif
+        
         private NamedPipeClientStream m_pipeClient;
 
         public void Init()
