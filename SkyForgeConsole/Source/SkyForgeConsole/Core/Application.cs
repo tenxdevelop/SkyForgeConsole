@@ -87,31 +87,19 @@ namespace SkyForgeConsole
 
             while (m_isRunning)
             {
-                
+                foreach (var layer in m_layerStack)
+                {
+                    layer.OnUpdate();
+                }
             }
 #endif
         }
 
         private void OnEvent(Events.Event eventArg)
         {
-            if (eventArg.IsEventCategory(EventCategory.InputEvent))
+            foreach (var layer in m_layerStack)
             {
-                if (eventArg.GetEventType() == EventType.KeyPressed)
-                {
-                    var pressedEvent = eventArg as KeyPressedEvent;
-                    Console.WriteLine(pressedEvent.ToString());
-                }
-
-                if (eventArg.GetEventType() == EventType.KeyReleased)
-                {
-                    var releasedEvent = eventArg as KeyReleasedEvent;
-                    Console.WriteLine(releasedEvent.ToString());
-                }
-            }
-
-            if (eventArg.IsEventCategory((EventCategory.InputEvent | EventCategory.MouseEvent)))
-            {
-                Console.WriteLine(eventArg.ToString());
+                layer.OnEvent(eventArg);
             }
         }
     }
