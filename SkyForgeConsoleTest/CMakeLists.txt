@@ -25,10 +25,13 @@ add_executable(${TARGET_NAME}
 			   Source/Systems/LogSystem/LogSystemTest.cs
 			   Source/Systems/LogSystem/FakeLogger.cs
 			   Source/Systems/FileSystem/FileSystemTest.cs
+			   Source/Systems/InputSystem/InputSystemTest.cs
+			   Source/Systems/GraphicsSystem/ConsoleWindowTest.cs
+			   Source/Systems/GraphicsSystem/Camera2DTest.cs
 			   Source/Event/EventTest.cs
 			   Source/Event/KeyEventTest.cs
 			   Source/Event/MouseEventTest.cs
-			   Source/Systems/InputSystem/InputSystemTest.cs)
+			   Source/Math/Vector2Test.cs)
 
 
 set_target_properties(${TARGET_NAME} PROPERTIES
