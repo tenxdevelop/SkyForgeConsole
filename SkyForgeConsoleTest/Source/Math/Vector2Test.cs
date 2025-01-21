@@ -3,6 +3,7 @@
 \**************************************************************************/
 
 using NUnit.Framework;
+using SkyForgeConsole.Maths;
 
 namespace SkyForgeConsoleTest
 {
@@ -60,7 +61,7 @@ namespace SkyForgeConsoleTest
         {
             var vectorZero = Vector2.Zero;
             
-            Assert.That(vectorZero, Is.EqualTo(new Vector(0, 0)));
+            Assert.That(vectorZero, Is.EqualTo(new Vector2(0, 0)));
         }
 
         [Test]
@@ -120,7 +121,7 @@ namespace SkyForgeConsoleTest
         {
             var vector = new Vector2(3, 4);
             
-            Assert.That(vector.GetMagnitude, Is.EqualTo(5));
+            Assert.That(vector.GetMagnitude(), Is.EqualTo(5));
         }
 
         [Test]
@@ -130,7 +131,7 @@ namespace SkyForgeConsoleTest
 
             var errorArea = 0.00000001f;
             
-            Assert.IsTrue(27.730849247f - errorArea <= vector.GetMagnitude <= 27.730849247f + errorArea);
+            Assert.IsTrue(27.730849247f - errorArea <= vector.GetMagnitude() && vector.GetMagnitude() <= 27.730849247f + errorArea);
         }
 
         [Test]
@@ -140,7 +141,7 @@ namespace SkyForgeConsoleTest
 
             vector = vector.GetNormalized();
             
-            Assert.That(vector, Is.EqualTo(new Vector2(0.6, 0.8)));
+            Assert.That(vector, Is.EqualTo(new Vector2(0.6f, 0.8f)));
         }
 
         [Test]
@@ -150,7 +151,7 @@ namespace SkyForgeConsoleTest
 
             vector.Normalize();
             
-            Assert.That(vector, Is.EqualTo(new Vector2(0.6, 0.8)));
+            Assert.That(vector, Is.EqualTo(new Vector2(0.6f, 0.8f)));
         }
 
         [Test]
@@ -159,11 +160,11 @@ namespace SkyForgeConsoleTest
             var vector = new Vector2(12, 12);
 
             vector = vector.GetNormalized();
-            
+
+            var expectionVector = new Vector2(0.707106781f, 0.707106781f);
             var errorArea = 0.0000001f;
             
-            Assert.IsTrue(0.707106781 - errorArea <= vector.x <= 0.707106781 + errorArea);
-            Assert.IsTrue(0.707106781 - errorArea <= vector.y <= 0.707106781 + errorArea);
+            Assert.IsTrue(expectionVector - errorArea <= vector && vector <= expectionVector + errorArea);
         }
 
         [Test]
@@ -173,11 +174,11 @@ namespace SkyForgeConsoleTest
 
             vector.Normalize();
 
-            var expression = new Vector2(0.707106781, 0.707106781);
+            var expression = new Vector2(0.707106781f, 0.707106781f);
             
             var errorArea = 0.0000001f;
             
-            Assert.IsTrue(expression - errorArea <= vector <= expression + errorArea);
+            Assert.IsTrue(expression - errorArea <= vector && vector <= expression + errorArea);
         }
 
         [Test]
@@ -195,9 +196,9 @@ namespace SkyForgeConsoleTest
         {
             var vector = new Vector2(-12, 6);
 
-            vector = vector + 2.4;
+            vector = vector + 2.4f;
             
-            Assert.That(vector, Is.EqualTo(new Vector2(-9.6, 8.4)));
+            Assert.That(vector, Is.EqualTo(new Vector2(-9.6f, 8.4f)));
         }
 
         [Test]
@@ -213,7 +214,11 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckVectorAddVector2()
         {
-            //TODO: impl test
+            var firstVector = new Vector2(20, 12);
+
+            var secondVector = new Vector2(3, -12);
+            
+            Assert.That(firstVector + secondVector, Is.EqualTo(new Vector2(23, 0)));
         }
         
         [Test]
@@ -221,19 +226,22 @@ namespace SkyForgeConsoleTest
         {
             var vector = new Vector2(10, 10);
 
-            vector = vector - 4.4;
+            vector = vector - 4.4f;
             
-            Assert.That(vector, Is.EqualTo(new Vector(5.6, 5.6)));
+            Assert.That(vector, Is.EqualTo(new Vector2(5.6f, 5.6f)));
         }
 
         [Test]
         public void CheckVectorSubtractValue2()
         {
             var vector = new Vector2(4, 3);
-
-            vector = vector - 5.2;
             
-            Assert.That(vector, Is.EqualTo(new Vector2(-1.2, -2.2)));
+            vector = vector - 5.2f;
+            
+            var expectionVector = new Vector2(-1.2f, -2.2f);
+            var errorArea = 0.000001f;
+            
+            Assert.IsTrue(expectionVector - errorArea <= vector && vector <= expectionVector + errorArea);
         }
 
         [Test]
@@ -261,9 +269,9 @@ namespace SkyForgeConsoleTest
         {
             var firstVector = new Vector2(3, 7);
 
-            firstVector = firstVector * 1.5;
+            firstVector = firstVector * 1.5f;
             
-            Assert.That(firstVector, Is.EqualTo(new Vector2(4.5, 10.5)));
+            Assert.That(firstVector, Is.EqualTo(new Vector2(4.5f, 10.5f)));
         }
 
         [Test]
@@ -283,7 +291,7 @@ namespace SkyForgeConsoleTest
 
             firstVector = firstVector / 2;
             
-            Assert.That(firstVector, Is.EqualTo(new Vector2(1.5, 4)));
+            Assert.That(firstVector, Is.EqualTo(new Vector2(1.5f, 4)));
         }
 
         [Test]
@@ -291,7 +299,7 @@ namespace SkyForgeConsoleTest
         {
             var firstVector = new Vector2(12, 12);
 
-            firstVector = firstVector / 0.5;
+            firstVector = firstVector / 0.5f;
             
             Assert.That(firstVector, Is.EqualTo(new Vector2(24, 24)));
         }
@@ -299,7 +307,7 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckVectorToString()
         {
-            var vector = new Vector2(24, 3.5);
+            var vector = new Vector2(24, 3.5f);
             
             Assert.That(vector.ToString(), Is.EqualTo(" (x: 24; y: 3.5) "));
         }
@@ -307,9 +315,9 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckVectorToString2()
         {
-            var vector = new Vector2(-5.4, 3.4);
+            var vector = new Vector2(-5.4f, 3.4f);
             
-            Assert.That(vector.ToString(), Is.EqualTo(" (x: -5.4, y: 3.4) "));
+            Assert.That(vector.ToString(), Is.EqualTo(" (x: -5.4; y: 3.4) "));
         }
     }
 }

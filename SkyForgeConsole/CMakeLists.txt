@@ -47,6 +47,7 @@ add_library(${PROJECT_NAME} SHARED
 			Source/SkyForgeConsole/Event/MouseEvent/MouseButton.cs
 			Source/SkyForgeConsole/Systems/InputSystem/IInputSystem.cs
 			Source/SkyForgeConsole/Systems/InputSystem/InputSystem.cs
+			Source/SkyForgeConsole/Math/Vector2.cs
 			Source/Vendor/Win32/WinAPINative.cs
 			Source/Vendor/Win32/WinAPIStruct.cs)
 			
