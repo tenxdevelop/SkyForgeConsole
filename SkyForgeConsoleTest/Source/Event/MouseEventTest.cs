@@ -4,6 +4,7 @@
 
 using NUnit.Framework;
 using SkyForgeConsole.Events;
+using SkyForgeConsole.Maths;
 
 namespace SkyForgeConsoleTest
 {
@@ -73,26 +74,26 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckMouseMovedGetMovedPosition()
         {
-            var mouseMovedEvent = new MouseMovedEvent(12.3f, 12.3f);
-            Assert.That(mouseMovedEvent.GetX(), Is.EqualTo(12.3f));
-            Assert.That(mouseMovedEvent.GetY(), Is.EqualTo(12.3f));
+            var mouseMovedEvent = new MouseMovedEvent(new Vector2(12.3f, 12.3f));
+            Assert.That(mouseMovedEvent.MousePosition.x, Is.EqualTo(12.3f));
+            Assert.That(mouseMovedEvent.MousePosition.y, Is.EqualTo(12.3f));
             
-            mouseMovedEvent = new MouseMovedEvent(4.4f, 5.3f);
-            Assert.That(mouseMovedEvent.GetX(), Is.EqualTo(4.4f));
-            Assert.That(mouseMovedEvent.GetY(), Is.EqualTo(5.3f));
+            mouseMovedEvent = new MouseMovedEvent(new Vector2(4.4f, 5.3f));
+            Assert.That(mouseMovedEvent.MousePosition.x, Is.EqualTo(4.4f));
+            Assert.That(mouseMovedEvent.MousePosition.y, Is.EqualTo(5.3f));
         }
 
         [Test]
         public void CheckMouseMovedEventType()
         {
-            var mouseMovedEvent = new MouseMovedEvent(12.3f, 12.3f);
+            var mouseMovedEvent = new MouseMovedEvent(new Vector2(12.3f, 12.3f));
             Assert.That(mouseMovedEvent.GetEventType(), Is.EqualTo(EventType.MouseMoved));
         }
 
         [Test]
         public void CheckMouseMovedEventCategory()
         {
-            var mouseMovedEvent = new MouseMovedEvent(12.3f, 12.3f);
+            var mouseMovedEvent = new MouseMovedEvent(new Vector2(12.3f, 12.3f));
             Assert.False(mouseMovedEvent.IsEventCategory(EventCategory.ApplicationEvent));
             Assert.True(mouseMovedEvent.IsEventCategory(EventCategory.MouseEvent));
             Assert.False(mouseMovedEvent.IsEventCategory(EventCategory.InputEvent));
@@ -101,36 +102,36 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckMouseMovedGetName()
         {
-            var mouseMovedEvent = new MouseMovedEvent(1, 1);
+            var mouseMovedEvent = new MouseMovedEvent(new Vector2(1, 1));
             Assert.That(mouseMovedEvent.GetName(), Is.EqualTo(nameof(MouseMovedEvent)));
         }
         
         [Test]
         public void CheckMouseMovedToString()
         {
-            var mouseMovedEvent = new MouseMovedEvent(1, 1);
-            Assert.That(mouseMovedEvent.ToString(), Is.EqualTo("event: MouseMovedEvent (x: 1, y: 1)"));
+            var mouseMovedEvent = new MouseMovedEvent(new Vector2(1, 1));
+            Assert.That(mouseMovedEvent.ToString(), Is.EqualTo("event: MouseMovedEvent (x: 1; y: 1) "));
             
-            mouseMovedEvent = new MouseMovedEvent(14.3f, 4.7f);
-            Assert.That(mouseMovedEvent.ToString(), Is.EqualTo("event: MouseMovedEvent (x: 14.3, y: 4.7)"));
+            mouseMovedEvent = new MouseMovedEvent(new Vector2(14.3f, 4.7f));
+            Assert.That(mouseMovedEvent.ToString(), Is.EqualTo("event: MouseMovedEvent (x: 14.3; y: 4.7) "));
         }
 
         [Test]
         public void CheckMouseScrollGetScrollDelta()
         {
-            var mouseScrollEvent = new MouseScrollEvent(10f, 20f);
-            Assert.That(mouseScrollEvent.GetXOffest(), Is.EqualTo(10f));
-            Assert.That(mouseScrollEvent.GetYOffest(), Is.EqualTo(20f));
+            var mouseScrollEvent = new MouseScrollEvent(new Vector2(10f, 20f));
+            Assert.That(mouseScrollEvent.MousePositionOffset.x, Is.EqualTo(10f));
+            Assert.That(mouseScrollEvent.MousePositionOffset.y, Is.EqualTo(20f));
             
-            mouseScrollEvent = new MouseScrollEvent(87f, 45f);
-            Assert.That(mouseScrollEvent.GetXOffest(), Is.EqualTo(87f));
-            Assert.That(mouseScrollEvent.GetYOffest(), Is.EqualTo(45f));
+            mouseScrollEvent = new MouseScrollEvent(new Vector2(87f, 45f));
+            Assert.That(mouseScrollEvent.MousePositionOffset.x, Is.EqualTo(87f));
+            Assert.That(mouseScrollEvent.MousePositionOffset.y, Is.EqualTo(45f));
         }
 
         [Test]
         public void CheckMouseScrollEventType()
         {
-            var mouseScrollEvent = new MouseScrollEvent(1, 1);
+            var mouseScrollEvent = new MouseScrollEvent(new Vector2(1, 1));
             Assert.That(mouseScrollEvent.GetEventType(), Is.EqualTo(EventType.MouseScrolled));
             
         }
@@ -138,7 +139,7 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckMouseScrollEventCategory()
         {
-            var mouseScrollEvent = new MouseScrollEvent(1, 1);
+            var mouseScrollEvent = new MouseScrollEvent(new Vector2(1, 1));
             Assert.False(mouseScrollEvent.IsEventCategory(EventCategory.ApplicationEvent));
             Assert.True(mouseScrollEvent.IsEventCategory(EventCategory.MouseEvent));
             Assert.False(mouseScrollEvent.IsEventCategory(EventCategory.InputEvent));
@@ -148,18 +149,18 @@ namespace SkyForgeConsoleTest
         [Test]
         public void CheckMouseScrollGetName()
         {
-            var mouseScrollEvent = new MouseScrollEvent(1, 1);
+            var mouseScrollEvent = new MouseScrollEvent(new Vector2(1, 1));
             Assert.That(mouseScrollEvent.GetName(), Is.EqualTo(nameof(MouseScrollEvent)));
         }
 
         [Test]
         public void CheckMouseScrollToString()
         {
-            var mouseScrollEvent = new MouseScrollEvent(1, 1);
-            Assert.That(mouseScrollEvent.ToString(), Is.EqualTo("event: MouseScrollEvent (xOffset: 1, yOffset: 1)"));
+            var mouseScrollEvent = new MouseScrollEvent(new Vector2(1, 1));
+            Assert.That(mouseScrollEvent.ToString(), Is.EqualTo("event: MouseScrollEvent offset: (x: 1; y: 1) "));
             
-            mouseScrollEvent = new MouseScrollEvent(14.3f, 4.7f);
-            Assert.That(mouseScrollEvent.ToString(), Is.EqualTo("event: MouseScrollEvent (xOffset: 14.3, yOffset: 4.7)"));
+            mouseScrollEvent = new MouseScrollEvent(new Vector2(14.3f, 4.7f));
+            Assert.That(mouseScrollEvent.ToString(), Is.EqualTo("event: MouseScrollEvent offset: (x: 14.3; y: 4.7) "));
         }
     }
 }

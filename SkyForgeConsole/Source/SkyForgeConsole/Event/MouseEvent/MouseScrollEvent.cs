@@ -2,25 +2,20 @@
     Copyright SkyForge Corporation. All Rights Reserved.
 \**************************************************************************/
 
+using SkyForgeConsole.Maths;
+
 namespace SkyForgeConsole.Events
 {
     public class MouseScrollEvent : Event, IMouseScrollEvent
     {
-        private float m_xOffset;
-        private float m_yOffset;
-        
-        public MouseScrollEvent(float xOffset, float yOffset) : base(EventType.MouseScrolled, EventCategory.MouseEvent)
+        public Vector2 MousePositionOffset => m_mousePositionOffset;
+        private Vector2 m_mousePositionOffset;
+        public MouseScrollEvent(Vector2 positionOffset) : base(EventType.MouseScrolled, EventCategory.MouseEvent)
         {
-            m_xOffset = xOffset;
-            m_yOffset = yOffset;
+            m_mousePositionOffset = positionOffset;
         }
-
         public override string GetName() => nameof(MouseScrollEvent);
 
-        public override string ToString() => $"event: {GetName()} (xOffset: {GetXOffest().ToString().Replace(',', '.')}, yOffset: {GetYOffest().ToString().Replace(',', '.')})";
-        
-        public float GetXOffest() => m_xOffset;
-        
-        public float GetYOffest() => m_yOffset;
+        public override string ToString() => $"event: {GetName()} offset:{m_mousePositionOffset}";
     }
 }

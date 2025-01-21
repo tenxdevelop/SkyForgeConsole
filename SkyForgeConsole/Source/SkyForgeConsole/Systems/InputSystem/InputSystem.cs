@@ -6,6 +6,7 @@ using SkyForgeConsole.Vendor.Win32;
 using SkyForgeConsole.Events;
 using System.Threading;
 using System;
+using SkyForgeConsole.Maths;
 
 namespace SkyForgeConsole
 {
@@ -18,9 +19,8 @@ namespace SkyForgeConsole
         
         private Thread m_inputPressedThread;
         private Thread m_inputReleasedThread;
-
-        private int m_xMousePosition;
-        private int m_yMousePosition;
+        
+        private Vector2 m_mousePosition;
         
         private KeyEventTime m_lastInputKeyEvent;
         
@@ -36,6 +36,8 @@ namespace SkyForgeConsole
             }
             
             m_isRunning = true;
+            
+            m_mousePosition = Vector2.Zero;
             
             m_isReleasedMouseLeftButton = true;
             m_isReleasedMouseRightButton = true;
@@ -122,12 +124,11 @@ namespace SkyForgeConsole
         {
             if (WinAPINative.GetCursorPos(out var mousePoint))
             {
-
-                if (m_xMousePosition != mousePoint.X || m_yMousePosition != mousePoint.Y)
+                var currentMousePosition = new Vector2(mousePoint.X, mousePoint.Y);
+                if (m_mousePosition != currentMousePosition)
                 {
-                    m_xMousePosition = mousePoint.X;
-                    m_yMousePosition = mousePoint.Y;
-                    var mouseMovedEvent = new MouseMovedEvent(m_xMousePosition, m_yMousePosition);
+                    m_mousePosition = currentMousePosition;
+                    var mouseMovedEvent = new MouseMovedEvent(m_mousePosition);
                     OnEvent?.Invoke(mouseMovedEvent);
                 }
             }
