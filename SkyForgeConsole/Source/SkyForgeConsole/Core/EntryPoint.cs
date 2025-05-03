@@ -28,7 +28,7 @@ namespace SkyForgeConsole
             if (m_application is null)
             {
                 Log.CoreLogger?.Logging($"Application has not been initialized, I cannot find application!", LogLevel.Error);
-                throw new ArgumentNullException("Application has not been initialized, I cannot find application!");
+                throw new ArgumentNullException("Application has not been initialized, I can't find application!");
             }
             
             m_application.Run();
