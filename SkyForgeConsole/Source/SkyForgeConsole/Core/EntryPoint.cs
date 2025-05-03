@@ -1,5 +1,6 @@
 /**************************************************************************\
-    Copyright SkyForge Corporation. All Rights Reserved.
+    Copyright (C) 2024-2025 SkyForge Corporation. All Rights Reserved.
+    Author: Stepan Myasnikov --> tenxdeveloper.
 \**************************************************************************/
 
 using System;
@@ -27,8 +28,9 @@ namespace SkyForgeConsole
         {
             if (m_application is null)
             {
-                Log.CoreLogger?.Logging($"Application has not been initialized, I cannot find application!", LogLevel.Error);
-                throw new ArgumentNullException("Application has not been initialized, I can't find application!");
+                var errorMessage = "Application hasn't been initialized, i can't find application!";
+                Log.CoreLogger?.Logging(errorMessage, LogLevel.Error);
+                throw new ArgumentNullException(errorMessage);
             }
             
             m_application.Run();
@@ -57,8 +59,8 @@ namespace SkyForgeConsole
 
             if (m_application is null)
             {
-                Log.CoreLogger?.Logging($"Application has not been initialized, I cannot find application!", LogLevel.Error);
-                throw new ArgumentNullException("Application is null, Cannot find application!");
+                Log.CoreLogger?.Logging($"Application hasn't been initialized, I can't find application!", LogLevel.Error);
+                throw new ArgumentNullException("Application is null, system can't find application!");
             }
 
             m_application.Init();

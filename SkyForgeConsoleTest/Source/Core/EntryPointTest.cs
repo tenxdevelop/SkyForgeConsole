@@ -1,5 +1,6 @@
 /**************************************************************************\
-    Copyright SkyForge Corporation. All Rights Reserved.
+    Copyright (C) 2024-2025 SkyForge Corporation. All Rights Reserved.
+    Author: Stepan Myasnikov --> tenxdeveloper.
 \**************************************************************************/
 
 using NUnit.Framework;
@@ -16,9 +17,9 @@ namespace SkyForgeConsoleTest
             var entryPoint = EntryPoint.GetEntryPoint();
             if (entryPoint.GetApplication() != null)
             {
-                Assert.Throws<ArgumentNullException>(() => entryPoint.Init(null), "Application is null, Cannot find application!");
+                Assert.Throws<ArgumentNullException>(() => entryPoint.Init(null), "Application is null, system can't find application!");
             }
-            Assert.Throws<ArgumentNullException>(() => EntryPoint.Main(), "Application has not been initialized, Cannot find application!");
+            Assert.Throws<ArgumentNullException>(() => EntryPoint.Main(), "Application hasn't been initialized, system can't find application!");
         }
 
         [Test]

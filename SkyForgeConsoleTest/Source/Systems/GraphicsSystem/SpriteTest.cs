@@ -1,5 +1,6 @@
 /**************************************************************************\
-    Copyright SkyForge Corporation. All Rights Reserved.
+    Copyright (C) 2024-2025 SkyForge Corporation. All Rights Reserved.
+    Author: Stepan Myasnikov --> tenxdeveloper.
 \**************************************************************************/
 
 using SkyForgeConsole.Maths;
@@ -10,6 +11,7 @@ namespace SkyForgeConsoleTest
     
     public class SpriteTest
     {
+        [Test]
         public void CreateSpriteTest()
         {
             var chars = new char[]
@@ -27,7 +29,7 @@ namespace SkyForgeConsoleTest
             Assert.That(sprite.Height, Is.EqualTo(spriteSize.y));
         }
 
-
+        [Test]
         public void CreateSpriteWithoutSizeTest()
         {
             var chars = new char[][]
@@ -42,7 +44,8 @@ namespace SkyForgeConsoleTest
             Assert.That(sprite.Width, Is.EqualTo(4));
             Assert.That(sprite.Height, Is.EqualTo(3));
         }
-
+        
+        [Test]
         public void CheckSpriteSizeTest()
         {
             var spriteSize = new Vector2(4, 3);
@@ -58,7 +61,8 @@ namespace SkyForgeConsoleTest
             
             Assert.That(sprite.Size, Is.EqualTo(spriteSize));
         }
-
+        
+        [Test]
         public void GetBufferSpriteTest()
         {
             
@@ -80,7 +84,8 @@ namespace SkyForgeConsoleTest
             
             Assert.That(sprite.GetBuffer(), Is.EqualTo(actualChars));
         }
-
+        
+        [Test]
         public void GetSpriteFromImageTest()
         {
             var urlImage = "testImages/testImage.png";

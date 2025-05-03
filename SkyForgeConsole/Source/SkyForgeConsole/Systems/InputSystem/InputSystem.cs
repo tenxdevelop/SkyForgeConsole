@@ -1,12 +1,13 @@
 /**************************************************************************\
-    Copyright SkyForge Corporation. All Rights Reserved.
+    Copyright (C) 2024-2025 SkyForge Corporation. All Rights Reserved.
+    Author: Stepan Myasnikov --> tenxdeveloper.
 \**************************************************************************/
 
 using SkyForgeConsole.Vendor.Win32;
 using SkyForgeConsole.Events;
+using SkyForgeConsole.Maths;
 using System.Threading;
 using System;
-using SkyForgeConsole.Maths;
 
 namespace SkyForgeConsole
 {
@@ -122,6 +123,9 @@ namespace SkyForgeConsole
 
         private void UpdateMouseMovedEvent()
         {
+            
+#if SKY_FORGE_WINDOWS
+            
             if (WinAPINative.GetCursorPos(out var mousePoint))
             {
                 var currentMousePosition = new Vector2(mousePoint.X, mousePoint.Y);
@@ -132,10 +136,12 @@ namespace SkyForgeConsole
                     OnEvent?.Invoke(mouseMovedEvent);
                 }
             }
+#endif
         }
 
         private void UpdateMouseButtonEvent()
         {
+#if SKY_FORGE_WINDOWS
             if (WinAPINative.GetKeyState(0x01))
             {
                 m_isReleasedMouseLeftButton = false;
@@ -183,6 +189,7 @@ namespace SkyForgeConsole
                     OnEvent?.Invoke(mouseButtonEvent);
                 }
             }
+#endif
         }
         
         public void Dispose()
@@ -194,6 +201,7 @@ namespace SkyForgeConsole
     internal class KeyEventTime
     {
         private const float TIME_TO_LIVE_EVENT = 1.0f;
+        
         private KeyPressedEvent m_keyPressedEvent;
         private float m_currentTime;
         public KeyEventTime(KeyPressedEvent keyPressedEvent)

@@ -1,5 +1,6 @@
 /**************************************************************************\
-    Copyright SkyForge Corporation. All Rights Reserved.
+    Copyright (C) 2024-2025 SkyForge Corporation. All Rights Reserved.
+    Author: Stepan Myasnikov --> tenxdeveloper.
 \**************************************************************************/
 
 using SkyForgeConsole.Maths;
@@ -9,7 +10,7 @@ namespace SkyForgeConsoleTest
 {
     public class ConsoleWindowTest
     {
-
+        [Test]
         public void CreateWindowTest()
         {
             var heightWindow = 400;
@@ -20,7 +21,8 @@ namespace SkyForgeConsoleTest
             Assert.That(consoleWindow.Width, Is.EqualTo(widthWindow));
             Assert.That(consoleWindow.Size, Is.EqualTo(new Vector2(widthWindow, heightWindow)));
         }
-
+        
+        [Test]
         public void CreateWindowTest2()
         {
             var windowSize = new Vector2(400, 400);
@@ -32,7 +34,8 @@ namespace SkyForgeConsoleTest
             
             Assert.That(consoleWindow.Size, Is.EqualTo(windowSize));
         }
-
+        
+        [Test]
         public void CharRenderTest()
         {
             var buffer = new char[] { '*' };
@@ -46,7 +49,8 @@ namespace SkyForgeConsoleTest
             
             fakeRenderPipeline.CheckRender(buffer, position);
         }
-
+        
+        [Test]
         public void CheckInitRenderPipelineTest()
         {
             var fakeRenderPipeline = new FakeRenderPipeline();
@@ -56,7 +60,8 @@ namespace SkyForgeConsoleTest
             fakeRenderPipeline.CheckBufferInit(400, 400);
             fakeRenderPipeline.CheckCountCalledInit(1);
         }
-
+        
+        [Test]
         public void SpriteRenderTest()
         {
             var buffer = new char[]
