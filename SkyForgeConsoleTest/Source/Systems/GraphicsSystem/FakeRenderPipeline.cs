@@ -4,6 +4,7 @@
 \**************************************************************************/
 
 using SkyForgeConsole.Maths;
+using SkyForgeConsole;
 using NUnit.Framework;
 
 namespace SkyForgeConsoleTest
@@ -22,6 +23,16 @@ namespace SkyForgeConsoleTest
         }
         
         public void CheckRender(char[] symbol, Vector2 position)
+        {
+            
+        }
+
+        public void BeginRender()
+        {
+            
+        }
+
+        public void EndRender()
         {
             
         }

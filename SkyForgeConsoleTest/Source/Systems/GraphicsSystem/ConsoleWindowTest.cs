@@ -4,6 +4,7 @@
 \**************************************************************************/
 
 using SkyForgeConsole.Maths;
+using SkyForgeConsole;
 using NUnit.Framework;
 
 namespace SkyForgeConsoleTest
@@ -16,7 +17,7 @@ namespace SkyForgeConsoleTest
             var heightWindow = 400;
             var widthWindow = 400;
             
-            var consoleWindow = new ConsoleWindow(widthWindow, heightWindow);
+            IWindow consoleWindow = new ConsoleWindow(widthWindow, heightWindow);
             Assert.That(consoleWindow.Height, Is.EqualTo(heightWindow));
             Assert.That(consoleWindow.Width, Is.EqualTo(widthWindow));
             Assert.That(consoleWindow.Size, Is.EqualTo(new Vector2(widthWindow, heightWindow)));

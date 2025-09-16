@@ -4,6 +4,7 @@
 \**************************************************************************/
 
 using SkyForgeConsole.Maths;
+using SkyForgeConsole;
 using NUnit.Framework;
 
 namespace SkyForgeConsoleTest
