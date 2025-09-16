@@ -12,7 +12,7 @@ namespace SkyForgeConsoleTest
     public class EntryPointTest
     {
         [Test]
-        public void CheckCalledExceptionWhenCalledInitWithoutApplcation()
+        public void CheckCalledExceptionWhenCalledInitWithoutApplication()
         {
             var entryPoint = EntryPoint.GetEntryPoint();
             if (entryPoint.GetApplication() != null)

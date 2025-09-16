@@ -32,8 +32,9 @@ namespace SkyForgeConsole
         {
             if (m_isInit)
             {
-                Log.CoreLogger?.Logging("InputSystem was initialized, you have called initialization twice or more", LogLevel.Error);
-                throw new MethodAccessException("InputSystem was initialized, you have called initialization twice or more");
+                var errorMessage = "InputSystem was initialized, you have called initialization twice or more";
+                Log.CoreLogger?.Logging(errorMessage, LogLevel.Error);
+                throw new MethodAccessException(errorMessage);
             }
             
             m_isRunning = true;
@@ -58,8 +59,9 @@ namespace SkyForgeConsole
         {
             if (!m_isInit)
             {
-                Log.CoreLogger?.Logging("InputSystem start run before Init", LogLevel.Error);
-                throw new MethodAccessException("InputSystem start run before Init");
+                var errorMessage = "InputSystem start run before Init";
+                Log.CoreLogger?.Logging(errorMessage, LogLevel.Error);
+                throw new MethodAccessException(errorMessage);
             }
             
             m_inputPressedThread.Start();
