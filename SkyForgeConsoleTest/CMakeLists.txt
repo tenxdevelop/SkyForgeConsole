@@ -32,7 +32,8 @@ add_executable(${TARGET_NAME}
 			   Source/Event/EventTest.cs
 			   Source/Event/KeyEventTest.cs
 			   Source/Event/MouseEventTest.cs
-			   Source/Math/Vector2Test.cs)
+			   Source/Math/Vector2Test.cs
+			   Source/Math/ArrayExtensionTest.cs)
 
 
 set_target_properties(${TARGET_NAME} PROPERTIES

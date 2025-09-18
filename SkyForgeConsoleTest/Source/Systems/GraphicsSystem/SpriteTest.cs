@@ -89,9 +89,9 @@ namespace SkyForgeConsoleTest
         [Test]
         public void GetSpriteFromImageTest()
         {
-            var urlImage = "testImages/testImage.png";
+            var pathImage = "testImages/testImage.png";
             
-            var sprite = Sprite.LoadFromImage(urlImage);
+            var sprite = Sprite.LoadFromImage(pathImage);
             
             Assert.That(sprite.Width, Is.EqualTo(0));
             Assert.That(sprite.Height, Is.EqualTo(0));
